@@ -63,14 +63,18 @@ class Consumer implements ConsumerInterface {
    * {@inheritdoc}
    */
   public static function createFromJson($json) {
-    $data = (array) json_decode($json) + [
+    $data = json_decode($json);
+    if (is_null($data)) {
+      throw new InvalidJsonFactoryException($json);
+    }
+    $data = (array) $data + [
       'email' => NULL,
       'username' => NULL,
       'mobile' => NULL,
       'custom' => new \stdClass(),
     ];
     if (!isset($data['uuid'])) {
-      throw new FactoryException('Missing UUID.');
+      throw new MissingUuidFactoryException($json);
     }
     return new static($data['uuid'], $data['username'], $data['email'], $data['mobile'], (array) $data['custom']);
   }

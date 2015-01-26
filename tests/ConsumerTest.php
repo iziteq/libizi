@@ -88,9 +88,21 @@ JSON;
   }
 
   /**
+   * @covers ::__construct
    * @covers ::createFromJson
    *
-   * @expectedException \Triquanta\IziTravel\FactoryException
+   * @expectedException \Triquanta\IziTravel\InvalidJsonFactoryException
+   */
+  public function testCreateFromJsonWithInvalidJson() {
+    $json = 'foo';
+
+    Consumer::createFromJson($json);
+  }
+
+  /**
+   * @covers ::createFromJson
+   *
+   * @expectedException \Triquanta\IziTravel\MissingUuidFactoryException
    */
   public function testCreateFromJsonWithoutUuid() {
     $json = <<<'JSON'
