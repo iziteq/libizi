@@ -1,0 +1,12 @@
+{
+  "name": "triquanta/izitravel",
+  "require": {
+    "php": ">=5.4",
+    "phpunit/phpunit": "4.4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Triquanta\\IziTravel\\": "src"
+    }
+  }
+}

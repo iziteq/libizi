@@ -16,6 +16,6 @@ interface FactoryInterface {
    *
    * @return static
    */
-  public function createFromJson($json);
+  public static function createFromJson($json);
 
 }
