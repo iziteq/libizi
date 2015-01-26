@@ -15,7 +15,7 @@ interface ScheduleInterface extends FactoryInterface {
   /**
    * Gets Monday's opening hours.
    *
-   * @return string[]
+   * @return string[]|null
    *   An array of opening and closing hours respectively, in a 24-hour format,
    *   or NULL if the venue is closed.
    */
