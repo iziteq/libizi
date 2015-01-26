@@ -2,10 +2,12 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\ScheduleTest.
+ * Contains \Triquanta\IziTravel\Tests\ScheduleTest.
  */
 
-namespace Triquanta\IziTravel;
+namespace Triquanta\IziTravel\Tests;
+
+use Triquanta\IziTravel\Schedule;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\Schedule

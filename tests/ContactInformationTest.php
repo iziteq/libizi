@@ -2,10 +2,12 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\ContactInformationTest.
+ * Contains \Triquanta\IziTravel\Tests\ContactInformationTest.
  */
 
-namespace Triquanta\IziTravel;
+namespace Triquanta\IziTravel\Tests;
+
+use Triquanta\IziTravel\ContactInformation;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\ContactInformation

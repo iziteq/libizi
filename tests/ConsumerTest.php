@@ -2,10 +2,12 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\ConsumerTest.
+ * Contains \Triquanta\IziTravel\Tests\ConsumerTest.
  */
 
-namespace Triquanta\IziTravel;
+namespace Triquanta\IziTravel\Tests;
+
+use Triquanta\IziTravel\Consumer;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\Consumer
