@@ -15,6 +15,8 @@ interface FactoryInterface {
    * @param string $json
    *
    * @return static
+   *
+   * @throws \Triquanta\IziTravel\FactoryException
    */
   public static function createFromJson($json);
 
