@@ -72,6 +72,27 @@ class ContentTest extends \PHPUnit_Framework_TestCase {
   protected $videos = [];
 
   /**
+   * The child objects.
+   *
+   * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
+   */
+  protected $children = [];
+
+  /**
+   * The collections.
+   *
+   * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
+   */
+  protected $collections = [];
+
+  /**
+   * The references.
+   *
+   * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
+   */
+  protected $references = [];
+
+  /**
    * The quiz.
    *
    * @var \Triquanta\IziTravel\QuizInterface|null
@@ -94,12 +115,39 @@ class ContentTest extends \PHPUnit_Framework_TestCase {
     $this->summary = 'Qux.';
     $this->description = 'Qux & Bar.';
     $this->playback = $this->getMock('\Triquanta\IziTravel\PlaybackInterface');
-    $this->images = [$this->getMock('\Triquanta\IziTravel\MediaInterface'), $this->getMock('\Triquanta\IziTravel\MediaInterface')];
-    $this->audio = [$this->getMock('\Triquanta\IziTravel\MediaInterface'), $this->getMock('\Triquanta\IziTravel\MediaInterface')];
-    $this->videos = [$this->getMock('\Triquanta\IziTravel\MediaInterface'), $this->getMock('\Triquanta\IziTravel\MediaInterface')];
+    $this->images = [
+      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+    ];
+    $this->audio = [
+      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+    ];
+    $this->videos = [
+      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+    ];
+    $this->children = [
+      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+    ];
+    $this->collections = [
+      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+    ];
+    $this->references = [
+      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+    ];
     $this->quiz = $this->getMock('\Triquanta\IziTravel\QuizInterface');
 
-    $this->sut = new Content($this->languageCode, $this->title, $this->summary, $this->description, $this->playback, $this->images, $this->audio, $this->videos, $this->quiz);
+    $this->sut = new Content($this->languageCode, $this->title, $this->summary, $this->description, $this->playback, $this->images, $this->audio, $this->videos, $this->children, $this->collections, $this->references, $this->quiz);
   }
 
   /**
@@ -155,6 +203,129 @@ class ContentTest extends \PHPUnit_Framework_TestCase {
       "type":  "story",
       "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
     }
+  ],
+  "children": [
+    {
+      "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
+      "type":       "story_navigation",
+      "title":      "Foo to the bar",
+      "summary":    "A story about foo to the bar.",
+      "category":   "bike",
+      "status":     "published",
+      "language": "en",
+      "languages":  ["en"],
+      "content_provider": {
+        "name": "Sample CP",
+        "uuid": "15ad4ee2-ff55-4a86-950d-8dee4c79fc35"
+      },
+      "trigger_zones": [
+        {
+          "type":             "circle",
+          "circle_latitude":  52.4341477399124,
+          "circle_longitude": 4.81567904827443,
+          "circle_radius":    818.92609425069
+        }
+      ],
+      "location": {
+        "altitude":  0.0,
+        "latitude":  59.9308144003772,
+        "longitude": 30.3516736220902
+      },
+      "images": [
+        {
+          "order": 1,
+          "type":  "story",
+          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+        },
+        {
+          "order": 1,
+          "type":  "story",
+          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+        }
+      ]
+      }
+  ],
+  "collections": [
+    {
+      "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
+      "type":       "story_navigation",
+      "title":      "Foo to the bar",
+      "summary":    "A story about foo to the bar.",
+      "category":   "bike",
+      "status":     "published",
+      "language": "en",
+      "languages":  ["en"],
+      "content_provider": {
+        "name": "Sample CP",
+        "uuid": "15ad4ee2-ff55-4a86-950d-8dee4c79fc35"
+      },
+      "trigger_zones": [
+        {
+          "type":             "circle",
+          "circle_latitude":  52.4341477399124,
+          "circle_longitude": 4.81567904827443,
+          "circle_radius":    818.92609425069
+        }
+      ],
+      "location": {
+        "altitude":  0.0,
+        "latitude":  59.9308144003772,
+        "longitude": 30.3516736220902
+      },
+      "images": [
+        {
+          "order": 1,
+          "type":  "story",
+          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+        },
+        {
+          "order": 1,
+          "type":  "story",
+          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+        }
+      ]
+      }
+  ],
+  "references": [
+    {
+      "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
+      "type":       "story_navigation",
+      "title":      "Foo to the bar",
+      "summary":    "A story about foo to the bar.",
+      "category":   "bike",
+      "status":     "published",
+      "language": "en",
+      "languages":  ["en"],
+      "content_provider": {
+        "name": "Sample CP",
+        "uuid": "15ad4ee2-ff55-4a86-950d-8dee4c79fc35"
+      },
+      "trigger_zones": [
+        {
+          "type":             "circle",
+          "circle_latitude":  52.4341477399124,
+          "circle_longitude": 4.81567904827443,
+          "circle_radius":    818.92609425069
+        }
+      ],
+      "location": {
+        "altitude":  0.0,
+        "latitude":  59.9308144003772,
+        "longitude": 30.3516736220902
+      },
+      "images": [
+        {
+          "order": 1,
+          "type":  "story",
+          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+        },
+        {
+          "order": 1,
+          "type":  "story",
+          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+        }
+      ]
+      }
   ],
   "quiz": {
     "question": "Dolor illo iure beatae inventore fuga voluptatem quam error.",
@@ -246,6 +417,27 @@ JSON;
    */
   public function testGetVideos() {
     $this->assertSame($this->videos, $this->sut->getVideos());
+  }
+
+  /**
+   * @covers ::getChildren
+   */
+  public function testGetChildren() {
+    $this->assertSame($this->children, $this->sut->getChildren());
+  }
+
+  /**
+   * @covers ::getCollections
+   */
+  public function testGetCollections() {
+    $this->assertSame($this->collections, $this->sut->getCollections());
+  }
+
+  /**
+   * @covers ::getReferences
+   */
+  public function testGetReferences() {
+    $this->assertSame($this->references, $this->sut->getReferences());
   }
 
   /**

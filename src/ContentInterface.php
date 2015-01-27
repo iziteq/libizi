@@ -70,6 +70,27 @@ interface ContentInterface extends FactoryInterface {
   public function getVideos();
 
   /**
+   * Gets the child objects.
+   *
+   * @return \Triquanta\IziTravel\CompactMtgObjectInterface[]
+   */
+  public function getChildren();
+
+  /**
+   * Gets the collections.
+   *
+   * @return \Triquanta\IziTravel\CompactMtgObjectInterface[]
+   */
+  public function getCollections();
+
+  /**
+   * Gets the references.
+   *
+   * @return \Triquanta\IziTravel\CompactMtgObjectInterface[]
+   */
+  public function getReferences();
+
+  /**
    * Gets the quiz.
    *
    * @return \Triquanta\IziTravel\QuizInterface|null

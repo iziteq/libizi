@@ -70,6 +70,27 @@ class Content implements ContentInterface {
   protected $videos = [];
 
   /**
+   * The child objects.
+   *
+   * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
+   */
+  protected $children = [];
+
+  /**
+   * The collections.
+   *
+   * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
+   */
+  protected $collections = [];
+
+  /**
+   * The references.
+   *
+   * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
+   */
+  protected $references = [];
+
+  /**
    * The quiz.
    *
    * @var \Triquanta\IziTravel\QuizInterface|null
@@ -87,9 +108,12 @@ class Content implements ContentInterface {
    * @param \Triquanta\IziTravel\MediaInterface[] $images
    * @param \Triquanta\IziTravel\MediaInterface[] $audio
    * @param \Triquanta\IziTravel\MediaInterface[] $videos
+   * @param \Triquanta\IziTravel\CompactMtgObjectInterface[] $children
+   * @param \Triquanta\IziTravel\CompactMtgObjectInterface[] $collections
+   * @param \Triquanta\IziTravel\CompactMtgObjectInterface[] $references
    * @param \Triquanta\IziTravel\QuizInterface|null $quiz
    */
-  public function __construct($language_code, $title, $summary, $description, $playback, $images, $audio, $videos, $quiz) {
+  public function __construct($language_code, $title, $summary, $description, $playback, $images, $audio, $videos, array $children, array $collections, array $references, $quiz) {
     $this->languageCode = $language_code;
     $this->title = $title;
     $this->summary = $summary;
@@ -98,6 +122,9 @@ class Content implements ContentInterface {
     $this->images = $images;
     $this->audio = $audio;
     $this->videos = $videos;
+    $this->children = $children;
+    $this->collections = $collections;
+    $this->references = $references;
     $this->quiz = $quiz;
   }
 
@@ -114,6 +141,9 @@ class Content implements ContentInterface {
       'images' => [],
       'audio' => [],
       'video' => [],
+      'children' => [],
+      'collections' => [],
+      'references' => [],
       'quiz' => NULL,
     ];
     $images = [];
@@ -128,7 +158,19 @@ class Content implements ContentInterface {
     foreach ($data['video'] as $video_data) {
       $video[] = Media::createFromJson(json_encode($video_data));
     }
-    return new static($data['language'], $data['title'], $data['summary'], $data['desc'], $data['playback'], $data['images'], $data['audio'], $data['video'], $data['quiz']);
+    $children = [];
+    foreach ($data['children'] as $children_data) {
+      $children[] = CompactMtgObject::createFromJson(json_encode($children_data));
+    }
+    $collections = [];
+    foreach ($data['collections'] as $collections_data) {
+      $collections[] = CompactMtgObject::createFromJson(json_encode($collections_data));
+    }
+    $references = [];
+    foreach ($data['references'] as $references_data) {
+      $references[] = CompactMtgObject::createFromJson(json_encode($references_data));
+    }
+    return new static($data['language'], $data['title'], $data['summary'], $data['desc'], $data['playback'], $data['images'], $data['audio'], $data['video'], $children, $collections, $references, $data['quiz']);
   }
 
   /**
@@ -185,6 +227,27 @@ class Content implements ContentInterface {
    */
   public function getVideos() {
     return $this->videos;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getChildren() {
+    return $this->children;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCollections() {
+    return $this->collections;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getReferences() {
+    return $this->references;
   }
 
   /**
