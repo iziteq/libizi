@@ -7,13 +7,14 @@
 
 namespace Triquanta\IziTravel;
 
-interface UuidInterface {
+interface UuidInterface
+{
 
-  /**
-   * Gets the UUID.
-   *
-   * @return string
-   */
-  public function getUuid();
+    /**
+     * Gets the UUID.
+     *
+     * @return string
+     */
+    public function getUuid();
 
 }

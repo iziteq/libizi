@@ -10,163 +10,164 @@ namespace Triquanta\IziTravel;
 /**
  * Defines an MTG object data type.
  */
-interface MtgObjectInterface extends FactoryInterface, UuidInterface {
+interface MtgObjectInterface extends FactoryInterface, UuidInterface
+{
 
-  /**
-   * A museum.
-   */
-  const TYPE_MUSEUM = 'museum';
+    /**
+     * A museum.
+     */
+    const TYPE_MUSEUM = 'museum';
 
-  /**
-   * A museum collection.
-   */
-  const TYPE_MUSEUM_COLLECTION = 'collection';
+    /**
+     * A museum collection.
+     */
+    const TYPE_MUSEUM_COLLECTION = 'collection';
 
-  /**
-   * An exhibit.
-   */
-  const TYPE_EXHIBIT = 'exhibit';
+    /**
+     * An exhibit.
+     */
+    const TYPE_EXHIBIT = 'exhibit';
 
-  /**
-   * Story navigation.
-   */
-  const TYPE_STORY_NAVIGATION = 'story_navigation';
+    /**
+     * Story navigation.
+     */
+    const TYPE_STORY_NAVIGATION = 'story_navigation';
 
-  /**
-   * A tour.
-   */
-  const TYPE_TOUR = 'tour';
+    /**
+     * A tour.
+     */
+    const TYPE_TOUR = 'tour';
 
-  /**
-   * A tourist attraction.
-   */
-  const TYPE_TOURIST_ATTRACTION = 'tourist_attraction';
+    /**
+     * A tourist attraction.
+     */
+    const TYPE_TOURIST_ATTRACTION = 'tourist_attraction';
 
-  /**
-   * A walking tour.
-   */
-  const CATEGORY_WALK = 'walk';
+    /**
+     * A walking tour.
+     */
+    const CATEGORY_WALK = 'walk';
 
-  /**
-   * A biking tour.
-   */
-  const CATEGORY_BIKE = 'bike';
+    /**
+     * A biking tour.
+     */
+    const CATEGORY_BIKE = 'bike';
 
-  /**
-   * A bus tour.
-   */
-  const CATEGORY_BUS = 'bus';
+    /**
+     * A bus tour.
+     */
+    const CATEGORY_BUS = 'bus';
 
-  /**
-   * A tour by car.
-   */
-  const CATEGORY_CAR = 'car';
+    /**
+     * A tour by car.
+     */
+    const CATEGORY_CAR = 'car';
 
-  /**
-   * A tour by boat.
-   */
-  const CATEGORY_BOAT = 'boat';
+    /**
+     * A tour by boat.
+     */
+    const CATEGORY_BOAT = 'boat';
 
-  /**
-   * A published object.
-   */
-  const STATUS_PUBLISHED = 'published';
+    /**
+     * A published object.
+     */
+    const STATUS_PUBLISHED = 'published';
 
-  /**
-   * A non-public/limited object.
-   */
-  const STATUS_LIMITED = 'limited';
+    /**
+     * A non-public/limited object.
+     */
+    const STATUS_LIMITED = 'limited';
 
-  /**
-   * An indoor object.
-   */
-  const PLACEMENT_INDOOR = 'indoor';
+    /**
+     * An indoor object.
+     */
+    const PLACEMENT_INDOOR = 'indoor';
 
-  /**
-   * A outdoor object.
-   */
-  const PLACEMENT_OUTDOOR = 'outdoor';
+    /**
+     * A outdoor object.
+     */
+    const PLACEMENT_OUTDOOR = 'outdoor';
 
-  /**
-   * Gets language codes for available translations.
-   *
-   * @return string[]
-   *   Values are ISO 639-1 alpha-2 language codes.
-   */
-  public function getAvailableLanguageCodes();
+    /**
+     * Gets language codes for available translations.
+     *
+     * @return string[]
+     *   Values are ISO 639-1 alpha-2 language codes.
+     */
+    public function getAvailableLanguageCodes();
 
-  /**
-   * Gets the category.
-   *
-   * @return string
-   *   One of the static::CATEGORY_* constants.
-   */
-  public function getCategory();
+    /**
+     * Gets the category.
+     *
+     * @return string
+     *   One of the static::CATEGORY_* constants.
+     */
+    public function getCategory();
 
-  /**
-   * Gets whether the object is published.
-   *
-   * @return bool
-   */
-  public function isPublished();
+    /**
+     * Gets whether the object is published.
+     *
+     * @return bool
+     */
+    public function isPublished();
 
-  /**
-   * Gets the location.
-   *
-   * @return \Triquanta\IziTravel\LocationInterface|null
-   */
-  public function getLocation();
+    /**
+     * Gets the location.
+     *
+     * @return \Triquanta\IziTravel\LocationInterface|null
+     */
+    public function getLocation();
 
-  /**
-   * Gets the trigger zones.
-   *
-   * @return \Triquanta\IziTravel\TriggerZoneInterface[]
-   */
-  public function getTriggerZones();
+    /**
+     * Gets the trigger zones.
+     *
+     * @return \Triquanta\IziTravel\TriggerZoneInterface[]
+     */
+    public function getTriggerZones();
 
-  /**
-   * Gets the content provider.
-   *
-   * @return \Triquanta\IziTravel\ContentProviderInterface
-   */
-  public function getContentProvider();
+    /**
+     * Gets the content provider.
+     *
+     * @return \Triquanta\IziTravel\ContentProviderInterface
+     */
+    public function getContentProvider();
 
-  /**
-   * Gets the purchase.
-   *
-   * @return \Triquanta\IziTravel\PurchaseInterface|null
-   */
-  public function getPurchase();
+    /**
+     * Gets the purchase.
+     *
+     * @return \Triquanta\IziTravel\PurchaseInterface|null
+     */
+    public function getPurchase();
 
-  /**
-   * Gets the duration.
-   *
-   * @return int|null
-   *   The duration in seconds.
-   */
-  public function getDuration();
+    /**
+     * Gets the duration.
+     *
+     * @return int|null
+     *   The duration in seconds.
+     */
+    public function getDuration();
 
-  /**
-   * Gets the distance.
-   *
-   * @return int|null
-   *   The distance in meters.
-   */
-  public function getDistance();
+    /**
+     * Gets the distance.
+     *
+     * @return int|null
+     *   The distance in meters.
+     */
+    public function getDistance();
 
-  /**
-   * Gets the placement.
-   *
-   * @return string|null
-   *   One of the static::PLACEMENT_* constants.
-   */
-  public function getPlacement();
+    /**
+     * Gets the placement.
+     *
+     * @return string|null
+     *   One of the static::PLACEMENT_* constants.
+     */
+    public function getPlacement();
 
-  /**
-   * Returns whether the object must be visible on maps.
-   *
-   * @return bool
-   */
-  public function isVisibleOnMaps();
+    /**
+     * Returns whether the object must be visible on maps.
+     *
+     * @return bool
+     */
+    public function isVisibleOnMaps();
 
 }

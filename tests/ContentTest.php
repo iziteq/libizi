@@ -12,150 +12,156 @@ use Triquanta\IziTravel\Content;
 /**
  * @coversDefaultClass \Triquanta\IziTravel\Content
  */
-class ContentTest extends \PHPUnit_Framework_TestCase {
+class ContentTest extends \PHPUnit_Framework_TestCase
+{
 
-  /**
-   * The language.
-   *
-   * @var string
-   *   An ISO 639-1 alpha-2 language code.
-   */
-  protected $languageCode;
+    /**
+     * The language.
+     *
+     * @var string
+     *   An ISO 639-1 alpha-2 language code.
+     */
+    protected $languageCode;
 
-  /**
-   * The title.
-   *
-   * @var string
-   */
-  protected $title;
+    /**
+     * The title.
+     *
+     * @var string
+     */
+    protected $title;
 
-  /**
-   * The summary.
-   *
-   * @var string
-   */
-  protected $summary;
+    /**
+     * The summary.
+     *
+     * @var string
+     */
+    protected $summary;
 
-  /**
-   * The description
-   *
-   * @var string
-   */
-  protected $description;
+    /**
+     * The description
+     *
+     * @var string
+     */
+    protected $description;
 
-  /**
-   * The playback.
-   *
-   * @var \Triquanta\IziTravel\PlaybackInterface|null
-   */
-  protected $playback;
+    /**
+     * The playback.
+     *
+     * @var \Triquanta\IziTravel\PlaybackInterface|null
+     */
+    protected $playback;
 
-  /**
-   * The images.
-   *
-   * @var \Triquanta\IziTravel\MediaInterface[]
-   */
-  protected $images = [];
+    /**
+     * The images.
+     *
+     * @var \Triquanta\IziTravel\MediaInterface[]
+     */
+    protected $images = [];
 
-  /**
-   * The audio media.
-   *
-   * @var \Triquanta\IziTravel\MediaInterface[]
-   */
-  protected $audio = [];
+    /**
+     * The audio media.
+     *
+     * @var \Triquanta\IziTravel\MediaInterface[]
+     */
+    protected $audio = [];
 
-  /**
-   * The videos.
-   *
-   * @var \Triquanta\IziTravel\MediaInterface[]
-   */
-  protected $videos = [];
+    /**
+     * The videos.
+     *
+     * @var \Triquanta\IziTravel\MediaInterface[]
+     */
+    protected $videos = [];
 
-  /**
-   * The child objects.
-   *
-   * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
-   */
-  protected $children = [];
+    /**
+     * The child objects.
+     *
+     * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
+     */
+    protected $children = [];
 
-  /**
-   * The collections.
-   *
-   * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
-   */
-  protected $collections = [];
+    /**
+     * The collections.
+     *
+     * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
+     */
+    protected $collections = [];
 
-  /**
-   * The references.
-   *
-   * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
-   */
-  protected $references = [];
+    /**
+     * The references.
+     *
+     * @var \Triquanta\IziTravel\CompactMtgObjectInterface[]
+     */
+    protected $references = [];
 
-  /**
-   * The quiz.
-   *
-   * @var \Triquanta\IziTravel\QuizInterface|null
-   */
-  protected $quiz;
+    /**
+     * The quiz.
+     *
+     * @var \Triquanta\IziTravel\QuizInterface|null
+     */
+    protected $quiz;
 
-  /**
-   * The class under test.
-   *
-   * @var \Triquanta\IziTravel\Content
-   */
-  protected $sut;
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\Content
+     */
+    protected $sut;
 
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
-    $this->languageCode = 'fo';
-    $this->title = 'Foo Baz Bar';
-    $this->summary = 'Qux.';
-    $this->description = 'Qux & Bar.';
-    $this->playback = $this->getMock('\Triquanta\IziTravel\PlaybackInterface');
-    $this->images = [
-      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
-    ];
-    $this->audio = [
-      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
-    ];
-    $this->videos = [
-      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\MediaInterface'),
-    ];
-    $this->children = [
-      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
-      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
-      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
-    ];
-    $this->collections = [
-      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
-      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
-      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
-    ];
-    $this->references = [
-      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
-      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
-      $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
-    ];
-    $this->quiz = $this->getMock('\Triquanta\IziTravel\QuizInterface');
+    /**
+     * {@inheritdoc}
+     */
+    public function setUp()
+    {
+        $this->languageCode = 'fo';
+        $this->title = 'Foo Baz Bar';
+        $this->summary = 'Qux.';
+        $this->description = 'Qux & Bar.';
+        $this->playback = $this->getMock('\Triquanta\IziTravel\PlaybackInterface');
+        $this->images = [
+          $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+          $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+          $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+        ];
+        $this->audio = [
+          $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+          $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+          $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+        ];
+        $this->videos = [
+          $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+          $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+          $this->getMock('\Triquanta\IziTravel\MediaInterface'),
+        ];
+        $this->children = [
+          $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+          $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+          $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+        ];
+        $this->collections = [
+          $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+          $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+          $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+        ];
+        $this->references = [
+          $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+          $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+          $this->getMock('\Triquanta\IziTravel\CompactMtgObjectInterface'),
+        ];
+        $this->quiz = $this->getMock('\Triquanta\IziTravel\QuizInterface');
 
-    $this->sut = new Content($this->languageCode, $this->title, $this->summary, $this->description, $this->playback, $this->images, $this->audio, $this->videos, $this->children, $this->collections, $this->references, $this->quiz);
-  }
+        $this->sut = new Content($this->languageCode, $this->title,
+          $this->summary, $this->description, $this->playback, $this->images,
+          $this->audio, $this->videos, $this->children, $this->collections,
+          $this->references, $this->quiz);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   */
-  public function testCreateFromJson() {
-    $json = <<<'JSON'
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     */
+    public function testCreateFromJson()
+    {
+        $json = <<<'JSON'
 {
   "language":   "en",
   "title":      "Navigation Story",
@@ -348,103 +354,116 @@ class ContentTest extends \PHPUnit_Framework_TestCase {
 }
 JSON;
 
-    Content::createFromJson($json);
-  }
+        Content::createFromJson($json);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   *
-   * @expectedException \Triquanta\IziTravel\InvalidJsonFactoryException
-   */
-  public function testCreateFromJsonWithInvalidJson() {
-    $json = 'foo';
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     *
+     * @expectedException \Triquanta\IziTravel\InvalidJsonFactoryException
+     */
+    public function testCreateFromJsonWithInvalidJson()
+    {
+        $json = 'foo';
 
-    Content::createFromJson($json);
-  }
+        Content::createFromJson($json);
+    }
 
-  /**
-   * @covers ::getLanguageCode
-   */
-  public function testGetLanguageCode() {
-    $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
-  }
+    /**
+     * @covers ::getLanguageCode
+     */
+    public function testGetLanguageCode()
+    {
+        $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
+    }
 
-  /**
-   * @covers ::getTitle
-   */
-  public function testGetTitle() {
-    $this->assertSame($this->title, $this->sut->getTitle());
-  }
+    /**
+     * @covers ::getTitle
+     */
+    public function testGetTitle()
+    {
+        $this->assertSame($this->title, $this->sut->getTitle());
+    }
 
-  /**
-   * @covers ::getSummary
-   */
-  public function testGetSummary() {
-    $this->assertSame($this->summary, $this->sut->getSummary());
-  }
+    /**
+     * @covers ::getSummary
+     */
+    public function testGetSummary()
+    {
+        $this->assertSame($this->summary, $this->sut->getSummary());
+    }
 
-  /**
-   * @covers ::getDescription
-   */
-  public function testGetDescription() {
-    $this->assertSame($this->description, $this->sut->getDescription());
-  }
+    /**
+     * @covers ::getDescription
+     */
+    public function testGetDescription()
+    {
+        $this->assertSame($this->description, $this->sut->getDescription());
+    }
 
-  /**
-   * @covers ::getPlayback
-   */
-  public function testGetPlayback() {
-    $this->assertSame($this->playback, $this->sut->getPlayback());
-  }
+    /**
+     * @covers ::getPlayback
+     */
+    public function testGetPlayback()
+    {
+        $this->assertSame($this->playback, $this->sut->getPlayback());
+    }
 
-  /**
-   * @covers ::getImages
-   */
-  public function testGetImages() {
-    $this->assertSame($this->images, $this->sut->getImages());
-  }
+    /**
+     * @covers ::getImages
+     */
+    public function testGetImages()
+    {
+        $this->assertSame($this->images, $this->sut->getImages());
+    }
 
-  /**
-   * @covers ::getAudio
-   */
-  public function testGetAudio() {
-    $this->assertSame($this->audio, $this->sut->getAudio());
-  }
+    /**
+     * @covers ::getAudio
+     */
+    public function testGetAudio()
+    {
+        $this->assertSame($this->audio, $this->sut->getAudio());
+    }
 
-  /**
-   * @covers ::getVideos
-   */
-  public function testGetVideos() {
-    $this->assertSame($this->videos, $this->sut->getVideos());
-  }
+    /**
+     * @covers ::getVideos
+     */
+    public function testGetVideos()
+    {
+        $this->assertSame($this->videos, $this->sut->getVideos());
+    }
 
-  /**
-   * @covers ::getChildren
-   */
-  public function testGetChildren() {
-    $this->assertSame($this->children, $this->sut->getChildren());
-  }
+    /**
+     * @covers ::getChildren
+     */
+    public function testGetChildren()
+    {
+        $this->assertSame($this->children, $this->sut->getChildren());
+    }
 
-  /**
-   * @covers ::getCollections
-   */
-  public function testGetCollections() {
-    $this->assertSame($this->collections, $this->sut->getCollections());
-  }
+    /**
+     * @covers ::getCollections
+     */
+    public function testGetCollections()
+    {
+        $this->assertSame($this->collections, $this->sut->getCollections());
+    }
 
-  /**
-   * @covers ::getReferences
-   */
-  public function testGetReferences() {
-    $this->assertSame($this->references, $this->sut->getReferences());
-  }
+    /**
+     * @covers ::getReferences
+     */
+    public function testGetReferences()
+    {
+        $this->assertSame($this->references, $this->sut->getReferences());
+    }
 
-  /**
-   * @covers ::getQuiz
-   */
-  public function testGetQuiz() {
-    $this->assertSame($this->quiz, $this->sut->getQuiz());
-  }
+    /**
+     * @covers ::getQuiz
+     */
+    public function testGetQuiz()
+    {
+        $this->assertSame($this->quiz, $this->sut->getQuiz());
+    }
 
 }

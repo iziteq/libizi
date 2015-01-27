@@ -13,195 +13,203 @@ use Triquanta\IziTravel\MtgObjectInterface;
 /**
  * @coversDefaultClass \Triquanta\IziTravel\FullMtgObject
  */
-class FullMtgObjectTest extends \PHPUnit_Framework_TestCase {
+class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
+{
 
-  /**
-   * The UUID.
-   *
-   * @var string
-   */
-  protected $uuid;
+    /**
+     * The UUID.
+     *
+     * @var string
+     */
+    protected $uuid;
 
-  /**
-   * The language codes for available translations.
-   *
-   * @var string[]
-   *   Values are ISO 639-1 alpha-2 language codes.
-   */
-  protected $availableLanguageCodes = [];
+    /**
+     * The language codes for available translations.
+     *
+     * @var string[]
+     *   Values are ISO 639-1 alpha-2 language codes.
+     */
+    protected $availableLanguageCodes = [];
 
-  /**
-   * Gets the category.
-   *
-   * @var string
-   *   One of the static::CATEGORY_* constants.
-   */
-  protected $category;
+    /**
+     * Gets the category.
+     *
+     * @var string
+     *   One of the static::CATEGORY_* constants.
+     */
+    protected $category;
 
-  /**
-   * Whether the object is published.
-   *
-   * @return bool
-   */
-  protected $status;
+    /**
+     * Whether the object is published.
+     *
+     * @return bool
+     */
+    protected $status;
 
-  /**
-   * The location.
-   *
-   * @var \Triquanta\IziTravel\LocationInterface|null
-   */
-  protected $location;
+    /**
+     * The location.
+     *
+     * @var \Triquanta\IziTravel\LocationInterface|null
+     */
+    protected $location;
 
-  /**
-   * The trigger zones.
-   *
-   * @var \Triquanta\IziTravel\TriggerZoneInterface[]
-   */
-  protected $triggerZones = [];
+    /**
+     * The trigger zones.
+     *
+     * @var \Triquanta\IziTravel\TriggerZoneInterface[]
+     */
+    protected $triggerZones = [];
 
-  /**
-   * The content provider.
-   *
-   * @var \Triquanta\IziTravel\ContentProviderInterface
-   */
-  protected $contentProvider;
+    /**
+     * The content provider.
+     *
+     * @var \Triquanta\IziTravel\ContentProviderInterface
+     */
+    protected $contentProvider;
 
-  /**
-   * The purchase.
-   *
-   * @var \Triquanta\IziTravel\PurchaseInterface|null
-   */
-  protected $purchase;
+    /**
+     * The purchase.
+     *
+     * @var \Triquanta\IziTravel\PurchaseInterface|null
+     */
+    protected $purchase;
 
-  /**
-   * The duration.
-   *
-   * @var int|null
-   *   The duration in seconds.
-   */
-  protected $duration;
+    /**
+     * The duration.
+     *
+     * @var int|null
+     *   The duration in seconds.
+     */
+    protected $duration;
 
-  /**
-   * The distance.
-   *
-   * @var int|null
-   *   The distance in meters.
-   */
-  protected $distance;
+    /**
+     * The distance.
+     *
+     * @var int|null
+     *   The distance in meters.
+     */
+    protected $distance;
 
-  /**
-   * The placement.
-   *
-   * @var string|null
-   *   One of the static::PLACEMENT_* constants.
-   */
-  protected $placement;
+    /**
+     * The placement.
+     *
+     * @var string|null
+     *   One of the static::PLACEMENT_* constants.
+     */
+    protected $placement;
 
-  /**
-   * Whether the object must be visible on maps.
-   *
-   * @var bool
-   */
-  protected $visibleOnMaps = FALSE;
+    /**
+     * Whether the object must be visible on maps.
+     *
+     * @var bool
+     */
+    protected $visibleOnMaps = false;
 
-  /**
-   * The UUID of the parent object.
-   *
-   * @var string|null
-   */
-  protected $parentUuid;
+    /**
+     * The UUID of the parent object.
+     *
+     * @var string|null
+     */
+    protected $parentUuid;
 
-  /**
-   * The schedule.
-   *
-   * @var \Triquanta\IziTravel\ScheduleInterface|null
-   */
-  protected $schedule;
+    /**
+     * The schedule.
+     *
+     * @var \Triquanta\IziTravel\ScheduleInterface|null
+     */
+    protected $schedule;
 
-  /**
-   * The contact information.
-   *
-   * @var \Triquanta\IziTravel\ContactInformationInterface|null
-   */
-  protected $contactInformation;
+    /**
+     * The contact information.
+     *
+     * @var \Triquanta\IziTravel\ContactInformationInterface|null
+     */
+    protected $contactInformation;
 
-  /**
-   * The map.
-   *
-   * @var \Triquanta\IziTravel\MapInterface|null
-   */
-  protected $map;
+    /**
+     * The map.
+     *
+     * @var \Triquanta\IziTravel\MapInterface|null
+     */
+    protected $map;
 
-  /**
-   * The content.
-   *
-   * @var \Triquanta\IziTravel\ContentInterface[]
-   */
-  protected $content;
+    /**
+     * The content.
+     *
+     * @var \Triquanta\IziTravel\ContentInterface[]
+     */
+    protected $content;
 
-  /**
-   * The class under test.
-   *
-   * @var \Triquanta\IziTravel\FullMtgObject
-   */
-  protected $sut;
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\FullMtgObject
+     */
+    protected $sut;
 
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
-    $this->uuid = 'foo-bar-baz-' . mt_rand();
+    /**
+     * {@inheritdoc}
+     */
+    public function setUp()
+    {
+        $this->uuid = 'foo-bar-baz-' . mt_rand();
 
-    $this->availableLanguageCodes = ['nl', 'uk'];
+        $this->availableLanguageCodes = ['nl', 'uk'];
 
-    $this->category = MtgObjectInterface::CATEGORY_BIKE;
+        $this->category = MtgObjectInterface::CATEGORY_BIKE;
 
-    $this->status = (bool) mt_rand(0, 1);;
+        $this->status = (bool) mt_rand(0, 1);;
 
-    $this->location = $this->getMock('\Triquanta\IziTravel\LocationInterface');
+        $this->location = $this->getMock('\Triquanta\IziTravel\LocationInterface');
 
-    $this->triggerZones = [
-      $this->getMock('\Triquanta\IziTravel\TriggerZoneInterface'),
-      $this->getMock('\Triquanta\IziTravel\TriggerZoneInterface'),
-      $this->getMock('\Triquanta\IziTravel\TriggerZoneInterface'),
-    ];
+        $this->triggerZones = [
+          $this->getMock('\Triquanta\IziTravel\TriggerZoneInterface'),
+          $this->getMock('\Triquanta\IziTravel\TriggerZoneInterface'),
+          $this->getMock('\Triquanta\IziTravel\TriggerZoneInterface'),
+        ];
 
-    $this->contentProvider = $this->getMock('\Triquanta\IziTravel\ContentProviderInterface');
+        $this->contentProvider = $this->getMock('\Triquanta\IziTravel\ContentProviderInterface');
 
-    $this->purchase = $this->getMock('\Triquanta\IziTravel\PurchaseInterface');
+        $this->purchase = $this->getMock('\Triquanta\IziTravel\PurchaseInterface');
 
-    $this->duration = mt_rand();
+        $this->duration = mt_rand();
 
-    $this->distance = mt_rand();
+        $this->distance = mt_rand();
 
-    $this->placement = MtgObjectInterface::PLACEMENT_OUTDOOR;
+        $this->placement = MtgObjectInterface::PLACEMENT_OUTDOOR;
 
-    $this->visibleOnMaps = (bool) mt_rand(0, 1);
+        $this->visibleOnMaps = (bool) mt_rand(0, 1);
 
-    $this->parentUuid = 'foo-bar-qux-' . mt_rand();
+        $this->parentUuid = 'foo-bar-qux-' . mt_rand();
 
 
-    $this->schedule = $this->getMock('\Triquanta\IziTravel\ScheduleInterface');
+        $this->schedule = $this->getMock('\Triquanta\IziTravel\ScheduleInterface');
 
-    $this->contactInformation = $this->getMock('\Triquanta\IziTravel\ContactInformationInterface');
+        $this->contactInformation = $this->getMock('\Triquanta\IziTravel\ContactInformationInterface');
 
-    $this->map = $this->getMock('\Triquanta\IziTravel\MapInterface');
+        $this->map = $this->getMock('\Triquanta\IziTravel\MapInterface');
 
-    $this->content = [
-      $this->getMock('\Triquanta\IziTravel\ContentInterface'),
-      $this->getMock('\Triquanta\IziTravel\ContentInterface'),
-      $this->getMock('\Triquanta\IziTravel\ContentInterface'),
-    ];
+        $this->content = [
+          $this->getMock('\Triquanta\IziTravel\ContentInterface'),
+          $this->getMock('\Triquanta\IziTravel\ContentInterface'),
+          $this->getMock('\Triquanta\IziTravel\ContentInterface'),
+        ];
 
-    $this->sut = new FullMtgObject($this->uuid, $this->availableLanguageCodes, $this->category, $this->status, $this->location, $this->triggerZones, $this->contentProvider, $this->purchase, $this->duration, $this->distance, $this->placement, $this->visibleOnMaps, $this->parentUuid, $this->schedule, $this->contactInformation, $this->map, $this->content);
-  }
+        $this->sut = new FullMtgObject($this->uuid,
+          $this->availableLanguageCodes, $this->category, $this->status,
+          $this->location, $this->triggerZones, $this->contentProvider,
+          $this->purchase, $this->duration, $this->distance, $this->placement,
+          $this->visibleOnMaps, $this->parentUuid, $this->schedule,
+          $this->contactInformation, $this->map, $this->content);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   */
-  public function testCreateFromJson() {
-    $json = <<<'JSON'
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     */
+    public function testCreateFromJson()
+    {
+        $json = <<<'JSON'
 {
   "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
   "type":       "story_navigation",
@@ -297,28 +305,30 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase {
 }
 JSON;
 
-    FullMtgObject::createFromJson($json);
-  }
+        FullMtgObject::createFromJson($json);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   *
-   * @expectedException \Triquanta\IziTravel\InvalidJsonFactoryException
-   */
-  public function testCreateFromJsonWithInvalidJson() {
-    $json = 'foo';
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     *
+     * @expectedException \Triquanta\IziTravel\InvalidJsonFactoryException
+     */
+    public function testCreateFromJsonWithInvalidJson()
+    {
+        $json = 'foo';
 
-    FullMtgObject::createFromJson($json);
-  }
+        FullMtgObject::createFromJson($json);
+    }
 
-  /**
-   * @covers ::createFromJson
-   *
-   * @expectedException \Triquanta\IziTravel\MissingUuidFactoryException
-   */
-  public function testCreateFromJsonWithoutUuid() {
-    $json = <<<'JSON'
+    /**
+     * @covers ::createFromJson
+     *
+     * @expectedException \Triquanta\IziTravel\MissingUuidFactoryException
+     */
+    public function testCreateFromJsonWithoutUuid()
+    {
+        $json = <<<'JSON'
 {
   "email": "john@doe.com",
   "custom": {
@@ -327,42 +337,48 @@ JSON;
 }
 JSON;
 
-    FullMtgObject::createFromJson($json);
-  }
+        FullMtgObject::createFromJson($json);
+    }
 
-  /**
-   * @covers ::getParentUuid
-   */
-  public function testGetParentUuid() {
-    $this->assertSame($this->parentUuid, $this->sut->getParentUuid());
-  }
+    /**
+     * @covers ::getParentUuid
+     */
+    public function testGetParentUuid()
+    {
+        $this->assertSame($this->parentUuid, $this->sut->getParentUuid());
+    }
 
-  /**
-   * @covers ::getSchedule
-   */
-  public function testGetSchedule() {
-    $this->assertSame($this->schedule, $this->sut->getSchedule());
-  }
+    /**
+     * @covers ::getSchedule
+     */
+    public function testGetSchedule()
+    {
+        $this->assertSame($this->schedule, $this->sut->getSchedule());
+    }
 
-  /**
-   * @covers ::getContactInformation
-   */
-  public function testGetContactInformation() {
-    $this->assertSame($this->contactInformation, $this->sut->getContactInformation());
-  }
+    /**
+     * @covers ::getContactInformation
+     */
+    public function testGetContactInformation()
+    {
+        $this->assertSame($this->contactInformation,
+          $this->sut->getContactInformation());
+    }
 
-  /**
-   * @covers ::getMap
-   */
-  public function testGetMap() {
-    $this->assertSame($this->map, $this->sut->getMap());
-  }
+    /**
+     * @covers ::getMap
+     */
+    public function testGetMap()
+    {
+        $this->assertSame($this->map, $this->sut->getMap());
+    }
 
-  /**
-   * @covers ::getContent
-   */
-  public function testGetContent() {
-    $this->assertSame($this->content, $this->sut->getContent());
-  }
+    /**
+     * @covers ::getContent
+     */
+    public function testGetContent()
+    {
+        $this->assertSame($this->content, $this->sut->getContent());
+    }
 
 }

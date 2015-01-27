@@ -12,56 +12,59 @@ use Triquanta\IziTravel\Quiz;
 /**
  * @coversDefaultClass \Triquanta\IziTravel\Quiz
  */
-class QuizTest extends \PHPUnit_Framework_TestCase {
+class QuizTest extends \PHPUnit_Framework_TestCase
+{
 
-  /**
-   * The suggested answers.
-   *
-   * @var \Triquanta\IziTravel\QuizAnswerInterface[]
-   */
-  protected $answers = [];
+    /**
+     * The suggested answers.
+     *
+     * @var \Triquanta\IziTravel\QuizAnswerInterface[]
+     */
+    protected $answers = [];
 
-  /**
-   * The comment.
-   *
-   * @var string|null
-   */
-  protected $comment;
+    /**
+     * The comment.
+     *
+     * @var string|null
+     */
+    protected $comment;
 
-  /**
-   * The question.
-   *
-   * @var string
-   */
-  protected $question;
+    /**
+     * The question.
+     *
+     * @var string
+     */
+    protected $question;
 
-  /**
-   * The class under test.
-   *
-   * @var \Triquanta\IziTravel\Quiz
-   */
-  protected $sut;
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\Quiz
+     */
+    protected $sut;
 
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
-    $this->question = 'Foo Qux?';
-    $this->comment = 'Foo Qux!';
-    $this->answers = [
-      $this->getMock('\Triquanta\IziTravel\QuizAnswerInterface'),
-      $this->getMock('\Triquanta\IziTravel\QuizAnswerInterface'),
-    ];
+    /**
+     * {@inheritdoc}
+     */
+    public function setUp()
+    {
+        $this->question = 'Foo Qux?';
+        $this->comment = 'Foo Qux!';
+        $this->answers = [
+          $this->getMock('\Triquanta\IziTravel\QuizAnswerInterface'),
+          $this->getMock('\Triquanta\IziTravel\QuizAnswerInterface'),
+        ];
 
-    $this->sut = new Quiz($this->question, $this->answers, $this->comment);
-  }
+        $this->sut = new Quiz($this->question, $this->answers, $this->comment);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   */
-  public function testCreateFromJson() {
-    $json = <<<'JSON'
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     */
+    public function testCreateFromJson()
+    {
+        $json = <<<'JSON'
 {
   "question": "Dolor illo iure beatae inventore fuga voluptatem quam error.",
   "comment": "Bla bla bla",
@@ -81,40 +84,44 @@ class QuizTest extends \PHPUnit_Framework_TestCase {
 ] }
 JSON;
 
-    Quiz::createFromJson($json);
-  }
+        Quiz::createFromJson($json);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   *
-   * @expectedException \Triquanta\IziTravel\InvalidJsonFactoryException
-   */
-  public function testCreateFromJsonWithInvalidJson() {
-    $json = 'foo';
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     *
+     * @expectedException \Triquanta\IziTravel\InvalidJsonFactoryException
+     */
+    public function testCreateFromJsonWithInvalidJson()
+    {
+        $json = 'foo';
 
-    Quiz::createFromJson($json);
-  }
+        Quiz::createFromJson($json);
+    }
 
-  /**
-   * @covers ::getQuestion
-   */
-  public function testGetQuestion() {
-    $this->assertSame($this->question, $this->sut->getQuestion());
-  }
+    /**
+     * @covers ::getQuestion
+     */
+    public function testGetQuestion()
+    {
+        $this->assertSame($this->question, $this->sut->getQuestion());
+    }
 
-  /**
-   * @covers ::getAnswers
-   */
-  public function testGetAnswers() {
-    $this->assertSame($this->answers, $this->sut->getAnswers());
-  }
+    /**
+     * @covers ::getAnswers
+     */
+    public function testGetAnswers()
+    {
+        $this->assertSame($this->answers, $this->sut->getAnswers());
+    }
 
-  /**
-   * @covers ::getComment
-   */
-  public function testGetComment() {
-    $this->assertSame($this->comment, $this->sut->getComment());
-  }
+    /**
+     * @covers ::getComment
+     */
+    public function testGetComment()
+    {
+        $this->assertSame($this->comment, $this->sut->getComment());
+    }
 
 }

@@ -10,20 +10,22 @@ namespace Triquanta\IziTravel;
 /**
  * Implements \Triquanta\IziTravel\UuidInterface.
  */
-trait UuidTrait {
+trait UuidTrait
+{
 
-  /**
-   * The UUID.
-   *
-   * @var string
-   */
-  protected $uuid;
+    /**
+     * The UUID.
+     *
+     * @var string
+     */
+    protected $uuid;
 
-  /**
-   * {@inheritdoc}
-   */
-  public function getUuid() {
-    return $this->uuid;
-  }
+    /**
+     * {@inheritdoc}
+     */
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
 
 }

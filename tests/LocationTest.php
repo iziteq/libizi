@@ -12,69 +12,73 @@ use Triquanta\IziTravel\Location;
 /**
  * @coversDefaultClass \Triquanta\IziTravel\Location
  */
-class LocationTest extends \PHPUnit_Framework_TestCase {
+class LocationTest extends \PHPUnit_Framework_TestCase
+{
 
-  /**
-   * The latitude.
-   *
-   * @var float|null
-   */
-  protected $latitude;
+    /**
+     * The latitude.
+     *
+     * @var float|null
+     */
+    protected $latitude;
 
-  /**
-   * The longitude.
-   *
-   * @var float|null
-   */
-  protected $longitude;
+    /**
+     * The longitude.
+     *
+     * @var float|null
+     */
+    protected $longitude;
 
-  /**
-   * The altitude.
-   *
-   * @var float|null
-   */
-  protected $altitude;
+    /**
+     * The altitude.
+     *
+     * @var float|null
+     */
+    protected $altitude;
 
-  /**
-   * The exhibit number.
-   *
-   * @var string|null
-   */
-  protected $exhibitNumber;
+    /**
+     * The exhibit number.
+     *
+     * @var string|null
+     */
+    protected $exhibitNumber;
 
-  /**
-   * The public IP address.
-   *
-   * @var string|null
-   */
-  protected $publicIpAddress;
+    /**
+     * The public IP address.
+     *
+     * @var string|null
+     */
+    protected $publicIpAddress;
 
-  /**
-   * The class under test.
-   *
-   * @var \Triquanta\IziTravel\Location
-   */
-  protected $sut;
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\Location
+     */
+    protected $sut;
 
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
-    $this->latitude = 12.345;
-    $this->longitude = 67.890;
-    $this->altitude = 123.098;
-    $this->exhibitNumber = mt_rand();
-    $this->publicIpAddress = '12.34.56.78';
+    /**
+     * {@inheritdoc}
+     */
+    public function setUp()
+    {
+        $this->latitude = 12.345;
+        $this->longitude = 67.890;
+        $this->altitude = 123.098;
+        $this->exhibitNumber = mt_rand();
+        $this->publicIpAddress = '12.34.56.78';
 
-    $this->sut = new Location($this->latitude, $this->longitude, $this->altitude, $this->exhibitNumber, $this->publicIpAddress);
-  }
+        $this->sut = new Location($this->latitude, $this->longitude,
+          $this->altitude, $this->exhibitNumber, $this->publicIpAddress);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   */
-  public function testCreateFromJson() {
-    $json = <<<'JSON'
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     */
+    public function testCreateFromJson()
+    {
+        $json = <<<'JSON'
 {
   "altitude":  0.0,
   "latitude":  59.9308144003772,
@@ -82,29 +86,31 @@ class LocationTest extends \PHPUnit_Framework_TestCase {
 }
 JSON;
 
-    Location::createFromJson($json);
-  }
+        Location::createFromJson($json);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   *
-   * @expectedException \Triquanta\IziTravel\InvalidJsonFactoryException
-   */
-  public function testCreateFromJsonWithInvalidJson() {
-    $json = 'foo';
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     *
+     * @expectedException \Triquanta\IziTravel\InvalidJsonFactoryException
+     */
+    public function testCreateFromJsonWithInvalidJson()
+    {
+        $json = 'foo';
 
-    Location::createFromJson($json);
-  }
+        Location::createFromJson($json);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   *
-   * @expectedException \Triquanta\IziTravel\InvalidIpAddressFactoryException
-   */
-  public function testCreateFromJsonWithInvalidPublicIpAddress() {
-    $json = <<<'JSON'
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     *
+     * @expectedException \Triquanta\IziTravel\InvalidIpAddressFactoryException
+     */
+    public function testCreateFromJsonWithInvalidPublicIpAddress()
+    {
+        $json = <<<'JSON'
 {
   "altitude":  0.0,
   "latitude":  59.9308144003772,
@@ -113,42 +119,48 @@ JSON;
 }
 JSON;
 
-    Location::createFromJson($json);
-  }
+        Location::createFromJson($json);
+    }
 
-  /**
-   * @covers ::getLatitude
-   */
-  public function testGetLatitude() {
-    $this->assertSame($this->latitude, $this->sut->getLatitude());
-  }
+    /**
+     * @covers ::getLatitude
+     */
+    public function testGetLatitude()
+    {
+        $this->assertSame($this->latitude, $this->sut->getLatitude());
+    }
 
-  /**
-   * @covers ::getLongitude
-   */
-  public function testGetLongitude() {
-    $this->assertSame($this->longitude, $this->sut->getLongitude());
-  }
+    /**
+     * @covers ::getLongitude
+     */
+    public function testGetLongitude()
+    {
+        $this->assertSame($this->longitude, $this->sut->getLongitude());
+    }
 
-  /**
-   * @covers ::getAltitude
-   */
-  public function testGetAltitude() {
-    $this->assertSame($this->altitude, $this->sut->getAltitude());
-  }
+    /**
+     * @covers ::getAltitude
+     */
+    public function testGetAltitude()
+    {
+        $this->assertSame($this->altitude, $this->sut->getAltitude());
+    }
 
-  /**
-   * @covers ::getExhibitNumber
-   */
-  public function testGetExhibitNumber() {
-    $this->assertSame($this->exhibitNumber, $this->sut->getExhibitNumber());
-  }
+    /**
+     * @covers ::getExhibitNumber
+     */
+    public function testGetExhibitNumber()
+    {
+        $this->assertSame($this->exhibitNumber, $this->sut->getExhibitNumber());
+    }
 
-  /**
-   * @covers ::getPublicIpAddress
-   */
-  public function testGetPublicIpAddress() {
-    $this->assertSame($this->publicIpAddress, $this->sut->getPublicIpAddress());
-  }
+    /**
+     * @covers ::getPublicIpAddress
+     */
+    public function testGetPublicIpAddress()
+    {
+        $this->assertSame($this->publicIpAddress,
+          $this->sut->getPublicIpAddress());
+    }
 
 }

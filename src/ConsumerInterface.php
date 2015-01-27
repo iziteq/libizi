@@ -10,34 +10,35 @@ namespace Triquanta\IziTravel;
 /**
  * Defines a consumer data type.
  */
-interface ConsumerInterface extends FactoryInterface, UuidInterface {
+interface ConsumerInterface extends FactoryInterface, UuidInterface
+{
 
-  /**
-   * Gets the email address.
-   *
-   * @return string
-   */
-  public function getEmailAddress();
+    /**
+     * Gets the email address.
+     *
+     * @return string
+     */
+    public function getEmailAddress();
 
-  /**
-   * Gets the username.
-   *
-   * @return string
-   */
-  public function getUsername();
+    /**
+     * Gets the username.
+     *
+     * @return string
+     */
+    public function getUsername();
 
-  /**
-   * Gets the mobile phone number.
-   *
-   * @return string
-   */
-  public function getMobilePhoneNumber();
+    /**
+     * Gets the mobile phone number.
+     *
+     * @return string
+     */
+    public function getMobilePhoneNumber();
 
-  /**
-   * Gets the custom storage.
-   *
-   * @return mixed[]
-   */
-  public function getCustomStorage();
+    /**
+     * Gets the custom storage.
+     *
+     * @return mixed[]
+     */
+    public function getCustomStorage();
 
 }

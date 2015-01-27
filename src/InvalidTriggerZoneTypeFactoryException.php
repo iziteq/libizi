@@ -11,6 +11,7 @@ namespace Triquanta\IziTravel;
  * Provides an exception to be thrown when the factory JSON contains an invalid
  * trigger zone type.
  */
-class InvalidTriggerZoneTypeFactoryException extends \Exception {
+class InvalidTriggerZoneTypeFactoryException extends \Exception
+{
 
 }

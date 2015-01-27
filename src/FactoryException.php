@@ -10,4 +10,6 @@ namespace Triquanta\IziTravel;
 /**
  * Provides an exception to be thrown for factory errors.
  */
-class FactoryException extends \Exception {}
+class FactoryException extends \Exception
+{
+}
