@@ -59,25 +59,16 @@ class Purchase implements PurchaseInterface
           $data['product_id']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPrice()
     {
         return $this->price;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCurrencyCode()
     {
         return $this->currencyCode;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getProductId()
     {
         return $this->productId;

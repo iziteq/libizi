@@ -141,41 +141,26 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
           $contact_information, $map, $content);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getParentUuid()
     {
         return $this->parentUuid;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getSchedule()
     {
         return $this->schedule;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getContactInformation()
     {
         return $this->contactInformation;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getMap()
     {
         return $this->map;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getContent()
     {
         return $this->content;

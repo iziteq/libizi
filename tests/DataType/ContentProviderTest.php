@@ -43,9 +43,6 @@ class ContentProviderTest extends \PHPUnit_Framework_TestCase
      */
     protected $sut;
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUp()
     {
         $this->uuid = 'foo-bar-' . mt_rand();

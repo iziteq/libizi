@@ -111,9 +111,6 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     protected $sut;
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUp()
     {
         $this->uuid = 'foo-bar-baz-' . mt_rand();

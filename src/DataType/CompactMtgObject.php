@@ -149,49 +149,31 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
           $data['summary'], $images, $data['children_count']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLanguageCode()
     {
         return $this->languageCode;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getRoute()
     {
         return $this->route;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTitle()
     {
         return $this->title;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getSummary()
     {
         return $this->summary;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getImages()
     {
         return $this->images;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function countChildren()
     {
         return $this->numberOfChildren;

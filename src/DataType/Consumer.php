@@ -82,33 +82,21 @@ class Consumer implements ConsumerInterface
           $data['mobile'], (array) $data['custom']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUsername()
     {
         return $this->username;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getEmailAddress()
     {
         return $this->emailAddress;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getMobilePhoneNumber()
     {
         return $this->mobilePhoneNumber;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCustomStorage()
     {
         return $this->customStorage;

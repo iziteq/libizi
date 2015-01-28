@@ -20,9 +20,6 @@ trait UuidTrait
      */
     protected $uuid;
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUuid()
     {
         return $this->uuid;

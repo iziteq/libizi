@@ -141,89 +141,56 @@ abstract class MtgObjectBase implements MtgObjectInterface
         $this->visibleOnMaps = $visible_on_maps;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAvailableLanguageCodes()
     {
         return $this->availableLanguageCodes;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCategory()
     {
         return $this->category;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isPublished()
     {
         return $this->status;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLocation()
     {
         return $this->location;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTriggerZones()
     {
         return $this->triggerZones;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getContentProvider()
     {
         return $this->contentProvider;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPurchase()
     {
         return $this->purchase;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDuration()
     {
         return $this->duration;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDistance()
     {
         return $this->distance;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPlacement()
     {
         return $this->placement;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isVisibleOnMaps()
     {
         return $this->visibleOnMaps;

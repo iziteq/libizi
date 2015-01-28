@@ -91,41 +91,26 @@ class Location implements LocationInterface
           $data['altitude'], $data['number'], $data['ip']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLatitude()
     {
         return $this->latitude;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLongitude()
     {
         return $this->longitude;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAltitude()
     {
         return $this->altitude;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getExhibitNumber()
     {
         return $this->exhibitNumber;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPublicIpAddress()
     {
         return $this->publicIpAddress;

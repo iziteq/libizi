@@ -71,33 +71,21 @@ class CircularTriggerZone implements CircularTriggerZoneInterface
           $data['altitude'], $data['radius']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLatitude()
     {
         return $this->latitude;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLongitude()
     {
         return $this->longitude;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAltitude()
     {
         return $this->altitude;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getRadius()
     {
         return $this->radius;

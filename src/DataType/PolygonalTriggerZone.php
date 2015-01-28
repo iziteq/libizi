@@ -39,9 +39,6 @@ class PolygonalTriggerZone implements PolygonalTriggerZoneInterface
         return new static($data['corners']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCorners()
     {
         return $this->corners;

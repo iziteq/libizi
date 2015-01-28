@@ -107,57 +107,36 @@ class ContactInformation implements ContactInformationInterface
           $data['website']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCountryCode()
     {
         return $this->countryCode;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCity()
     {
         return $this->city;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAddress()
     {
         return $this->address;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPostalCode()
     {
         return $this->postalCode;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAdministrativeSubdivision()
     {
         return $this->administrativeSubdivision;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPhoneNumber()
     {
         return $this->phoneNumber;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getWebsite()
     {
         return $this->website;

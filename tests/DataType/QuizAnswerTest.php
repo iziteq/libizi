@@ -36,9 +36,6 @@ class QuizAnswerTest extends \PHPUnit_Framework_TestCase
      */
     protected $sut;
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUp()
     {
         $this->answer = 'Foo Bar ' . mt_rand();

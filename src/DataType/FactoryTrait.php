@@ -13,9 +13,6 @@ namespace Triquanta\IziTravel\DataType;
 Trait FactoryTrait
 {
 
-    /**
-     * {@inheritdoc}
-     */
     public static function createFromJson($json)
     {
         $data = json_decode($json);

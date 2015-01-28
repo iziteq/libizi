@@ -29,9 +29,6 @@ class PolygonalTriggerZoneTest extends \PHPUnit_Framework_TestCase
      */
     protected $sut;
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUp()
     {
         $this->corners = '52.397921441224504,4.8016028153642765;52.4188651275828,4.835248445247089;52.42095894931356,4.788556550715839;52.40734733067369,4.778600190852558';

@@ -60,25 +60,16 @@ class Quiz implements QuizInterface
         return new static($data['question'], $answers, $data['comment']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getQuestion()
     {
         return $this->question;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getComment()
     {
         return $this->comment;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAnswers()
     {
         return $this->answers;

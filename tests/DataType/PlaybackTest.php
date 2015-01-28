@@ -37,9 +37,6 @@ class PlaybackTest extends \PHPUnit_Framework_TestCase
      */
     protected $sut;
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUp()
     {
         $this->type = Playback::TYPE_RANDOM;

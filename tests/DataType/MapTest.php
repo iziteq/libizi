@@ -40,9 +40,6 @@ class MapTest extends \PHPUnit_Framework_TestCase
      */
     protected $sut;
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUp()
     {
         $this->bounds = '12.345;67.890';

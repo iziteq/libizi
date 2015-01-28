@@ -107,9 +107,6 @@ class ContentTest extends \PHPUnit_Framework_TestCase
      */
     protected $sut;
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUp()
     {
         $this->languageCode = 'fo';

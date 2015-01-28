@@ -90,41 +90,26 @@ class Media implements MediaInterface
           $data['duration'], $data['url'], $data['title']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getType()
     {
         return $this->type;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getOrder()
     {
         return $this->order;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDuration()
     {
         return $this->duration;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUrl()
     {
         return $this->url;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTitle()
     {
         return $this->title;

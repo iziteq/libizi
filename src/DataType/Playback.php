@@ -49,33 +49,21 @@ class Playback implements PlaybackInterface
         return new static($data['type'], $data['order']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isRandom()
     {
         return $this->getType() == static::TYPE_RANDOM;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getType()
     {
         return $this->type;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isSequential()
     {
         return $this->getType() == static::TYPE_SEQUENTIAL;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUuids()
     {
         return $this->uuids;

@@ -55,17 +55,11 @@ class ContentProvider implements ContentProviderInterface
         return new static($data['uuid'], $data['name'], $data['copyright']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getName()
     {
         return $this->name;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCopyrightMessage()
     {
         return $this->copyrightMessage;

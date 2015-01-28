@@ -185,97 +185,61 @@ class Content implements ContentInterface
           $data['video'], $children, $collections, $references, $data['quiz']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLanguageCode()
     {
         return $this->languageCode;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTitle()
     {
         return $this->title;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getSummary()
     {
         return $this->summary;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDescription()
     {
         return $this->description;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPlayback()
     {
         return $this->playback;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getImages()
     {
         return $this->images;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAudio()
     {
         return $this->audio;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getVideos()
     {
         return $this->videos;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getChildren()
     {
         return $this->children;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCollections()
     {
         return $this->collections;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getReferences()
     {
         return $this->references;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getQuiz()
     {
         return $this->quiz;

@@ -57,9 +57,6 @@ class LocationTest extends \PHPUnit_Framework_TestCase
      */
     protected $sut;
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUp()
     {
         $this->latitude = 12.345;

@@ -47,17 +47,11 @@ class QuizAnswer implements QuizAnswerInterface
         return new static($data['content'], $data['correct']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAnswer()
     {
         return $this->answer;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCorrect()
     {
         return $this->isCorrect;
