@@ -7,6 +7,7 @@
 
 namespace Triquanta\IziTravel\Client;
 
+use Triquanta\IziTravel\DataType\CompactMtgObject;
 use Triquanta\IziTravel\DataType\FullMtgObject;
 
 /**
@@ -42,6 +43,20 @@ class MtgObjectClient implements MtgObjectClientInterface {
         $objects = [];
         foreach ($data as $objectData) {
             $objects[] = FullMtgObject::createFromData($objectData);
+        }
+
+        return $objects;
+    }
+
+
+    public function getMtgObjectsChildrenByUuid($uuid, array $languages) {
+        $json = $this->requestHandler->request('/mtgobjects/' . $uuid . '/children', [
+          'languages' => $languages,
+        ]);
+        $data = json_decode($json);
+        $objects = [];
+        foreach ($data as $objectData) {
+            $objects[] = CompactMtgObject::createFromData($objectData);
         }
 
         return $objects;
