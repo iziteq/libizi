@@ -13,22 +13,17 @@ namespace Triquanta\IziTravel\DataType;
 class TriggerZone implements TriggerZoneInterface
 {
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    use FactoryTrait;
+
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
             'type' => null,
           ];
         if ($data['type'] == static::TYPE_CIRCULAR) {
-            return CircularTriggerZone::createFromJson($json);
+            return CircularTriggerZone::createFromData($data);
         } elseif ($data['type'] == static::TYPE_POLYGONAL) {
-            return PolygonalTriggerZone::createFromJson($json);
+            return PolygonalTriggerZone::createFromData($data);
         } else {
             throw new InvalidTriggerZoneTypeFactoryException(sprintf('Invalid trigger zone type %s. Must be one of %s.',
               $data['type'],

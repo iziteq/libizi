@@ -13,6 +13,7 @@ namespace Triquanta\IziTravel\DataType;
 class Consumer implements ConsumerInterface
 {
 
+    use FactoryTrait;
     use UuidTrait;
 
     /**
@@ -66,15 +67,8 @@ class Consumer implements ConsumerInterface
         $this->customStorage = $custom_storage;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
             'email' => null,
             'username' => null,
@@ -82,7 +76,7 @@ class Consumer implements ConsumerInterface
             'custom' => new \stdClass(),
           ];
         if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($json);
+            throw new MissingUuidFactoryException($data);
         }
         return new static($data['uuid'], $data['username'], $data['email'],
           $data['mobile'], (array) $data['custom']);

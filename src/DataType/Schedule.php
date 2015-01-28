@@ -13,6 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class Schedule implements ScheduleInterface
 {
 
+    use FactoryTrait;
+
     /**
      * The schedule.
      *
@@ -34,12 +36,9 @@ class Schedule implements ScheduleInterface
         $this->schedule = $schedule;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        return new static((array) json_decode($json));
+        return new static((array) $data);
     }
 
     /**

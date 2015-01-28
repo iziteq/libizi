@@ -13,6 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class Purchase implements PurchaseInterface
 {
 
+    use FactoryTrait;
+
     /**
      * The currency code.
      *
@@ -50,15 +52,8 @@ class Purchase implements PurchaseInterface
         $this->productId = $product_id;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data;
         return new static($data['currency'], $data['price'],
           $data['product_id']);

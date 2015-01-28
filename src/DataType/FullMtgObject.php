@@ -13,6 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
 {
 
+    use FactoryTrait;
+
     /**
      * The UUID of the parent object.
      *
@@ -98,15 +100,8 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
         $this->content = $content;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
             'location' => null,
             'purchase' => null,
@@ -122,22 +117,22 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
             'trigger_zones' => [],
           ];
         if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($json);
+            throw new MissingUuidFactoryException($data);
         }
 
-        $location = $data['location'] ? Location::createFromJson(json_encode($data['location'])) : null;
+        $location = $data['location'] ? Location::createFromData($data['location']) : null;
         $trigger_zones = [];
         foreach ($data['trigger_zones'] as $trigger_zone_data) {
-            $trigger_zones[] = TriggerZone::createFromJson(json_encode($trigger_zone_data));
+            $trigger_zones[] = TriggerZone::createFromData($trigger_zone_data);
         }
-        $content_provider = $data['content_provider'] ? ContentProvider::createFromJson(json_encode($data['content_provider'])) : null;
-        $purchase = $data['purchase'] ? Purchase::createFromJson(json_encode($data['purchase'])) : null;
-        $schedule = $data['schedule'] ? Schedule::createFromJson(json_encode($data['schedule'])) : null;
-        $contact_information = $data['contact'] ? ContactInformation::createFromJson(json_encode($data['contact'])) : null;
-        $map = $data['map'] ? Map::createFromJson(json_encode($data['map'])) : null;
+        $content_provider = $data['content_provider'] ? ContentProvider::createFromData($data['content_provider']) : null;
+        $purchase = $data['purchase'] ? Purchase::createFromData($data['purchase']) : null;
+        $schedule = $data['schedule'] ? Schedule::createFromData($data['schedule']) : null;
+        $contact_information = $data['contact'] ? ContactInformation::createFromData($data['contact']) : null;
+        $map = $data['map'] ? Map::createFromData($data['map']) : null;
         $content = [];
         foreach ($data['content'] as $content_data) {
-            $content[] = Content::createFromJson(json_encode($content_data));
+            $content[] = Content::createFromData($content_data);
         }
         return new static($data['uuid'], $data['languages'], $data['category'],
           $data['status'], $location, $trigger_zones, $content_provider,

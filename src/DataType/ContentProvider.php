@@ -13,6 +13,7 @@ namespace Triquanta\IziTravel\DataType;
 class ContentProvider implements ContentProviderInterface
 {
 
+    use FactoryTrait;
     use UuidTrait;
 
     /**
@@ -43,20 +44,13 @@ class ContentProvider implements ContentProviderInterface
         $this->copyrightMessage = $copyright_message;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
             'copyright' => null,
           ];
         if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($json);
+            throw new MissingUuidFactoryException($data);
         }
         return new static($data['uuid'], $data['name'], $data['copyright']);
     }

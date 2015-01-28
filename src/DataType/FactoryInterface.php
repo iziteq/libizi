@@ -21,4 +21,15 @@ interface FactoryInterface
      */
     public static function createFromJson($json);
 
+    /**
+     * Creates a new instances from IZI Travel's API's decoded JSON output.
+     *
+     * @param mixed $data
+     *
+     * @return static
+     *
+     * @throws \Triquanta\IziTravel\DataType\FactoryException
+     */
+    public static function createFromData($data);
+
 }

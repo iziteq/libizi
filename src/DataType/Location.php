@@ -13,6 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class Location implements LocationInterface
 {
 
+    use FactoryTrait;
+
     /**
      * The latitude.
      *
@@ -71,15 +73,8 @@ class Location implements LocationInterface
         $this->publicIpAddress = $public_ip_address;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
             'latitude' => null,
             'longitude' => null,
@@ -90,7 +85,7 @@ class Location implements LocationInterface
         if ($data['ip'] && filter_var($data['ip'],
             FILTER_VALIDATE_IP) === false
         ) {
-            throw new InvalidIpAddressFactoryException($data['ip'], $json);
+            throw new InvalidIpAddressFactoryException($data['ip'], $data);
         }
         return new static($data['latitude'], $data['longitude'],
           $data['altitude'], $data['number'], $data['ip']);

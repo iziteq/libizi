@@ -36,7 +36,7 @@ class MtgObjectClient implements MtgObjectClientInterface {
         ]);
         $data = json_decode($json);
         $object_data = $data[0];
-        return FullMtgObject::createFromJson(json_encode($object_data));
+        return FullMtgObject::createFromData($object_data);
     }
 
 }

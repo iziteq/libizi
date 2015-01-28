@@ -13,6 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class Quiz implements QuizInterface
 {
 
+    use FactoryTrait;
+
     /**
      * The suggested answers.
      *
@@ -48,19 +50,12 @@ class Quiz implements QuizInterface
         $this->comment = $comment;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data;
         $answers = [];
         foreach ($data['answers'] as $answer_data) {
-            $answers[] = QuizAnswer::createFromJson(json_encode($answer_data));
+            $answers[] = QuizAnswer::createFromData($answer_data);
         }
         return new static($data['question'], $answers, $data['comment']);
     }

@@ -13,6 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterface
 {
 
+    use FactoryTrait;
+
     /**
      * The language code.
      *
@@ -110,16 +112,8 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
         $this->numberOfChildren = $number_of_children;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        // @todo This method was copied from FullMtgObject. Finish porting it to work with compact MTG objects.
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
             'location' => null,
             'purchase' => null,
@@ -134,19 +128,19 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
             'images' => [],
           ];
         if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($json);
+            throw new MissingUuidFactoryException($data);
         }
 
-        $location = $data['location'] ? Location::createFromJson(json_encode($data['location'])) : null;
+        $location = $data['location'] ? Location::createFromData($data['location']) : null;
         $trigger_zones = [];
         foreach ($data['trigger_zones'] as $trigger_zone_data) {
-            $trigger_zones[] = TriggerZone::createFromJson(json_encode($trigger_zone_data));
+            $trigger_zones[] = TriggerZone::createFromData($trigger_zone_data);
         }
-        $content_provider = $data['content_provider'] ? ContentProvider::createFromJson(json_encode($data['content_provider'])) : null;
-        $purchase = $data['purchase'] ? Purchase::createFromJson(json_encode($data['purchase'])) : null;
+        $content_provider = $data['content_provider'] ? ContentProvider::createFromData($data['content_provider']) : null;
+        $purchase = $data['purchase'] ? Purchase::createFromData($data['purchase']) : null;
         $images = [];
         foreach ($data['images'] as $image_data) {
-            $images[] = Media::createFromJson(json_encode($image_data));
+            $images[] = Media::createFromData($image_data);
         }
         return new static($data['uuid'], $data['languages'], $data['category'],
           $data['status'], $location, $trigger_zones, $content_provider,

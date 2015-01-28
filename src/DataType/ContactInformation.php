@@ -13,6 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class ContactInformation implements ContactInformationInterface
 {
 
+    use FactoryTrait;
+
     /**
      * The website address.
      *
@@ -92,15 +94,8 @@ class ContactInformation implements ContactInformationInterface
         $this->website = $website;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
             'postcode' => null,
             'state' => null,

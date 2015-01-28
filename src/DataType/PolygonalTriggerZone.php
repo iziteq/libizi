@@ -12,6 +12,7 @@ namespace Triquanta\IziTravel\DataType;
  */
 class PolygonalTriggerZone implements PolygonalTriggerZoneInterface
 {
+    use FactoryTrait;
 
     /**
      * The corners.
@@ -30,15 +31,8 @@ class PolygonalTriggerZone implements PolygonalTriggerZoneInterface
         $this->corners = $corners;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
             'corners' => null,
           ];

@@ -13,6 +13,7 @@ namespace Triquanta\IziTravel\DataType;
 class Media implements MediaInterface
 {
 
+    use FactoryTrait;
     use UuidTrait;
 
     /**
@@ -72,15 +73,8 @@ class Media implements MediaInterface
         $this->title = $title;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
               // Duration is marked "mandatory" in the API documentation, yet is not
               // available in the example, nor can it technically be available for all
@@ -90,7 +84,7 @@ class Media implements MediaInterface
             'title' => null,
           ];
         if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($json);
+            throw new MissingUuidFactoryException($data);
         }
         return new static($data['uuid'], $data['type'], $data['order'],
           $data['duration'], $data['url'], $data['title']);

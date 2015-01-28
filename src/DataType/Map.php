@@ -13,6 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class Map implements MapInterface
 {
 
+    use FactoryTrait;
+
     /**
      * The bounds.
      *
@@ -43,15 +45,8 @@ class Map implements MapInterface
         $this->route = $route;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
             'route' => null,
           ];

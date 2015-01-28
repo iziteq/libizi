@@ -13,6 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class Playback implements PlaybackInterface
 {
 
+    use FactoryTrait;
+
     /**
      * The type.
      *
@@ -41,15 +43,8 @@ class Playback implements PlaybackInterface
         $this->uuids = $uuids;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data;
         return new static($data['type'], $data['order']);
     }

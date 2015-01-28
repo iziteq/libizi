@@ -13,6 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class Content implements ContentInterface
 {
 
+    use FactoryTrait;
+
     /**
      * The language.
      *
@@ -142,15 +144,8 @@ class Content implements ContentInterface
         $this->quiz = $quiz;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function createFromJson($json)
+    public static function createFromData($data)
     {
-        $data = json_decode($json);
-        if (is_null($data)) {
-            throw new InvalidJsonFactoryException($json);
-        }
         $data = (array) $data + [
             'playback' => null,
             'images' => [],
@@ -163,27 +158,27 @@ class Content implements ContentInterface
           ];
         $images = [];
         foreach ($data['images'] as $image_data) {
-            $images[] = Media::createFromJson(json_encode($image_data));
+            $images[] = Media::createFromData($image_data);
         }
         $audio = [];
         foreach ($data['audio'] as $audio_data) {
-            $audio[] = Media::createFromJson(json_encode($audio_data));
+            $audio[] = Media::createFromData($audio_data);
         }
         $video = [];
         foreach ($data['video'] as $video_data) {
-            $video[] = Media::createFromJson(json_encode($video_data));
+            $video[] = Media::createFromData($video_data);
         }
         $children = [];
         foreach ($data['children'] as $children_data) {
-            $children[] = CompactMtgObject::createFromJson(json_encode($children_data));
+            $children[] = CompactMtgObject::createFromData($children_data);
         }
         $collections = [];
         foreach ($data['collections'] as $collections_data) {
-            $collections[] = CompactMtgObject::createFromJson(json_encode($collections_data));
+            $collections[] = CompactMtgObject::createFromData($collections_data);
         }
         $references = [];
         foreach ($data['references'] as $references_data) {
-            $references[] = CompactMtgObject::createFromJson(json_encode($references_data));
+            $references[] = CompactMtgObject::createFromData($references_data);
         }
         return new static($data['language'], $data['title'], $data['summary'],
           $data['desc'], $data['playback'], $data['images'], $data['audio'],
