@@ -50,6 +50,7 @@ class TriggerZoneTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::createFromJson
+     * @covers ::createFromData
      */
     public function testCreateFromJsonWithCircularTriggerZone()
     {
@@ -68,6 +69,7 @@ JSON;
 
     /**
      * @covers ::createFromJson
+     * @covers ::createFromData
      */
     public function testCreateFromJsonWithPolygonalTriggerZone()
     {
@@ -84,6 +86,7 @@ JSON;
 
     /**
      * @covers ::createFromJson
+     * @covers ::createFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\InvalidTriggerZoneTypeFactoryException
      */
@@ -100,6 +103,7 @@ JSON;
 
     /**
      * @covers ::createFromJson
+     * @covers ::createFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
      */

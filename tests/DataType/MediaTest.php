@@ -82,6 +82,7 @@ class MediaTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::__construct
      * @covers ::createFromJson
+     * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
@@ -99,6 +100,7 @@ JSON;
     /**
      * @covers ::__construct
      * @covers ::createFromJson
+     * @covers ::createFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
      */
@@ -111,6 +113,7 @@ JSON;
 
     /**
      * @covers ::createFromJson
+     * @covers ::createFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
      */

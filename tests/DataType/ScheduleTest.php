@@ -49,6 +49,7 @@ class ScheduleTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ::__construct
      * @covers ::createFromJson
+     * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
