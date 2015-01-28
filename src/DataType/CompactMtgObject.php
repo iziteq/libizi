@@ -129,6 +129,9 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
             'hidden' => null,
             'route' => null,
             'children_count' => null,
+            'category' => null,
+            'trigger_zones' => [],
+            'images' => [],
           ];
         if (!isset($data['uuid'])) {
             throw new MissingUuidFactoryException($json);
