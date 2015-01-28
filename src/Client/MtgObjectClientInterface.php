@@ -23,4 +23,15 @@ interface MtgObjectClientInterface {
      */
     public function getMtgObjectByUuid($uuid, array $languages);
 
+    /**
+     * Gets multiple objects by their UUIDs.
+     *
+     * @param string[] $uuids
+     * @param string[] $languages
+     *   ISO 639-1 alpha-2 language codes.
+     *
+     * @return \Triquanta\IziTravel\DataType\FullMtgObjectInterface[]
+     */
+    public function getMtgObjectsByUuids(array $uuids, array $languages);
+
 }

@@ -31,12 +31,20 @@ class MtgObjectClient implements MtgObjectClientInterface {
     }
 
     public function getMtgObjectByUuid($uuid, array $languages) {
-        $json = $this->requestHandler->request('/mtgobjects/' . $uuid, [
+        return $this->getMtgObjectsByUuids([$uuid], $languages)[0];
+    }
+
+    public function getMtgObjectsByUuids(array $uuids, array $languages) {
+        $json = $this->requestHandler->request('/mtgobjects/' . implode(',', $uuids), [
           'languages' => $languages,
         ]);
         $data = json_decode($json);
-        $object_data = $data[0];
-        return FullMtgObject::createFromData($object_data);
+        $objects = [];
+        foreach ($data as $object_data) {
+            $objects[] = FullMtgObject::createFromData($object_data);
+        }
+
+        return $objects;
     }
 
 }
