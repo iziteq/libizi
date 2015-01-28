@@ -68,29 +68,29 @@ class ContactInformation implements ContactInformationInterface
     /**
      * Creates a new instance.
      *
-     * @param string $country_code
+     * @param string $countryCode
      * @param string $city
      * @param string $address
-     * @param string $postal_code
-     * @param string $administrative_subdivision
-     * @param string $phone_number
+     * @param string $postalCode
+     * @param string $administrativeSubdivision
+     * @param string $phoneNumber
      * @param string $website
      */
     public function __construct(
-      $country_code,
+      $countryCode,
       $city,
       $address,
-      $postal_code,
-      $administrative_subdivision,
-      $phone_number,
+      $postalCode,
+      $administrativeSubdivision,
+      $phoneNumber,
       $website
     ) {
-        $this->countryCode = $country_code;
+        $this->countryCode = $countryCode;
         $this->city = $city;
         $this->address = $address;
-        $this->postalCode = $postal_code;
-        $this->administrativeSubdivision = $administrative_subdivision;
-        $this->phoneNumber = $phone_number;
+        $this->postalCode = $postalCode;
+        $this->administrativeSubdivision = $administrativeSubdivision;
+        $this->phoneNumber = $phoneNumber;
         $this->website = $website;
     }
 

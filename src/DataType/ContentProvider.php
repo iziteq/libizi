@@ -35,13 +35,13 @@ class ContentProvider implements ContentProviderInterface
      *
      * @param string $uuid
      * @param string $name
-     * @param string $copyright_message
+     * @param string $copyrightMessage
      */
-    public function __construct($uuid, $name, $copyright_message)
+    public function __construct($uuid, $name, $copyrightMessage)
     {
         $this->uuid = $uuid;
         $this->name = $name;
-        $this->copyrightMessage = $copyright_message;
+        $this->copyrightMessage = $copyrightMessage;
     }
 
     public static function createFromData($data)

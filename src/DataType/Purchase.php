@@ -40,16 +40,16 @@ class Purchase implements PurchaseInterface
     /**
      * Creates a new instance.
      *
-     * @param string $currency_code
+     * @param string $currencyCode
      *   An ISO 4217 currency code.
      * @param float $price
-     * @param string $product_id
+     * @param string $productId
      */
-    public function __construct($currency_code, $price, $product_id)
+    public function __construct($currencyCode, $price, $productId)
     {
-        $this->currencyCode = $currency_code;
+        $this->currencyCode = $currencyCode;
         $this->price = $price;
-        $this->productId = $product_id;
+        $this->productId = $productId;
     }
 
     public static function createFromData($data)

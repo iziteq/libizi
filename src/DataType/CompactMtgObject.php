@@ -63,53 +63,53 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
      * Creates a new instance.
      *
      * @oaram string $uuid
-     * @param string[] $available_language_codes
+     * @param string[] $availableLanguageCodes
      * @param string $category
      * @param string $status
      * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
-     * @param \Triquanta\IziTravel\DataType\TriggerZoneInterface[] $trigger_zones
-     * @param \Triquanta\IziTravel\DataType\ContentProviderInterface $content_provider
+     * @param \Triquanta\IziTravel\DataType\TriggerZoneInterface[] $triggerZones
+     * @param \Triquanta\IziTravel\DataType\ContentProviderInterface $contentProvider
      * @param \Triquanta\IziTravel\DataType\PurchaseInterface|null $purchase
      * @param int $duration
      * @param int $distance
      * @param string $placement
-     * @param bool $visible_on_maps
-     * @param string $language_code
+     * @param bool $visibleOnMaps
+     * @param string $languageCode
      * @param string|null $route
      * @param string $title
      * @param string $summary ;
      * @param \Triquanta\IziTravel\DataType\MediaInterface[] $images
-     * @param int|null $number_of_children
+     * @param int|null $numberOfChildren
      */
     public function __construct(
       $uuid,
-      array $available_language_codes,
+      array $availableLanguageCodes,
       $category,
       $status,
       LocationInterface $location = null,
-      array $trigger_zones,
-      ContentProviderInterface $content_provider,
+      array $triggerZones,
+      ContentProviderInterface $contentProvider,
       PurchaseInterface $purchase = null,
       $duration,
       $distance,
       $placement,
-      $visible_on_maps,
-      $language_code,
+      $visibleOnMaps,
+      $languageCode,
       $route,
       $title,
       $summary,
       array $images,
-      $number_of_children
+      $numberOfChildren
     ) {
-        parent::__construct($uuid, $available_language_codes, $category,
-          $status, $location, $trigger_zones, $content_provider, $purchase,
-          $duration, $distance, $placement, $visible_on_maps);
-        $this->languageCode = $language_code;
+        parent::__construct($uuid, $availableLanguageCodes, $category,
+          $status, $location, $triggerZones, $contentProvider, $purchase,
+          $duration, $distance, $placement, $visibleOnMaps);
+        $this->languageCode = $languageCode;
         $this->route = $route;
         $this->title = $title;
         $this->summary = $summary;
         $this->images = $images;
-        $this->numberOfChildren = $number_of_children;
+        $this->numberOfChildren = $numberOfChildren;
     }
 
     public static function createFromData($data)
@@ -132,18 +132,18 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
         }
 
         $location = $data['location'] ? Location::createFromData($data['location']) : null;
-        $trigger_zones = [];
-        foreach ($data['trigger_zones'] as $trigger_zone_data) {
-            $trigger_zones[] = TriggerZone::createFromData($trigger_zone_data);
+        $triggerZones = [];
+        foreach ($data['trigger_zones'] as $triggerZoneData) {
+            $triggerZones[] = TriggerZone::createFromData($triggerZoneData);
         }
-        $content_provider = $data['content_provider'] ? ContentProvider::createFromData($data['content_provider']) : null;
+        $contentProvider = $data['content_provider'] ? ContentProvider::createFromData($data['content_provider']) : null;
         $purchase = $data['purchase'] ? Purchase::createFromData($data['purchase']) : null;
         $images = [];
-        foreach ($data['images'] as $image_data) {
-            $images[] = Media::createFromData($image_data);
+        foreach ($data['images'] as $imageData) {
+            $images[] = Media::createFromData($imageData);
         }
         return new static($data['uuid'], $data['languages'], $data['category'],
-          $data['status'], $location, $trigger_zones, $content_provider,
+          $data['status'], $location, $triggerZones, $contentProvider,
           $purchase, $data['duration'], $data['distance'], $data['placement'],
           !$data['hidden'], $data['language'], $data['route'], $data['title'],
           $data['summary'], $images, $data['children_count']);

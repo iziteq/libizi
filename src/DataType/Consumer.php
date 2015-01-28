@@ -49,22 +49,22 @@ class Consumer implements ConsumerInterface
      *
      * @param string $uuid
      * @param string $username
-     * @param string $email_address
-     * @param string $mobile_phone_number
-     * @param mixed[] $custom_storage
+     * @param string $emailAddress
+     * @param string $mobilePhoneNumber
+     * @param mixed[] $customStorage
      */
     public function __construct(
       $uuid,
       $username,
-      $email_address,
-      $mobile_phone_number,
-      array $custom_storage
+      $emailAddress,
+      $mobilePhoneNumber,
+      array $customStorage
     ) {
         $this->uuid = $uuid;
         $this->username = $username;
-        $this->emailAddress = $email_address;
-        $this->mobilePhoneNumber = $mobile_phone_number;
-        $this->customStorage = $custom_storage;
+        $this->emailAddress = $emailAddress;
+        $this->mobilePhoneNumber = $mobilePhoneNumber;
+        $this->customStorage = $customStorage;
     }
 
     public static function createFromData($data)

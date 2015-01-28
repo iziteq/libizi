@@ -54,8 +54,8 @@ class Quiz implements QuizInterface
     {
         $data = (array) $data;
         $answers = [];
-        foreach ($data['answers'] as $answer_data) {
-            $answers[] = QuizAnswer::createFromData($answer_data);
+        foreach ($data['answers'] as $answerData) {
+            $answers[] = QuizAnswer::createFromData($answerData);
         }
         return new static($data['question'], $answers, $data['comment']);
     }

@@ -15,7 +15,7 @@ interface RequestHandlerInterface {
     /**
      * Executes an MTG API request.
      *
-     * @param string $url_path
+     * @param string $urlPath
      *   The API URL path relative to the API's base URL.
      * @param mixed[] $parameters
      *   Keys are query parameter names and values are parameter values.
@@ -27,6 +27,6 @@ interface RequestHandlerInterface {
      * @throws \Triquanta\IziTravel\Client\HttpRequestException
      * @throws \Triquanta\IziTravel\Client\ErrorResponseException
      */
-    public function request($url_path, array $parameters = []);
+    public function request($urlPath, array $parameters = []);
 
 }

@@ -56,21 +56,21 @@ class Location implements LocationInterface
      * @param float|null $latitude
      * @param float|null $longitude
      * @param float|null $altitude
-     * @param string|null $exhibit_number
-     * @param string|null $public_ip_address
+     * @param string|null $exhibitNumber
+     * @param string|null $publicIpAddress
      */
     public function __construct(
       $latitude,
       $longitude,
       $altitude,
-      $exhibit_number,
-      $public_ip_address
+      $exhibitNumber,
+      $publicIpAddress
     ) {
         $this->latitude = $latitude;
         $this->longitude = $longitude;
         $this->altitude = $altitude;
-        $this->exhibitNumber = $exhibit_number;
-        $this->publicIpAddress = $public_ip_address;
+        $this->exhibitNumber = $exhibitNumber;
+        $this->publicIpAddress = $publicIpAddress;
     }
 
     public static function createFromData($data)

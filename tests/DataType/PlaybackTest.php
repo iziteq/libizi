@@ -98,12 +98,12 @@ JSON;
      */
     public function testIsRandom()
     {
-        $playback_random = new Playback(Playback::TYPE_RANDOM, $this->uuids);
-        $playback_sequantial = new Playback(Playback::TYPE_SEQUENTIAL,
+        $playbackRandom = new Playback(Playback::TYPE_RANDOM, $this->uuids);
+        $playbackSequential = new Playback(Playback::TYPE_SEQUENTIAL,
           $this->uuids);
 
-        $this->assertTrue($playback_random->isRandom());
-        $this->assertFalse($playback_sequantial->isRandom());
+        $this->assertTrue($playbackRandom->isRandom());
+        $this->assertFalse($playbackSequential->isRandom());
     }
 
     /**
@@ -111,12 +111,12 @@ JSON;
      */
     public function testIsSequential()
     {
-        $playback_random = new Playback(Playback::TYPE_RANDOM, $this->uuids);
-        $playback_sequantial = new Playback(Playback::TYPE_SEQUENTIAL,
+        $playbackRandom = new Playback(Playback::TYPE_RANDOM, $this->uuids);
+        $playbackSequential = new Playback(Playback::TYPE_SEQUENTIAL,
           $this->uuids);
 
-        $this->assertFalse($playback_random->isSequential());
-        $this->assertTrue($playback_sequantial->isSequential());
+        $this->assertFalse($playbackRandom->isSequential());
+        $this->assertTrue($playbackSequential->isSequential());
     }
 
 }

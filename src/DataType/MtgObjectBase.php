@@ -101,44 +101,44 @@ abstract class MtgObjectBase implements MtgObjectInterface
      * Creates a new instance.
      *
      * @param string $uuid
-     * @param string[] $available_language_codes
+     * @param string[] $availableLanguageCodes
      * @param string $category
      * @param string $status
      * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
-     * @param \Triquanta\IziTravel\DataType\TriggerZoneInterface[] $trigger_zones
-     * @param \Triquanta\IziTravel\DataType\ContentProviderInterface $content_provider
+     * @param \Triquanta\IziTravel\DataType\TriggerZoneInterface[] $triggerZones
+     * @param \Triquanta\IziTravel\DataType\ContentProviderInterface $contentProvider
      * @param \Triquanta\IziTravel\DataType\PurchaseInterface|null $purchase
      * @param int $duration
      * @param int $distance
      * @param string $placement
-     * @param bool $visible_on_maps
+     * @param bool $visibleOnMaps
      */
     public function __construct(
       $uuid,
-      array $available_language_codes,
+      array $availableLanguageCodes,
       $category,
       $status,
       LocationInterface $location = null,
-      array $trigger_zones,
-      ContentProviderInterface $content_provider,
+      array $triggerZones,
+      ContentProviderInterface $contentProvider,
       PurchaseInterface $purchase = null,
       $duration,
       $distance,
       $placement,
-      $visible_on_maps
+      $visibleOnMaps
     ) {
         $this->uuid = $uuid;
-        $this->availableLanguageCodes = $available_language_codes;
+        $this->availableLanguageCodes = $availableLanguageCodes;
         $this->category = $category;
         $this->status = $status;
         $this->location = $location;
-        $this->triggerZones = $trigger_zones;
-        $this->contentProvider = $content_provider;
+        $this->triggerZones = $triggerZones;
+        $this->contentProvider = $contentProvider;
         $this->purchase = $purchase;
         $this->duration = $duration;
         $this->distance = $distance;
         $this->placement = $placement;
-        $this->visibleOnMaps = $visible_on_maps;
+        $this->visibleOnMaps = $visibleOnMaps;
     }
 
     public function getAvailableLanguageCodes()

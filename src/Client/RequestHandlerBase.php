@@ -52,9 +52,9 @@ abstract class RequestHandlerBase implements RequestHandlerInterface {
      */
     abstract protected function getBaseUrl();
 
-    public function request($url_path, array $parameters = []) {
+    public function request($urlPath, array $parameters = []) {
         $request = $this->httpClient->createRequest('GET');
-        $url = rtrim($this->getBaseUrl(), '/') . '/' . trim($url_path, '/');
+        $url = rtrim($this->getBaseUrl(), '/') . '/' . trim($urlPath, '/');
         $request->setUrl($url);
         // Set the API key in a header instead of a URL parameter, so it will
         // not accidentally end up in log messages.
@@ -70,12 +70,12 @@ abstract class RequestHandlerBase implements RequestHandlerInterface {
             throw new HttpRequestException(sprintf('An exception was thrown during the API request to %s.', $request->getUrl()), 0, $e);
         }
 
-        $response_data = json_decode($json);
+        $responseData = json_decode($json);
         if (json_last_error()) {
             throw new HttpRequestException(sprintf('The request to %s did not return valid JSON.', $request->getUrl()));
         }
-        elseif (is_array($response_data) && isset($response_data['error'])) {
-            throw new ErrorResponseException($response_data['error'], $response_data['code']);
+        elseif (is_array($responseData) && isset($responseData['error'])) {
+            throw new ErrorResponseException($responseData['error'], $responseData['code']);
         }
         else {
             return $json;

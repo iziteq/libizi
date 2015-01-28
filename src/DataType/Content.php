@@ -103,7 +103,7 @@ class Content implements ContentInterface
     /**
      * Creates a new instance.
      *
-     * @param string $language_code
+     * @param string $languageCode
      * @param string $title
      * @param string $summary
      * @param string $description
@@ -117,7 +117,7 @@ class Content implements ContentInterface
      * @param \Triquanta\IziTravel\DataType\QuizInterface|null $quiz
      */
     public function __construct(
-      $language_code,
+      $languageCode,
       $title,
       $summary,
       $description,
@@ -130,7 +130,7 @@ class Content implements ContentInterface
       array $references,
       $quiz
     ) {
-        $this->languageCode = $language_code;
+        $this->languageCode = $languageCode;
         $this->title = $title;
         $this->summary = $summary;
         $this->description = $description;
@@ -157,28 +157,28 @@ class Content implements ContentInterface
             'quiz' => null,
           ];
         $images = [];
-        foreach ($data['images'] as $image_data) {
-            $images[] = Media::createFromData($image_data);
+        foreach ($data['images'] as $imageData) {
+            $images[] = Media::createFromData($imageData);
         }
         $audio = [];
-        foreach ($data['audio'] as $audio_data) {
-            $audio[] = Media::createFromData($audio_data);
+        foreach ($data['audio'] as $audioData) {
+            $audio[] = Media::createFromData($audioData);
         }
         $video = [];
-        foreach ($data['video'] as $video_data) {
-            $video[] = Media::createFromData($video_data);
+        foreach ($data['video'] as $videoData) {
+            $video[] = Media::createFromData($videoData);
         }
         $children = [];
-        foreach ($data['children'] as $children_data) {
-            $children[] = CompactMtgObject::createFromData($children_data);
+        foreach ($data['children'] as $childrenData) {
+            $children[] = CompactMtgObject::createFromData($childrenData);
         }
         $collections = [];
-        foreach ($data['collections'] as $collections_data) {
-            $collections[] = CompactMtgObject::createFromData($collections_data);
+        foreach ($data['collections'] as $collectionsData) {
+            $collections[] = CompactMtgObject::createFromData($collectionsData);
         }
         $references = [];
-        foreach ($data['references'] as $references_data) {
-            $references[] = CompactMtgObject::createFromData($references_data);
+        foreach ($data['references'] as $referencesData) {
+            $references[] = CompactMtgObject::createFromData($referencesData);
         }
         return new static($data['language'], $data['title'], $data['summary'],
           $data['desc'], $data['playback'], $data['images'], $data['audio'],

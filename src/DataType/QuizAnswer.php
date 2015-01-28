@@ -33,12 +33,12 @@ class QuizAnswer implements QuizAnswerInterface
      * Creates a new instance.
      *
      * @param string $answer
-     * @param bool $is_correct
+     * @param bool $isCorrect
      */
-    public function __construct($answer, $is_correct)
+    public function __construct($answer, $isCorrect)
     {
         $this->answer = $answer;
-        $this->isCorrect = $is_correct;
+        $this->isCorrect = $isCorrect;
     }
 
     public static function createFromData($data)
