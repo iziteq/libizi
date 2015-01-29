@@ -37,8 +37,8 @@ PSR-4
 -----
 Class and interface autoloading is done using PSR-4 using the following
 namespace mappings:
-- `\Triquanta\IziTravel` maps to ./src
-- `\Triquanta\IziTravel\Tests` maps to ./tests
+* `\Triquanta\IziTravel` maps to ./src
+* `\Triquanta\IziTravel\Tests` maps to ./tests
 
 PHPUnit
 -------
