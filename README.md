@@ -35,8 +35,9 @@ All code must be written according the
 
 PSR-4
 -----
-Class and interface autoloading is done using PSR-4 using the following
-namespace mappings:
+Class and interface autoloading is done using
+[PSR-4](http://www.php-fig.org/psr/psr-4/) using the following namespace
+mappings:
 
 * `\Triquanta\IziTravel` maps to `./src`
 * `\Triquanta\IziTravel\Tests` maps to `./tests`
