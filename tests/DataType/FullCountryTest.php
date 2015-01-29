@@ -1,0 +1,253 @@
+<?php
+
+/**
+ * @file
+ * Contains \Triquanta\IziTravel\Tests\DataType\FullCountryTest.
+ */
+
+namespace Triquanta\IziTravel\Tests\DataType;
+
+use Triquanta\IziTravel\DataType\FullCountry;
+use Triquanta\IziTravel\DataType\CountryInterface;
+
+/**
+ * @coversDefaultClass \Triquanta\IziTravel\DataType\FullCountry
+ */
+class FullCountryTest extends \PHPUnit_Framework_TestCase
+{
+
+  /**
+   * The UUID.
+   *
+   * @var string
+   */
+  protected $uuid;
+
+  /**
+   * The country code.
+   *
+   * @var string|null
+   *   An ISO 3166-1 alpha-2 country code.
+   */
+  protected $countryCode;
+
+  /**
+   * The map.
+   *
+   * @var \Triquanta\IziTravel\DataType\MapInterface|null
+   */
+  protected $map;
+
+  /**
+   * The translations.
+   *
+   * @var \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[]
+   */
+  protected $translations = [];
+
+  /**
+   * The location.
+   *
+   * @var \Triquanta\IziTravel\DataType\LocationInterface|null
+   */
+  protected $location;
+
+  /**
+   * The status.
+   *
+   * @var string
+   */
+  protected $status;
+
+  /**
+   * The content.
+   *
+   * @Var \Triquanta\IziTravel\DataType\CountryContentInterface[]
+   */
+  protected $content;
+
+  /**
+   * The class under test.
+   *
+   * @var \Triquanta\IziTravel\DataType\FullCountry|\PHPUnit_Framework_MockObject_MockObject
+   */
+  protected $sut;
+
+  public function setUp()
+  {
+    $this->uuid = 'foo-bar-baz-' . mt_rand();
+
+    $this->countryCode = 'UA';
+
+    $this->map = $this->getMock('\Triquanta\IziTravel\DataType\MapInterface');
+
+    $this->translations = [
+      $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
+    ];
+
+    $this->status = CountryInterface::STATUS_PUBLISHED;
+
+    $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
+
+    $this->content = [
+      $this->getMock('\Triquanta\IziTravel\DataType\CountryContentInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\CountryContentInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\CountryContentInterface'),
+    ];
+
+    $this->sut = new FullCountry(
+        $this->uuid,
+        $this->countryCode,
+        $this->map,
+        $this->translations,
+        $this->location,
+        $this->status,
+        $this->content
+      );
+  }
+
+  /**
+   * @covers ::__construct
+   * @covers ::createFromJson
+   * @covers ::createFromData
+   */
+  public function testCreateFromJson()
+  {
+    $json = <<<'JSON'
+{
+    "uuid": "15845ecf-4274-4286-b086-e407ff8207de",
+    "type": "country",
+    "languages": [
+        "nl",
+        "de",
+        "en",
+        "fr",
+        "es",
+        "it",
+        "ru",
+        "ja"
+    ],
+    "status": "published",
+    "map": {
+        "bounds": "50.7503838,3.357962,53.5560213,7.2275102"
+    },
+    "hash": "625fa5ae924390fdc162e25d704549f83ec2dac8",
+    "country_code": "nl",
+    "content": [
+        {
+            "title": "Netherlands",
+            "summary": "",
+            "desc": "",
+            "language": "en"
+        }
+    ],
+    "location": {
+        "altitude": 0,
+        "latitude": 52.132633,
+        "longitude": 5.291266
+    },
+    "translations": [
+            {
+                "name": "Amsterdam",
+                "language": "en"
+            },
+            {
+                "name": "Amesterdão",
+                "language": "pt"
+            },
+            {
+                "name": "Amsterdam",
+                "language": "ro"
+            }
+        ]
+}
+JSON;
+
+    FullCountry::createFromJson($json);
+  }
+
+  /**
+   * @covers ::__construct
+   * @covers ::createFromJson
+   * @covers ::createFromData
+   *
+   * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
+   */
+  public function testCreateFromJsonWithInvalidJson()
+  {
+    $json = 'foo';
+
+    FullCountry::createFromJson($json);
+  }
+
+  /**
+   * @covers ::createFromJson
+   * @covers ::createFromData
+   *
+   * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
+   */
+  public function testCreateFromJsonWithoutUuid()
+  {
+    $json = <<<'JSON'
+{
+    "type": "country",
+    "languages": [
+        "nl",
+        "de",
+        "en",
+        "fr",
+        "es",
+        "it",
+        "ru",
+        "ja"
+    ],
+    "status": "published",
+    "map": {
+        "bounds": "50.7503838,3.357962,53.5560213,7.2275102"
+    },
+    "hash": "625fa5ae924390fdc162e25d704549f83ec2dac8",
+    "country_code": "nl",
+    "content": [
+        {
+            "title": "Netherlands",
+            "summary": "",
+            "desc": "",
+            "language": "en"
+        }
+    ],
+    "location": {
+        "altitude": 0,
+        "latitude": 52.132633,
+        "longitude": 5.291266
+    },
+    "translations": [
+            {
+                "name": "Amsterdam",
+                "language": "en"
+            },
+            {
+                "name": "Amesterdão",
+                "language": "pt"
+            },
+            {
+                "name": "Amsterdam",
+                "language": "ro"
+            }
+        ]
+}
+JSON;
+
+    FullCountry::createFromJson($json);
+  }
+
+  /**
+   * @covers ::getContent
+   */
+  public function testGetContent()
+  {
+    $this->assertSame($this->content, $this->sut->getContent());
+  }
+
+}

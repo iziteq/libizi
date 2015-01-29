@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines an MTG object data type.
  */
-interface MtgObjectInterface extends FactoryInterface, UuidInterface
+interface MtgObjectInterface extends FactoryInterface, TranslatableInterface, UuidInterface
 {
 
     /**
@@ -87,14 +87,6 @@ interface MtgObjectInterface extends FactoryInterface, UuidInterface
      * A outdoor object.
      */
     const PLACEMENT_OUTDOOR = 'outdoor';
-
-    /**
-     * Gets language codes for available translations.
-     *
-     * @return string[]
-     *   Values are ISO 639-1 alpha-2 language codes.
-     */
-    public function getAvailableLanguageCodes();
 
     /**
      * Gets the category.

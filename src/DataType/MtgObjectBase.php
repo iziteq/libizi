@@ -13,15 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 abstract class MtgObjectBase implements MtgObjectInterface
 {
 
+    use TranslatableTrait;
     use UuidTrait;
-
-    /**
-     * The language codes for available translations.
-     *
-     * @var string[]
-     *   Values are ISO 639-1 alpha-2 language codes.
-     */
-    protected $availableLanguageCodes = [];
 
     /**
      * Gets the category.
@@ -139,11 +132,6 @@ abstract class MtgObjectBase implements MtgObjectInterface
         $this->distance = $distance;
         $this->placement = $placement;
         $this->visibleOnMaps = $visibleOnMaps;
-    }
-
-    public function getAvailableLanguageCodes()
-    {
-        return $this->availableLanguageCodes;
     }
 
     public function getCategory()
