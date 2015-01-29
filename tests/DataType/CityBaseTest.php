@@ -23,6 +23,21 @@ class CityBaseTest extends \PHPUnit_Framework_TestCase
   protected $uuid;
 
   /**
+   * The revision hash.
+   *
+   * @var string
+   */
+  protected $revisionHash;
+
+  /**
+   * The language codes for available translations.
+   *
+   * @var string[]
+   *   Values are ISO 639-1 alpha-2 language codes.
+   */
+  protected $availableLanguageCodes = [];
+
+  /**
    * The language.
    *
    * @var string
@@ -83,6 +98,10 @@ class CityBaseTest extends \PHPUnit_Framework_TestCase
   {
     $this->uuid = 'foo-bar-baz-' . mt_rand();
 
+    $this->revisionHash = 'hwg98309t82ohtwqlekhgf0823yt';
+
+    $this->availableLanguageCodes = ['nl', 'uk'];
+
     $this->languageCode = 'uk';
 
     $this->map = $this->getMock('\Triquanta\IziTravel\DataType\MapInterface');
@@ -104,6 +123,8 @@ class CityBaseTest extends \PHPUnit_Framework_TestCase
     $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\CityBase',
       [
         $this->uuid,
+        $this->revisionHash,
+        $this->availableLanguageCodes,
         $this->map,
         $this->translations,
         $this->location,
@@ -121,6 +142,8 @@ class CityBaseTest extends \PHPUnit_Framework_TestCase
     $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\CityBase',
       [
         $this->uuid,
+        $this->revisionHash,
+        $this->availableLanguageCodes,
         $this->map,
         $this->translations,
         $this->location,

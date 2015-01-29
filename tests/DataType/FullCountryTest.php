@@ -24,6 +24,21 @@ class FullCountryTest extends \PHPUnit_Framework_TestCase
   protected $uuid;
 
   /**
+   * The revision hash.
+   *
+   * @var string
+   */
+  protected $revisionHash;
+
+  /**
+   * The language codes for available translations.
+   *
+   * @var string[]
+   *   Values are ISO 639-1 alpha-2 language codes.
+   */
+  protected $availableLanguageCodes = [];
+
+  /**
    * The country code.
    *
    * @var string|null
@@ -77,6 +92,10 @@ class FullCountryTest extends \PHPUnit_Framework_TestCase
   {
     $this->uuid = 'foo-bar-baz-' . mt_rand();
 
+    $this->revisionHash = 'hwg98309t82ohtwqlekhgf0823yt';
+
+    $this->availableLanguageCodes = ['nl', 'uk'];
+
     $this->countryCode = 'UA';
 
     $this->map = $this->getMock('\Triquanta\IziTravel\DataType\MapInterface');
@@ -99,6 +118,8 @@ class FullCountryTest extends \PHPUnit_Framework_TestCase
 
     $this->sut = new FullCountry(
         $this->uuid,
+        $this->revisionHash,
+        $this->availableLanguageCodes,
         $this->countryCode,
         $this->map,
         $this->translations,

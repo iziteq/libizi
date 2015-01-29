@@ -24,6 +24,8 @@ class FullCity extends CityBase implements FullCityInterface
    * Created a new instance.
    *
    * @param string $uuid
+   * @param string $revisionHash
+   * @param string[] $availableLanguageCodes
    * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
    * @param \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[] $translations
    * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
@@ -32,8 +34,8 @@ class FullCity extends CityBase implements FullCityInterface
    * @param bool $visible
    * @param \Triquanta\IziTravel\DataType\CityContentInterface[] $content
    */
-  public function __construct($uuid, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, $numberOfChildren, $visible, array $content) {
-    parent::__construct($uuid, $map, $translations, $location, $status, $numberOfChildren, $visible);
+  public function __construct($uuid, $revisionHash, $availableLanguageCodes, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, $numberOfChildren, $visible, array $content) {
+    parent::__construct($uuid, $revisionHash, $availableLanguageCodes, $map, $translations, $location, $status, $numberOfChildren, $visible);
     $this->content = $content;
   }
 
@@ -58,7 +60,7 @@ class FullCity extends CityBase implements FullCityInterface
       $content[] = CountryContent::createFromData($contentData);
     }
 
-    return new static($data['uuid'], $map, $translations, $location, $data['status'], $data['children_count'], $data['visible'], $content);
+    return new static($data['uuid'], $data['hash'], $data['languages'], $map, $translations, $location, $data['status'], $data['children_count'], $data['visible'], $content);
   }
 
   public function getContent() {

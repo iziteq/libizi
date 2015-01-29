@@ -24,6 +24,8 @@ class FullCountry extends CountryBase implements FullCountryInterface
    * Created a new instance.
    *
    * @param string $uuid
+   * @param string $revisionHash
+   * @param string[] $availableLanguageCodes
    * @param string $countryCode
    * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
    * @param \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[] $translations
@@ -31,8 +33,8 @@ class FullCountry extends CountryBase implements FullCountryInterface
    * @param string $status
    * @param \Triquanta\IziTravel\DataType\CountryContentInterface[] $content
    */
-  public function __construct($uuid, $countryCode, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, array $content) {
-    parent::__construct($uuid, $countryCode, $map, $translations, $location, $status);
+  public function __construct($uuid, $revisionHash, $availableLanguageCodes, $countryCode, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, array $content) {
+    parent::__construct($uuid, $revisionHash, $availableLanguageCodes, $countryCode, $map, $translations, $location, $status);
     $this->content = $content;
   }
 
@@ -57,7 +59,7 @@ class FullCountry extends CountryBase implements FullCountryInterface
       $content[] = CountryContent::createFromData($contentData);
     }
 
-    return new static($data['uuid'], $data['country_code'], $map, $translations, $location, $data['status'], $content);
+    return new static($data['uuid'], $data['hash'], $data['languages'], $data['country_code'], $map, $translations, $location, $data['status'], $content);
   }
 
   public function getContent() {

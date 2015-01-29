@@ -58,14 +58,18 @@ abstract class CountryBase implements CountryInterface
    * Created a new instance.
    *
    * @param string $uuid
+   * @param string $revisionHash
+   * @param string[] $availableLanguageCodes
    * @param string $countryCode
    * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
    * @param \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[] $translations
    * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
    * @param string $status
    */
-  public function __construct($uuid, $countryCode, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status) {
+  public function __construct($uuid, $revisionHash, $availableLanguageCodes, $countryCode, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status) {
     $this->uuid = $uuid;
+    $this->revisionHash = $revisionHash;
+    $this->availableLanguageCodes = $availableLanguageCodes;
     $this->countryCode = $countryCode;
     $this->map = $map;
     $this->translations = $translations;

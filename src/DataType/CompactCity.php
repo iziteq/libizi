@@ -46,6 +46,8 @@ class CompactCity extends CityBase implements CompactCityInterface
    * Created a new instance.
    *
    * @param string $uuid
+   * @param string $revisionHash
+   * @param string[] $availableLanguageCodes
    * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
    * @param \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[] $translations
    * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
@@ -57,8 +59,8 @@ class CompactCity extends CityBase implements CompactCityInterface
    * @param string $summary
    * @param \Triquanta\IziTravel\DataType\MediaInterface[] $images
    */
-  public function __construct($uuid, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, $numberOfChildren, $visible, $languageCode, $title, $summary, array $images) {
-    parent::__construct($uuid, $map, $translations, $location, $status, $numberOfChildren, $visible);
+  public function __construct($uuid, $revisionHash, array $availableLanguageCodes, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, $numberOfChildren, $visible, $languageCode, $title, $summary, array $images) {
+    parent::__construct($uuid, $revisionHash, $availableLanguageCodes, $map, $translations, $location, $status, $numberOfChildren, $visible);
     $this->languageCode = $languageCode;
     $this->title = $title;
     $this->summary = $summary;
@@ -87,7 +89,7 @@ class CompactCity extends CityBase implements CompactCityInterface
       $images[] = Media::createFromData($imageData);
     }
 
-    return new static($data['uuid'], $map, $translations, $location, $data['status'], $data['children_count'], $data['visible'], $data['language'], $data['title'], $data['summary'], $images);
+    return new static($data['uuid'], $data['hash'], $data['languages'], $map, $translations, $location, $data['status'], $data['children_count'], $data['visible'], $data['language'], $data['title'], $data['summary'], $images);
   }
 
   public function getLanguageCode() {

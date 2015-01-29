@@ -64,6 +64,8 @@ abstract class CityBase implements CityInterface
    * Created a new instance.
    *
    * @param string $uuid
+   * @param string $revisionHash
+   * @param string[] $availableLanguageCodes
    * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
    * @param \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[] $translations
    * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
@@ -71,8 +73,10 @@ abstract class CityBase implements CityInterface
    * @param int|null $numberOfChildren
    * @param bool $visible
    */
-  public function __construct($uuid, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, $numberOfChildren, $visible) {
+  public function __construct($uuid, $revisionHash, array $availableLanguageCodes, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, $numberOfChildren, $visible) {
     $this->uuid = $uuid;
+    $this->revisionHash = $revisionHash;
+    $this->availableLanguageCodes = $availableLanguageCodes;
     $this->map = $map;
     $this->translations = $translations;
     $this->location = $location;

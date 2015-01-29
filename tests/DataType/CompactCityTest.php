@@ -24,6 +24,21 @@ class CompactCityTest extends \PHPUnit_Framework_TestCase
   protected $uuid;
 
   /**
+   * The revision hash.
+   *
+   * @var string
+   */
+  protected $revisionHash;
+
+  /**
+   * The language codes for available translations.
+   *
+   * @var string[]
+   *   Values are ISO 639-1 alpha-2 language codes.
+   */
+  protected $availableLanguageCodes = [];
+
+  /**
    * The map.
    *
    * @var \Triquanta\IziTravel\DataType\MapInterface|null
@@ -105,6 +120,10 @@ class CompactCityTest extends \PHPUnit_Framework_TestCase
   {
     $this->uuid = 'foo-bar-baz-' . mt_rand();
 
+    $this->revisionHash = 'hwg98309t82ohtwqlekhgf0823yt';
+
+    $this->availableLanguageCodes = ['nl', 'uk'];
+
     $this->languageCode = 'uk';
 
     $this->map = $this->getMock('\Triquanta\IziTravel\DataType\MapInterface');
@@ -133,7 +152,7 @@ class CompactCityTest extends \PHPUnit_Framework_TestCase
       $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
     ];
 
-    $this->sut = new CompactCity($this->uuid, $this->map, $this->translations, $this->location, $this->status, $this->numberOfChildren, $this->visible, $this->languageCode, $this->title, $this->summary, $this->images);
+    $this->sut = new CompactCity($this->uuid, $this->revisionHash, $this->availableLanguageCodes, $this->map, $this->translations, $this->location, $this->status, $this->numberOfChildren, $this->visible, $this->languageCode, $this->title, $this->summary, $this->images);
   }
 
   /**

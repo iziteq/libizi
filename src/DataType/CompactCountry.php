@@ -39,6 +39,8 @@ class CompactCountry extends CountryBase implements CompactCountryInterface
    * Created a new instance.
    *
    * @param string $uuid
+   * @param string $revisionHash
+   * @param string[] $availableLanguageCodes
    * @param string $countryCode
    * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
    * @param \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[] $translations
@@ -48,8 +50,8 @@ class CompactCountry extends CountryBase implements CompactCountryInterface
    * @param string $title
    * @param string $summary
    */
-  public function __construct($uuid, $countryCode, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, $languageCode, $title, $summary) {
-    parent::__construct($uuid, $countryCode, $map, $translations, $location, $status);
+  public function __construct($uuid, $revisionHash, $availableLanguageCodes, $countryCode, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, $languageCode, $title, $summary) {
+    parent::__construct($uuid, $revisionHash, $availableLanguageCodes, $countryCode, $map, $translations, $location, $status);
     $this->languageCode = $languageCode;
     $this->title = $title;
     $this->summary = $summary;
@@ -72,7 +74,7 @@ class CompactCountry extends CountryBase implements CompactCountryInterface
       $translations[] = CountryCityTranslation::createFromData($translationData);
     }
 
-    return new static($data['uuid'], $data['country_code'], $map, $translations, $location, $data['status'], $data['language'], $data['title'], $data['summary']);
+    return new static($data['uuid'], $data['hash'], $data['languages'], $data['country_code'], $map, $translations, $location, $data['status'], $data['language'], $data['title'], $data['summary']);
   }
 
   public function getLanguageCode() {
