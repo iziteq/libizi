@@ -2,15 +2,15 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\DataType\CountryContentInterface.
+ * Contains \Triquanta\IziTravel\DataType\CityContentInterface.
  */
 
 namespace Triquanta\IziTravel\DataType;
 
 /**
- * Defines a country content data type.
+ * Defines a city content data type.
  */
-interface CountryContentInterface extends FactoryInterface {
+interface CityContentInterface extends FactoryInterface {
 
   /**
    * Gets the language code.
@@ -40,5 +40,12 @@ interface CountryContentInterface extends FactoryInterface {
    * @return string
    */
   public function getDescription();
+
+  /**
+   * Gets the images.
+   *
+   * @return \Triquanta\IziTravel\DataType\MediaInterface[]
+   */
+  public function getImages();
 
 }

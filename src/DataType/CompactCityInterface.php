@@ -2,18 +2,19 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\DataType\CountryContentInterface.
+ * Contains \Triquanta\IziTravel\DataType\CompactCityInterface.
  */
 
 namespace Triquanta\IziTravel\DataType;
 
 /**
- * Defines a country content data type.
+ * Defines a city data type in compact form.
  */
-interface CountryContentInterface extends FactoryInterface {
+interface CompactCityInterface extends CityInterface
+{
 
   /**
-   * Gets the language code.
+   * Gets the language.
    *
    * @return string
    *   An ISO 639-1 alpha-2 language code.
@@ -35,10 +36,10 @@ interface CountryContentInterface extends FactoryInterface {
   public function getSummary();
 
   /**
-   * Gets the description.
+   * Gets the images.
    *
-   * @return string
+   * @return \Triquanta\IziTravel\DataType\MediaInterface[]
    */
-  public function getDescription();
+  public function getImages();
 
 }
