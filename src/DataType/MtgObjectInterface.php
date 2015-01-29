@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines an MTG object data type.
  */
-interface MtgObjectInterface extends FactoryInterface, TranslatableInterface, UuidInterface
+interface MtgObjectInterface extends FactoryInterface, RevisionableInterface, TranslatableInterface, UuidInterface
 {
 
     /**

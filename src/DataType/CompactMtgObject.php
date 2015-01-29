@@ -63,6 +63,7 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
      * Creates a new instance.
      *
      * @oaram string $uuid
+     * @param string $revisionHash
      * @param string[] $availableLanguageCodes
      * @param string $category
      * @param string $status
@@ -83,6 +84,7 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
      */
     public function __construct(
       $uuid,
+      $revisionHash,
       array $availableLanguageCodes,
       $category,
       $status,
@@ -101,7 +103,7 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
       array $images,
       $numberOfChildren
     ) {
-        parent::__construct($uuid, $availableLanguageCodes, $category,
+        parent::__construct($uuid, $revisionHash, $availableLanguageCodes, $category,
           $status, $location, $triggerZones, $contentProvider, $purchase,
           $duration, $distance, $placement, $visibleOnMaps);
         $this->languageCode = $languageCode;
@@ -142,7 +144,7 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
         foreach ($data['images'] as $imageData) {
             $images[] = Media::createFromData($imageData);
         }
-        return new static($data['uuid'], $data['languages'], $data['category'],
+        return new static($data['uuid'], $data['hash'], $data['languages'], $data['category'],
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase, $data['duration'], $data['distance'], $data['placement'],
           !$data['hidden'], $data['language'], $data['route'], $data['title'],

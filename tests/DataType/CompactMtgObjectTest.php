@@ -150,6 +150,13 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
     protected $numberOfChildren;
 
     /**
+     * The revision hash.
+     *
+     * @var string
+     */
+    protected $revisionHash;
+
+    /**
      * The class under test.
      *
      * @var \Triquanta\IziTravel\DataType\CompactMtgObject
@@ -159,6 +166,8 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->uuid = 'foo-bar-baz-' . mt_rand();
+
+        $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
 
         $this->availableLanguageCodes = ['nl', 'uk'];
 
@@ -202,7 +211,7 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
 
         $this->numberOfChildren = mt_rand();
 
-        $this->sut = new CompactMtgObject($this->uuid,
+        $this->sut = new CompactMtgObject($this->uuid, $this->revisionHash,
           $this->availableLanguageCodes, $this->category, $this->status,
           $this->location, $this->triggerZones, $this->contentProvider,
           $this->purchase, $this->duration, $this->distance, $this->placement,
@@ -220,6 +229,7 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
         $json = <<<'JSON'
 {
   "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
+  "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
   "type":       "story_navigation",
   "title":      "Foo to the bar",
   "summary":    "A story about foo to the bar.",

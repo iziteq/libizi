@@ -141,6 +141,13 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
     protected $content;
 
     /**
+     * The revision hash.
+     *
+     * @var string
+     */
+    protected $revisionHash;
+
+    /**
      * The class under test.
      *
      * @var \Triquanta\IziTravel\DataType\FullMtgObject
@@ -150,6 +157,8 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->uuid = 'foo-bar-baz-' . mt_rand();
+
+        $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
 
         $this->availableLanguageCodes = ['nl', 'uk'];
 
@@ -192,7 +201,7 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
           $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
         ];
 
-        $this->sut = new FullMtgObject($this->uuid,
+        $this->sut = new FullMtgObject($this->uuid, $this->revisionHash,
           $this->availableLanguageCodes, $this->category, $this->status,
           $this->location, $this->triggerZones, $this->contentProvider,
           $this->purchase, $this->duration, $this->distance, $this->placement,
@@ -210,6 +219,7 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
         $json = <<<'JSON'
 {
   "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
+  "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
   "type":       "story_navigation",
   "category":   "bike",
   "status":     "published",

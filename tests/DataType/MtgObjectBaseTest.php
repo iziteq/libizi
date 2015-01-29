@@ -105,6 +105,13 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     protected $visibleOnMaps = false;
 
     /**
+     * The revision hash.
+     *
+     * @var string
+     */
+    protected $revisionHash;
+
+    /**
      * The class under test.
      *
      * @var \Triquanta\IziTravel\DataType\MtgObjectBase|\PHPUnit_Framework_MockObject_MockObject
@@ -114,6 +121,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->uuid = 'foo-bar-baz-' . mt_rand();
+
+        $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
 
         $this->availableLanguageCodes = ['nl', 'uk'];
 
@@ -150,6 +159,7 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MtgObjectBase',
           [
             $this->uuid,
+            $this->revisionHash,
             $this->availableLanguageCodes,
             $this->category,
             $this->status,
@@ -172,6 +182,7 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MtgObjectBase',
           [
             $this->uuid,
+            $this->revisionHash,
             $this->availableLanguageCodes,
             $this->category,
             $this->status,

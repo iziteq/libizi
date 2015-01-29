@@ -211,6 +211,7 @@ class ContentTest extends \PHPUnit_Framework_TestCase
   "children": [
     {
       "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
+      "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
       "type":       "story_navigation",
       "title":      "Foo to the bar",
       "summary":    "A story about foo to the bar.",
@@ -252,6 +253,7 @@ class ContentTest extends \PHPUnit_Framework_TestCase
   "collections": [
     {
       "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
+      "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
       "type":       "story_navigation",
       "title":      "Foo to the bar",
       "summary":    "A story about foo to the bar.",
@@ -293,6 +295,7 @@ class ContentTest extends \PHPUnit_Framework_TestCase
   "references": [
     {
       "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
+      "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
       "type":       "story_navigation",
       "title":      "Foo to the bar",
       "summary":    "A story about foo to the bar.",

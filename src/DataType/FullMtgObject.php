@@ -54,6 +54,7 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
      * Creates a new instance.
      *
      * @param string $uuid
+     * @param string $revisionHash
      * @param string[] $availableLanguageCodes
      * @param string $category
      * @param string $status
@@ -73,6 +74,7 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
      */
     public function __construct(
       $uuid,
+      $revisionHash,
       array $availableLanguageCodes,
       $category,
       $status,
@@ -90,7 +92,7 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
       MapInterface $map = null,
       array $content
     ) {
-        parent::__construct($uuid, $availableLanguageCodes, $category,
+        parent::__construct($uuid, $revisionHash, $availableLanguageCodes, $category,
           $status, $location, $triggerZones, $contentProvider, $purchase,
           $duration, $distance, $placement, $visibleOnMaps);
         $this->parentUuid = $parentUuid;
@@ -134,7 +136,7 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
         foreach ($data['content'] as $contentData) {
             $content[] = Content::createFromData($contentData);
         }
-        return new static($data['uuid'], $data['languages'], $data['category'],
+        return new static($data['uuid'], $data['hash'], $data['languages'], $data['category'],
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase, $data['duration'], $data['distance'], $data['placement'],
           !$data['hidden'], $data['parent_uuid'], $schedule,

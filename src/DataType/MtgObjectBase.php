@@ -13,6 +13,7 @@ namespace Triquanta\IziTravel\DataType;
 abstract class MtgObjectBase implements MtgObjectInterface
 {
 
+    use RevisionableTrait;
     use TranslatableTrait;
     use UuidTrait;
 
@@ -94,6 +95,7 @@ abstract class MtgObjectBase implements MtgObjectInterface
      * Creates a new instance.
      *
      * @param string $uuid
+     * @param string $revisionHash
      * @param string[] $availableLanguageCodes
      * @param string $category
      * @param string $status
@@ -108,6 +110,7 @@ abstract class MtgObjectBase implements MtgObjectInterface
      */
     public function __construct(
       $uuid,
+      $revisionHash,
       array $availableLanguageCodes,
       $category,
       $status,
@@ -121,6 +124,7 @@ abstract class MtgObjectBase implements MtgObjectInterface
       $visibleOnMaps
     ) {
         $this->uuid = $uuid;
+        $this->revisionHash = $revisionHash;
         $this->availableLanguageCodes = $availableLanguageCodes;
         $this->category = $category;
         $this->status = $status;
