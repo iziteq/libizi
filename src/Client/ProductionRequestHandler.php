@@ -14,7 +14,7 @@ class ProductionRequestHandler extends RequestHandlerBase {
 
     protected function getBaseUrl()
     {
-        return 'http://api.izi.travel/';
+        return 'https://api.izi.travel/';
     }
 
 }

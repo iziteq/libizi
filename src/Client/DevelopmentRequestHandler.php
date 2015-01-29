@@ -14,7 +14,7 @@ class DevelopmentRequestHandler extends RequestHandlerBase {
 
     protected function getBaseUrl()
     {
-        return 'http://api.dev.izi.travel/';
+        return 'https://api.dev.izi.travel/';
     }
 
 }

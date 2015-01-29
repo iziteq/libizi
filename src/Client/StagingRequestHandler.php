@@ -14,7 +14,7 @@ class StagingRequestHandler extends RequestHandlerBase {
 
     protected function getBaseUrl()
     {
-        return 'http://api.stage.izi.travel/';
+        return 'https://api.stage.izi.travel/';
     }
 
 }
