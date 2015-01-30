@@ -128,7 +128,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
   }
 
   /**
-   * @covers ::getMtgObjectByUuid
+   * @covers ::getCountryByUuid
    */
   public function testGetCountryByUuidInCompactForm() {
     $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
