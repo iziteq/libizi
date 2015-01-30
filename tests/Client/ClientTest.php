@@ -179,4 +179,28 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
   }
 
+  /**
+   * @covers ::getCityByUuid
+   */
+  public function testGetCityByUuidInCompactForm() {
+    $uuid = '3f879f37-21b0-479d-bd74-aa26f72fa328';
+    $languageCodes = ['en'];
+
+    $mtgObject = $this->sut->getCityByUuid($uuid, $languageCodes, MultipleFormInterface::FORM_COMPACT);
+
+    $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCityInterface', $mtgObject);
+  }
+
+  /**
+   * @covers ::getCityByUuid
+   */
+  public function testGetCityByUuidInFullForm() {
+    $uuid = '3f879f37-21b0-479d-bd74-aa26f72fa328';
+    $languageCodes = ['en'];
+
+    $mtgObject = $this->sut->getCityByUuid($uuid, $languageCodes, MultipleFormInterface::FORM_FULL);
+
+    $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface', $mtgObject);
+  }
+
 }

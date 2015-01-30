@@ -84,4 +84,18 @@ interface ClientInterface {
      */
     public function getCountries(array $languages, $form = MultipleFormInterface::FORM_FULL);
 
+    /**
+     * Gets a city by its UUIDs.
+     *
+     * @param string $uuid
+     * @param string[] $languages
+     *   ISO 639-1 alpha-2 language codes.
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
+     *   constants.
+     *
+     * @return \Triquanta\IziTravel\DataType\CityInterface
+     */
+    public function getCityByUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_FULL);
+
 }

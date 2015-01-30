@@ -7,8 +7,10 @@
 
 namespace Triquanta\IziTravel\Client;
 
+use Triquanta\IziTravel\DataType\CompactCity;
 use Triquanta\IziTravel\DataType\CompactCountry;
 use Triquanta\IziTravel\DataType\CompactMtgObject;
+use Triquanta\IziTravel\DataType\FullCity;
 use Triquanta\IziTravel\DataType\FullCountry;
 use Triquanta\IziTravel\DataType\FullMtgObject;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
@@ -107,6 +109,20 @@ class Client implements ClientInterface {
         }
 
         return $countries;
+    }
+
+    public function getCityByUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_FULL) {
+        $json = $this->requestHandler->request('/cities/' . $uuid, [
+          'languages' => $languages,
+          'form' => $form,
+        ]);
+        $data = json_decode($json);
+        if ($form == MultipleFormInterface::FORM_COMPACT) {
+            return CompactCity::createFromData($data);
+        }
+        else {
+            return FullCity::createFromData($data);
+        }
     }
 
 }
