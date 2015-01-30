@@ -105,15 +105,30 @@ class ClientTest extends \PHPUnit_Framework_TestCase
   /**
    * @covers:: getMtgObjectsChildrenByUuid
    */
-  public function testGetMtgObjectsChildrenByUuid() {
+  public function testGetMtgObjectsChildrenByUuidInCompactForm() {
     $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
     $languageCodes = ['en'];
 
-    $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid, $languageCodes);
+    $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid, $languageCodes, MtgObjectInterface::FORM_COMPACT);
 
     $this->assertInternalType('array', $mtgObjects);
     foreach ($mtgObjects as $mtgObject) {
       $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface', $mtgObject);
+    }
+  }
+
+  /**
+   * @covers:: getMtgObjectsChildrenByUuid
+   */
+  public function testGetMtgObjectsChildrenByUuidInFullForm() {
+    $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
+    $languageCodes = ['en'];
+
+    $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid, $languageCodes, MtgObjectInterface::FORM_FULL);
+
+    $this->assertInternalType('array', $mtgObjects);
+    foreach ($mtgObjects as $mtgObject) {
+      $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMtgObjectInterface', $mtgObject);
     }
   }
 

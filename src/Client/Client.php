@@ -55,14 +55,20 @@ class Client implements ClientInterface {
         return $objects;
     }
 
-    public function getMtgObjectsChildrenByUuid($uuid, array $languages) {
+    public function getMtgObjectsChildrenByUuid($uuid, array $languages, $form = MtgObjectInterface::FORM_FULL) {
         $json = $this->requestHandler->request('/mtgobjects/' . $uuid . '/children', [
           'languages' => $languages,
+          'form' => $form,
         ]);
         $data = json_decode($json);
         $objects = [];
         foreach ($data as $objectData) {
-            $objects[] = CompactMtgObject::createFromData($objectData);
+            if ($form == MtgObjectInterface::FORM_COMPACT) {
+                $objects[] = CompactMtgObject::createFromData($objectData);
+            }
+            else {
+                $objects[] = FullMtgObject::createFromData($objectData);
+            }
         }
 
         return $objects;

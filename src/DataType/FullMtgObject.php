@@ -116,6 +116,7 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
             'map' => null,
             'content' => null,
             'hidden' => null,
+            'category' => null,
             'trigger_zones' => [],
           ];
         if (!isset($data['uuid'])) {

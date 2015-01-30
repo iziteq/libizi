@@ -24,7 +24,7 @@ interface ClientInterface {
      *   One of the \Triquanta\IziTravel\DataType\MtgObjectInterface::FORM_*
      *   constants.
      *
-     * @return \Triquanta\IziTravel\DataType\FullMtgObjectInterface
+     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface
      */
     public function getMtgObjectByUuid($uuid, array $languages, $form = MtgObjectInterface::FORM_COMPACT);
 
@@ -38,7 +38,7 @@ interface ClientInterface {
      *   One of the \Triquanta\IziTravel\DataType\MtgObjectInterface::FORM_*
      *   constants.
      *
-     * @return \Triquanta\IziTravel\DataType\FullMtgObjectInterface[]
+     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
      */
     public function getMtgObjectsByUuids(array $uuids, array $languages, $form = MtgObjectInterface::FORM_COMPACT);
 
@@ -48,9 +48,12 @@ interface ClientInterface {
      * @param string $uuid
      * @param string[] $languages
      *   ISO 639-1 alpha-2 language codes.
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MtgObjectInterface::FORM_*
+     *   constants.
      *
      * @return \Triquanta\IziTravel\DataType\CompactMtgObjectInterface[]
      */
-    public function getMtgObjectsChildrenByUuid($uuid, array $languages);
+    public function getMtgObjectsChildrenByUuid($uuid, array $languages, $form = MtgObjectInterface::FORM_FULL);
 
 }
