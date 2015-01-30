@@ -7,7 +7,9 @@
 
 namespace Triquanta\IziTravel\Client;
 
+use Triquanta\IziTravel\DataType\CompactCountry;
 use Triquanta\IziTravel\DataType\CompactMtgObject;
+use Triquanta\IziTravel\DataType\FullCountry;
 use Triquanta\IziTravel\DataType\FullMtgObject;
 use Triquanta\IziTravel\DataType\MtgObjectInterface;
 
@@ -72,6 +74,20 @@ class Client implements ClientInterface {
         }
 
         return $objects;
+    }
+
+    public function getCountryByUuid($uuid, array $languages, $form = MtgObjectInterface::FORM_FULL) {
+        $json = $this->requestHandler->request('/countries/' . $uuid, [
+          'languages' => $languages,
+          'form' => $form,
+        ]);
+        $data = json_decode($json);
+        if ($form == MtgObjectInterface::FORM_COMPACT) {
+            return CompactCountry::createFromData($data);
+        }
+        else {
+            return FullCountry::createFromData($data);
+        }
     }
 
 }

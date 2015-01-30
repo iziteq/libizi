@@ -56,4 +56,18 @@ interface ClientInterface {
      */
     public function getMtgObjectsChildrenByUuid($uuid, array $languages, $form = MtgObjectInterface::FORM_FULL);
 
+    /**
+     * Gets a country by its UUIDs.
+     *
+     * @param string $uuid
+     * @param string[] $languages
+     *   ISO 639-1 alpha-2 language codes.
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MtgObjectInterface::FORM_*
+     *   constants.
+     *
+     * @return \Triquanta\IziTravel\DataType\CompactMtgObjectInterface[]
+     */
+    public function getCountryByUuid($uuid, array $languages, $form = MtgObjectInterface::FORM_FULL);
+
 }

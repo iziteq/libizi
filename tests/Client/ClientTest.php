@@ -62,12 +62,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
     $languageCodes = ['en'];
 
-    try {
-      $mtgObject = $this->sut->getMtgObjectByUuid($uuid, $languageCodes);
-    }
-    catch (\Exception $e) {
-      var_dump($e->getPrevious()->getMessage());
-    }
+    $mtgObject = $this->sut->getMtgObjectByUuid($uuid, $languageCodes);
 
     $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface', $mtgObject);
   }
@@ -130,6 +125,30 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     foreach ($mtgObjects as $mtgObject) {
       $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMtgObjectInterface', $mtgObject);
     }
+  }
+
+  /**
+   * @covers ::getMtgObjectByUuid
+   */
+  public function testGetCountryByUuidInCompactForm() {
+    $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
+    $languageCodes = ['en'];
+
+    $mtgObject = $this->sut->getCountryByUuid($uuid, $languageCodes, MtgObjectInterface::FORM_COMPACT);
+
+    $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCountryInterface', $mtgObject);
+  }
+
+  /**
+   * @covers ::getCountryByUuid
+   */
+  public function testGetCountryByUuidInFullForm() {
+    $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
+    $languageCodes = ['en'];
+
+    $mtgObject = $this->sut->getCountryByUuid($uuid, $languageCodes, MtgObjectInterface::FORM_FULL);
+
+    $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface', $mtgObject);
   }
 
 }
