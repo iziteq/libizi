@@ -2,15 +2,17 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\Client\MtgObjectClientInterface.
+ * Contains \Triquanta\IziTravel\Client\ClientInterface.
  */
 
 namespace Triquanta\IziTravel\Client;
 
+use Triquanta\IziTravel\DataType\MtgObjectInterface;
+
 /**
- * Defines a client that handles MTGObjects.
+ * Defines a client for interacting with the IZI Travel API.
  */
-interface MtgObjectClientInterface {
+interface ClientInterface {
 
     /**
      * Gets an object by UUID.
@@ -18,10 +20,13 @@ interface MtgObjectClientInterface {
      * @param string $uuid
      * @param string[] $languages
      *   ISO 639-1 alpha-2 language codes.
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MtgObjectInterface::FORM_*
+     *   constants.
      *
      * @return \Triquanta\IziTravel\DataType\FullMtgObjectInterface
      */
-    public function getMtgObjectByUuid($uuid, array $languages);
+    public function getMtgObjectByUuid($uuid, array $languages, $form = MtgObjectInterface::FORM_COMPACT);
 
     /**
      * Gets multiple objects by their UUIDs.
@@ -29,10 +34,13 @@ interface MtgObjectClientInterface {
      * @param string[] $uuids
      * @param string[] $languages
      *   ISO 639-1 alpha-2 language codes.
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MtgObjectInterface::FORM_*
+     *   constants.
      *
      * @return \Triquanta\IziTravel\DataType\FullMtgObjectInterface[]
      */
-    public function getMtgObjectsByUuids(array $uuids, array $languages);
+    public function getMtgObjectsByUuids(array $uuids, array $languages, $form = MtgObjectInterface::FORM_COMPACT);
 
     /**
      * Gets an object's children by its UUIDs.

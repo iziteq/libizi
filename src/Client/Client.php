@@ -2,18 +2,19 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\Client\MtgObjectClient.
+ * Contains \Triquanta\IziTravel\Client\Client.
  */
 
 namespace Triquanta\IziTravel\Client;
 
 use Triquanta\IziTravel\DataType\CompactMtgObject;
 use Triquanta\IziTravel\DataType\FullMtgObject;
+use Triquanta\IziTravel\DataType\MtgObjectInterface;
 
 /**
- * Provides a client that handles MTGObjects.
+ * Provides a client for interacting with the IZI Travel API.
  */
-class MtgObjectClient implements MtgObjectClientInterface {
+class Client implements ClientInterface {
 
     /**
      * The request handler.
@@ -31,23 +32,28 @@ class MtgObjectClient implements MtgObjectClientInterface {
         $this->requestHandler = $requestHandler;
     }
 
-    public function getMtgObjectByUuid($uuid, array $languages) {
-        return $this->getMtgObjectsByUuids([$uuid], $languages)[0];
+    public function getMtgObjectByUuid($uuid, array $languages, $form = MtgObjectInterface::FORM_COMPACT) {
+        return $this->getMtgObjectsByUuids([$uuid], $languages, $form)[0];
     }
 
-    public function getMtgObjectsByUuids(array $uuids, array $languages) {
-        $json = $this->requestHandler->request('/mtgobjects/' . implode(',', $uuids), [
+    public function getMtgObjectsByUuids(array $uuids, array $languages, $form = MtgObjectInterface::FORM_COMPACT) {
+        $json = $this->requestHandler->request('/mtgobjects/batch/' . implode(',', $uuids), [
           'languages' => $languages,
+          'form' => $form,
         ]);
         $data = json_decode($json);
         $objects = [];
         foreach ($data as $objectData) {
-            $objects[] = FullMtgObject::createFromData($objectData);
+            if ($form == MtgObjectInterface::FORM_COMPACT) {
+                $objects[] = CompactMtgObject::createFromData($objectData);
+            }
+            else {
+                $objects[] = FullMtgObject::createFromData($objectData);
+            }
         }
 
         return $objects;
     }
-
 
     public function getMtgObjectsChildrenByUuid($uuid, array $languages) {
         $json = $this->requestHandler->request('/mtgobjects/' . $uuid . '/children', [

@@ -89,6 +89,16 @@ interface MtgObjectInterface extends FactoryInterface, RevisionableInterface, Tr
     const PLACEMENT_OUTDOOR = 'outdoor';
 
     /**
+     * A full object.
+     */
+    const FORM_FULL = 'full';
+
+    /**
+     * A compact object.
+     */
+    const FORM_COMPACT = 'compact';
+
+    /**
      * Gets the category.
      *
      * @return string

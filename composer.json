@@ -3,7 +3,8 @@
   "require": {
     "guzzlehttp/guzzle": "5.0.*",
     "php": ">=5.4",
-    "phpunit/phpunit": "4.4.*"
+    "phpunit/phpunit": "4.4.*",
+    "symfony/yaml": "2.6.*"
   },
   "autoload": {
     "psr-4": {
