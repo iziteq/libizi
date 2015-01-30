@@ -261,4 +261,28 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
   }
 
+  /**
+   * @covers ::getPublisherByUuid
+   */
+  public function testGetPublisherByUuidInCompactForm() {
+    $uuid = '7d84ef00-f4f6-4b90-89d7-f20207ee9ca6';
+    $languageCodes = ['en'];
+
+    $mtgObject = $this->sut->getPublisherByUuid($uuid, $languageCodes, MultipleFormInterface::FORM_COMPACT);
+
+    $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactPublisherInterface', $mtgObject);
+  }
+
+  /**
+   * @covers ::getPublisherByUuid
+   */
+  public function testGetPublisherByUuidInFullForm() {
+    $uuid = '7d84ef00-f4f6-4b90-89d7-f20207ee9ca6';
+    $languageCodes = ['en'];
+
+    $mtgObject = $this->sut->getPublisherByUuid($uuid, $languageCodes, MultipleFormInterface::FORM_FULL);
+
+    $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullPublisherInterface', $mtgObject);
+  }
+
 }

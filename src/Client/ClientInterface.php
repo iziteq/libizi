@@ -125,4 +125,18 @@ interface ClientInterface {
      */
     public function getCitiesByCountryUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_COMPACT);
 
+    /**
+     * Gets a publisher by its UUIDs.
+     *
+     * @param string $uuid
+     * @param string[] $languages
+     *   ISO 639-1 alpha-2 language codes.
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
+     *   constants.
+     *
+     * @return \Triquanta\IziTravel\DataType\PublisherInterface
+     */
+    public function getPublisherByUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_FULL);
+
 }

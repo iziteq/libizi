@@ -10,9 +10,11 @@ namespace Triquanta\IziTravel\Client;
 use Triquanta\IziTravel\DataType\CompactCity;
 use Triquanta\IziTravel\DataType\CompactCountry;
 use Triquanta\IziTravel\DataType\CompactMtgObject;
+use Triquanta\IziTravel\DataType\CompactPublisher;
 use Triquanta\IziTravel\DataType\FullCity;
 use Triquanta\IziTravel\DataType\FullCountry;
 use Triquanta\IziTravel\DataType\FullMtgObject;
+use Triquanta\IziTravel\DataType\FullPublisher;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
@@ -161,6 +163,20 @@ class Client implements ClientInterface {
         }
 
         return $cities;
+    }
+
+    public function getPublisherByUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_FULL) {
+        $json = $this->requestHandler->request('/mtg/publishers/' . $uuid, [
+          'languages' => $languages,
+          'form' => $form,
+        ]);
+        $data = json_decode($json);
+        if ($form == MultipleFormInterface::FORM_COMPACT) {
+            return CompactPublisher::createFromData($data);
+        }
+        else {
+            return FullPublisher::createFromData($data);
+        }
     }
 
 }
