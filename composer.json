@@ -8,7 +8,11 @@
   },
   "autoload": {
     "psr-4": {
-      "Triquanta\\IziTravel\\": "src",
+      "Triquanta\\IziTravel\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
       "Triquanta\\IziTravel\\Tests\\": "tests"
     }
   }
