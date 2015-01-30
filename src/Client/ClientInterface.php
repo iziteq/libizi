@@ -67,7 +67,7 @@ interface ClientInterface {
      *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
      *   constants.
      *
-     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
+     * @return \Triquanta\IziTravel\DataType\CountryInterface
      */
     public function getCountryByUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_FULL);
 
