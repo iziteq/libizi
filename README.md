@@ -27,6 +27,7 @@ install all dependencies.
 Usage
 =====
 Three preparatory steps must be taken before API calls can be made:
+
 1. Create a `\GuzzleHttp\Client` instance.
 2. Create a `\Triquanta\IziTravel\Client\*RequestHandler` instance and inject
     the Guzzle client from step 1 and an API key.
