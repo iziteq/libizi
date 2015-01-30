@@ -151,4 +151,32 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface', $mtgObject);
   }
 
+  /**
+   * @covers:: getCountries
+   */
+  public function testGetCountriesInCompactForm() {
+    $languageCodes = ['en'];
+
+    $countries = $this->sut->getCountries($languageCodes, MtgObjectInterface::FORM_COMPACT);
+
+    $this->assertInternalType('array', $countries);
+    foreach ($countries as $country) {
+      $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCountryInterface', $country);
+    }
+  }
+
+  /**
+   * @covers:: getCountries
+   */
+  public function testGetCountriesInFullForm() {
+    $languageCodes = ['en'];
+
+    $countries = $this->sut->getCountries($languageCodes, MtgObjectInterface::FORM_FULL);
+
+    $this->assertInternalType('array', $countries);
+    foreach ($countries as $country) {
+      $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface', $country);
+    }
+  }
+
 }

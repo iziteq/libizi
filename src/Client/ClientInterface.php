@@ -70,4 +70,17 @@ interface ClientInterface {
      */
     public function getCountryByUuid($uuid, array $languages, $form = MtgObjectInterface::FORM_FULL);
 
+    /**
+     * Gets multiple countries.
+     *
+     * @param string[] $languages
+     *   ISO 639-1 alpha-2 language codes.
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MtgObjectInterface::FORM_*
+     *   constants.
+     *
+     * @return \Triquanta\IziTravel\DataType\CountryInterface[]
+     */
+    public function getCountries(array $languages, $form = MtgObjectInterface::FORM_FULL);
+
 }

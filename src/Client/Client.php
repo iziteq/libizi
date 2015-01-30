@@ -90,4 +90,23 @@ class Client implements ClientInterface {
         }
     }
 
+    public function getCountries(array $languages, $form = MtgObjectInterface::FORM_FULL) {
+        $json = $this->requestHandler->request('/countries', [
+          'languages' => $languages,
+          'form' => $form,
+        ]);
+        $data = json_decode($json);
+        $countries = [];
+        foreach ($data as $countryData) {
+            if ($form == MtgObjectInterface::FORM_COMPACT) {
+                $objects[] = CompactCountry::createFromData($countryData);
+            }
+            else {
+                $objects[] = FullCountry::createFromData($countryData);
+            }
+        }
+
+        return $countries;
+    }
+
 }
