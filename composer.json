@@ -1,5 +1,5 @@
 {
-  "name": "triquanta/izitravel",
+  "name": "triquanta/libizi",
   "require": {
     "guzzlehttp/guzzle": "5.0.*",
     "php": ">=5.4",
