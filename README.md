@@ -44,8 +44,9 @@ mappings:
 
 Testing
 -------
-The library comes with PHPUnit-based tests that can be run using
-`./phpunit.xml.dist`. All tests are located in `\Triquanta\IziTravel\Tests`.
+The library comes with [PHPUnit](https://phpunit.de/)-based tests that can be
+run using `./phpunit.xml.dist`. All tests are located in
+`\Triquanta\IziTravel\Tests`.
 
 Some tests require configuration. Copy `./test_configuration.example.yml` to
 `./test_configuration.local.yml` and fill out the values.
