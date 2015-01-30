@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a city data type.
  */
-interface CityInterface extends FactoryInterface, RevisionableInterface, TranslatableInterface, UuidInterface
+interface CityInterface extends FactoryInterface, MultipleFormInterface, RevisionableInterface, TranslatableInterface, UuidInterface
 {
 
   /**

@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a country data type.
  */
-interface CountryInterface extends FactoryInterface, RevisionableInterface, TranslatableInterface, UuidInterface
+interface CountryInterface extends FactoryInterface, MultipleFormInterface, RevisionableInterface, TranslatableInterface, UuidInterface
 {
 
   /**

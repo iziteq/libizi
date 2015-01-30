@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\Tests\Client;
 use GuzzleHttp\Client as HttpClient;
 use Triquanta\IziTravel\Client\Client;
 use Triquanta\IziTravel\Client\DevelopmentRequestHandler;
-use Triquanta\IziTravel\DataType\MtgObjectInterface;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\Tests\TestConfiguration;
 
 /**
@@ -74,7 +74,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     $uuids = ['bcf57367-77f6-4e39-9da6-1b481826501f', '9a7d0fd4-aa50-4d12-a8fa-26f080cd7e0c'];
     $languageCodes = ['en'];
 
-    $mtgObjects = $this->sut->getMtgObjectsByUuids($uuids, $languageCodes, MtgObjectInterface::FORM_COMPACT);
+    $mtgObjects = $this->sut->getMtgObjectsByUuids($uuids, $languageCodes, MultipleFormInterface::FORM_COMPACT);
 
     $this->assertInternalType('array', $mtgObjects);
     foreach ($mtgObjects as $mtgObject) {
@@ -89,7 +89,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     $uuids = ['bcf57367-77f6-4e39-9da6-1b481826501f', '9a7d0fd4-aa50-4d12-a8fa-26f080cd7e0c'];
     $languageCodes = ['en'];
 
-    $mtgObjects = $this->sut->getMtgObjectsByUuids($uuids, $languageCodes, MtgObjectInterface::FORM_FULL);
+    $mtgObjects = $this->sut->getMtgObjectsByUuids($uuids, $languageCodes, MultipleFormInterface::FORM_FULL);
 
     $this->assertInternalType('array', $mtgObjects);
     foreach ($mtgObjects as $mtgObject) {
@@ -104,7 +104,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
     $languageCodes = ['en'];
 
-    $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid, $languageCodes, MtgObjectInterface::FORM_COMPACT);
+    $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid, $languageCodes, MultipleFormInterface::FORM_COMPACT);
 
     $this->assertInternalType('array', $mtgObjects);
     foreach ($mtgObjects as $mtgObject) {
@@ -119,7 +119,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
     $languageCodes = ['en'];
 
-    $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid, $languageCodes, MtgObjectInterface::FORM_FULL);
+    $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid, $languageCodes, MultipleFormInterface::FORM_FULL);
 
     $this->assertInternalType('array', $mtgObjects);
     foreach ($mtgObjects as $mtgObject) {
@@ -134,7 +134,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
     $languageCodes = ['en'];
 
-    $mtgObject = $this->sut->getCountryByUuid($uuid, $languageCodes, MtgObjectInterface::FORM_COMPACT);
+    $mtgObject = $this->sut->getCountryByUuid($uuid, $languageCodes, MultipleFormInterface::FORM_COMPACT);
 
     $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCountryInterface', $mtgObject);
   }
@@ -146,7 +146,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
     $languageCodes = ['en'];
 
-    $mtgObject = $this->sut->getCountryByUuid($uuid, $languageCodes, MtgObjectInterface::FORM_FULL);
+    $mtgObject = $this->sut->getCountryByUuid($uuid, $languageCodes, MultipleFormInterface::FORM_FULL);
 
     $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface', $mtgObject);
   }
@@ -157,7 +157,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
   public function testGetCountriesInCompactForm() {
     $languageCodes = ['en'];
 
-    $countries = $this->sut->getCountries($languageCodes, MtgObjectInterface::FORM_COMPACT);
+    $countries = $this->sut->getCountries($languageCodes, MultipleFormInterface::FORM_COMPACT);
 
     $this->assertInternalType('array', $countries);
     foreach ($countries as $country) {
@@ -171,7 +171,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
   public function testGetCountriesInFullForm() {
     $languageCodes = ['en'];
 
-    $countries = $this->sut->getCountries($languageCodes, MtgObjectInterface::FORM_FULL);
+    $countries = $this->sut->getCountries($languageCodes, MultipleFormInterface::FORM_FULL);
 
     $this->assertInternalType('array', $countries);
     foreach ($countries as $country) {

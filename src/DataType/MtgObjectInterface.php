@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines an MTG object data type.
  */
-interface MtgObjectInterface extends FactoryInterface, RevisionableInterface, TranslatableInterface, UuidInterface
+interface MtgObjectInterface extends FactoryInterface, MultipleFormInterface, RevisionableInterface, TranslatableInterface, UuidInterface
 {
 
     /**
@@ -87,16 +87,6 @@ interface MtgObjectInterface extends FactoryInterface, RevisionableInterface, Tr
      * A outdoor object.
      */
     const PLACEMENT_OUTDOOR = 'outdoor';
-
-    /**
-     * A full object.
-     */
-    const FORM_FULL = 'full';
-
-    /**
-     * A compact object.
-     */
-    const FORM_COMPACT = 'compact';
 
     /**
      * Gets the category.
