@@ -79,7 +79,7 @@ class CompactCity extends CityBase implements CompactCityInterface
       throw new MissingUuidFactoryException($data);
     }
     $location = $data['location'] ? Location::createFromData($data['location']) : null;
-    $map = $data['location'] ? Map::createFromData($data['map']) : null;
+    $map = $data['map'] ? Map::createFromData($data['map']) : null;
     $translations = [];
     foreach ($data['translations'] as $translationData) {
       $translations[] = CountryCityTranslation::createFromData($translationData);

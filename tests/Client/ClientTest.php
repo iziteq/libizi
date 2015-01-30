@@ -203,4 +203,32 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface', $mtgObject);
   }
 
+  /**
+   * @covers:: getCities
+   */
+  public function testGetCitiesInCompactForm() {
+    $languageCodes = ['en'];
+
+    $cities = $this->sut->getCities($languageCodes, MultipleFormInterface::FORM_COMPACT);
+
+    $this->assertInternalType('array', $cities);
+    foreach ($cities as $city) {
+      $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCityInterface', $city);
+    }
+  }
+
+  /**
+   * @covers:: getCities
+   */
+  public function testGetCitiesInFullForm() {
+    $languageCodes = ['en'];
+
+    $cities = $this->sut->getCities($languageCodes, MultipleFormInterface::FORM_FULL);
+
+    $this->assertInternalType('array', $cities);
+    foreach ($cities as $city) {
+      $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface', $city);
+    }
+  }
+
 }

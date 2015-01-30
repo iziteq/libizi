@@ -92,7 +92,7 @@ class Client implements ClientInterface {
         }
     }
 
-    public function getCountries(array $languages, $form = MultipleFormInterface::FORM_FULL) {
+    public function getCountries(array $languages, $form = MultipleFormInterface::FORM_COMPACT) {
         $json = $this->requestHandler->request('/countries', [
           'languages' => $languages,
           'form' => $form,
@@ -123,6 +123,25 @@ class Client implements ClientInterface {
         else {
             return FullCity::createFromData($data);
         }
+    }
+
+    public function getCities(array $languages, $form = MultipleFormInterface::FORM_COMPACT) {
+        $json = $this->requestHandler->request('/cities', [
+          'languages' => $languages,
+          'form' => $form,
+        ]);
+        $data = json_decode($json);
+        $cities = [];
+        foreach ($data as $cityData) {
+            if ($form == MultipleFormInterface::FORM_COMPACT) {
+                $objects[] = CompactCity::createFromData($cityData);
+            }
+            else {
+                $objects[] = FullCity::createFromData($cityData);
+            }
+        }
+
+        return $cities;
     }
 
 }
