@@ -144,4 +144,23 @@ class Client implements ClientInterface {
         return $cities;
     }
 
+    public function getCitiesByCountryUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_COMPACT) {
+        $json = $this->requestHandler->request('/countries/' . $uuid . '/cities', [
+          'languages' => $languages,
+          'form' => $form,
+        ]);
+        $data = json_decode($json);
+        $cities = [];
+        foreach ($data as $cityData) {
+            if ($form == MultipleFormInterface::FORM_COMPACT) {
+                $objects[] = CompactCity::createFromData($cityData);
+            }
+            else {
+                $objects[] = FullCity::createFromData($cityData);
+            }
+        }
+
+        return $cities;
+    }
+
 }

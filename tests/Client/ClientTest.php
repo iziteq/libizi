@@ -231,4 +231,34 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
   }
 
+  /**
+   * @covers:: getCitiesByCountryUuid
+   */
+  public function testGetCitiesByCountryUuidInCompactForm() {
+    $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
+    $languageCodes = ['en'];
+
+    $cities = $this->sut->getCitiesByCountryUuid($uuid, $languageCodes, MultipleFormInterface::FORM_COMPACT);
+
+    $this->assertInternalType('array', $cities);
+    foreach ($cities as $city) {
+      $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCityInterface', $city);
+    }
+  }
+
+  /**
+   * @covers:: getCitiesByCountryUuid
+   */
+  public function testGetCitiesByCountryUuidInFullForm() {
+    $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
+    $languageCodes = ['en'];
+
+    $cities = $this->sut->getCitiesByCountryUuid($uuid, $languageCodes, MultipleFormInterface::FORM_FULL);
+
+    $this->assertInternalType('array', $cities);
+    foreach ($cities as $city) {
+      $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface', $city);
+    }
+  }
+
 }
