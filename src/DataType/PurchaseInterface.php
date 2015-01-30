@@ -27,11 +27,4 @@ interface PurchaseInterface extends FactoryInterface
      */
     public function getCurrencyCode();
 
-    /**
-     * Gets the product ID.
-     *
-     * @return bool
-     */
-    public function getProductId();
-
 }

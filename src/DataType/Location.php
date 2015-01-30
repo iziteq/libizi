@@ -82,11 +82,6 @@ class Location implements LocationInterface
             'number' => null,
             'ip' => null,
           ];
-        if ($data['ip'] && filter_var($data['ip'],
-            FILTER_VALIDATE_IP) === false
-        ) {
-            throw new InvalidIpAddressFactoryException($data['ip'], $data);
-        }
         return new static($data['latitude'], $data['longitude'],
           $data['altitude'], $data['number'], $data['ip']);
     }

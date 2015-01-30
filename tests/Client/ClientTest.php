@@ -285,4 +285,32 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullPublisherInterface', $mtgObject);
   }
 
+  /**
+   * @covers:: getMtgObjects
+   */
+  public function testGetMtgObjectsInCompactForm() {
+    $languageCodes = ['en'];
+
+    $mtgObjects = $this->sut->getMtgObjects($languageCodes, MultipleFormInterface::FORM_COMPACT);
+
+    $this->assertInternalType('array', $mtgObjects);
+    foreach ($mtgObjects as $mtgObject) {
+      $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface', $mtgObject);
+    }
+  }
+
+  /**
+   * @covers:: getMtgObjects
+   */
+  public function testGetMtgObjectsInFullForm() {
+    $languageCodes = ['en'];
+
+    $mtgObjects = $this->sut->getMtgObjects($languageCodes, MultipleFormInterface::FORM_FULL);
+
+    $this->assertInternalType('array', $mtgObjects);
+    foreach ($mtgObjects as $mtgObject) {
+      $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMtgObjectInterface', $mtgObject);
+    }
+  }
+
 }

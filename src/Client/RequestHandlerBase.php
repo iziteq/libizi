@@ -61,7 +61,6 @@ abstract class RequestHandlerBase implements RequestHandlerInterface {
         $request->setHeader('X-IZI-API-KEY', $this->apiKey);
         $request->getQuery()->replace($parameters);
         $request->getQuery()->setAggregator(static::getGuzzleQueryAggregator());
-
         try {
             $response = $this->httpClient->send($request);
             $json = $response->getBody()->getContents();

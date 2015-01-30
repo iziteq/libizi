@@ -31,13 +31,6 @@ class PurchaseTest extends \PHPUnit_Framework_TestCase
     protected $price;
 
     /**
-     * The product ID.
-     *
-     * @var string
-     */
-    protected $productId;
-
-    /**
      * The class under test.
      *
      * @var \Triquanta\IziTravel\DataType\Purchase
@@ -48,10 +41,8 @@ class PurchaseTest extends \PHPUnit_Framework_TestCase
     {
         $this->currencyCode = 'FOO';
         $this->price = mt_rand() / 100;
-        $this->productId = 'foo-baz-' . mt_rand();
 
-        $this->sut = new Purchase($this->currencyCode, $this->price,
-          $this->productId);
+        $this->sut = new Purchase($this->currencyCode, $this->price);
     }
 
     /**
@@ -100,14 +91,6 @@ JSON;
     public function testGetPrice()
     {
         $this->assertSame($this->price, $this->sut->getPrice());
-    }
-
-    /**
-     * @covers ::getProductId
-     */
-    public function testGetProductId()
-    {
-        $this->assertSame($this->productId, $this->sut->getProductId());
     }
 
 }

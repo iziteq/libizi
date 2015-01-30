@@ -102,27 +102,6 @@ JSON;
     }
 
     /**
-     * @covers ::__construct
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\InvalidIpAddressFactoryException
-     */
-    public function testCreateFromJsonWithInvalidPublicIpAddress()
-    {
-        $json = <<<'JSON'
-{
-  "altitude":  0.0,
-  "latitude":  59.9308144003772,
-  "longitude": 30.3516736220902,
-  "ip": "foo"
-}
-JSON;
-
-        Location::createFromJson($json);
-    }
-
-    /**
      * @covers ::getLatitude
      */
     public function testGetLatitude()

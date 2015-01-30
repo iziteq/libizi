@@ -15,6 +15,7 @@ use Triquanta\IziTravel\DataType\FullCity;
 use Triquanta\IziTravel\DataType\FullCountry;
 use Triquanta\IziTravel\DataType\FullMtgObject;
 use Triquanta\IziTravel\DataType\FullPublisher;
+use Triquanta\IziTravel\DataType\MtgObjectInterface;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
@@ -177,6 +178,26 @@ class Client implements ClientInterface {
         else {
             return FullPublisher::createFromData($data);
         }
+    }
+
+    public function getMtgObjects(array $languages, $form = MultipleFormInterface::FORM_FULL, array $types = [MtgObjectInterface::TYPE_TOUR, MtgObjectInterface::TYPE_MUSEUM]) {
+        $json = $this->requestHandler->request('/mtg/objects/search/', [
+          'languages' => $languages,
+          'form' => $form,
+          'type' => $types,
+        ]);
+        $data = json_decode($json);
+        $objects = [];
+        foreach ($data as $objectData) {
+            if ($form == MultipleFormInterface::FORM_COMPACT) {
+                $objects[] = CompactMtgObject::createFromData($objectData);
+            }
+            else {
+                $objects[] = FullMtgObject::createFromData($objectData);
+            }
+        }
+
+        return $objects;
     }
 
 }
