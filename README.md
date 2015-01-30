@@ -24,8 +24,20 @@ All requirements are resolved through [Composer](http://getcomposer.org). After
 installing composer, go to the project root and run `composer install` to
 install all dependencies.
 
-Coding standards & practices
-============================
+Usage
+=====
+Three preparatory steps must be taken before API calls can be made:
+1. Create a `\GuzzleHttp\Client` instance.
+2. Create a `\Triquanta\IziTravel\Client\*RequestHandler` instance and inject
+    the Guzzle client from step 1 and an API key.
+3. Create a `Triquanta\IziTravel\Client\Client` instance and inject the request
+    handler from step 2.
+
+Now you can call any of the methods on the client from step 3 and get the API's
+output as classed PHP objects.
+
+Development
+===========
 
 PSR-1 & PSR-2
 -------------
