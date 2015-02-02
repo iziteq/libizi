@@ -17,10 +17,8 @@ interface PolygonalTriggerZoneInterface extends TriggerZoneInterface
      * Gets the corners.
      *
      * @return string|null
-     *   Comma separated list of poligon latitude, longitude, altitude.
-     *
-     * @todo Find out and document the format, as the example does not contain
-     *   altitudes.
+     *   Sets of coordinates, separated by semicolon. Coordinates are latitude,
+     *   longitude, and altitude (in meters), separated by commas.
      */
     public function getCorners();
 
