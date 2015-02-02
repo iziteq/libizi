@@ -180,9 +180,12 @@ class Content implements ContentInterface
         foreach ($data['references'] as $referencesData) {
             $references[] = CompactMtgObject::createFromData($referencesData);
         }
+        $playback = $data['playback'] ? Playback::createFromData($data['playback']) : null;
+        $quiz = $data['quiz'] ? Quiz::createFromData($data['quiz']) : null;
+
         return new static($data['language'], $data['title'], $data['summary'],
-          $data['desc'], $data['playback'], $data['images'], $data['audio'],
-          $data['video'], $children, $collections, $references, $data['quiz']);
+          $data['desc'], $playback, $images, $audio,
+          $video, $children, $collections, $references, $quiz);
     }
 
     public function getLanguageCode()
