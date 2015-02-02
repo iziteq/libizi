@@ -31,8 +31,7 @@ interface LocationInterface extends FactoryInterface
      * Gets the altitude.
      *
      * @return float|null
-     *
-     * @todo Find out and document which unit this is in (meters)?
+     *   The altitude in meters.
      */
     public function getAltitude();
 
