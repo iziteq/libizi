@@ -1,5 +1,6 @@
 About
 =====
+[![Build Status](https://travis-ci.org/Triquanta/libizi.svg?branch=master)](https://travis-ci.org/Triquanta/libizi)
 This is a PHP library for communicating with the IZI Travel API.
 
 Features
