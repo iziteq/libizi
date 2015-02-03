@@ -9,7 +9,7 @@ namespace Triquanta\IziTravel\Tests\Client;
 
 use GuzzleHttp\Client as HttpClient;
 use Triquanta\IziTravel\Client\Client;
-use Triquanta\IziTravel\Client\DevelopmentRequestHandler;
+use Triquanta\IziTravel\Client\ProductionRequestHandler;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\Tests\TestConfiguration;
 
@@ -43,7 +43,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     $this->httpClient = new HttpClient();
 
-    $this->requestHandler = new DevelopmentRequestHandler($this->httpClient, $configuration['apiKey']);
+    $this->requestHandler = new ProductionRequestHandler($this->httpClient, $configuration['apiKey']);
 
     $this->sut = new Client($this->requestHandler);
   }
