@@ -1,5 +1,6 @@
 {
   "name": "triquanta/libizi",
+  "license": "MIT",
   "require": {
     "guzzlehttp/guzzle": "5.0.*",
     "php": ">=5.4",
