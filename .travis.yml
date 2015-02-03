@@ -1,3 +1,6 @@
+env:
+  global:
+  - secure: Pub+0A1pN1RifBo091ipt0WUoatLxS0jc7ZappgoK4h2vghHdC0w90uxBiTCn4nCuSOnzeUB4oQ2qGVREMtrS4pa4p/LVkSSf1Qs207+Kj6os10B5+ecfNJ/r9kfG3+BddwJWTjYvKRy07lmGiSbfIS7GKOx3Zb8ymuul2Y3rH8=
 notifications:
   hipchat:
     rooms:
@@ -7,6 +10,8 @@ php:
 - 5.4
 - 5.5
 - 5.6
+before_script:
+- echo "apiKey: $API_KEY" > test_configuration.local.yml
 script:
 - cd $TRAVIS_BUILD_DIR
 - composer install
