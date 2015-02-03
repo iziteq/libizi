@@ -47,7 +47,7 @@ class CityContent implements CityContentInterface
   /**
    * The images.
    *
-   * @var \Triquanta\IziTravel\DataType\MediaInterface
+   * @var \Triquanta\IziTravel\DataType\ImageInterface
    */
   protected $images = [];
 
@@ -58,7 +58,7 @@ class CityContent implements CityContentInterface
    * @param string $title
    * @param string $summary
    * @param string $description
-   * @param \Triquanta\IziTravel\DataType\MediaInterface[] $images
+   * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
    */
   public function __construct($languageCode, $title, $summary, $description, array $images) {
     $this->languageCode = $languageCode;
@@ -74,7 +74,7 @@ class CityContent implements CityContentInterface
       ];
     $images = [];
     foreach ($data['images'] as $imageData) {
-      $images[] = Media::createFromData($imageData);
+      $images[] = Image::createFromData($imageData);
     }
 
     return new static($data['language'], $data['title'], $data['summary'], $data['desc'], $images);

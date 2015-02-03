@@ -48,7 +48,7 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
     /**
      * The images.
      *
-     * @return \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @return \Triquanta\IziTravel\DataType\ImageInterface[]
      */
     protected $images = [];
 
@@ -79,7 +79,7 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
      * @param string|null $route
      * @param string $title
      * @param string $summary ;
-     * @param \Triquanta\IziTravel\DataType\MediaInterface[] $images
+     * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
      * @param int|null $numberOfChildren
      */
     public function __construct(
@@ -142,7 +142,7 @@ class CompactMtgObject extends MtgObjectBase implements CompactMtgObjectInterfac
         $purchase = $data['purchase'] ? Purchase::createFromData($data['purchase']) : null;
         $images = [];
         foreach ($data['images'] as $imageData) {
-            $images[] = Media::createFromData($imageData);
+            $images[] = Image::createFromData($imageData);
         }
         return new static($data['uuid'], $data['hash'], $data['languages'], $data['category'],
           $data['status'], $location, $triggerZones, $contentProvider,

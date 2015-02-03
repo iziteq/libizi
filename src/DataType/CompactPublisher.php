@@ -16,7 +16,7 @@ class CompactPublisher extends PublisherBase implements CompactPublisherInterfac
   /**
    * The images.
    *
-   * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+   * @var \Triquanta\IziTravel\DataType\ImageInterface[]
    */
   protected $images = [];
 
@@ -53,7 +53,7 @@ class CompactPublisher extends PublisherBase implements CompactPublisherInterfac
    * @param string $languageCode
    * @param string $title
    * @param string $summary
-   * @param \Triquanta\IziTravel\DataType\MediaInterface[] $images
+   * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
    */
   public function __construct($uuid, $revisionHash, array $availableLanguageCodes, ContentProviderInterface $contentProvider, $status, $languageCode, $title, $summary, array $images) {
     parent::__construct($uuid, $revisionHash, $availableLanguageCodes, $contentProvider, $status);
@@ -74,7 +74,7 @@ class CompactPublisher extends PublisherBase implements CompactPublisherInterfac
     $contentProvider = ContentProvider::createFromData($data['content_provider']);
     $images = [];
     foreach ($data['images'] as $imageData) {
-      $images[] = Media::createFromData($imageData);
+      $images[] = Image::createFromData($imageData);
     }
 
     return new static($data['uuid'], $data['hash'], $data['languages'], $contentProvider, $data['status'], $data['language'], $data['title'], $data['summary'], $images);

@@ -105,7 +105,7 @@ class CompactCityTest extends \PHPUnit_Framework_TestCase
   /**
    * The images.
    *
-   * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+   * @var \Triquanta\IziTravel\DataType\ImageInterface[]
    */
   protected $images = [];
 
@@ -147,9 +147,9 @@ class CompactCityTest extends \PHPUnit_Framework_TestCase
     $this->visible = (bool) mt_rand(0, 1);
 
     $this->images = [
-      $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
     ];
 
     $this->sut = new CompactCity($this->uuid, $this->revisionHash, $this->availableLanguageCodes, $this->map, $this->translations, $this->location, $this->status, $this->numberOfChildren, $this->visible, $this->languageCode, $this->title, $this->summary, $this->images);

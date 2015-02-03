@@ -24,6 +24,21 @@ interface MediaInterface extends FactoryInterface, UuidInterface
     const TYPE_MAP = 'map';
 
     /**
+     * Image media.
+     */
+    const MEDIA_IMAGE = 'images';
+
+    /**
+     * Video media.
+     */
+    const MEDIA_VIDEO = 'video';
+
+    /**
+     * Audio media.
+     */
+    const MEDIA_AUDIO = 'audio';
+
+    /**
      * Gets the type.
      *
      * @return string
@@ -37,14 +52,6 @@ interface MediaInterface extends FactoryInterface, UuidInterface
      * @return int
      */
     public function getOrder();
-
-    /**
-     * Gets the duration.
-     *
-     * @return int
-     *   The duration in seconds.
-     */
-    public function getDuration();
 
     /**
      * Gets the URL.

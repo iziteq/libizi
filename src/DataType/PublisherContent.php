@@ -25,7 +25,7 @@ class PublisherContent implements PublisherContentInterface
   /**
    * The images.
    *
-   * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+   * @var \Triquanta\IziTravel\DataType\ImageInterface[]
    */
   protected $images = [];
 
@@ -54,7 +54,7 @@ class PublisherContent implements PublisherContentInterface
    * Constructs a new instance.
    *
    * @param string $languageCode
-   * @param \Triquanta\IziTravel\DataType\MediaInterface[] $images
+   * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
    * @param string $title
    * @param string $summary
    * @param string $description
@@ -74,7 +74,7 @@ class PublisherContent implements PublisherContentInterface
 
     $images = [];
     foreach ($data['images'] as $imageData) {
-      $images[] = Media::createFromData($imageData);
+      $images[] = Image::createFromData($imageData);
     }
 
     return new static($data['language'], $images, $data['title'], $data['summary'], $data['desc']);

@@ -52,21 +52,21 @@ interface ContentInterface extends FactoryInterface
     /**
      * Gets the images.
      *
-     * @return \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @return \Triquanta\IziTravel\DataType\ImageInterface[]
      */
     public function getImages();
 
     /**
      * Gets the audio media.
      *
-     * @return \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @return \Triquanta\IziTravel\DataType\AudioInterface[]
      */
     public function getAudio();
 
     /**
      * Gets the videos.
      *
-     * @return \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @return \Triquanta\IziTravel\DataType\VideoInterface[]
      */
     public function getVideos();
 

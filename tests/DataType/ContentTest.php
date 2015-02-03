@@ -54,21 +54,21 @@ class ContentTest extends \PHPUnit_Framework_TestCase
     /**
      * The images.
      *
-     * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @var \Triquanta\IziTravel\DataType\ImageInterface[]
      */
     protected $images = [];
 
     /**
      * The audio media.
      *
-     * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @var \Triquanta\IziTravel\DataType\AudioInterface[]
      */
     protected $audio = [];
 
     /**
      * The videos.
      *
-     * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @var \Triquanta\IziTravel\DataType\VideoInterface[]
      */
     protected $videos = [];
 
@@ -115,19 +115,19 @@ class ContentTest extends \PHPUnit_Framework_TestCase
         $this->description = 'Qux & Bar.';
         $this->playback = $this->getMock('\Triquanta\IziTravel\DataType\PlaybackInterface');
         $this->images = [
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
         ];
         $this->audio = [
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\AudioInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\AudioInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\AudioInterface'),
         ];
         $this->videos = [
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\VideoInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\VideoInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\VideoInterface'),
         ];
         $this->children = [
           $this->getMock('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'),

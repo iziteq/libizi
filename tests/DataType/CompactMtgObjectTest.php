@@ -138,7 +138,7 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
     /**
      * The images.
      *
-     * @return \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @return \Triquanta\IziTravel\DataType\ImageInterface[]
      */
     protected $images = [];
 
@@ -204,9 +204,9 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
         $this->title = 'A story about foo to the bar.';
 
         $this->images = [
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
         ];
 
         $this->numberOfChildren = mt_rand();

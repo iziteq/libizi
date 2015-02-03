@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\DataType\Media.
+ * Contains \Triquanta\IziTravel\DataType\MediaBase.
  */
 
 namespace Triquanta\IziTravel\DataType;
@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Provides a media data type.
  */
-class Media implements MediaInterface
+abstract class MediaBase implements MediaInterface
 {
 
     use FactoryTrait;
@@ -32,14 +32,6 @@ class Media implements MediaInterface
     protected $order;
 
     /**
-     * The duration.
-     *
-     * @var int
-     *   The duration in seconds.
-     */
-    protected $duration;
-
-    /**
      * The URL.
      *
      * @var string|null
@@ -59,35 +51,16 @@ class Media implements MediaInterface
      * @param string $uuid
      * @param string $type
      * @param int $order
-     * @param int $duration
      * @param string|null $url
      * @param string|null $title
      */
-    public function __construct($uuid, $type, $order, $duration, $url, $title)
+    public function __construct($uuid, $type, $order, $url, $title)
     {
         $this->uuid = $uuid;
         $this->type = $type;
         $this->order = $order;
-        $this->duration = $duration;
         $this->url = $url;
         $this->title = $title;
-    }
-
-    public static function createFromData($data)
-    {
-        $data = (array) $data + [
-              // Duration is marked "mandatory" in the API documentation, yet is not
-              // available in the example, nor can it technically be available for all
-              // media types.
-            'duration' => null,
-            'url' => null,
-            'title' => null,
-          ];
-        if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($data);
-        }
-        return new static($data['uuid'], $data['type'], $data['order'],
-          $data['duration'], $data['url'], $data['title']);
     }
 
     public function getType()
@@ -98,11 +71,6 @@ class Media implements MediaInterface
     public function getOrder()
     {
         return $this->order;
-    }
-
-    public function getDuration()
-    {
-        return $this->duration;
     }
 
     public function getUrl()

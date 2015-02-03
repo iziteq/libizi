@@ -38,7 +38,7 @@ class CompactCity extends CityBase implements CompactCityInterface
   /**
    * The images.
    *
-   * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+   * @var \Triquanta\IziTravel\DataType\ImageInterface[]
    */
   protected $images = [];
 
@@ -57,7 +57,7 @@ class CompactCity extends CityBase implements CompactCityInterface
    * @param string $languageCode
    * @param string $title
    * @param string $summary
-   * @param \Triquanta\IziTravel\DataType\MediaInterface[] $images
+   * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
    */
   public function __construct($uuid, $revisionHash, array $availableLanguageCodes, MapInterface $map = NULL, array $translations, LocationInterface $location = NULL, $status, $numberOfChildren, $visible, $languageCode, $title, $summary, array $images) {
     parent::__construct($uuid, $revisionHash, $availableLanguageCodes, $map, $translations, $location, $status, $numberOfChildren, $visible);
@@ -86,7 +86,7 @@ class CompactCity extends CityBase implements CompactCityInterface
     }
     $images = [];
     foreach ($data['images'] as $imageData) {
-      $images[] = Media::createFromData($imageData);
+      $images[] = Image::createFromData($imageData);
     }
 
     return new static($data['uuid'], $data['hash'], $data['languages'], $map, $translations, $location, $data['status'], $data['children_count'], $data['visible'], $data['language'], $data['title'], $data['summary'], $images);

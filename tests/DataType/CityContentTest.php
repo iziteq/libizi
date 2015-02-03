@@ -47,7 +47,7 @@ class CityContentTest extends \PHPUnit_Framework_TestCase
   /**
    * The images.
    *
-   * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+   * @var \Triquanta\IziTravel\DataType\ImageInterface[]
    */
   protected $images = [];
 
@@ -69,9 +69,9 @@ class CityContentTest extends \PHPUnit_Framework_TestCase
     $this->description = 'A description of the story of Foo & Bar ' . mt_rand();
 
     $this->images = [
-      $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
     ];
 
     $this->sut = new CityContent($this->languageCode, $this->title, $this->summary, $this->description, $this->images);

@@ -44,7 +44,7 @@ interface CityContentInterface extends FactoryInterface {
   /**
    * Gets the images.
    *
-   * @return \Triquanta\IziTravel\DataType\MediaInterface[]
+   * @return \Triquanta\IziTravel\DataType\ImageInterface[]
    */
   public function getImages();
 

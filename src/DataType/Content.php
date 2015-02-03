@@ -54,21 +54,21 @@ class Content implements ContentInterface
     /**
      * The images.
      *
-     * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @var \Triquanta\IziTravel\DataType\ImageInterface[]
      */
     protected $images = [];
 
     /**
      * The audio media.
      *
-     * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @var \Triquanta\IziTravel\DataType\AudioInterface[]
      */
     protected $audio = [];
 
     /**
      * The videos.
      *
-     * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+     * @var \Triquanta\IziTravel\DataType\VideoInterface[]
      */
     protected $videos = [];
 
@@ -108,9 +108,9 @@ class Content implements ContentInterface
      * @param string $summary
      * @param string $description
      * @param \Triquanta\IziTravel\DataType\PlaybackInterface|null $playback
-     * @param \Triquanta\IziTravel\DataType\MediaInterface[] $images
-     * @param \Triquanta\IziTravel\DataType\MediaInterface[] $audio
-     * @param \Triquanta\IziTravel\DataType\MediaInterface[] $videos
+     * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
+     * @param \Triquanta\IziTravel\DataType\AudioInterface[] $audio
+     * @param \Triquanta\IziTravel\DataType\VideoInterface[] $videos
      * @param \Triquanta\IziTravel\DataType\CompactMtgObjectInterface[] $children
      * @param \Triquanta\IziTravel\DataType\CompactMtgObjectInterface[] $collections
      * @param \Triquanta\IziTravel\DataType\CompactMtgObjectInterface[] $references
@@ -158,15 +158,15 @@ class Content implements ContentInterface
           ];
         $images = [];
         foreach ($data['images'] as $imageData) {
-            $images[] = Media::createFromData($imageData);
+            $images[] = Image::createFromData($imageData);
         }
         $audio = [];
         foreach ($data['audio'] as $audioData) {
-            $audio[] = Media::createFromData($audioData);
+            $audio[] = Audio::createFromData($audioData);
         }
         $video = [];
         foreach ($data['video'] as $videoData) {
-            $video[] = Media::createFromData($videoData);
+            $video[] = Video::createFromData($videoData);
         }
         $children = [];
         foreach ($data['children'] as $childrenData) {

@@ -55,7 +55,7 @@ class CompactPublisherTest extends \PHPUnit_Framework_TestCase
   /**
    * The images.
    *
-   * @var \Triquanta\IziTravel\DataType\MediaInterface[]
+   * @var \Triquanta\IziTravel\DataType\ImageInterface[]
    */
   protected $images = [];
 
@@ -101,9 +101,9 @@ class CompactPublisherTest extends \PHPUnit_Framework_TestCase
     $this->contentProvider = $this->getMock('\Triquanta\IziTravel\DataType\ContentProviderInterface');
 
     $this->images = [
-      $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\MediaInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
     ];
 
     $this->languageCode = 'nl';
