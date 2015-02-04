@@ -14,7 +14,9 @@ before_script:
 - >
   echo "apiKey: $API_KEY" > test_configuration.local.yml
 script:
-- cd $TRAVIS_BUILD_DIR
-- composer install
+- mkdir -p build/logs
+- composer install --dev --prefer-source
 - vendor/bin/phpunit -c ./phpunit.xml.dist --bootstrap ./tests/bootstrap.php --verbose
   --debug || exit 1
+after_script:
+- php vendor/bin/coveralls -v
