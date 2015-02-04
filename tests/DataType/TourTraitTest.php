@@ -157,7 +157,8 @@ class TourTraitTest extends \PHPUnit_Framework_TestCase
           $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
         ];
 
-        $this->sut = new TourTraitTestTraitImplementation($this->category, $this->duration, $this->distance, $this->placement);
+        $this->sut = new TourTraitTestTraitImplementation($this->category,
+          $this->duration, $this->distance, $this->placement);
     }
 
     /**
@@ -194,14 +195,14 @@ class TourTraitTest extends \PHPUnit_Framework_TestCase
 
 }
 
-class TourTraitTestTraitImplementation {
+class TourTraitTestTraitImplementation
+{
 
     use TourTrait;
 
     /**
      * Constructs a new instance.
      *
-
      * @param string $category
      *   One of the static::CATEGORY_* constants.
      * @param int|null $duration
@@ -211,7 +212,8 @@ class TourTraitTestTraitImplementation {
      * @param string|null $placement
      *   One of the static::PLACEMENT_* constants.
      */
-    public function __construct($category, $duration, $distance, $placement) {
+    public function __construct($category, $duration, $distance, $placement)
+    {
         $this->category = $category;
         $this->duration = $duration;
         $this->distance = $distance;

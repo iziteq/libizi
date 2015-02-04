@@ -169,9 +169,9 @@ class CompactTourTest extends \PHPUnit_Framework_TestCase
         $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
 
         $this->triggerZones = [
-            $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-            $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-            $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
         ];
 
         $this->contentProvider = $this->getMock('\Triquanta\IziTravel\DataType\ContentProviderInterface');
@@ -202,7 +202,12 @@ class CompactTourTest extends \PHPUnit_Framework_TestCase
 
         $this->route = 'foo;bar;';
 
-        $this->sut = new CompactTour($this->uuid, $this->revisionHash, $this->availableLanguageCodes, $this->status, $this->location, $this->triggerZones, $this->contentProvider, $this->purchase, $this->languageCode, $this->title, $this->summary, $this->images, $this->numberOfChildren, $this->category, $this->duration, $this->distance, $this->placement, $this->route);
+        $this->sut = new CompactTour($this->uuid, $this->revisionHash,
+          $this->availableLanguageCodes, $this->status, $this->location,
+          $this->triggerZones, $this->contentProvider, $this->purchase,
+          $this->languageCode, $this->title, $this->summary, $this->images,
+          $this->numberOfChildren, $this->category, $this->duration,
+          $this->distance, $this->placement, $this->route);
     }
 
     /**

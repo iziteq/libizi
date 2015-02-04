@@ -7,8 +7,6 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
-use Triquanta\IziTravel\DataType\CompactMtgObjectBase;
-
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\CompactMtgObjectBase
  */
@@ -152,12 +150,21 @@ class CompactMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         $this->numberOfChildren = mt_rand();
 
         $this->sut = $this->getMockBuilder('\Triquanta\IziTravel\DataType\CompactMtgObjectBase')
-          ->setConstructorArgs([$this->uuid, $this->revisionHash,
-          $this->availableLanguageCodes, $this->status,
-          $this->location, $this->triggerZones, $this->contentProvider,
-          $this->purchase,
-          $this->languageCode, $this->title,
-          $this->summary, $this->images, $this->numberOfChildren])
+          ->setConstructorArgs([
+            $this->uuid,
+            $this->revisionHash,
+            $this->availableLanguageCodes,
+            $this->status,
+            $this->location,
+            $this->triggerZones,
+            $this->contentProvider,
+            $this->purchase,
+            $this->languageCode,
+            $this->title,
+            $this->summary,
+            $this->images,
+            $this->numberOfChildren
+          ])
           ->getMockForAbstractClass();
     }
 

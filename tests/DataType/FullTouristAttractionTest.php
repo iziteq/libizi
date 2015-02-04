@@ -145,7 +145,11 @@ class FullTouristAttractionTest extends \PHPUnit_Framework_TestCase
 
         $this->visibleOnMaps = (bool) mt_rand(0, 1);
 
-        $this->sut = new FullTouristAttraction($this->uuid, $this->revisionHash, $this->availableLanguageCodes, $this->status, $this->location, $this->triggerZones, $this->contentProvider, $this->purchase, $this->parentUuid, $this->contactInformation, $this->map, $this->content, $this->visibleOnMaps);
+        $this->sut = new FullTouristAttraction($this->uuid, $this->revisionHash,
+          $this->availableLanguageCodes, $this->status, $this->location,
+          $this->triggerZones, $this->contentProvider, $this->purchase,
+          $this->parentUuid, $this->contactInformation, $this->map,
+          $this->content, $this->visibleOnMaps);
     }
 
     /**

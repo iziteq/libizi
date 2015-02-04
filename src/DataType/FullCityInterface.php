@@ -13,11 +13,11 @@ namespace Triquanta\IziTravel\DataType;
 interface FullCityInterface extends CityInterface
 {
 
-  /**
-   * Gets the content.
-   *
-   * @return \Triquanta\IziTravel\DataType\CityContentInterface[]
-   */
-  public function getContent();
+    /**
+     * Gets the content.
+     *
+     * @return \Triquanta\IziTravel\DataType\CityContentInterface[]
+     */
+    public function getContent();
 
 }

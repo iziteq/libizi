@@ -10,5 +10,6 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a full story navigation data type.
  */
-interface FullStoryNavigationInterface extends StoryNavigationInterface {
+interface FullStoryNavigationInterface extends StoryNavigationInterface
+{
 }

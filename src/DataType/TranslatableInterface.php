@@ -13,12 +13,12 @@ namespace Triquanta\IziTravel\DataType;
 interface TranslatableInterface
 {
 
-  /**
-   * Gets language codes for available translations.
-   *
-   * @return string[]
-   *   Values are ISO 639-1 alpha-2 language codes.
-   */
-  public function getAvailableLanguageCodes();
+    /**
+     * Gets language codes for available translations.
+     *
+     * @return string[]
+     *   Values are ISO 639-1 alpha-2 language codes.
+     */
+    public function getAvailableLanguageCodes();
 
 }

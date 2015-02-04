@@ -13,33 +13,33 @@ namespace Triquanta\IziTravel\DataType;
 interface CompactPublisherInterface extends PublisherInterface
 {
 
-  /**
-   * Gets the images.
-   *
-   * @return \Triquanta\IziTravel\DataType\ImageInterface[]
-   */
-  public function getImages();
+    /**
+     * Gets the images.
+     *
+     * @return \Triquanta\IziTravel\DataType\ImageInterface[]
+     */
+    public function getImages();
 
-  /**
-   * Gets the language.
-   *
-   * @return string
-   *   An ISO 639-1 alpha-2 language code.
-   */
-  public function getLanguageCode();
+    /**
+     * Gets the language.
+     *
+     * @return string
+     *   An ISO 639-1 alpha-2 language code.
+     */
+    public function getLanguageCode();
 
-  /**
-   * Gets the title.
-   *
-   * @return string
-   */
-  public function getTitle();
+    /**
+     * Gets the title.
+     *
+     * @return string
+     */
+    public function getTitle();
 
-  /**
-   * Gets the summary.
-   *
-   * @return string
-   */
-  public function getSummary();
+    /**
+     * Gets the summary.
+     *
+     * @return string
+     */
+    public function getSummary();
 
 }

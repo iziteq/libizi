@@ -10,7 +10,8 @@ namespace Triquanta\IziTravel\Client;
 /**
  * Defines an handler for making API requests.
  */
-interface RequestHandlerInterface {
+interface RequestHandlerInterface
+{
 
     /**
      * Executes an MTG API request.

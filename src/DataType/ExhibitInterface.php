@@ -10,5 +10,6 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines an exhibit data type.
  */
-interface ExhibitInterface extends MtgObjectInterface {
+interface ExhibitInterface extends MtgObjectInterface
+{
 }

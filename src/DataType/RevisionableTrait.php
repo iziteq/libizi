@@ -13,15 +13,16 @@ namespace Triquanta\IziTravel\DataType;
 trait RevisionableTrait
 {
 
-  /**
-   * The revision hash.
-   *
-   * @var string
-   */
-  protected $revisionHash;
+    /**
+     * The revision hash.
+     *
+     * @var string
+     */
+    protected $revisionHash;
 
-  public function getRevisionHash() {
-    return $this->revisionHash;
-  }
+    public function getRevisionHash()
+    {
+        return $this->revisionHash;
+    }
 
 }

@@ -13,7 +13,8 @@ use Triquanta\IziTravel\DataType\MultipleFormInterface;
 /**
  * Defines a client for interacting with the IZI Travel API.
  */
-interface ClientInterface {
+interface ClientInterface
+{
 
     /**
      * Gets an object by UUID.
@@ -27,7 +28,11 @@ interface ClientInterface {
      *
      * @return \Triquanta\IziTravel\DataType\MtgObjectInterface
      */
-    public function getMtgObjectByUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_COMPACT);
+    public function getMtgObjectByUuid(
+      $uuid,
+      array $languages,
+      $form = MultipleFormInterface::FORM_COMPACT
+    );
 
     /**
      * Gets multiple objects by their UUIDs.
@@ -41,7 +46,11 @@ interface ClientInterface {
      *
      * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
      */
-    public function getMtgObjectsByUuids(array $uuids, array $languages, $form = MultipleFormInterface::FORM_COMPACT);
+    public function getMtgObjectsByUuids(
+      array $uuids,
+      array $languages,
+      $form = MultipleFormInterface::FORM_COMPACT
+    );
 
     /**
      * Gets an object's children by its UUIDs.
@@ -55,7 +64,11 @@ interface ClientInterface {
      *
      * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
      */
-    public function getMtgObjectsChildrenByUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_FULL);
+    public function getMtgObjectsChildrenByUuid(
+      $uuid,
+      array $languages,
+      $form = MultipleFormInterface::FORM_FULL
+    );
 
     /**
      * Gets a country by its UUIDs.
@@ -69,7 +82,11 @@ interface ClientInterface {
      *
      * @return \Triquanta\IziTravel\DataType\CountryInterface
      */
-    public function getCountryByUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_FULL);
+    public function getCountryByUuid(
+      $uuid,
+      array $languages,
+      $form = MultipleFormInterface::FORM_FULL
+    );
 
     /**
      * Gets multiple countries.
@@ -82,7 +99,10 @@ interface ClientInterface {
      *
      * @return \Triquanta\IziTravel\DataType\CountryInterface[]
      */
-    public function getCountries(array $languages, $form = MultipleFormInterface::FORM_COMPACT);
+    public function getCountries(
+      array $languages,
+      $form = MultipleFormInterface::FORM_COMPACT
+    );
 
     /**
      * Gets a city by its UUIDs.
@@ -96,7 +116,11 @@ interface ClientInterface {
      *
      * @return \Triquanta\IziTravel\DataType\CityInterface
      */
-    public function getCityByUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_FULL);
+    public function getCityByUuid(
+      $uuid,
+      array $languages,
+      $form = MultipleFormInterface::FORM_FULL
+    );
 
     /**
      * Gets multiple cities.
@@ -109,7 +133,10 @@ interface ClientInterface {
      *
      * @return \Triquanta\IziTravel\DataType\CityInterface[]
      */
-    public function getCities(array $languages, $form = MultipleFormInterface::FORM_COMPACT);
+    public function getCities(
+      array $languages,
+      $form = MultipleFormInterface::FORM_COMPACT
+    );
 
     /**
      * Gets multiple cities by a country's UUID.
@@ -123,7 +150,11 @@ interface ClientInterface {
      *
      * @return \Triquanta\IziTravel\DataType\CityInterface[]
      */
-    public function getCitiesByCountryUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_COMPACT);
+    public function getCitiesByCountryUuid(
+      $uuid,
+      array $languages,
+      $form = MultipleFormInterface::FORM_COMPACT
+    );
 
     /**
      * Gets a publisher by its UUIDs.
@@ -137,7 +168,11 @@ interface ClientInterface {
      *
      * @return \Triquanta\IziTravel\DataType\PublisherInterface
      */
-    public function getPublisherByUuid($uuid, array $languages, $form = MultipleFormInterface::FORM_FULL);
+    public function getPublisherByUuid(
+      $uuid,
+      array $languages,
+      $form = MultipleFormInterface::FORM_FULL
+    );
 
     /**
      * Gets multiple MTGObjects.
@@ -153,6 +188,13 @@ interface ClientInterface {
      *
      * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
      */
-    public function getMtgObjects(array $languages, $form = MultipleFormInterface::FORM_FULL, array $types = [MtgObjectInterface::TYPE_TOUR, MtgObjectInterface::TYPE_MUSEUM]);
+    public function getMtgObjects(
+      array $languages,
+      $form = MultipleFormInterface::FORM_FULL,
+      array $types = [
+        MtgObjectInterface::TYPE_TOUR,
+        MtgObjectInterface::TYPE_MUSEUM
+      ]
+    );
 
 }

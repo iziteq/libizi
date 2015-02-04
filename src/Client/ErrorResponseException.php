@@ -13,5 +13,6 @@ namespace Triquanta\IziTravel\Client;
  * The exception code and message are the HTTP response code and the error
  * message respectively.
  */
-class ErrorResponseException extends ClientException {
+class ErrorResponseException extends ClientException
+{
 }

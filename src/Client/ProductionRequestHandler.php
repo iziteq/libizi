@@ -10,7 +10,8 @@ namespace Triquanta\IziTravel\Client;
 /**
  * Provides an handler for making requests to the production API.
  */
-class ProductionRequestHandler extends RequestHandlerBase {
+class ProductionRequestHandler extends RequestHandlerBase
+{
 
     protected function getBaseUrl()
     {

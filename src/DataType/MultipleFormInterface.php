@@ -13,14 +13,14 @@ namespace Triquanta\IziTravel\DataType;
 interface MultipleFormInterface
 {
 
-  /**
-   * An object in full form.
-   */
-  const FORM_FULL = 'full';
+    /**
+     * An object in full form.
+     */
+    const FORM_FULL = 'full';
 
-  /**
-   * An object in compact form.
-   */
-  const FORM_COMPACT = 'compact';
+    /**
+     * An object in compact form.
+     */
+    const FORM_COMPACT = 'compact';
 
 }

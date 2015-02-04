@@ -10,14 +10,15 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a full tour data type.
  */
-interface CompactTourInterface extends CompactMtgObjectInterface, TourInterface {
+interface CompactTourInterface extends CompactMtgObjectInterface, TourInterface
+{
 
-  /**
-   * Gets the route.
-   *
-   * @return string|null
-   *   The route coordinates in KML format.
-   */
-  public function getRoute();
+    /**
+     * Gets the route.
+     *
+     * @return string|null
+     *   The route coordinates in KML format.
+     */
+    public function getRoute();
 
 }

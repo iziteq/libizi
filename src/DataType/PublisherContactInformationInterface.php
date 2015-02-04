@@ -13,32 +13,32 @@ namespace Triquanta\IziTravel\DataType;
 interface PublisherContactInformationInterface extends FactoryInterface
 {
 
-  /**
-   * Gets the website URL.
-   *
-   * @return string|null
-   */
-  public function getWebsiteUrl();
+    /**
+     * Gets the website URL.
+     *
+     * @return string|null
+     */
+    public function getWebsiteUrl();
 
-  /**
-   * Gets the email address.
-   *
-   * @return string|null
-   */
-  public function getEmailAddress();
+    /**
+     * Gets the email address.
+     *
+     * @return string|null
+     */
+    public function getEmailAddress();
 
-  /**
-   * Gets the URL to the Twitter account.
-   *
-   * @return string|null
-   */
-  public function getTwitterUrl();
+    /**
+     * Gets the URL to the Twitter account.
+     *
+     * @return string|null
+     */
+    public function getTwitterUrl();
 
-  /**
-   * Gets the URL to the Facebook page.
-   *
-   * @return string|null
-   */
-  public function getFacebookUrl();
+    /**
+     * Gets the URL to the Facebook page.
+     *
+     * @return string|null
+     */
+    public function getFacebookUrl();
 
 }

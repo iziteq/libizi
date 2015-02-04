@@ -50,7 +50,8 @@ class CompactTouristAttraction extends CompactMtgObjectBase implements CompactTo
       $visibleOnMaps
     ) {
         parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
-          $status, $location, $triggerZones, $contentProvider, $purchase, $languageCode, $title, $summary, $images, $numberOfChildren);
+          $status, $location, $triggerZones, $contentProvider, $purchase,
+          $languageCode, $title, $summary, $images, $numberOfChildren);
         $this->visibleOnMaps = $visibleOnMaps;
     }
 

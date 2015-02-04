@@ -23,7 +23,8 @@ class MissingUuidFactoryException extends \Exception
      */
     public function __construct($data, $code = 0, \Exception $previous = null)
     {
-        parent::__construct(sprintf('Missing UUID in JSON: %s', json_encode($data)), $code,
+        parent::__construct(sprintf('Missing UUID in JSON: %s',
+          json_encode($data)), $code,
           $previous);
     }
 

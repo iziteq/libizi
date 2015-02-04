@@ -13,11 +13,11 @@ namespace Triquanta\IziTravel\DataType;
 interface RevisionableInterface
 {
 
-  /**
-   * Gets the revision hash.
-   *
-   * @return string
-   */
-  public function getRevisionHash();
+    /**
+     * Gets the revision hash.
+     *
+     * @return string
+     */
+    public function getRevisionHash();
 
 }

@@ -46,7 +46,7 @@ class Playback implements PlaybackInterface
     public static function createFromData($data)
     {
         $data = (array) $data + [
-              'order' => [],
+            'order' => [],
           ];
         return new static($data['type'], $data['order']);
     }

@@ -13,11 +13,11 @@ namespace Triquanta\IziTravel\DataType;
 interface FullCountryInterface extends CountryInterface
 {
 
-  /**
-   * Gets the content.
-   *
-   * @return \Triquanta\IziTravel\DataType\CountryContentInterface[]
-   */
-  public function getContent();
+    /**
+     * Gets the content.
+     *
+     * @return \Triquanta\IziTravel\DataType\CountryContentInterface[]
+     */
+    public function getContent();
 
 }

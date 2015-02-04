@@ -10,5 +10,6 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a full tourist attraction data type.
  */
-interface FullTouristAttractionInterface extends TouristAttractionInterface {
+interface FullTouristAttractionInterface extends TouristAttractionInterface
+{
 }

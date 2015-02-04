@@ -86,6 +86,32 @@ abstract class MtgObjectBase implements MtgObjectInterface
     }
 
     /**
+     * Creates an MTG Object.
+     *
+     * @param mixed $data
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
+     *   constants.
+     *
+     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface
+     *
+     * @throws \Exception
+     */
+    public static function createMtgObject($data, $form)
+    {
+        $data = (array) $data;
+
+        if (!isset($data['type'])) {
+            throw new \Exception('MTG Object data must contain a "type" key.');
+        }
+
+        /** @var \Triquanta\IziTravel\DataType\MtgObjectInterface $class */
+        $class = static::getClassMap()[$data['type']][$form];
+
+        return $class::createFromData($data);
+    }
+
+    /**
      * Returns a class map for the different object types.
      *
      * @return array[]
@@ -94,7 +120,8 @@ abstract class MtgObjectBase implements MtgObjectInterface
      *   constants and values are fully qualified class names.
      *
      */
-    public static function getClassMap() {
+    public static function getClassMap()
+    {
         return [
           static::TYPE_MUSEUM => [
             MultipleFormInterface::FORM_FULL => '\Triquanta\IziTravel\DataType\FullMuseum',
@@ -121,31 +148,6 @@ abstract class MtgObjectBase implements MtgObjectInterface
             MultipleFormInterface::FORM_COMPACT => '\Triquanta\IziTravel\DataType\CompactTouristAttraction',
           ],
         ];
-    }
-
-    /**
-     * Creates an MTG Object.
-     *
-     * @param mixed $data
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     *
-     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface
-     *
-     * @throws \Exception
-     */
-    public static function createMtgObject($data, $form) {
-        $data = (array) $data;
-
-        if (!isset($data['type'])) {
-            throw new \Exception('MTG Object data must contain a "type" key.');
-        }
-
-        /** @var \Triquanta\IziTravel\DataType\MtgObjectInterface $class */
-        $class = static::getClassMap()[$data['type']][$form];
-
-        return $class::createFromData($data);
     }
 
     public function isPublished()

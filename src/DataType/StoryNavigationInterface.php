@@ -10,5 +10,6 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a story navigation data type.
  */
-interface StoryNavigationInterface extends MtgObjectInterface {
+interface StoryNavigationInterface extends MtgObjectInterface
+{
 }

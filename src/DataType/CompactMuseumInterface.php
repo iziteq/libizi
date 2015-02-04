@@ -10,5 +10,6 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a compact museum data type.
  */
-interface CompactMuseumInterface extends MuseumInterface {
+interface CompactMuseumInterface extends MuseumInterface
+{
 }

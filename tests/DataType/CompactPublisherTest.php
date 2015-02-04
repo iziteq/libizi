@@ -16,113 +16,115 @@ use Triquanta\IziTravel\DataType\PublisherInterface;
 class CompactPublisherTest extends \PHPUnit_Framework_TestCase
 {
 
-  /**
-   * The UUID.
-   *
-   * @var string
-   */
-  protected $uuid;
+    /**
+     * The UUID.
+     *
+     * @var string
+     */
+    protected $uuid;
 
-  /**
-   * The revision hash.
-   *
-   * @var string
-   */
-  protected $revisionHash;
+    /**
+     * The revision hash.
+     *
+     * @var string
+     */
+    protected $revisionHash;
 
-  /**
-   * The language codes for available translations.
-   *
-   * @var string[]
-   *   Values are ISO 639-1 alpha-2 language codes.
-   */
-  protected $availableLanguageCodes = [];
+    /**
+     * The language codes for available translations.
+     *
+     * @var string[]
+     *   Values are ISO 639-1 alpha-2 language codes.
+     */
+    protected $availableLanguageCodes = [];
 
-  /**
-   * The status.
-   *
-   * @var string
-   */
-  protected $status;
+    /**
+     * The status.
+     *
+     * @var string
+     */
+    protected $status;
 
-  /**
-   * The content provider.
-   *
-   * @var \Triquanta\IziTravel\DataType\ContentProviderInterface
-   */
-  protected $contentProvider;
+    /**
+     * The content provider.
+     *
+     * @var \Triquanta\IziTravel\DataType\ContentProviderInterface
+     */
+    protected $contentProvider;
 
-  /**
-   * The images.
-   *
-   * @var \Triquanta\IziTravel\DataType\ImageInterface[]
-   */
-  protected $images = [];
+    /**
+     * The images.
+     *
+     * @var \Triquanta\IziTravel\DataType\ImageInterface[]
+     */
+    protected $images = [];
 
-  /**
-   * The language.
-   *
-   * @var string
-   *   An ISO 639-1 alpha-2 language code.
-   */
-  protected $languageCode;
+    /**
+     * The language.
+     *
+     * @var string
+     *   An ISO 639-1 alpha-2 language code.
+     */
+    protected $languageCode;
 
-  /**
-   * The title.
-   *
-   * @var string
-   */
-  protected $title;
+    /**
+     * The title.
+     *
+     * @var string
+     */
+    protected $title;
 
-  /**
-   * The summary.
-   *
-   * @var string
-   */
-  protected $summary;
+    /**
+     * The summary.
+     *
+     * @var string
+     */
+    protected $summary;
 
-  /**
-   * The class under test.
-   *
-   * @var \Triquanta\IziTravel\DataType\CompactPublisher
-   */
-  protected $sut;
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\CompactPublisher
+     */
+    protected $sut;
 
-  public function setUp()
-  {
-    $this->uuid = 'foo-bar-baz-' . mt_rand();
+    public function setUp()
+    {
+        $this->uuid = 'foo-bar-baz-' . mt_rand();
 
-    $this->revisionHash = 'hgo82ut097q398yquwfwhi4jt';
+        $this->revisionHash = 'hgo82ut097q398yquwfwhi4jt';
 
-    $this->availableLanguageCodes = ['nl', 'uk'];
+        $this->availableLanguageCodes = ['nl', 'uk'];
 
-    $this->status = PublisherInterface::STATUS_PUBLISHED;
+        $this->status = PublisherInterface::STATUS_PUBLISHED;
 
-    $this->contentProvider = $this->getMock('\Triquanta\IziTravel\DataType\ContentProviderInterface');
+        $this->contentProvider = $this->getMock('\Triquanta\IziTravel\DataType\ContentProviderInterface');
 
-    $this->images = [
-      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-    ];
+        $this->images = [
+          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
+        ];
 
-    $this->languageCode = 'nl';
+        $this->languageCode = 'nl';
 
-    $this->title = 'Foo & Bar ' . mt_rand();
+        $this->title = 'Foo & Bar ' . mt_rand();
 
-    $this->summary = 'The story of Foo & Bar ' . mt_rand();
+        $this->summary = 'The story of Foo & Bar ' . mt_rand();
 
-    $this->sut = new CompactPublisher($this->uuid, $this->revisionHash, $this->availableLanguageCodes, $this->contentProvider, $this->status, $this->languageCode, $this->title, $this->summary, $this->images);
-  }
+        $this->sut = new CompactPublisher($this->uuid, $this->revisionHash,
+          $this->availableLanguageCodes, $this->contentProvider, $this->status,
+          $this->languageCode, $this->title, $this->summary, $this->images);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   * @covers ::createFromData
-   */
-  public function testCreateFromJson()
-  {
-    $json = <<<'JSON'
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     */
+    public function testCreateFromJson()
+    {
+        $json = <<<'JSON'
 {
     "uuid": "7d84ef00-f4f6-4b90-89d7-f20207ee9ca6",
     "type": "publisher",
@@ -151,32 +153,32 @@ class CompactPublisherTest extends \PHPUnit_Framework_TestCase
 }
 JSON;
 
-    CompactPublisher::createFromJson($json);
-  }
+        CompactPublisher::createFromJson($json);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   * @covers ::createFromData
-   *
-   * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
-   */
-  public function testCreateFromJsonWithInvalidJson()
-  {
-    $json = 'foo';
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     *
+     * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
+     */
+    public function testCreateFromJsonWithInvalidJson()
+    {
+        $json = 'foo';
 
-    CompactPublisher::createFromJson($json);
-  }
+        CompactPublisher::createFromJson($json);
+    }
 
-  /**
-   * @covers ::createFromJson
-   * @covers ::createFromData
-   *
-   * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-   */
-  public function testCreateFromJsonWithoutUuid()
-  {
-    $json = <<<'JSON'
+    /**
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     *
+     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
+     */
+    public function testCreateFromJsonWithoutUuid()
+    {
+        $json = <<<'JSON'
 {
   "email": "john@doe.com",
   "custom": {
@@ -185,39 +187,39 @@ JSON;
 }
 JSON;
 
-    CompactPublisher::createFromJson($json);
-  }
+        CompactPublisher::createFromJson($json);
+    }
 
-  /**
-   * @covers ::getImages
-   */
-  public function testGetImages()
-  {
-    $this->assertSame($this->images, $this->sut->getImages());
-  }
+    /**
+     * @covers ::getImages
+     */
+    public function testGetImages()
+    {
+        $this->assertSame($this->images, $this->sut->getImages());
+    }
 
-  /**
-   * @covers ::getLanguageCode
-   */
-  public function testGetLanguageCode()
-  {
-    $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
-  }
+    /**
+     * @covers ::getLanguageCode
+     */
+    public function testGetLanguageCode()
+    {
+        $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
+    }
 
-  /**
-   * @covers ::getTitle
-   */
-  public function testGetTitle()
-  {
-    $this->assertSame($this->title, $this->sut->getTitle());
-  }
+    /**
+     * @covers ::getTitle
+     */
+    public function testGetTitle()
+    {
+        $this->assertSame($this->title, $this->sut->getTitle());
+    }
 
-  /**
-   * @covers ::getSummary
-   */
-  public function testGetSummary()
-  {
-    $this->assertSame($this->summary, $this->sut->getSummary());
-  }
+    /**
+     * @covers ::getSummary
+     */
+    public function testGetSummary()
+    {
+        $this->assertSame($this->summary, $this->sut->getSummary());
+    }
 
 }

@@ -67,7 +67,13 @@ class MediaBaseTest extends \PHPUnit_Framework_TestCase
         $this->uuid = 'foo-bar-baz-' . mt_rand();
 
         $this->sut = $this->getMockBuilder('\Triquanta\IziTravel\DataType\MediaBase')
-          ->setConstructorArgs([$this->uuid, $this->type, $this->order, $this->url, $this->title])
+          ->setConstructorArgs([
+            $this->uuid,
+            $this->type,
+            $this->order,
+            $this->url,
+            $this->title
+          ])
           ->getMockForAbstractClass();
     }
 

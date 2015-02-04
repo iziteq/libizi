@@ -85,7 +85,8 @@ class FullTouristAttraction extends FullMtgObjectBase implements FullTouristAttr
         return new static($data['uuid'], $data['hash'], $data['languages'],
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase,
-          $data['parent_uuid'], $contactInformation, $map, $content, !$data['hidden']);
+          $data['parent_uuid'], $contactInformation, $map, $content,
+          !$data['hidden']);
     }
 
 }

@@ -13,91 +13,104 @@ namespace Triquanta\IziTravel\DataType;
 class CityContent implements CityContentInterface
 {
 
-  use FactoryTrait;
+    use FactoryTrait;
 
-  /**
-   * The language code.
-   *
-   * @var string
-   *   An ISO 639-1 alpha-2 language code.
-   */
-  protected $languageCode;
+    /**
+     * The language code.
+     *
+     * @var string
+     *   An ISO 639-1 alpha-2 language code.
+     */
+    protected $languageCode;
 
-  /**
-   * The title.
-   *
-   * @var string
-   */
-  protected $title;
+    /**
+     * The title.
+     *
+     * @var string
+     */
+    protected $title;
 
-  /**
-   * The summary.
-   *
-   * @var string
-   */
-  protected $summary;
+    /**
+     * The summary.
+     *
+     * @var string
+     */
+    protected $summary;
 
-  /**
-   * The description.
-   *
-   * @var string
-   */
-  protected $description;
+    /**
+     * The description.
+     *
+     * @var string
+     */
+    protected $description;
 
-  /**
-   * The images.
-   *
-   * @var \Triquanta\IziTravel\DataType\ImageInterface
-   */
-  protected $images = [];
+    /**
+     * The images.
+     *
+     * @var \Triquanta\IziTravel\DataType\ImageInterface
+     */
+    protected $images = [];
 
-  /**
-   * Constructs a new instance.
-   *
-   * @param string $languageCode
-   * @param string $title
-   * @param string $summary
-   * @param string $description
-   * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
-   */
-  public function __construct($languageCode, $title, $summary, $description, array $images) {
-    $this->languageCode = $languageCode;
-    $this->title = $title;
-    $this->summary = $summary;
-    $this->description = $description;
-    $this->images = $images;
-  }
-
-  public static function createFromData($data) {
-    $data = (array) $data + [
-        'images' => [],
-      ];
-    $images = [];
-    foreach ($data['images'] as $imageData) {
-      $images[] = Image::createFromData($imageData);
+    /**
+     * Constructs a new instance.
+     *
+     * @param string $languageCode
+     * @param string $title
+     * @param string $summary
+     * @param string $description
+     * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
+     */
+    public function __construct(
+      $languageCode,
+      $title,
+      $summary,
+      $description,
+      array $images
+    ) {
+        $this->languageCode = $languageCode;
+        $this->title = $title;
+        $this->summary = $summary;
+        $this->description = $description;
+        $this->images = $images;
     }
 
-    return new static($data['language'], $data['title'], $data['summary'], $data['desc'], $images);
-  }
+    public static function createFromData($data)
+    {
+        $data = (array) $data + [
+            'images' => [],
+          ];
+        $images = [];
+        foreach ($data['images'] as $imageData) {
+            $images[] = Image::createFromData($imageData);
+        }
 
-  public function getLanguageCode() {
-    return $this->languageCode;
-  }
+        return new static($data['language'], $data['title'], $data['summary'],
+          $data['desc'], $images);
+    }
 
-  public function getTitle() {
-    return $this->title;
-  }
+    public function getLanguageCode()
+    {
+        return $this->languageCode;
+    }
 
-  public function getSummary() {
-    return $this->summary;
-  }
+    public function getTitle()
+    {
+        return $this->title;
+    }
 
-  public function getDescription() {
-    return $this->description;
-  }
+    public function getSummary()
+    {
+        return $this->summary;
+    }
 
-  public function getImages() {
-    return $this->images;
-  }
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function getImages()
+    {
+        return $this->images;
+    }
 
 }

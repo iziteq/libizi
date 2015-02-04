@@ -7,8 +7,8 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
-use Triquanta\IziTravel\DataType\FullCountry;
 use Triquanta\IziTravel\DataType\CountryInterface;
+use Triquanta\IziTravel\DataType\FullCountry;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\FullCountry
@@ -16,127 +16,127 @@ use Triquanta\IziTravel\DataType\CountryInterface;
 class FullCountryTest extends \PHPUnit_Framework_TestCase
 {
 
-  /**
-   * The UUID.
-   *
-   * @var string
-   */
-  protected $uuid;
+    /**
+     * The UUID.
+     *
+     * @var string
+     */
+    protected $uuid;
 
-  /**
-   * The revision hash.
-   *
-   * @var string
-   */
-  protected $revisionHash;
+    /**
+     * The revision hash.
+     *
+     * @var string
+     */
+    protected $revisionHash;
 
-  /**
-   * The language codes for available translations.
-   *
-   * @var string[]
-   *   Values are ISO 639-1 alpha-2 language codes.
-   */
-  protected $availableLanguageCodes = [];
+    /**
+     * The language codes for available translations.
+     *
+     * @var string[]
+     *   Values are ISO 639-1 alpha-2 language codes.
+     */
+    protected $availableLanguageCodes = [];
 
-  /**
-   * The country code.
-   *
-   * @var string|null
-   *   An ISO 3166-1 alpha-2 country code.
-   */
-  protected $countryCode;
+    /**
+     * The country code.
+     *
+     * @var string|null
+     *   An ISO 3166-1 alpha-2 country code.
+     */
+    protected $countryCode;
 
-  /**
-   * The map.
-   *
-   * @var \Triquanta\IziTravel\DataType\MapInterface|null
-   */
-  protected $map;
+    /**
+     * The map.
+     *
+     * @var \Triquanta\IziTravel\DataType\MapInterface|null
+     */
+    protected $map;
 
-  /**
-   * The translations.
-   *
-   * @var \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[]
-   */
-  protected $translations = [];
+    /**
+     * The translations.
+     *
+     * @var \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[]
+     */
+    protected $translations = [];
 
-  /**
-   * The location.
-   *
-   * @var \Triquanta\IziTravel\DataType\LocationInterface|null
-   */
-  protected $location;
+    /**
+     * The location.
+     *
+     * @var \Triquanta\IziTravel\DataType\LocationInterface|null
+     */
+    protected $location;
 
-  /**
-   * The status.
-   *
-   * @var string
-   */
-  protected $status;
+    /**
+     * The status.
+     *
+     * @var string
+     */
+    protected $status;
 
-  /**
-   * The content.
-   *
-   * @Var \Triquanta\IziTravel\DataType\CountryContentInterface[]
-   */
-  protected $content = [];
+    /**
+     * The content.
+     *
+     * @Var \Triquanta\IziTravel\DataType\CountryContentInterface[]
+     */
+    protected $content = [];
 
-  /**
-   * The class under test.
-   *
-   * @var \Triquanta\IziTravel\DataType\FullCountry|\PHPUnit_Framework_MockObject_MockObject
-   */
-  protected $sut;
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\FullCountry|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $sut;
 
-  public function setUp()
-  {
-    $this->uuid = 'foo-bar-baz-' . mt_rand();
+    public function setUp()
+    {
+        $this->uuid = 'foo-bar-baz-' . mt_rand();
 
-    $this->revisionHash = 'hwg98309t82ohtwqlekhgf0823yt';
+        $this->revisionHash = 'hwg98309t82ohtwqlekhgf0823yt';
 
-    $this->availableLanguageCodes = ['nl', 'uk'];
+        $this->availableLanguageCodes = ['nl', 'uk'];
 
-    $this->countryCode = 'UA';
+        $this->countryCode = 'UA';
 
-    $this->map = $this->getMock('\Triquanta\IziTravel\DataType\MapInterface');
+        $this->map = $this->getMock('\Triquanta\IziTravel\DataType\MapInterface');
 
-    $this->translations = [
-      $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
-    ];
+        $this->translations = [
+          $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
+        ];
 
-    $this->status = CountryInterface::STATUS_PUBLISHED;
+        $this->status = CountryInterface::STATUS_PUBLISHED;
 
-    $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
+        $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
 
-    $this->content = [
-      $this->getMock('\Triquanta\IziTravel\DataType\CountryContentInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\CountryContentInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\CountryContentInterface'),
-    ];
+        $this->content = [
+          $this->getMock('\Triquanta\IziTravel\DataType\CountryContentInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\CountryContentInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\CountryContentInterface'),
+        ];
 
-    $this->sut = new FullCountry(
-        $this->uuid,
-        $this->revisionHash,
-        $this->availableLanguageCodes,
-        $this->countryCode,
-        $this->map,
-        $this->translations,
-        $this->location,
-        $this->status,
-        $this->content
-      );
-  }
+        $this->sut = new FullCountry(
+          $this->uuid,
+          $this->revisionHash,
+          $this->availableLanguageCodes,
+          $this->countryCode,
+          $this->map,
+          $this->translations,
+          $this->location,
+          $this->status,
+          $this->content
+        );
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   * @covers ::createFromData
-   */
-  public function testCreateFromJson()
-  {
-    $json = <<<'JSON'
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     */
+    public function testCreateFromJson()
+    {
+        $json = <<<'JSON'
 {
     "uuid": "15845ecf-4274-4286-b086-e407ff8207de",
     "type": "country",
@@ -186,32 +186,32 @@ class FullCountryTest extends \PHPUnit_Framework_TestCase
 }
 JSON;
 
-    FullCountry::createFromJson($json);
-  }
+        FullCountry::createFromJson($json);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   * @covers ::createFromData
-   *
-   * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
-   */
-  public function testCreateFromJsonWithInvalidJson()
-  {
-    $json = 'foo';
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     *
+     * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
+     */
+    public function testCreateFromJsonWithInvalidJson()
+    {
+        $json = 'foo';
 
-    FullCountry::createFromJson($json);
-  }
+        FullCountry::createFromJson($json);
+    }
 
-  /**
-   * @covers ::createFromJson
-   * @covers ::createFromData
-   *
-   * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-   */
-  public function testCreateFromJsonWithoutUuid()
-  {
-    $json = <<<'JSON'
+    /**
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     *
+     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
+     */
+    public function testCreateFromJsonWithoutUuid()
+    {
+        $json = <<<'JSON'
 {
     "type": "country",
     "languages": [
@@ -260,15 +260,15 @@ JSON;
 }
 JSON;
 
-    FullCountry::createFromJson($json);
-  }
+        FullCountry::createFromJson($json);
+    }
 
-  /**
-   * @covers ::getContent
-   */
-  public function testGetContent()
-  {
-    $this->assertSame($this->content, $this->sut->getContent());
-  }
+    /**
+     * @covers ::getContent
+     */
+    public function testGetContent()
+    {
+        $this->assertSame($this->content, $this->sut->getContent());
+    }
 
 }

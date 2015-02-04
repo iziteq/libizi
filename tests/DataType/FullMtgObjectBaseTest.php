@@ -7,8 +7,6 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
-use Triquanta\IziTravel\DataType\FullMtgObjectBase;
-
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\FullMtgObjectBase
  */
@@ -142,12 +140,20 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FullMtgObjectBase',
-          [$this->uuid, $this->revisionHash,
-          $this->availableLanguageCodes, $this->status,
-          $this->location, $this->triggerZones, $this->contentProvider,
-          $this->purchase,
-          $this->parentUuid,
-          $this->contactInformation, $this->map, $this->content]);
+          [
+            $this->uuid,
+            $this->revisionHash,
+            $this->availableLanguageCodes,
+            $this->status,
+            $this->location,
+            $this->triggerZones,
+            $this->contentProvider,
+            $this->purchase,
+            $this->parentUuid,
+            $this->contactInformation,
+            $this->map,
+            $this->content
+          ]);
     }
 
     /**

@@ -16,7 +16,8 @@ use GuzzleHttp\Query;
  * Instances of this class are stateless, which means they can be used to make
  * multiple requests.
  */
-abstract class RequestHandlerBase implements RequestHandlerInterface {
+abstract class RequestHandlerBase implements RequestHandlerInterface
+{
 
     /**
      * The API key.
@@ -39,20 +40,14 @@ abstract class RequestHandlerBase implements RequestHandlerInterface {
      * @param string $apiKey
      *   The MTG API key.
      */
-    public function __construct(ClientInterface $httpClient, $apiKey) {
+    public function __construct(ClientInterface $httpClient, $apiKey)
+    {
         $this->apiKey = $apiKey;
         $this->httpClient = $httpClient;
     }
 
-    /**
-     * Gets the API's base URL.
-     *
-     * @return string
-     *   An absolute URL.
-     */
-    abstract protected function getBaseUrl();
-
-    public function request($urlPath, array $parameters = []) {
+    public function request($urlPath, array $parameters = [])
+    {
         $request = $this->httpClient->createRequest('GET');
         $url = rtrim($this->getBaseUrl(), '/') . '/' . trim($urlPath, '/');
         $request->setUrl($url);
@@ -64,29 +59,38 @@ abstract class RequestHandlerBase implements RequestHandlerInterface {
         try {
             $response = $this->httpClient->send($request);
             $json = $response->getBody()->getContents();
-        }
-        catch (\Exception $e) {
-            throw new HttpRequestException(sprintf('An exception was thrown during the API request to %s.', $request->getUrl()), 0, $e);
+        } catch (\Exception $e) {
+            throw new HttpRequestException(sprintf('An exception was thrown during the API request to %s.',
+              $request->getUrl()), 0, $e);
         }
 
         $responseData = json_decode($json);
         if (json_last_error()) {
-            throw new HttpRequestException(sprintf('The request to %s did not return valid JSON.', $request->getUrl()));
-        }
-        elseif (is_array($responseData) && isset($responseData['error'])) {
-            throw new ErrorResponseException($responseData['error'], $responseData['code']);
-        }
-        else {
+            throw new HttpRequestException(sprintf('The request to %s did not return valid JSON.',
+              $request->getUrl()));
+        } elseif (is_array($responseData) && isset($responseData['error'])) {
+            throw new ErrorResponseException($responseData['error'],
+              $responseData['code']);
+        } else {
             return $json;
         }
     }
+
+    /**
+     * Gets the API's base URL.
+     *
+     * @return string
+     *   An absolute URL.
+     */
+    abstract protected function getBaseUrl();
 
     /**
      * Returns a \GuzzleHttp\Query aggregator callable.
      *
      * @return callable
      */
-    public static function getGuzzleQueryAggregator() {
+    public static function getGuzzleQueryAggregator()
+    {
         return function (array $data) {
             return Query::walkQuery($data, '', function ($key, $prefix) {
                 return is_int($key) ? "{$prefix}[]" : "{$prefix}[{$key}]";

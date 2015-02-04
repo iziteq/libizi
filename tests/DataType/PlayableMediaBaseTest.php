@@ -76,7 +76,14 @@ class PlayableMediaBaseTest extends \PHPUnit_Framework_TestCase
         $this->uuid = 'foo-bar-baz-' . mt_rand();
 
         $this->sut = $this->getMockBuilder('\Triquanta\IziTravel\DataType\PlayableMediaBase')
-          ->setConstructorArgs([$this->uuid, $this->type, $this->order, $this->url, $this->title, $this->duration])
+          ->setConstructorArgs([
+            $this->uuid,
+            $this->type,
+            $this->order,
+            $this->url,
+            $this->title,
+            $this->duration
+          ])
           ->getMockForAbstractClass();
     }
 

@@ -13,18 +13,18 @@ namespace Triquanta\IziTravel\DataType;
 interface FullPublisherInterface extends PublisherInterface
 {
 
-  /**
-   * Gets the content.
-   *
-   * @return \Triquanta\IziTravel\DataType\PublisherContentInterface[]
-   */
-  public function getContent();
+    /**
+     * Gets the content.
+     *
+     * @return \Triquanta\IziTravel\DataType\PublisherContentInterface[]
+     */
+    public function getContent();
 
-  /**
-   * Gets the contact information.
-   *
-   * @return \Triquanta\IziTravel\DataType\PublisherContactInformationInterface[]
-   */
-  public function getContactInformation();
+    /**
+     * Gets the contact information.
+     *
+     * @return \Triquanta\IziTravel\DataType\PublisherContactInformationInterface[]
+     */
+    public function getContactInformation();
 
 }

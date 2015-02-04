@@ -161,7 +161,11 @@ class CompactTouristAttractionTest extends \PHPUnit_Framework_TestCase
 
         $this->visibleOnMaps = (bool) mt_rand(0, 1);
 
-        $this->sut = new CompactTouristAttraction($this->uuid, $this->revisionHash, $this->availableLanguageCodes, $this->status, $this->location, $this->triggerZones, $this->contentProvider, $this->purchase, $this->languageCode, $this->title, $this->summary, $this->images, $this->numberOfChildren, $this->visibleOnMaps);
+        $this->sut = new CompactTouristAttraction($this->uuid,
+          $this->revisionHash, $this->availableLanguageCodes, $this->status,
+          $this->location, $this->triggerZones, $this->contentProvider,
+          $this->purchase, $this->languageCode, $this->title, $this->summary,
+          $this->images, $this->numberOfChildren, $this->visibleOnMaps);
     }
 
     /**

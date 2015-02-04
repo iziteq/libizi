@@ -154,7 +154,8 @@ class FullMuseumTest extends \PHPUnit_Framework_TestCase
           $this->availableLanguageCodes, $this->status,
           $this->location, $this->triggerZones, $this->contentProvider,
           $this->purchase, $this->parentUuid,
-          $this->contactInformation, $this->map, $this->content, $this->schedule);
+          $this->contactInformation, $this->map, $this->content,
+          $this->schedule);
     }
 
     /**
