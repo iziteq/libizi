@@ -2,18 +2,17 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\Tests\DataType\CompactMtgObjectTest.
+ * Contains \Triquanta\IziTravel\Tests\DataType\CompactMtgObjectBaseTest.
  */
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
-use Triquanta\IziTravel\DataType\CompactMtgObject;
-use Triquanta\IziTravel\DataType\MtgObjectInterface;
+use Triquanta\IziTravel\DataType\CompactMtgObjectBase;
 
 /**
- * @coversDefaultClass \Triquanta\IziTravel\DataType\CompactMtgObject
+ * @coversDefaultClass \Triquanta\IziTravel\DataType\CompactMtgObjectBase
  */
-class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
+class CompactMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -30,14 +29,6 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
      *   Values are ISO 639-1 alpha-2 language codes.
      */
     protected $availableLanguageCodes = [];
-
-    /**
-     * Gets the category.
-     *
-     * @var string
-     *   One of the static::CATEGORY_* constants.
-     */
-    protected $category;
 
     /**
      * Whether the object is published.
@@ -75,51 +66,12 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
     protected $purchase;
 
     /**
-     * The duration.
-     *
-     * @var int|null
-     *   The duration in seconds.
-     */
-    protected $duration;
-
-    /**
-     * The distance.
-     *
-     * @var int|null
-     *   The distance in meters.
-     */
-    protected $distance;
-
-    /**
-     * The placement.
-     *
-     * @var string|null
-     *   One of the static::PLACEMENT_* constants.
-     */
-    protected $placement;
-
-    /**
-     * Whether the object must be visible on maps.
-     *
-     * @var bool
-     */
-    protected $visibleOnMaps = false;
-
-    /**
      * The language code.
      *
      * @return string
      *   An ISO 639-1 alpha-2 language code.
      */
     protected $languageCode;
-
-    /**
-     * The route.
-     *
-     * @return string|null
-     *   The route coordinates in KML format.
-     */
-    protected $route;
 
     /**
      * The title.
@@ -159,7 +111,7 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
     /**
      * The class under test.
      *
-     * @var \Triquanta\IziTravel\DataType\CompactMtgObject
+     * @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase
      */
     protected $sut;
 
@@ -170,8 +122,6 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
         $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
 
         $this->availableLanguageCodes = ['nl', 'uk'];
-
-        $this->category = MtgObjectInterface::CATEGORY_BIKE;
 
         $this->status = (bool) mt_rand(0, 1);;
 
@@ -187,17 +137,7 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
 
         $this->purchase = $this->getMock('\Triquanta\IziTravel\DataType\PurchaseInterface');
 
-        $this->duration = mt_rand();
-
-        $this->distance = mt_rand();
-
-        $this->placement = MtgObjectInterface::PLACEMENT_OUTDOOR;
-
-        $this->visibleOnMaps = (bool) mt_rand(0, 1);
-
         $this->languageCode = 'uk';
-
-        $this->route = '59.93169400245311,30.35469910138545;59.93157574143709,30.355364289221143;59.93155423938887,30.355879273352002;59.93040385948951,30.355106797155713;59.93056513010406,30.354334320959424;59.930871542111696,30.35196324819026';
 
         $this->title = 'Foo to the bar';
 
@@ -211,12 +151,14 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
 
         $this->numberOfChildren = mt_rand();
 
-        $this->sut = new CompactMtgObject($this->uuid, $this->revisionHash,
-          $this->availableLanguageCodes, $this->category, $this->status,
+        $this->sut = $this->getMockBuilder('\Triquanta\IziTravel\DataType\CompactMtgObjectBase')
+          ->setConstructorArgs([$this->uuid, $this->revisionHash,
+          $this->availableLanguageCodes, $this->status,
           $this->location, $this->triggerZones, $this->contentProvider,
-          $this->purchase, $this->duration, $this->distance, $this->placement,
-          $this->visibleOnMaps, $this->languageCode, $this->route, $this->title,
-          $this->summary, $this->images, $this->numberOfChildren);
+          $this->purchase,
+          $this->languageCode, $this->title,
+          $this->summary, $this->images, $this->numberOfChildren])
+          ->getMockForAbstractClass();
     }
 
     /**
@@ -269,7 +211,9 @@ class CompactMtgObjectTest extends \PHPUnit_Framework_TestCase
 }
 JSON;
 
-        CompactMtgObject::createFromJson($json);
+        /** @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase $class */
+        $class = get_class($this->sut);
+        $class::createFromJson($json);
     }
 
     /**
@@ -283,7 +227,9 @@ JSON;
     {
         $json = 'foo';
 
-        CompactMtgObject::createFromJson($json);
+        /** @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase $class */
+        $class = get_class($this->sut);
+        $class::createFromJson($json);
     }
 
     /**
@@ -303,7 +249,9 @@ JSON;
 }
 JSON;
 
-        CompactMtgObject::createFromJson($json);
+        /** @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase $class */
+        $class = get_class($this->sut);
+        $class::createFromJson($json);
     }
 
     /**
@@ -312,14 +260,6 @@ JSON;
     public function testGetLanguageCode()
     {
         $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
-    }
-
-    /**
-     * @covers ::getRoute
-     */
-    public function testGetRoute()
-    {
-        $this->assertSame($this->route, $this->sut->getRoute());
     }
 
     /**

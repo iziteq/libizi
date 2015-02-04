@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\DataType\FullMtgObject.
+ * Contains \Triquanta\IziTravel\DataType\FullMtgObjectBase.
  */
 
 namespace Triquanta\IziTravel\DataType;
@@ -10,10 +10,8 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Provides a full MTG object data type.
  */
-class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
+abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectInterface
 {
-
-    use FactoryTrait;
 
     /**
      * The UUID of the parent object.
@@ -21,13 +19,6 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
      * @var string|null
      */
     protected $parentUuid;
-
-    /**
-     * The schedule.
-     *
-     * @var \Triquanta\IziTravel\DataType\ScheduleInterface|null
-     */
-    protected $schedule;
 
     /**
      * The contact information.
@@ -48,7 +39,7 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
      *
      * @var \Triquanta\IziTravel\DataType\ContentInterface[]
      */
-    protected $content;
+    protected $content = [];
 
     /**
      * Creates a new instance.
@@ -56,18 +47,12 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
      * @param string $uuid
      * @param string $revisionHash
      * @param string[] $availableLanguageCodes
-     * @param string $category
      * @param string $status
      * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
      * @param \Triquanta\IziTravel\DataType\TriggerZoneInterface[] $triggerZones
      * @param \Triquanta\IziTravel\DataType\ContentProviderInterface $contentProvider
      * @param \Triquanta\IziTravel\DataType\PurchaseInterface|null $purchase
-     * @param int $duration
-     * @param int $distance
-     * @param string $placement
-     * @param bool $visibleOnMaps
      * @param string $parentUuid
-     * @param \Triquanta\IziTravel\DataType\ScheduleInterface|null $schedule
      * @param \Triquanta\IziTravel\DataType\ContactInformationInterface|null $contactInformation
      * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
      * @param \Triquanta\IziTravel\DataType\ContentInterface[] $content
@@ -76,27 +61,19 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
       $uuid,
       $revisionHash,
       array $availableLanguageCodes,
-      $category,
       $status,
       LocationInterface $location = null,
       array $triggerZones,
       ContentProviderInterface $contentProvider,
       PurchaseInterface $purchase = null,
-      $duration,
-      $distance,
-      $placement,
-      $visibleOnMaps,
       $parentUuid,
-      ScheduleInterface $schedule = null,
       ContactInformationInterface $contactInformation = null,
       MapInterface $map = null,
       array $content
     ) {
-        parent::__construct($uuid, $revisionHash, $availableLanguageCodes, $category,
-          $status, $location, $triggerZones, $contentProvider, $purchase,
-          $duration, $distance, $placement, $visibleOnMaps);
+        parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
+          $status, $location, $triggerZones, $contentProvider, $purchase);
         $this->parentUuid = $parentUuid;
-        $this->schedule = $schedule;
         $this->contactInformation = $contactInformation;
         $this->map = $map;
         $this->content = $content;
@@ -107,16 +84,10 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
         $data = (array) $data + [
             'location' => null,
             'purchase' => null,
-            'duration' => null,
-            'distance' => null,
-            'placement' => null,
             'parent_uuid' => null,
-            'schedule' => null,
             'contact' => null,
             'map' => null,
             'content' => null,
-            'hidden' => null,
-            'category' => null,
             'trigger_zones' => [],
           ];
         if (!isset($data['uuid'])) {
@@ -130,28 +101,20 @@ class FullMtgObject extends MtgObjectBase implements FullMtgObjectInterface
         }
         $contentProvider = $data['content_provider'] ? ContentProvider::createFromData($data['content_provider']) : null;
         $purchase = $data['purchase'] ? Purchase::createFromData($data['purchase']) : null;
-        $schedule = $data['schedule'] ? Schedule::createFromData($data['schedule']) : null;
         $contactInformation = $data['contact'] ? ContactInformation::createFromData($data['contact']) : null;
         $map = $data['map'] ? Map::createFromData($data['map']) : null;
         $content = [];
         foreach ($data['content'] as $contentData) {
             $content[] = Content::createFromData($contentData);
         }
-        return new static($data['uuid'], $data['hash'], $data['languages'], $data['category'],
+        return new static($data['uuid'], $data['hash'], $data['languages'],
           $data['status'], $location, $triggerZones, $contentProvider,
-          $purchase, $data['duration'], $data['distance'], $data['placement'],
-          !$data['hidden'], $data['parent_uuid'], $schedule,
-          $contactInformation, $map, $content);
+          $purchase, $data['parent_uuid'], $contactInformation, $map, $content);
     }
 
     public function getParentUuid()
     {
         return $this->parentUuid;
-    }
-
-    public function getSchedule()
-    {
-        return $this->schedule;
     }
 
     public function getContactInformation()

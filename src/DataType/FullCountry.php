@@ -18,7 +18,7 @@ class FullCountry extends CountryBase implements FullCountryInterface
    *
    * @Var \Triquanta\IziTravel\DataType\CountryContentInterface[]
    */
-  protected $content;
+  protected $content = [];
 
   /**
    * Created a new instance.

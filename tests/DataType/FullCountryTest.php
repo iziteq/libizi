@@ -79,7 +79,7 @@ class FullCountryTest extends \PHPUnit_Framework_TestCase
    *
    * @Var \Triquanta\IziTravel\DataType\CountryContentInterface[]
    */
-  protected $content;
+  protected $content = [];
 
   /**
    * The class under test.

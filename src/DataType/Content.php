@@ -169,16 +169,16 @@ class Content implements ContentInterface
             $video[] = Video::createFromData($videoData);
         }
         $children = [];
-        foreach ($data['children'] as $childrenData) {
-            $children[] = CompactMtgObject::createFromData($childrenData);
+        foreach ($data['children'] as $childData) {
+            $children[] = MtgObjectBase::createMtgObject($childData, MultipleFormInterface::FORM_COMPACT);
         }
         $collections = [];
-        foreach ($data['collections'] as $collectionsData) {
-            $collections[] = CompactMtgObject::createFromData($collectionsData);
+        foreach ($data['collections'] as $collectionData) {
+            $children[] = MtgObjectBase::createMtgObject($collectionData, MultipleFormInterface::FORM_COMPACT);
         }
         $references = [];
-        foreach ($data['references'] as $referencesData) {
-            $references[] = CompactMtgObject::createFromData($referencesData);
+        foreach ($data['references'] as $referenceData) {
+            $children[] = MtgObjectBase::createMtgObject($referenceData, MultipleFormInterface::FORM_COMPACT);
         }
         $playback = $data['playback'] ? Playback::createFromData($data['playback']) : null;
         $quiz = $data['quiz'] ? Quiz::createFromData($data['quiz']) : null;

@@ -93,7 +93,7 @@ class FullCityTest extends \PHPUnit_Framework_TestCase
    *
    * @Var \Triquanta\IziTravel\DataType\CityContentInterface[]
    */
-  protected $content;
+  protected $content = [];
 
   /**
    * The class under test.

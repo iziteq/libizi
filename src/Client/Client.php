@@ -9,12 +9,11 @@ namespace Triquanta\IziTravel\Client;
 
 use Triquanta\IziTravel\DataType\CompactCity;
 use Triquanta\IziTravel\DataType\CompactCountry;
-use Triquanta\IziTravel\DataType\CompactMtgObject;
 use Triquanta\IziTravel\DataType\CompactPublisher;
 use Triquanta\IziTravel\DataType\FullCity;
 use Triquanta\IziTravel\DataType\FullCountry;
-use Triquanta\IziTravel\DataType\FullMtgObject;
 use Triquanta\IziTravel\DataType\FullPublisher;
+use Triquanta\IziTravel\DataType\MtgObjectBase;
 use Triquanta\IziTravel\DataType\MtgObjectInterface;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
@@ -51,12 +50,7 @@ class Client implements ClientInterface {
         $data = json_decode($json);
         $objects = [];
         foreach ($data as $objectData) {
-            if ($form == MultipleFormInterface::FORM_COMPACT) {
-                $objects[] = CompactMtgObject::createFromData($objectData);
-            }
-            else {
-                $objects[] = FullMtgObject::createFromData($objectData);
-            }
+            $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
         }
 
         return $objects;
@@ -70,12 +64,7 @@ class Client implements ClientInterface {
         $data = json_decode($json);
         $objects = [];
         foreach ($data as $objectData) {
-            if ($form == MultipleFormInterface::FORM_COMPACT) {
-                $objects[] = CompactMtgObject::createFromData($objectData);
-            }
-            else {
-                $objects[] = FullMtgObject::createFromData($objectData);
-            }
+            $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
         }
 
         return $objects;
@@ -189,12 +178,7 @@ class Client implements ClientInterface {
         $data = json_decode($json);
         $objects = [];
         foreach ($data as $objectData) {
-            if ($form == MultipleFormInterface::FORM_COMPACT) {
-                $objects[] = CompactMtgObject::createFromData($objectData);
-            }
-            else {
-                $objects[] = FullMtgObject::createFromData($objectData);
-            }
+            $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
         }
 
         return $objects;

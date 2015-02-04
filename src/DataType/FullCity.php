@@ -18,7 +18,7 @@ class FullCity extends CityBase implements FullCityInterface
    *
    * @Var \Triquanta\IziTravel\DataType\CityContentInterface[]
    */
-  protected $content;
+  protected $content = [];
 
   /**
    * Created a new instance.

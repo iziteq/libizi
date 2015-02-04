@@ -2,18 +2,17 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\Tests\DataType\FullMtgObjectTest.
+ * Contains \Triquanta\IziTravel\Tests\DataType\FullMuseumTest.
  */
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
-use Triquanta\IziTravel\DataType\FullMtgObject;
-use Triquanta\IziTravel\DataType\MtgObjectInterface;
+use Triquanta\IziTravel\DataType\FullMuseum;
 
 /**
- * @coversDefaultClass \Triquanta\IziTravel\DataType\FullMtgObject
+ * @coversDefaultClass \Triquanta\IziTravel\DataType\FullMuseum
  */
-class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
+class FullMuseumTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -30,14 +29,6 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
      *   Values are ISO 639-1 alpha-2 language codes.
      */
     protected $availableLanguageCodes = [];
-
-    /**
-     * Gets the category.
-     *
-     * @var string
-     *   One of the static::CATEGORY_* constants.
-     */
-    protected $category;
 
     /**
      * Whether the object is published.
@@ -75,37 +66,6 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
     protected $purchase;
 
     /**
-     * The duration.
-     *
-     * @var int|null
-     *   The duration in seconds.
-     */
-    protected $duration;
-
-    /**
-     * The distance.
-     *
-     * @var int|null
-     *   The distance in meters.
-     */
-    protected $distance;
-
-    /**
-     * The placement.
-     *
-     * @var string|null
-     *   One of the static::PLACEMENT_* constants.
-     */
-    protected $placement;
-
-    /**
-     * Whether the object must be visible on maps.
-     *
-     * @var bool
-     */
-    protected $visibleOnMaps = false;
-
-    /**
      * The UUID of the parent object.
      *
      * @var string|null
@@ -138,7 +98,7 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
      *
      * @var \Triquanta\IziTravel\DataType\ContentInterface[]
      */
-    protected $content;
+    protected $content = [];
 
     /**
      * The revision hash.
@@ -150,7 +110,7 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
     /**
      * The class under test.
      *
-     * @var \Triquanta\IziTravel\DataType\FullMtgObject
+     * @var \Triquanta\IziTravel\DataType\FullMuseum
      */
     protected $sut;
 
@@ -161,8 +121,6 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
         $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
 
         $this->availableLanguageCodes = ['nl', 'uk'];
-
-        $this->category = MtgObjectInterface::CATEGORY_BIKE;
 
         $this->status = (bool) mt_rand(0, 1);;
 
@@ -178,16 +136,7 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
 
         $this->purchase = $this->getMock('\Triquanta\IziTravel\DataType\PurchaseInterface');
 
-        $this->duration = mt_rand();
-
-        $this->distance = mt_rand();
-
-        $this->placement = MtgObjectInterface::PLACEMENT_OUTDOOR;
-
-        $this->visibleOnMaps = (bool) mt_rand(0, 1);
-
         $this->parentUuid = 'foo-bar-qux-' . mt_rand();
-
 
         $this->schedule = $this->getMock('\Triquanta\IziTravel\DataType\ScheduleInterface');
 
@@ -201,12 +150,11 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
           $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
         ];
 
-        $this->sut = new FullMtgObject($this->uuid, $this->revisionHash,
-          $this->availableLanguageCodes, $this->category, $this->status,
+        $this->sut = new FullMuseum($this->uuid, $this->revisionHash,
+          $this->availableLanguageCodes, $this->status,
           $this->location, $this->triggerZones, $this->contentProvider,
-          $this->purchase, $this->duration, $this->distance, $this->placement,
-          $this->visibleOnMaps, $this->parentUuid, $this->schedule,
-          $this->contactInformation, $this->map, $this->content);
+          $this->purchase, $this->parentUuid,
+          $this->contactInformation, $this->map, $this->content, $this->schedule);
     }
 
     /**
@@ -313,7 +261,7 @@ class FullMtgObjectTest extends \PHPUnit_Framework_TestCase
 }
 JSON;
 
-        FullMtgObject::createFromJson($json);
+        FullMuseum::createFromJson($json);
     }
 
     /**
@@ -327,7 +275,7 @@ JSON;
     {
         $json = 'foo';
 
-        FullMtgObject::createFromJson($json);
+        FullMuseum::createFromJson($json);
     }
 
     /**
@@ -347,15 +295,7 @@ JSON;
 }
 JSON;
 
-        FullMtgObject::createFromJson($json);
-    }
-
-    /**
-     * @covers ::getParentUuid
-     */
-    public function testGetParentUuid()
-    {
-        $this->assertSame($this->parentUuid, $this->sut->getParentUuid());
+        FullMuseum::createFromJson($json);
     }
 
     /**
@@ -364,31 +304,6 @@ JSON;
     public function testGetSchedule()
     {
         $this->assertSame($this->schedule, $this->sut->getSchedule());
-    }
-
-    /**
-     * @covers ::getContactInformation
-     */
-    public function testGetContactInformation()
-    {
-        $this->assertSame($this->contactInformation,
-          $this->sut->getContactInformation());
-    }
-
-    /**
-     * @covers ::getMap
-     */
-    public function testGetMap()
-    {
-        $this->assertSame($this->map, $this->sut->getMap());
-    }
-
-    /**
-     * @covers ::getContent
-     */
-    public function testGetContent()
-    {
-        $this->assertSame($this->content, $this->sut->getContent());
     }
 
 }

@@ -22,14 +22,6 @@ interface CompactMtgObjectInterface extends MtgObjectInterface
     public function getLanguageCode();
 
     /**
-     * Gets the route.
-     *
-     * @return string|null
-     *   The route coordinates in KML format.
-     */
-    public function getRoute();
-
-    /**
      * Gets the title.
      *
      * @return string

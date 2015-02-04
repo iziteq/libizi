@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\DataType\MtgObject.
+ * Contains \Triquanta\IziTravel\DataType\MtgObjectBase.
  */
 
 namespace Triquanta\IziTravel\DataType;
@@ -13,17 +13,10 @@ namespace Triquanta\IziTravel\DataType;
 abstract class MtgObjectBase implements MtgObjectInterface
 {
 
+    use FactoryTrait;
     use RevisionableTrait;
     use TranslatableTrait;
     use UuidTrait;
-
-    /**
-     * Gets the category.
-     *
-     * @var string
-     *   One of the static::CATEGORY_* constants.
-     */
-    protected $category;
 
     /**
      * Whether the object is published.
@@ -61,86 +54,98 @@ abstract class MtgObjectBase implements MtgObjectInterface
     protected $purchase;
 
     /**
-     * The duration.
-     *
-     * @var int|null
-     *   The duration in seconds.
-     */
-    protected $duration;
-
-    /**
-     * The distance.
-     *
-     * @var int|null
-     *   The distance in meters.
-     */
-    protected $distance;
-
-    /**
-     * The placement.
-     *
-     * @var string|null
-     *   One of the static::PLACEMENT_* constants.
-     */
-    protected $placement;
-
-    /**
-     * Whether the object must be visible on maps.
-     *
-     * @var bool
-     */
-    protected $visibleOnMaps = false;
-
-    /**
      * Creates a new instance.
      *
      * @param string $uuid
      * @param string $revisionHash
      * @param string[] $availableLanguageCodes
-     * @param string $category
      * @param string $status
      * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
      * @param \Triquanta\IziTravel\DataType\TriggerZoneInterface[] $triggerZones
      * @param \Triquanta\IziTravel\DataType\ContentProviderInterface $contentProvider
      * @param \Triquanta\IziTravel\DataType\PurchaseInterface|null $purchase
-     * @param int $duration
-     * @param int $distance
-     * @param string $placement
-     * @param bool $visibleOnMaps
      */
     public function __construct(
       $uuid,
       $revisionHash,
       array $availableLanguageCodes,
-      $category,
       $status,
       LocationInterface $location = null,
       array $triggerZones,
       ContentProviderInterface $contentProvider,
-      PurchaseInterface $purchase = null,
-      $duration,
-      $distance,
-      $placement,
-      $visibleOnMaps
+      PurchaseInterface $purchase = null
     ) {
         $this->uuid = $uuid;
         $this->revisionHash = $revisionHash;
         $this->availableLanguageCodes = $availableLanguageCodes;
-        $this->category = $category;
         $this->status = $status;
         $this->location = $location;
         $this->triggerZones = $triggerZones;
         $this->contentProvider = $contentProvider;
         $this->purchase = $purchase;
-        $this->duration = $duration;
-        $this->distance = $distance;
-        $this->placement = $placement;
-        $this->visibleOnMaps = $visibleOnMaps;
     }
 
-    public function getCategory()
-    {
-        return $this->category;
+    /**
+     * Returns a class map for the different object types.
+     *
+     * @return array[]
+     *   Keys are static::TYPE_* constants. Values are arrays of which the keys
+     *   are \Triquanta\IziTravel\DataType\MultipleFormInterface;:FORM_*
+     *   constants and values are fully qualified class names.
+     *
+     */
+    public static function getClassMap() {
+        return [
+          static::TYPE_MUSEUM => [
+            MultipleFormInterface::FORM_FULL => '\Triquanta\IziTravel\DataType\FullMuseum',
+            MultipleFormInterface::FORM_COMPACT => '\Triquanta\IziTravel\DataType\CompactMuseum',
+          ],
+          static::TYPE_TOUR => [
+            MultipleFormInterface::FORM_FULL => '\Triquanta\IziTravel\DataType\FullTour',
+            MultipleFormInterface::FORM_COMPACT => '\Triquanta\IziTravel\DataType\CompactTour',
+          ],
+          static::TYPE_EXHIBIT => [
+            MultipleFormInterface::FORM_FULL => '\Triquanta\IziTravel\DataType\FullExhibit',
+            MultipleFormInterface::FORM_COMPACT => '\Triquanta\IziTravel\DataType\CompactExhibit',
+          ],
+          static::TYPE_COLLECTION => [
+            MultipleFormInterface::FORM_FULL => '\Triquanta\IziTravel\DataType\FullCollection',
+            MultipleFormInterface::FORM_COMPACT => '\Triquanta\IziTravel\DataType\CompactCollection',
+          ],
+          static::TYPE_STORY_NAVIGATION => [
+            MultipleFormInterface::FORM_FULL => '\Triquanta\IziTravel\DataType\FullStoryNavigation',
+            MultipleFormInterface::FORM_COMPACT => '\Triquanta\IziTravel\DataType\CompactStoryNavigation',
+          ],
+          static::TYPE_TOURIST_ATTRACTION => [
+            MultipleFormInterface::FORM_FULL => '\Triquanta\IziTravel\DataType\FullTouristAttraction',
+            MultipleFormInterface::FORM_COMPACT => '\Triquanta\IziTravel\DataType\CompactTouristAttraction',
+          ],
+        ];
+    }
+
+    /**
+     * Creates an MTG Object.
+     *
+     * @param mixed $data
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
+     *   constants.
+     *
+     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface
+     *
+     * @throws \Exception
+     */
+    public static function createMtgObject($data, $form) {
+        $data = (array) $data;
+
+        if (!isset($data['type'])) {
+            throw new \Exception('MTG Object data must contain a "type" key.');
+        }
+
+        /** @var \Triquanta\IziTravel\DataType\MtgObjectInterface $class */
+        $class = static::getClassMap()[$data['type']][$form];
+
+        return $class::createFromData($data);
     }
 
     public function isPublished()
@@ -166,26 +171,6 @@ abstract class MtgObjectBase implements MtgObjectInterface
     public function getPurchase()
     {
         return $this->purchase;
-    }
-
-    public function getDuration()
-    {
-        return $this->duration;
-    }
-
-    public function getDistance()
-    {
-        return $this->distance;
-    }
-
-    public function getPlacement()
-    {
-        return $this->placement;
-    }
-
-    public function isVisibleOnMaps()
-    {
-        return $this->visibleOnMaps;
     }
 
 }

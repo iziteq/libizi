@@ -2,15 +2,18 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\Tests\DataType\MtgObjectBaseTest.
+ * Contains \Triquanta\IziTravel\Tests\DataType\TourTraitTest.
  */
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\TourInterface;
+use Triquanta\IziTravel\DataType\TourTrait;
+
 /**
- * @coversDefaultClass \Triquanta\IziTravel\DataType\MtgObjectBase
+ * @coversDefaultClass \Triquanta\IziTravel\DataType\TourTrait
  */
-class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
+class TourTraitTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -27,6 +30,14 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      *   Values are ISO 639-1 alpha-2 language codes.
      */
     protected $availableLanguageCodes = [];
+
+    /**
+     * Gets the category.
+     *
+     * @var string
+     *   One of the static::CATEGORY_* constants.
+     */
+    protected $category;
 
     /**
      * Whether the object is published.
@@ -64,6 +75,30 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     protected $purchase;
 
     /**
+     * The duration.
+     *
+     * @var int|null
+     *   The duration in seconds.
+     */
+    protected $duration;
+
+    /**
+     * The distance.
+     *
+     * @var int|null
+     *   The distance in meters.
+     */
+    protected $distance;
+
+    /**
+     * The placement.
+     *
+     * @var string|null
+     *   One of the static::PLACEMENT_* constants.
+     */
+    protected $placement;
+
+    /**
      * Whether the object must be visible on maps.
      *
      * @var bool
@@ -80,7 +115,7 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     /**
      * The class under test.
      *
-     * @var \Triquanta\IziTravel\DataType\MtgObjectBase|\PHPUnit_Framework_MockObject_MockObject
+     * @var \Triquanta\IziTravel\DataType\TourTrait
      */
     protected $sut;
 
@@ -91,6 +126,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
 
         $this->availableLanguageCodes = ['nl', 'uk'];
+
+        $this->category = TourInterface::CATEGORY_BIKE;
 
         $this->status = (bool) mt_rand(0, 1);;
 
@@ -106,6 +143,12 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
         $this->purchase = $this->getMock('\Triquanta\IziTravel\DataType\PurchaseInterface');
 
+        $this->duration = mt_rand();
+
+        $this->distance = mt_rand();
+
+        $this->placement = TourInterface::PLACEMENT_OUTDOOR;
+
         $this->visibleOnMaps = (bool) mt_rand(0, 1);
 
         $this->content = [
@@ -114,87 +157,64 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
           $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
         ];
 
-        $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MtgObjectBase',
-          [
-            $this->uuid,
-            $this->revisionHash,
-            $this->availableLanguageCodes,
-            $this->status,
-            $this->location,
-            $this->triggerZones,
-            $this->contentProvider,
-            $this->purchase,
-            $this->visibleOnMaps
-          ]);
+        $this->sut = new TourTraitTestTraitImplementation($this->category, $this->duration, $this->distance, $this->placement);
     }
 
     /**
-     * @covers ::__construct
+     * @covers ::getCategory
      */
-    public function test__Construct()
+    public function testGetCategory()
     {
-        $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MtgObjectBase',
-          [
-            $this->uuid,
-            $this->revisionHash,
-            $this->availableLanguageCodes,
-            $this->status,
-            $this->location,
-            $this->triggerZones,
-            $this->contentProvider,
-            $this->purchase,
-            $this->visibleOnMaps
-          ]);
+        $this->assertSame($this->category, $this->sut->getCategory());
     }
 
     /**
-     * @covers ::getAvailableLanguageCodes
+     * @covers ::getDuration
      */
-    public function testGetAvailableLanguageCodes()
+    public function testGetDuration()
     {
-        $this->assertSame($this->availableLanguageCodes,
-          $this->sut->getAvailableLanguageCodes());
+        $this->assertSame($this->duration, $this->sut->getDuration());
     }
 
     /**
-     * @covers ::isPublished
+     * @covers ::getDistance
      */
-    public function testIsPublished()
+    public function testGetDistance()
     {
-        $this->assertSame($this->status, $this->sut->isPublished());
+        $this->assertSame($this->distance, $this->sut->getDistance());
     }
 
     /**
-     * @covers ::getLocation
+     * @covers ::getPlacement
      */
-    public function testGetLocation()
+    public function testGetPlacement()
     {
-        $this->assertSame($this->location, $this->sut->getLocation());
+        $this->assertSame($this->placement, $this->sut->getPlacement());
     }
+
+}
+
+class TourTraitTestTraitImplementation {
+
+    use TourTrait;
 
     /**
-     * @covers ::getTriggerZones
-     */
-    public function testGetTriggerZones()
-    {
-        $this->assertSame($this->triggerZones, $this->sut->getTriggerZones());
-    }
+     * Constructs a new instance.
+     *
 
-    /**
-     * @covers ::getContentProvider
+     * @param string $category
+     *   One of the static::CATEGORY_* constants.
+     * @param int|null $duration
+     *   The duration in seconds.
+     * @param int|null $distance
+     *   The distance in meters.
+     * @param string|null $placement
+     *   One of the static::PLACEMENT_* constants.
      */
-    public function testGetContentProvider()
-    {
-        $this->assertSame($this->contentProvider,
-          $this->sut->getContentProvider());
+    public function __construct($category, $duration, $distance, $placement) {
+        $this->category = $category;
+        $this->duration = $duration;
+        $this->distance = $distance;
+        $this->placement = $placement;
     }
-
-    /**
-     * @covers ::getPurchase
-     */
-    public function testGetPurchase()
-    {
-        $this->assertSame($this->purchase, $this->sut->getPurchase());
-    }
-
 }
