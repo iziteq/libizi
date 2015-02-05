@@ -115,9 +115,9 @@ class Client implements ClientInterface
         $countries = [];
         foreach ($data as $countryData) {
             if ($form == MultipleFormInterface::FORM_COMPACT) {
-                $objects[] = CompactCountry::createFromData($countryData);
+                $countries[] = CompactCountry::createFromData($countryData);
             } else {
-                $objects[] = FullCountry::createFromData($countryData);
+                $countries[] = FullCountry::createFromData($countryData);
             }
         }
 
@@ -153,9 +153,9 @@ class Client implements ClientInterface
         $cities = [];
         foreach ($data as $cityData) {
             if ($form == MultipleFormInterface::FORM_COMPACT) {
-                $objects[] = CompactCity::createFromData($cityData);
+                $cities[] = CompactCity::createFromData($cityData);
             } else {
-                $objects[] = FullCity::createFromData($cityData);
+                $cities[] = FullCity::createFromData($cityData);
             }
         }
 
@@ -176,9 +176,9 @@ class Client implements ClientInterface
         $cities = [];
         foreach ($data as $cityData) {
             if ($form == MultipleFormInterface::FORM_COMPACT) {
-                $objects[] = CompactCity::createFromData($cityData);
+                $cities[] = CompactCity::createFromData($cityData);
             } else {
-                $objects[] = FullCity::createFromData($cityData);
+                $cities[] = FullCity::createFromData($cityData);
             }
         }
 

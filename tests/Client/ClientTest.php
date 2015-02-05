@@ -87,6 +87,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           MultipleFormInterface::FORM_COMPACT);
 
         $this->assertInternalType('array', $mtgObjects);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($mtgObjects);
         foreach ($mtgObjects as $mtgObject) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
               $mtgObject);
@@ -108,6 +111,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           MultipleFormInterface::FORM_FULL);
 
         $this->assertInternalType('array', $mtgObjects);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($mtgObjects);
         foreach ($mtgObjects as $mtgObject) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMtgObjectInterface',
               $mtgObject);
@@ -126,6 +132,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           $languageCodes, MultipleFormInterface::FORM_COMPACT);
 
         $this->assertInternalType('array', $mtgObjects);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($mtgObjects);
         foreach ($mtgObjects as $mtgObject) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
               $mtgObject);
@@ -144,6 +153,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           $languageCodes, MultipleFormInterface::FORM_FULL);
 
         $this->assertInternalType('array', $mtgObjects);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($mtgObjects);
         foreach ($mtgObjects as $mtgObject) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMtgObjectInterface',
               $mtgObject);
@@ -191,6 +203,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           MultipleFormInterface::FORM_COMPACT);
 
         $this->assertInternalType('array', $countries);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($countries);
         foreach ($countries as $country) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCountryInterface',
               $country);
@@ -208,6 +223,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           MultipleFormInterface::FORM_FULL);
 
         $this->assertInternalType('array', $countries);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($countries);
         foreach ($countries as $country) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface',
               $country);
@@ -255,6 +273,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           MultipleFormInterface::FORM_COMPACT);
 
         $this->assertInternalType('array', $cities);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($cities);
         foreach ($cities as $city) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCityInterface',
               $city);
@@ -272,6 +293,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           MultipleFormInterface::FORM_FULL);
 
         $this->assertInternalType('array', $cities);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($cities);
         foreach ($cities as $city) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface',
               $city);
@@ -290,6 +314,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           MultipleFormInterface::FORM_COMPACT);
 
         $this->assertInternalType('array', $cities);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($cities);
         foreach ($cities as $city) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCityInterface',
               $city);
@@ -308,6 +335,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           MultipleFormInterface::FORM_FULL);
 
         $this->assertInternalType('array', $cities);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($cities);
         foreach ($cities as $city) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface',
               $city);
@@ -355,6 +385,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           MultipleFormInterface::FORM_COMPACT);
 
         $this->assertInternalType('array', $mtgObjects);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($mtgObjects);
         foreach ($mtgObjects as $mtgObject) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
               $mtgObject);
@@ -372,6 +405,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           MultipleFormInterface::FORM_FULL);
 
         $this->assertInternalType('array', $mtgObjects);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($mtgObjects);
         foreach ($mtgObjects as $mtgObject) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMtgObjectInterface',
               $mtgObject);
