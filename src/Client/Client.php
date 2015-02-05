@@ -18,7 +18,7 @@ use Triquanta\IziTravel\DataType\MtgObjectInterface;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
- * Provides a client for interacting with the IZI Travel API.
+ * Provides a client for interacting with the izi.TRAVEL MTG API.
  */
 class Client implements ClientInterface
 {

@@ -11,7 +11,7 @@ interface FactoryInterface
 {
 
     /**
-     * Creates a new instances from IZI Travel's API's JSON output.
+     * Creates a new instances from izi.TRAVEL's API's JSON output.
      *
      * @param string $json
      *
@@ -22,7 +22,7 @@ interface FactoryInterface
     public static function createFromJson($json);
 
     /**
-     * Creates a new instances from IZI Travel's API's decoded JSON output.
+     * Creates a new instances from izi.TRAVEL's API's decoded JSON output.
      *
      * @param mixed $data
      *
