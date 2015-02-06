@@ -45,7 +45,9 @@ class Client implements ClientInterface
       array $languages,
       $form = MultipleFormInterface::FORM_COMPACT
     ) {
-        return $this->getMtgObjectsByUuids([$uuid], $languages, $form)[0];
+        $objects = $this->getMtgObjectsByUuids([$uuid], $languages, $form);
+
+        return $objects ? reset($objects) : NULL;
     }
 
     public function getMtgObjectsByUuids(
