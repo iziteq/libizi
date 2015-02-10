@@ -10,13 +10,8 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a country data type.
  */
-interface CountryInterface extends FactoryInterface, MultipleFormInterface, RevisionableInterface, TranslatableInterface, UuidInterface
+interface CountryInterface extends FactoryInterface, MultipleFormInterface, PublishableInterface, RevisionableInterface, TranslatableInterface, UuidInterface
 {
-
-    /**
-     * A published country.
-     */
-    const STATUS_PUBLISHED = 'published';
 
     /**
      * Gets the country code.
@@ -46,12 +41,5 @@ interface CountryInterface extends FactoryInterface, MultipleFormInterface, Revi
      * @return \Triquanta\IziTravel\DataType\LocationInterface|null
      */
     public function getLocation();
-
-    /**
-     * Returns whether the country is published.
-     *
-     * @return bool
-     */
-    public function isPublished();
 
 }

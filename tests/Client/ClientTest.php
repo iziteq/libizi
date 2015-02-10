@@ -414,4 +414,23 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * @covers:: getFeaturedContent
+     */
+    public function testGetFeaturedContent()
+    {
+        $languageCodes = ['en'];
+
+        $objects = $this->sut->getFeaturedContent($languageCodes);
+
+        $this->assertInternalType('array', $objects);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($objects);
+        foreach ($objects as $object) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FeaturedContentInterface',
+              $object);
+        }
+    }
+
 }

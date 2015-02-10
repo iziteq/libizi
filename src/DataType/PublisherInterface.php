@@ -10,17 +10,8 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a publisher data type.
  */
-interface PublisherInterface extends FactoryInterface, RevisionableInterface, TranslatableInterface, UuidInterface
+interface PublisherInterface extends FactoryInterface, PublishableInterface, RevisionableInterface, TranslatableInterface, UuidInterface
 {
-
-    const STATUS_PUBLISHED = 'published';
-
-    /**
-     * Checks whether the publisher is published.
-     *
-     * @return bool
-     */
-    public function isPublished();
 
     /**
      * Gets the content provider.

@@ -14,6 +14,7 @@ abstract class CityBase implements CityInterface
 {
 
     use FactoryTrait;
+    use PublishableTrait;
     use RevisionableTrait;
     use TranslatableTrait;
     use UuidTrait;
@@ -38,13 +39,6 @@ abstract class CityBase implements CityInterface
      * @var \Triquanta\IziTravel\DataType\LocationInterface|null
      */
     protected $location;
-
-    /**
-     * The status.
-     *
-     * @var string
-     */
-    protected $status;
 
     /**
      * The number of child objects.
@@ -108,11 +102,6 @@ abstract class CityBase implements CityInterface
     public function getLocation()
     {
         return $this->location;
-    }
-
-    public function isPublished()
-    {
-        return $this->status == static::STATUS_PUBLISHED;
     }
 
     public function countChildren()

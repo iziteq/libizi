@@ -14,16 +14,10 @@ abstract class PublisherBase implements PublisherInterface
 {
 
     use FactoryTrait;
+    use PublishableTrait;
     use RevisionableTrait;
     use TranslatableTrait;
     use UuidTrait;
-
-    /**
-     * The status.
-     *
-     * @var string
-     */
-    protected $status;
 
     /**
      * The content provider.
@@ -51,11 +45,6 @@ abstract class PublisherBase implements PublisherInterface
         $this->availableLanguageCodes = $availableLanguageCodes;
         $this->contentProvider = $contentProvider;
         $this->status = $status;
-    }
-
-    public function isPublished()
-    {
-        return $this->status == static::STATUS_PUBLISHED;
     }
 
     public function getContentProvider()

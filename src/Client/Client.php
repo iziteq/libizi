@@ -10,6 +10,9 @@ namespace Triquanta\IziTravel\Client;
 use Triquanta\IziTravel\DataType\CompactCity;
 use Triquanta\IziTravel\DataType\CompactCountry;
 use Triquanta\IziTravel\DataType\CompactPublisher;
+use Triquanta\IziTravel\DataType\FeaturedCity;
+use Triquanta\IziTravel\DataType\FeaturedMuseum;
+use Triquanta\IziTravel\DataType\FeaturedTour;
 use Triquanta\IziTravel\DataType\FullCity;
 use Triquanta\IziTravel\DataType\FullCountry;
 use Triquanta\IziTravel\DataType\FullPublisher;
@@ -224,6 +227,31 @@ class Client implements ClientInterface
         }
 
         return $objects;
+    }
+
+    public function getFeaturedContent(
+      array $languages
+    ) {
+      $json = $this->requestHandler->request('/featured/', [
+        'languages' => $languages,
+      ]);
+      $data = json_decode($json);
+      $objects = [];
+      foreach ($data as $objectData) {
+        $objectData = (array) $objectData;
+
+        if ($objectData['type'] == 'museum') {
+          $objects[] = FeaturedMuseum::createFromData($objectData);
+        }
+        elseif ($objectData['type'] == 'tour') {
+          $objects[] = FeaturedTour::createFromData($objectData);
+        }
+        elseif ($objectData['type'] == 'city') {
+          $objects[] = FeaturedCity::createFromData($objectData);
+        }
+      }
+
+      return $objects;
     }
 
 }

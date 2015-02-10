@@ -14,16 +14,10 @@ abstract class MtgObjectBase implements MtgObjectInterface
 {
 
     use FactoryTrait;
+    use PublishableTrait;
     use RevisionableTrait;
     use TranslatableTrait;
     use UuidTrait;
-
-    /**
-     * Whether the object is published.
-     *
-     * @return bool
-     */
-    protected $status;
 
     /**
      * The location.
@@ -148,11 +142,6 @@ abstract class MtgObjectBase implements MtgObjectInterface
             MultipleFormInterface::FORM_COMPACT => '\Triquanta\IziTravel\DataType\CompactTouristAttraction',
           ],
         ];
-    }
-
-    public function isPublished()
-    {
-        return $this->status;
     }
 
     public function getLocation()

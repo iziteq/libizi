@@ -10,13 +10,8 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a city data type.
  */
-interface CityInterface extends FactoryInterface, MultipleFormInterface, RevisionableInterface, TranslatableInterface, UuidInterface
+interface CityInterface extends FactoryInterface, MultipleFormInterface, PublishableInterface, RevisionableInterface, TranslatableInterface, UuidInterface
 {
-
-    /**
-     * A published country.
-     */
-    const STATUS_PUBLISHED = 'published';
 
     /**
      * Gets the map.
@@ -38,13 +33,6 @@ interface CityInterface extends FactoryInterface, MultipleFormInterface, Revisio
      * @return \Triquanta\IziTravel\DataType\LocationInterface|null
      */
     public function getLocation();
-
-    /**
-     * Returns whether the country is published.
-     *
-     * @return bool
-     */
-    public function isPublished();
 
     /**
      * Returns whether the city is visible in listings.

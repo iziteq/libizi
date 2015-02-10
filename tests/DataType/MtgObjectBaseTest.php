@@ -7,6 +7,8 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\PublishableInterface;
+
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\MtgObjectBase
  */
@@ -92,7 +94,7 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
         $this->availableLanguageCodes = ['nl', 'uk'];
 
-        $this->status = (bool) mt_rand(0, 1);;
+        $this->status = array_rand([PublishableInterface::STATUS_PUBLISHED, PublishableInterface::STATUS_LIMITED]);
 
         $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
 
@@ -161,7 +163,12 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsPublished()
     {
-        $this->assertSame($this->status, $this->sut->isPublished());
+      if ($this->status === PublishableInterface::STATUS_PUBLISHED) {
+        $this->assertTrue($this->sut->isPublished());
+      }
+      else {
+        $this->assertFalse($this->sut->isPublished());
+      }
     }
 
     /**

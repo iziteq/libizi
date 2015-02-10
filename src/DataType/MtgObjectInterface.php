@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines an MTG object data type.
  */
-interface MtgObjectInterface extends FactoryInterface, MultipleFormInterface, RevisionableInterface, TranslatableInterface, UuidInterface
+interface MtgObjectInterface extends FactoryInterface, MultipleFormInterface, PublishableInterface, RevisionableInterface, TranslatableInterface, UuidInterface
 {
 
     /**
@@ -42,23 +42,6 @@ interface MtgObjectInterface extends FactoryInterface, MultipleFormInterface, Re
      * A tourist attraction.
      */
     const TYPE_TOURIST_ATTRACTION = 'tourist_attraction';
-
-    /**
-     * A published object.
-     */
-    const STATUS_PUBLISHED = 'published';
-
-    /**
-     * A non-public/limited object.
-     */
-    const STATUS_LIMITED = 'limited';
-
-    /**
-     * Gets whether the object is published.
-     *
-     * @return bool
-     */
-    public function isPublished();
 
     /**
      * Gets the location.

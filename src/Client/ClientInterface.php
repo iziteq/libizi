@@ -174,27 +174,39 @@ interface ClientInterface
       $form = MultipleFormInterface::FORM_FULL
     );
 
-    /**
-     * Gets multiple MTGObjects.
-     *
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $types
-     *   An array of \Triquanta\IziTravel\DataType\MtgObjectInterface::TYPE_*
-     *   constants.
-     *
-     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
-     */
-    public function getMtgObjects(
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $types = [
-        MtgObjectInterface::TYPE_TOUR,
-        MtgObjectInterface::TYPE_MUSEUM
-      ]
-    );
+  /**
+   * Gets multiple MTGObjects.
+   *
+   * @param string[] $languages
+   *   ISO 639-1 alpha-2 language codes.
+   * @param string $form
+   *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
+   *   constants.
+   * @param string[] $types
+   *   An array of \Triquanta\IziTravel\DataType\MtgObjectInterface::TYPE_*
+   *   constants.
+   *
+   * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
+   */
+  public function getMtgObjects(
+    array $languages,
+    $form = MultipleFormInterface::FORM_FULL,
+    array $types = [
+      MtgObjectInterface::TYPE_TOUR,
+      MtgObjectInterface::TYPE_MUSEUM
+    ]
+  );
+
+  /**
+   * Gets featured content.
+   *
+   * @param string[] $languages
+   *   ISO 639-1 alpha-2 language codes.
+   *
+   * @return \Triquanta\IziTravel\DataType\FeaturedContentInterface[]
+   */
+  public function getFeaturedContent(
+    array $languages
+  );
 
 }
