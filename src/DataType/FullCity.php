@@ -70,7 +70,7 @@ class FullCity extends CityBase implements FullCityInterface
         }
         $content = [];
         foreach ($data['content'] as $contentData) {
-            $content[] = CountryContent::createFromData($contentData);
+            $content[] = CityContent::createFromData($contentData);
         }
 
         return new static($data['uuid'], $data['hash'], $data['languages'],
