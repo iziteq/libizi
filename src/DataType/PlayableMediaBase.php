@@ -52,7 +52,7 @@ abstract class PlayableMediaBase extends MediaBase implements PlayableMediaInter
             throw new MissingUuidFactoryException($data);
         }
         return new static($data['uuid'], $data['type'], $data['order'],
-          $data['duration'], $data['url'], $data['title']);
+          $data['url'], $data['title'], $data['duration']);
     }
 
     public function getDuration()
