@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\Client;
 /**
  * Provides an handler for making requests to the development API.
  */
-class DevelopmentRequestHandler extends RequestHandlerBase
+final class DevelopmentRequestHandler extends RequestHandlerBase
 {
 
     protected function getBaseUrl()

@@ -23,7 +23,7 @@ use Triquanta\IziTravel\DataType\MultipleFormInterface;
 /**
  * Provides a client for interacting with the izi.TRAVEL MTG API.
  */
-class Client implements ClientInterface
+final class Client implements ClientInterface
 {
 
     /**

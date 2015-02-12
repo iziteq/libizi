@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\Client;
 /**
  * Provides an handler for making requests to the staging API.
  */
-class StagingRequestHandler extends RequestHandlerBase
+final class StagingRequestHandler extends RequestHandlerBase
 {
 
     protected function getBaseUrl()
