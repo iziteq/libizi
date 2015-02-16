@@ -10,6 +10,6 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a full tour data type.
  */
-interface FullTourInterface extends TourInterface
+interface FullTourInterface extends TourInterface, FullMtgObjectInterface
 {
 }

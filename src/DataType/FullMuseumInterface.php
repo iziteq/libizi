@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a full museum data type.
  */
-interface FullMuseumInterface extends MuseumInterface
+interface FullMuseumInterface extends MuseumInterface, FullMtgObjectInterface
 {
 
     /**

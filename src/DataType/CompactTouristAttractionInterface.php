@@ -10,6 +10,6 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a compact tourist attraction data type.
  */
-interface CompactTouristAttractionInterface extends TouristAttractionInterface
+interface CompactTouristAttractionInterface extends TouristAttractionInterface, CompactMtgObjectInterface
 {
 }

@@ -10,6 +10,6 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a full collection data type.
  */
-interface FullCollectionInterface extends CollectionInterface
+interface FullCollectionInterface extends CollectionInterface, FullMtgObjectInterface
 {
 }

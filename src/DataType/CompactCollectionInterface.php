@@ -10,6 +10,6 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a compact collection data type.
  */
-interface CompactCollectionInterface extends CollectionInterface
+interface CompactCollectionInterface extends CollectionInterface, CompactMtgObjectInterface
 {
 }
