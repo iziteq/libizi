@@ -381,14 +381,16 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en'];
         $query = 'Lviv';
+        $limit = mt_rand(1, 9);
 
         $mtgObjects = $this->sut->getMtgObjects($languageCodes,
-          MultipleFormInterface::FORM_COMPACT, $query);
+          MultipleFormInterface::FORM_COMPACT, $query, $limit);
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its
         // integrity.
         $this->assertNotEmpty($mtgObjects);
+        $this->assertTrue(count($mtgObjects) <= $limit);
         foreach ($mtgObjects as $mtgObject) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
               $mtgObject);
@@ -402,14 +404,16 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en'];
         $query = 'Lviv';
+        $limit = mt_rand(1, 9);
 
         $mtgObjects = $this->sut->getMtgObjects($languageCodes,
-          MultipleFormInterface::FORM_FULL, $query);
+          MultipleFormInterface::FORM_FULL, $query, $limit);
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its
         // integrity.
         $this->assertNotEmpty($mtgObjects);
+        $this->assertTrue(count($mtgObjects) <= $limit);
         foreach ($mtgObjects as $mtgObject) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMtgObjectInterface',
               $mtgObject);

@@ -184,6 +184,10 @@ interface ClientInterface
    *   constants.
    * @param string $query
    *   The search query.
+   * @param int $limit
+   *   The number of objects to return.
+   * @param int $offset
+   *   How many items to skip.
    * @param string $sort
    *   The field to sort by and the direction ("asc", or "desc"), separated by a
    *   colon.
@@ -197,6 +201,8 @@ interface ClientInterface
     array $languages,
     $form = MultipleFormInterface::FORM_FULL,
     $query,
+    $limit = 50,
+    $offset = 0,
     $sort = 'popularity:desc',
     array $types = [
       MtgObjectInterface::TYPE_TOUR,

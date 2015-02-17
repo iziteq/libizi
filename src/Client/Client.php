@@ -211,6 +211,8 @@ final class Client implements ClientInterface
       array $languages,
       $form = MultipleFormInterface::FORM_FULL,
       $query,
+      $limit = 50,
+      $offset = 0,
       $sort = 'popularity:desc',
       array $types = [
         MtgObjectInterface::TYPE_TOUR,
@@ -223,6 +225,8 @@ final class Client implements ClientInterface
           'sort_by' => $sort,
           'type' => $types,
           'query' => $query,
+          'limit' => $limit,
+          'offset' => $offset,
         ]);
         $data = json_decode($json);
         $objects = [];
