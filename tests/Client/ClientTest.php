@@ -380,9 +380,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetMtgObjectsInCompactForm()
     {
         $languageCodes = ['en'];
+        $query = 'Lviv';
 
         $mtgObjects = $this->sut->getMtgObjects($languageCodes,
-          MultipleFormInterface::FORM_COMPACT);
+          MultipleFormInterface::FORM_COMPACT, $query);
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its
@@ -400,9 +401,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetMtgObjectsInFullForm()
     {
         $languageCodes = ['en'];
+        $query = 'Lviv';
 
         $mtgObjects = $this->sut->getMtgObjects($languageCodes,
-          MultipleFormInterface::FORM_FULL);
+          MultipleFormInterface::FORM_FULL, $query);
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its

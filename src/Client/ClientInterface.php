@@ -182,6 +182,11 @@ interface ClientInterface
    * @param string $form
    *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
    *   constants.
+   * @param string $query
+   *   The search query.
+   * @param string $sort
+   *   The field to sort by and the direction ("asc", or "desc"), separated by a
+   *   colon.
    * @param string[] $types
    *   An array of \Triquanta\IziTravel\DataType\MtgObjectInterface::TYPE_*
    *   constants.
@@ -191,6 +196,8 @@ interface ClientInterface
   public function getMtgObjects(
     array $languages,
     $form = MultipleFormInterface::FORM_FULL,
+    $query,
+    $sort = 'popularity:desc',
     array $types = [
       MtgObjectInterface::TYPE_TOUR,
       MtgObjectInterface::TYPE_MUSEUM

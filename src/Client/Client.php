@@ -210,6 +210,8 @@ final class Client implements ClientInterface
     public function getMtgObjects(
       array $languages,
       $form = MultipleFormInterface::FORM_FULL,
+      $query,
+      $sort = 'popularity:desc',
       array $types = [
         MtgObjectInterface::TYPE_TOUR,
         MtgObjectInterface::TYPE_MUSEUM
@@ -218,7 +220,9 @@ final class Client implements ClientInterface
         $json = $this->requestHandler->request('/mtg/objects/search/', [
           'languages' => $languages,
           'form' => $form,
+          'sort_by' => $sort,
           'type' => $types,
+          'query' => $query,
         ]);
         $data = json_decode($json);
         $objects = [];
