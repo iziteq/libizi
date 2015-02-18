@@ -16,6 +16,28 @@ class LocationTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
+     * The UUID of the city this location is in.
+     *
+     * @var string|null
+     */
+    protected $cityUuid;
+
+    /**
+     * The UUID of the country this location is in.
+     *
+     * @var string|null
+     */
+    protected $countryUuid;
+
+    /**
+     * The code of the country this location is in.
+     *
+     * @var string|null
+     *   An ISO 3166-1 alpha-2 code or NULL.
+     */
+    protected $countryCode;
+
+    /**
      * The latitude.
      *
      * @var float|null
@@ -59,6 +81,9 @@ class LocationTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
+        $this->cityUuid = 'foo-bar-baz-' . mt_rand();
+        $this->countryUuid = 'foo-bar-baz-' . mt_rand();
+        $this->countryCode = 'UK';
         $this->latitude = 12.345;
         $this->longitude = 67.890;
         $this->altitude = 123.098;
@@ -66,7 +91,7 @@ class LocationTest extends \PHPUnit_Framework_TestCase
         $this->publicIpAddress = '12.34.56.78';
 
         $this->sut = new Location($this->latitude, $this->longitude,
-          $this->altitude, $this->exhibitNumber, $this->publicIpAddress);
+          $this->altitude, $this->exhibitNumber, $this->publicIpAddress, $this->cityUuid, $this->countryUuid, $this->countryCode);
     }
 
     /**
@@ -140,6 +165,33 @@ JSON;
     {
         $this->assertSame($this->publicIpAddress,
           $this->sut->getPublicIpAddress());
+    }
+
+    /**
+     * @covers ::getCityUuid
+     */
+    public function testGetCityUuid()
+    {
+        $this->assertSame($this->cityUuid,
+          $this->sut->getCityUuid());
+    }
+
+    /**
+     * @covers ::getCountryUuid
+     */
+    public function testGetCountryUuid()
+    {
+        $this->assertSame($this->countryUuid,
+          $this->sut->getCountryUuid());
+    }
+
+    /**
+     * @covers ::getCountryCode
+     */
+    public function testGetCountryCode()
+    {
+        $this->assertSame($this->countryCode,
+          $this->sut->getCountryCode());
     }
 
 }

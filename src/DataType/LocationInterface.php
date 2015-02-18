@@ -49,4 +49,26 @@ interface LocationInterface extends FactoryInterface
      */
     public function getPublicIpAddress();
 
+    /**
+     * Gets the UUID of the city this location is in.
+     *
+     * @return string|null
+     */
+    public function getCityUuid();
+
+    /**
+     * Gets the UUID of the country this location is in.
+     *
+     * @return string|null
+     */
+    public function getCountryUuid();
+
+    /**
+     * Gets the code of the country this location is in.
+     *
+     * @return string|null
+     *   An ISO 3166-1 alpha-2 code or NULL.
+     */
+    public function getCountryCode();
+
 }
