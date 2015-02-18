@@ -380,7 +380,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetMtgObjectsInCompactForm()
     {
         $languageCodes = ['en'];
-        $query = 'Lviv';
+        $query = 'Amsterdam';
         $limit = mt_rand(1, 9);
 
         $mtgObjects = $this->sut->getMtgObjects($languageCodes,
@@ -403,7 +403,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetMtgObjectsInFullForm()
     {
         $languageCodes = ['en'];
-        $query = 'Lviv';
+        $query = 'Amsterdam';
         $limit = mt_rand(1, 9);
 
         $mtgObjects = $this->sut->getMtgObjects($languageCodes,
