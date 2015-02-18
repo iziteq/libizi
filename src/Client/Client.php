@@ -231,7 +231,25 @@ final class Client implements ClientInterface
         $data = json_decode($json);
         $objects = [];
         foreach ($data as $objectData) {
+          if ($objectData->type === 'city') {
+            if ($form === MultipleFormInterface::FORM_COMPACT) {
+              $objects[] = CompactCity::createFromData($objectData);
+            }
+            else {
+              $objects[] = FullCity::createFromData($objectData);
+            }
+          }
+          elseif ($objectData->type === 'country') {
+            if ($form === MultipleFormInterface::FORM_COMPACT) {
+              $objects[] = CompactCountry::createFromData($objectData);
+            }
+            else {
+              $objects[] = FullCountry::createFromData($objectData);
+            }
+          }
+          else {
             $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
+          }
         }
 
         return $objects;

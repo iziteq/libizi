@@ -175,7 +175,7 @@ interface ClientInterface
     );
 
   /**
-   * Gets multiple MTGObjects.
+   * Gets multiple MTGObjects, cities, and/or countries.
    *
    * @param string[] $languages
    *   ISO 639-1 alpha-2 language codes.
@@ -193,9 +193,9 @@ interface ClientInterface
    *   colon.
    * @param string[] $types
    *   An array of \Triquanta\IziTravel\DataType\MtgObjectInterface::TYPE_*
-   *   constants.
+   *   constants, and/or "city", and/or "country".
    *
-   * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
+   * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]|\Triquanta\IziTravel\DataType\CityInterface[]|\Triquanta\IziTravel\DataType\CountryInterface[]
    */
   public function getMtgObjects(
     array $languages,

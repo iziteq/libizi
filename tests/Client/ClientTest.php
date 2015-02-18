@@ -10,6 +10,7 @@ namespace Triquanta\IziTravel\Tests\Client;
 use GuzzleHttp\Client as HttpClient;
 use Triquanta\IziTravel\Client\Client;
 use Triquanta\IziTravel\Client\ProductionRequestHandler;
+use Triquanta\IziTravel\DataType\MtgObjectInterface;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\Tests\TestConfiguration;
 
@@ -375,39 +376,40 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers:: getMtgObjects
+     * Provides data to self::testGetMtgObjects().
      */
-    public function testGetMtgObjectsInCompactForm()
-    {
-        $languageCodes = ['en'];
-        $query = 'Amsterdam';
-        $limit = mt_rand(1, 9);
-
-        $mtgObjects = $this->sut->getMtgObjects($languageCodes,
-          MultipleFormInterface::FORM_COMPACT, $query, $limit);
-
-        $this->assertInternalType('array', $mtgObjects);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($mtgObjects);
-        $this->assertTrue(count($mtgObjects) <= $limit);
-        foreach ($mtgObjects as $mtgObject) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
-              $mtgObject);
-        }
+    public function providerTestGetMtgObjects() {
+        return [
+          [MtgObjectInterface::TYPE_TOUR, MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
+          [MtgObjectInterface::TYPE_TOUR, MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
+          [MtgObjectInterface::TYPE_TOURIST_ATTRACTION, MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
+          [MtgObjectInterface::TYPE_TOURIST_ATTRACTION, MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
+          [MtgObjectInterface::TYPE_MUSEUM, MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
+          [MtgObjectInterface::TYPE_MUSEUM, MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
+          [MtgObjectInterface::TYPE_EXHIBIT, MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
+          [MtgObjectInterface::TYPE_EXHIBIT, MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
+          [MtgObjectInterface::TYPE_STORY_NAVIGATION, MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
+          [MtgObjectInterface::TYPE_STORY_NAVIGATION, MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
+          ['city', MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactCityInterface'],
+          ['city', MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullCityInterface'],
+          ['country', MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactCountryInterface'],
+          ['country', MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullCountryInterface'],
+        ];
     }
 
     /**
      * @covers:: getMtgObjects
+     *
+     * @dataProvider providerTestGetMtgObjects
      */
-    public function testGetMtgObjectsInFullForm()
+    public function testGetMtgObjects($type, $form, $instanceof)
     {
         $languageCodes = ['en'];
-        $query = 'Amsterdam';
+        $query = '';
         $limit = mt_rand(1, 9);
 
         $mtgObjects = $this->sut->getMtgObjects($languageCodes,
-          MultipleFormInterface::FORM_FULL, $query, $limit);
+          $form, $query, $limit, 0, 'popularity:desc', [$type]);
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its
@@ -415,8 +417,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($mtgObjects);
         $this->assertTrue(count($mtgObjects) <= $limit);
         foreach ($mtgObjects as $mtgObject) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMtgObjectInterface',
-              $mtgObject);
+            $this->assertInstanceOf($instanceof, $mtgObject);
         }
     }
 
