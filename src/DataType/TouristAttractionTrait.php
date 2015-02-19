@@ -14,15 +14,15 @@ trait TouristAttractionTrait
 {
 
     /**
-     * Whether the object must be visible on maps.
+     * Whether the object is hidden.
      *
      * @var bool
      */
-    protected $visibleOnMaps = false;
+    protected $hidden = false;
 
-    public function isVisibleOnMaps()
+    public function isHidden()
     {
-        return $this->visibleOnMaps;
+        return $this->hidden;
     }
 
 }

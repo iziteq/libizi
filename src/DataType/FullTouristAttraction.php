@@ -30,7 +30,7 @@ class FullTouristAttraction extends FullMtgObjectBase implements FullTouristAttr
      * @param \Triquanta\IziTravel\DataType\ContactInformationInterface|null $contactInformation
      * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
      * @param \Triquanta\IziTravel\DataType\ContentInterface[] $content
-     * @param bool $visibleOnMaps
+     * @param bool $hidden
      */
     public function __construct(
       $uuid,
@@ -45,12 +45,12 @@ class FullTouristAttraction extends FullMtgObjectBase implements FullTouristAttr
       ContactInformationInterface $contactInformation = null,
       MapInterface $map = null,
       array $content,
-      $visibleOnMaps
+      $hidden
     ) {
         parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
           $status, $location, $triggerZones, $contentProvider, $purchase,
           $parentUuid, $contactInformation, $map, $content);
-        $this->visibleOnMaps = $visibleOnMaps;
+        $this->hidden = $hidden;
     }
 
     public static function createFromData($data)
@@ -86,7 +86,7 @@ class FullTouristAttraction extends FullMtgObjectBase implements FullTouristAttr
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase,
           $data['parent_uuid'], $contactInformation, $map, $content,
-          !$data['hidden']);
+          $data['hidden']);
     }
 
 }

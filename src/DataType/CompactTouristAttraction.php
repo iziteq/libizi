@@ -31,7 +31,7 @@ class CompactTouristAttraction extends CompactMtgObjectBase implements CompactTo
      * @param string $summary ;
      * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
      * @param int|null $numberOfChildren
-     * @param bool $visibleOnMaps
+     * @param bool $hidden
      */
     public function __construct(
       $uuid,
@@ -47,12 +47,12 @@ class CompactTouristAttraction extends CompactMtgObjectBase implements CompactTo
       $summary,
       array $images,
       $numberOfChildren,
-      $visibleOnMaps
+      $hidden
     ) {
         parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
           $status, $location, $triggerZones, $contentProvider, $purchase,
           $languageCode, $title, $summary, $images, $numberOfChildren);
-        $this->visibleOnMaps = $visibleOnMaps;
+        $this->hidden = $hidden;
     }
 
     public static function createFromData($data)
@@ -84,7 +84,7 @@ class CompactTouristAttraction extends CompactMtgObjectBase implements CompactTo
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase,
           $data['language'], $data['title'],
-          $data['summary'], $images, $data['children_count'], !$data['hidden']);
+          $data['summary'], $images, $data['children_count'], $data['hidden']);
     }
 
 }

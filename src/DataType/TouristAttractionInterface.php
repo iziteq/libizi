@@ -14,10 +14,10 @@ interface TouristAttractionInterface extends MtgObjectInterface
 {
 
     /**
-     * Returns whether the object must be visible on maps.
+     * Returns whether the object is hidden.
      *
      * @return bool
      */
-    public function isVisibleOnMaps();
+    public function isHidden();
 
 }
