@@ -25,13 +25,16 @@ interface ClientInterface
      * @param string $form
      *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
      *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
      *
      * @return \Triquanta\IziTravel\DataType\MtgObjectInterface
      */
     public function getMtgObjectByUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes
     );
 
     /**
@@ -43,13 +46,16 @@ interface ClientInterface
      * @param string $form
      *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
      *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
      *
      * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
      */
     public function getMtgObjectsByUuids(
       array $uuids,
       array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes
     );
 
     /**
@@ -61,13 +67,16 @@ interface ClientInterface
      * @param string $form
      *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
      *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
      *
      * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
      */
     public function getMtgObjectsChildrenByUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_FULL
+      $form = MultipleFormInterface::FORM_FULL,
+      array $includes
     );
 
     /**
@@ -79,13 +88,16 @@ interface ClientInterface
      * @param string $form
      *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
      *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
      *
      * @return \Triquanta\IziTravel\DataType\CountryInterface
      */
     public function getCountryByUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_FULL
+      $form = MultipleFormInterface::FORM_FULL,
+      array $includes
     );
 
     /**
@@ -96,12 +108,15 @@ interface ClientInterface
      * @param string $form
      *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
      *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
      *
      * @return \Triquanta\IziTravel\DataType\CountryInterface[]
      */
     public function getCountries(
       array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes
     );
 
     /**
@@ -113,13 +128,16 @@ interface ClientInterface
      * @param string $form
      *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
      *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
      *
      * @return \Triquanta\IziTravel\DataType\CityInterface
      */
     public function getCityByUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_FULL
+      $form = MultipleFormInterface::FORM_FULL,
+      array $includes
     );
 
     /**
@@ -130,12 +148,15 @@ interface ClientInterface
      * @param string $form
      *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
      *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
      *
      * @return \Triquanta\IziTravel\DataType\CityInterface[]
      */
     public function getCities(
       array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes
     );
 
     /**
@@ -147,13 +168,16 @@ interface ClientInterface
      * @param string $form
      *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
      *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
      *
      * @return \Triquanta\IziTravel\DataType\CityInterface[]
      */
     public function getCitiesByCountryUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes
     );
 
     /**
@@ -165,13 +189,16 @@ interface ClientInterface
      * @param string $form
      *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
      *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
      *
      * @return \Triquanta\IziTravel\DataType\PublisherInterface
      */
     public function getPublisherByUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_FULL
+      $form = MultipleFormInterface::FORM_FULL,
+      array $includes
     );
 
   /**
@@ -182,6 +209,8 @@ interface ClientInterface
    * @param string $form
    *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
    *   constants.
+   * @param string[] $includes
+   *   The names of the sections to include.
    * @param string $query
    *   The search query.
    * @param int $limit
@@ -200,6 +229,7 @@ interface ClientInterface
   public function getMtgObjects(
     array $languages,
     $form = MultipleFormInterface::FORM_FULL,
+    array $includes,
     $query,
     $limit = 50,
     $offset = 0,

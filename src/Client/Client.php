@@ -46,9 +46,10 @@ final class Client implements ClientInterface
     public function getMtgObjectByUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes
     ) {
-        $objects = $this->getMtgObjectsByUuids([$uuid], $languages, $form);
+        $objects = $this->getMtgObjectsByUuids([$uuid], $languages, $form, $includes);
 
         return $objects ? reset($objects) : NULL;
     }
@@ -56,11 +57,13 @@ final class Client implements ClientInterface
     public function getMtgObjectsByUuids(
       array $uuids,
       array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes
     ) {
         $json = $this->requestHandler->request('/mtgobjects/batch/' . implode(',',
             $uuids), [
           'languages' => $languages,
+          'includes' => $includes,
           'form' => $form,
         ]);
         $data = json_decode($json);
@@ -75,11 +78,13 @@ final class Client implements ClientInterface
     public function getMtgObjectsChildrenByUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_FULL
+      $form = MultipleFormInterface::FORM_FULL,
+      array $includes
     ) {
         $json = $this->requestHandler->request('/mtgobjects/' . $uuid . '/children',
           [
             'languages' => $languages,
+            'includes' => $includes,
             'form' => $form,
           ]);
         $data = json_decode($json);
@@ -94,10 +99,12 @@ final class Client implements ClientInterface
     public function getCountryByUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_FULL
+      $form = MultipleFormInterface::FORM_FULL,
+      array $includes
     ) {
         $json = $this->requestHandler->request('/countries/' . $uuid, [
           'languages' => $languages,
+          'includes' => $includes,
           'form' => $form,
         ]);
         $data = json_decode($json);
@@ -110,10 +117,12 @@ final class Client implements ClientInterface
 
     public function getCountries(
       array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes
     ) {
         $json = $this->requestHandler->request('/countries', [
           'languages' => $languages,
+          'includes' => $includes,
           'form' => $form,
         ]);
         $data = json_decode($json);
@@ -132,10 +141,12 @@ final class Client implements ClientInterface
     public function getCityByUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_FULL
+      $form = MultipleFormInterface::FORM_FULL,
+      array $includes
     ) {
         $json = $this->requestHandler->request('/cities/' . $uuid, [
           'languages' => $languages,
+          'includes' => $includes,
           'form' => $form,
         ]);
         $data = json_decode($json);
@@ -148,10 +159,12 @@ final class Client implements ClientInterface
 
     public function getCities(
       array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes
     ) {
         $json = $this->requestHandler->request('/cities', [
           'languages' => $languages,
+          'includes' => $includes,
           'form' => $form,
         ]);
         $data = json_decode($json);
@@ -170,11 +183,13 @@ final class Client implements ClientInterface
     public function getCitiesByCountryUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes
     ) {
         $json = $this->requestHandler->request('/countries/' . $uuid . '/cities',
           [
             'languages' => $languages,
+            'includes' => $includes,
             'form' => $form,
           ]);
         $data = json_decode($json);
@@ -193,10 +208,12 @@ final class Client implements ClientInterface
     public function getPublisherByUuid(
       $uuid,
       array $languages,
-      $form = MultipleFormInterface::FORM_FULL
+      $form = MultipleFormInterface::FORM_FULL,
+      array $includes
     ) {
         $json = $this->requestHandler->request('/mtg/publishers/' . $uuid, [
           'languages' => $languages,
+          'includes' => $includes,
           'form' => $form,
         ]);
         $data = json_decode($json);
@@ -210,6 +227,7 @@ final class Client implements ClientInterface
     public function getMtgObjects(
       array $languages,
       $form = MultipleFormInterface::FORM_FULL,
+      array $includes,
       $query,
       $limit = 50,
       $offset = 0,
@@ -221,6 +239,7 @@ final class Client implements ClientInterface
     ) {
         $json = $this->requestHandler->request('/mtg/objects/search/', [
           'languages' => $languages,
+          'includes' => $includes,
           'form' => $form,
           'sort_by' => $sort,
           'type' => $types,

@@ -67,7 +67,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
         $languageCodes = ['en'];
 
-        $mtgObject = $this->sut->getMtgObjectByUuid($uuid, $languageCodes);
+        $mtgObject = $this->sut->getMtgObjectByUuid($uuid, $languageCodes, MultipleFormInterface::FORM_COMPACT, []);
 
         $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
           $mtgObject);
@@ -85,7 +85,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $mtgObjects = $this->sut->getMtgObjectsByUuids($uuids, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT);
+          MultipleFormInterface::FORM_COMPACT, []);
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its
@@ -109,7 +109,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $mtgObjects = $this->sut->getMtgObjectsByUuids($uuids, $languageCodes,
-          MultipleFormInterface::FORM_FULL);
+          MultipleFormInterface::FORM_FULL, []);
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its
@@ -130,7 +130,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid,
-          $languageCodes, MultipleFormInterface::FORM_COMPACT);
+          $languageCodes, MultipleFormInterface::FORM_COMPACT, []);
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its
@@ -151,7 +151,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid,
-          $languageCodes, MultipleFormInterface::FORM_FULL);
+          $languageCodes, MultipleFormInterface::FORM_FULL, []);
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its
@@ -172,7 +172,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $mtgObject = $this->sut->getCountryByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT);
+          MultipleFormInterface::FORM_COMPACT, []);
 
         $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCountryInterface',
           $mtgObject);
@@ -187,7 +187,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $mtgObject = $this->sut->getCountryByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_FULL);
+          MultipleFormInterface::FORM_FULL, []);
 
         $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface',
           $mtgObject);
@@ -201,7 +201,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $countries = $this->sut->getCountries($languageCodes,
-          MultipleFormInterface::FORM_COMPACT);
+          MultipleFormInterface::FORM_COMPACT, []);
 
         $this->assertInternalType('array', $countries);
         // If the request does not return any data, we cannot test its
@@ -221,7 +221,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $countries = $this->sut->getCountries($languageCodes,
-          MultipleFormInterface::FORM_FULL);
+          MultipleFormInterface::FORM_FULL, []);
 
         $this->assertInternalType('array', $countries);
         // If the request does not return any data, we cannot test its
@@ -242,7 +242,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $mtgObject = $this->sut->getCityByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT);
+          MultipleFormInterface::FORM_COMPACT, []);
 
         $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCityInterface',
           $mtgObject);
@@ -257,7 +257,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $mtgObject = $this->sut->getCityByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_FULL);
+          MultipleFormInterface::FORM_FULL, []);
 
         $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface',
           $mtgObject);
@@ -271,7 +271,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $cities = $this->sut->getCities($languageCodes,
-          MultipleFormInterface::FORM_COMPACT);
+          MultipleFormInterface::FORM_COMPACT, []);
 
         $this->assertInternalType('array', $cities);
         // If the request does not return any data, we cannot test its
@@ -291,7 +291,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $cities = $this->sut->getCities($languageCodes,
-          MultipleFormInterface::FORM_FULL);
+          MultipleFormInterface::FORM_FULL, []);
 
         $this->assertInternalType('array', $cities);
         // If the request does not return any data, we cannot test its
@@ -312,7 +312,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $cities = $this->sut->getCitiesByCountryUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT);
+          MultipleFormInterface::FORM_COMPACT, []);
 
         $this->assertInternalType('array', $cities);
         // If the request does not return any data, we cannot test its
@@ -333,7 +333,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $cities = $this->sut->getCitiesByCountryUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_FULL);
+          MultipleFormInterface::FORM_FULL, []);
 
         $this->assertInternalType('array', $cities);
         // If the request does not return any data, we cannot test its
@@ -354,7 +354,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $mtgObject = $this->sut->getPublisherByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT);
+          MultipleFormInterface::FORM_COMPACT, []);
 
         $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactPublisherInterface',
           $mtgObject);
@@ -369,7 +369,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $languageCodes = ['en'];
 
         $mtgObject = $this->sut->getPublisherByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_FULL);
+          MultipleFormInterface::FORM_FULL, []);
 
         $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullPublisherInterface',
           $mtgObject);
@@ -409,7 +409,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $limit = mt_rand(1, 9);
 
         $mtgObjects = $this->sut->getMtgObjects($languageCodes,
-          $form, $query, $limit, 0, 'popularity:desc', [$type]);
+          $form, [], $query, $limit, 0, 'popularity:desc', [$type]);
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its
