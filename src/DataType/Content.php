@@ -175,12 +175,12 @@ class Content implements ContentInterface
         }
         $collections = [];
         foreach ($data['collections'] as $collectionData) {
-            $children[] = MtgObjectBase::createMtgObject($collectionData,
+            $collections[] = MtgObjectBase::createMtgObject($collectionData,
               MultipleFormInterface::FORM_COMPACT);
         }
         $references = [];
         foreach ($data['references'] as $referenceData) {
-            $children[] = MtgObjectBase::createMtgObject($referenceData,
+            $references[] = MtgObjectBase::createMtgObject($referenceData,
               MultipleFormInterface::FORM_COMPACT);
         }
         $playback = $data['playback'] ? Playback::createFromData($data['playback']) : null;
