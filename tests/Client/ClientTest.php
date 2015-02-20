@@ -200,14 +200,16 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetCountriesInCompactForm()
     {
         $languageCodes = ['en'];
+        $limit = mt_rand(1, 9);
 
         $countries = $this->sut->getCountries($languageCodes,
-          MultipleFormInterface::FORM_COMPACT, []);
+          MultipleFormInterface::FORM_COMPACT, [], $limit);
 
         $this->assertInternalType('array', $countries);
         // If the request does not return any data, we cannot test its
         // integrity.
         $this->assertNotEmpty($countries);
+        $this->assertTrue(count($countries) <= $limit);
         foreach ($countries as $country) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCountryInterface',
               $country);
@@ -220,14 +222,16 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetCountriesInFullForm()
     {
         $languageCodes = ['en'];
+        $limit = mt_rand(1, 9);
 
         $countries = $this->sut->getCountries($languageCodes,
-          MultipleFormInterface::FORM_FULL, []);
+          MultipleFormInterface::FORM_FULL, [], $limit);
 
         $this->assertInternalType('array', $countries);
         // If the request does not return any data, we cannot test its
         // integrity.
         $this->assertNotEmpty($countries);
+        $this->assertTrue(count($countries) <= $limit);
         foreach ($countries as $country) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface',
               $country);
@@ -270,14 +274,16 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetCitiesInCompactForm()
     {
         $languageCodes = ['en'];
+        $limit = mt_rand(1, 9);
 
         $cities = $this->sut->getCities($languageCodes,
-          MultipleFormInterface::FORM_COMPACT, []);
+          MultipleFormInterface::FORM_COMPACT, [], $limit);
 
         $this->assertInternalType('array', $cities);
         // If the request does not return any data, we cannot test its
         // integrity.
         $this->assertNotEmpty($cities);
+        $this->assertTrue(count($cities) <= $limit);
         foreach ($cities as $city) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCityInterface',
               $city);
@@ -290,14 +296,16 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetCitiesInFullForm()
     {
         $languageCodes = ['en'];
+        $limit = mt_rand(1, 9);
 
         $cities = $this->sut->getCities($languageCodes,
-          MultipleFormInterface::FORM_FULL, []);
+          MultipleFormInterface::FORM_FULL, [], $limit);
 
         $this->assertInternalType('array', $cities);
         // If the request does not return any data, we cannot test its
         // integrity.
         $this->assertNotEmpty($cities);
+        $this->assertTrue(count($cities) <= $limit);
         foreach ($cities as $city) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface',
               $city);

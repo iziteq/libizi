@@ -110,13 +110,17 @@ interface ClientInterface
      *   constants.
      * @param string[] $includes
      *   The names of the sections to include.
+     * @param int $limit
+     * @param int $offset
      *
      * @return \Triquanta\IziTravel\DataType\CountryInterface[]
      */
     public function getCountries(
       array $languages,
       $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes
+      array $includes,
+      $limit = 20,
+      $offset = 0
     );
 
     /**
@@ -150,13 +154,17 @@ interface ClientInterface
      *   constants.
      * @param string[] $includes
      *   The names of the sections to include.
+     * @param int $limit
+     * @param int $offset
      *
      * @return \Triquanta\IziTravel\DataType\CityInterface[]
      */
     public function getCities(
       array $languages,
       $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes
+      array $includes,
+      $limit = 20,
+      $offset = 0
     );
 
     /**

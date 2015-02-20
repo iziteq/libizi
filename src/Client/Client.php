@@ -119,12 +119,16 @@ final class Client implements ClientInterface
     public function getCountries(
       array $languages,
       $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes
+      array $includes,
+      $limit = 20,
+      $offset = 0
     ) {
         $json = $this->requestHandler->request('/countries', [
           'languages' => $languages,
           'includes' => $includes,
           'form' => $form,
+          'limit' => $limit,
+          'offset' => $offset,
         ]);
         $data = json_decode($json);
         $countries = [];
@@ -161,12 +165,16 @@ final class Client implements ClientInterface
     public function getCities(
       array $languages,
       $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes
+      array $includes,
+      $limit = 20,
+      $offset = 0
     ) {
         $json = $this->requestHandler->request('/cities', [
           'languages' => $languages,
           'includes' => $includes,
           'form' => $form,
+          'limit' => $limit,
+          'offset' => $offset,
         ]);
         $data = json_decode($json);
         $cities = [];
