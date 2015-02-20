@@ -16,6 +16,13 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
+     * The data type.
+     *
+     * @var string
+     */
+    protected $type;
+
+    /**
      * The UUID.
      *
      * @var string
@@ -88,6 +95,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
+        $this->type = 'foo_bar_' . mt_rand();
+
         $this->uuid = 'foo-bar-baz-' . mt_rand();
 
         $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
@@ -118,6 +127,7 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MtgObjectBase',
           [
+              $this->type,
             $this->uuid,
             $this->revisionHash,
             $this->availableLanguageCodes,
@@ -137,6 +147,7 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     {
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MtgObjectBase',
           [
+              $this->type,
             $this->uuid,
             $this->revisionHash,
             $this->availableLanguageCodes,
@@ -202,6 +213,14 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     public function testGetPurchase()
     {
         $this->assertSame($this->purchase, $this->sut->getPurchase());
+    }
+
+    /**
+     * @covers ::getType
+     */
+    public function testGetType()
+    {
+        $this->assertSame($this->type, $this->sut->getType());
     }
 
 }

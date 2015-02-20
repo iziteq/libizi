@@ -52,6 +52,7 @@ abstract class CompactMtgObjectBase extends MtgObjectBase implements CompactMtgO
     /**
      * Creates a new instance.
      *
+     * @param string $type
      * @param string $uuid
      * @param string $revisionHash
      * @param string[] $availableLanguageCodes
@@ -67,6 +68,7 @@ abstract class CompactMtgObjectBase extends MtgObjectBase implements CompactMtgO
      * @param int|null $numberOfChildren
      */
     public function __construct(
+      $type,
       $uuid,
       $revisionHash,
       array $availableLanguageCodes,
@@ -81,7 +83,7 @@ abstract class CompactMtgObjectBase extends MtgObjectBase implements CompactMtgO
       array $images,
       $numberOfChildren
     ) {
-        parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
+        parent::__construct($type, $uuid, $revisionHash, $availableLanguageCodes,
           $status, $location, $triggerZones, $contentProvider, $purchase);
         $this->languageCode = $languageCode;
         $this->title = $title;
@@ -114,7 +116,7 @@ abstract class CompactMtgObjectBase extends MtgObjectBase implements CompactMtgO
         foreach ($data['images'] as $imageData) {
             $images[] = Image::createFromData($imageData);
         }
-        return new static($data['uuid'], $data['hash'], $data['languages'],
+        return new static($data['type'], $data['uuid'], $data['hash'], $data['languages'],
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase,
           $data['language'], $data['title'],

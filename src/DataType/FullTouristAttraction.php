@@ -18,6 +18,7 @@ class FullTouristAttraction extends FullMtgObjectBase implements FullTouristAttr
     /**
      * Creates a new instance.
      *
+     * @param string $type
      * @param string $uuid
      * @param string $revisionHash
      * @param string[] $availableLanguageCodes
@@ -33,6 +34,7 @@ class FullTouristAttraction extends FullMtgObjectBase implements FullTouristAttr
      * @param bool $hidden
      */
     public function __construct(
+      $type,
       $uuid,
       $revisionHash,
       array $availableLanguageCodes,
@@ -47,7 +49,7 @@ class FullTouristAttraction extends FullMtgObjectBase implements FullTouristAttr
       array $content,
       $hidden
     ) {
-        parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
+        parent::__construct($type, $uuid, $revisionHash, $availableLanguageCodes,
           $status, $location, $triggerZones, $contentProvider, $purchase,
           $parentUuid, $contactInformation, $map, $content);
         $this->hidden = $hidden;
@@ -82,7 +84,7 @@ class FullTouristAttraction extends FullMtgObjectBase implements FullTouristAttr
         foreach ($data['content'] as $contentData) {
             $content[] = Content::createFromData($contentData);
         }
-        return new static($data['uuid'], $data['hash'], $data['languages'],
+        return new static($data['type'], $data['uuid'], $data['hash'], $data['languages'],
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase,
           $data['parent_uuid'], $contactInformation, $map, $content,

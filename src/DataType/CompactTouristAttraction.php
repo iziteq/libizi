@@ -18,6 +18,7 @@ class CompactTouristAttraction extends CompactMtgObjectBase implements CompactTo
     /**
      * Creates a new instance.
      *
+     * @param string $type
      * @param string $uuid
      * @param string $revisionHash
      * @param string[] $availableLanguageCodes
@@ -34,6 +35,7 @@ class CompactTouristAttraction extends CompactMtgObjectBase implements CompactTo
      * @param bool $hidden
      */
     public function __construct(
+      $type,
       $uuid,
       $revisionHash,
       array $availableLanguageCodes,
@@ -49,7 +51,7 @@ class CompactTouristAttraction extends CompactMtgObjectBase implements CompactTo
       $numberOfChildren,
       $hidden
     ) {
-        parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
+        parent::__construct($type, $uuid, $revisionHash, $availableLanguageCodes,
           $status, $location, $triggerZones, $contentProvider, $purchase,
           $languageCode, $title, $summary, $images, $numberOfChildren);
         $this->hidden = $hidden;
@@ -80,7 +82,7 @@ class CompactTouristAttraction extends CompactMtgObjectBase implements CompactTo
         foreach ($data['images'] as $imageData) {
             $images[] = Image::createFromData($imageData);
         }
-        return new static($data['uuid'], $data['hash'], $data['languages'],
+        return new static($data['type'], $data['uuid'], $data['hash'], $data['languages'],
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase,
           $data['language'], $data['title'],

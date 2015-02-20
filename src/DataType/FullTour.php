@@ -18,6 +18,7 @@ class FullTour extends FullMtgObjectBase implements FullTourInterface
     /**
      * Creates a new instance.
      *
+     * @param string $type
      * @param string $uuid
      * @param string $revisionHash
      * @param string[] $availableLanguageCodes
@@ -36,6 +37,7 @@ class FullTour extends FullMtgObjectBase implements FullTourInterface
      * @param string $placement
      */
     public function __construct(
+      $type,
       $uuid,
       $revisionHash,
       array $availableLanguageCodes,
@@ -53,7 +55,7 @@ class FullTour extends FullMtgObjectBase implements FullTourInterface
       $distance,
       $placement
     ) {
-        parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
+        parent::__construct($type, $uuid, $revisionHash, $availableLanguageCodes,
           $status, $location, $triggerZones, $contentProvider, $purchase,
           $parentUuid, $contactInformation, $map, $content);
         $this->category = $category;
@@ -90,7 +92,7 @@ class FullTour extends FullMtgObjectBase implements FullTourInterface
         foreach ($data['content'] as $contentData) {
             $content[] = Content::createFromData($contentData);
         }
-        return new static($data['uuid'], $data['hash'], $data['languages'],
+        return new static($data['type'], $data['uuid'], $data['hash'], $data['languages'],
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase,
           $data['parent_uuid'],

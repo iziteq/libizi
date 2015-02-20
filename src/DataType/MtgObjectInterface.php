@@ -44,6 +44,14 @@ interface MtgObjectInterface extends FactoryInterface, MultipleFormInterface, Pu
     const TYPE_TOURIST_ATTRACTION = 'tourist_attraction';
 
     /**
+     * Gets the data type.
+     *
+     * @return string
+     *   One of the static::TYPE_* constants.
+     */
+    public function getType();
+
+    /**
      * Gets the location.
      *
      * @return \Triquanta\IziTravel\DataType\LocationInterface|null

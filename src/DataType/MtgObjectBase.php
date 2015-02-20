@@ -20,6 +20,14 @@ abstract class MtgObjectBase implements MtgObjectInterface
     use UuidTrait;
 
     /**
+     * The data type.
+     *
+     * @var string
+     *   One of the static::TYPE_* constants.
+     */
+    protected $type;
+
+    /**
      * The location.
      *
      * @var \Triquanta\IziTravel\DataType\LocationInterface|null
@@ -50,6 +58,7 @@ abstract class MtgObjectBase implements MtgObjectInterface
     /**
      * Creates a new instance.
      *
+     * @param string $type
      * @param string $uuid
      * @param string $revisionHash
      * @param string[] $availableLanguageCodes
@@ -60,6 +69,7 @@ abstract class MtgObjectBase implements MtgObjectInterface
      * @param \Triquanta\IziTravel\DataType\PurchaseInterface|null $purchase
      */
     public function __construct(
+      $type,
       $uuid,
       $revisionHash,
       array $availableLanguageCodes,
@@ -69,6 +79,7 @@ abstract class MtgObjectBase implements MtgObjectInterface
       ContentProviderInterface $contentProvider,
       PurchaseInterface $purchase = null
     ) {
+        $this->type = $type;
         $this->uuid = $uuid;
         $this->revisionHash = $revisionHash;
         $this->availableLanguageCodes = $availableLanguageCodes;
@@ -144,9 +155,14 @@ abstract class MtgObjectBase implements MtgObjectInterface
         ];
     }
 
+    public function getType()
+    {
+      return $this->type;
+    }
+
     public function getLocation()
     {
-        return $this->location;
+      return $this->location;
     }
 
     public function getTriggerZones()

@@ -14,6 +14,13 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
+     * The data type.
+     *
+     * @var string
+     */
+    protected $type;
+
+    /**
      * The UUID.
      *
      * @var string
@@ -107,6 +114,8 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
+        $this->type = 'foo_bar_' . mt_rand();
+
         $this->uuid = 'foo-bar-baz-' . mt_rand();
 
         $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
@@ -141,6 +150,7 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FullMtgObjectBase',
           [
+              $this->type,
             $this->uuid,
             $this->revisionHash,
             $this->availableLanguageCodes,

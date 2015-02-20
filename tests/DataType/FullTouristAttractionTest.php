@@ -17,6 +17,13 @@ class FullTouristAttractionTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
+     * The data type.
+     *
+     * @var string
+     */
+    protected $type;
+
+    /**
      * The UUID.
      *
      * @var string
@@ -117,6 +124,8 @@ class FullTouristAttractionTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
+        $this->type = 'foo_bar_' . mt_rand();
+
         $this->uuid = 'foo-bar-baz-' . mt_rand();
 
         $this->revisionHash = 'hwg98309t82ohtwqlekhgf0823yt';
@@ -145,7 +154,7 @@ class FullTouristAttractionTest extends \PHPUnit_Framework_TestCase
 
         $this->visibleOnMaps = (bool) mt_rand(0, 1);
 
-        $this->sut = new FullTouristAttraction($this->uuid, $this->revisionHash,
+        $this->sut = new FullTouristAttraction($this->type, $this->uuid, $this->revisionHash,
           $this->availableLanguageCodes, $this->status, $this->location,
           $this->triggerZones, $this->contentProvider, $this->purchase,
           $this->parentUuid, $this->contactInformation, $this->map,

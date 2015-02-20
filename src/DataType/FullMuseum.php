@@ -23,6 +23,7 @@ class FullMuseum extends FullMtgObjectBase implements FullMuseumInterface
     /**
      * Creates a new instance.
      *
+     * @param string $type
      * @param string $uuid
      * @param string $revisionHash
      * @param string[] $availableLanguageCodes
@@ -38,6 +39,7 @@ class FullMuseum extends FullMtgObjectBase implements FullMuseumInterface
      * @param \Triquanta\IziTravel\DataType\ScheduleInterface|null $schedule
      */
     public function __construct(
+      $type,
       $uuid,
       $revisionHash,
       array $availableLanguageCodes,
@@ -52,7 +54,7 @@ class FullMuseum extends FullMtgObjectBase implements FullMuseumInterface
       array $content,
       ScheduleInterface $schedule = null
     ) {
-        parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
+        parent::__construct($type, $uuid, $revisionHash, $availableLanguageCodes,
           $status, $location, $triggerZones, $contentProvider, $purchase,
           $parentUuid, $contactInformation, $map, $content);
         $this->schedule = $schedule;
@@ -88,7 +90,7 @@ class FullMuseum extends FullMtgObjectBase implements FullMuseumInterface
             $content[] = Content::createFromData($contentData);
         }
         $schedule = $data['schedule'] ? Schedule::createFromData($data['schedule']) : null;
-        return new static($data['uuid'], $data['hash'], $data['languages'],
+        return new static($data['type'], $data['uuid'], $data['hash'], $data['languages'],
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase, $data['parent_uuid'],
           $contactInformation, $map, $content, $schedule);
