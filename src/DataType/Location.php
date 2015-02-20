@@ -117,7 +117,8 @@ class Location implements LocationInterface
             'country_code' => null,
           ];
         return new static($data['latitude'], $data['longitude'],
-          $data['altitude'], $data['number'], $data['ip'], $data['city_uuid'], $data['country_uuid'], $data['country_code']);
+          $data['altitude'], $data['number'], $data['ip'], $data['city_uuid'],
+          $data['country_uuid'], $data['country_code']);
     }
 
     public function getLatitude()

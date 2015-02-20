@@ -150,7 +150,7 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FullMtgObjectBase',
           [
-              $this->type,
+            $this->type,
             $this->uuid,
             $this->revisionHash,
             $this->availableLanguageCodes,

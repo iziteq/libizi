@@ -73,7 +73,8 @@ abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectI
       MapInterface $map = null,
       array $content
     ) {
-        parent::__construct($type, $uuid, $revisionHash, $availableLanguageCodes,
+        parent::__construct($type, $uuid, $revisionHash,
+          $availableLanguageCodes,
           $status, $location, $triggerZones, $contentProvider, $purchase);
         $this->parentUuid = $parentUuid;
         $this->contactInformation = $contactInformation;
@@ -109,7 +110,8 @@ abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectI
         foreach ($data['content'] as $contentData) {
             $content[] = Content::createFromData($contentData);
         }
-        return new static($data['type'], $data['uuid'], $data['hash'], $data['languages'],
+        return new static($data['type'], $data['uuid'], $data['hash'],
+          $data['languages'],
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase, $data['parent_uuid'], $contactInformation, $map, $content);
     }

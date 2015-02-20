@@ -67,7 +67,8 @@ class CompactTour extends CompactMtgObjectBase implements CompactTourInterface
       $placement,
       $route
     ) {
-        parent::__construct($type, $uuid, $revisionHash, $availableLanguageCodes,
+        parent::__construct($type, $uuid, $revisionHash,
+          $availableLanguageCodes,
           $status, $location, $triggerZones, $contentProvider, $purchase,
           $languageCode, $title, $summary, $images, $numberOfChildren,
           $category, $duration, $distance, $placement);
@@ -99,7 +100,8 @@ class CompactTour extends CompactMtgObjectBase implements CompactTourInterface
         foreach ($data['images'] as $imageData) {
             $images[] = Image::createFromData($imageData);
         }
-        return new static($data['type'], $data['uuid'], $data['hash'], $data['languages'],
+        return new static($data['type'], $data['uuid'], $data['hash'],
+          $data['languages'],
           $data['status'], $location, $triggerZones, $contentProvider,
           $purchase,
           $data['language'], $data['title'],

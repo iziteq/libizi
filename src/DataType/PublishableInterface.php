@@ -13,21 +13,21 @@ namespace Triquanta\IziTravel\DataType;
 interface PublishableInterface
 {
 
-  /**
-   * A published object.
-   */
-  const STATUS_PUBLISHED = 'published';
+    /**
+     * A published object.
+     */
+    const STATUS_PUBLISHED = 'published';
 
-  /**
-   * An unpublished/limited object.
-   */
-  const STATUS_LIMITED = 'limited';
+    /**
+     * An unpublished/limited object.
+     */
+    const STATUS_LIMITED = 'limited';
 
-  /**
-   * Gets whether the object is published.
-   *
-   * @return bool
-   */
-  public function isPublished();
+    /**
+     * Gets whether the object is published.
+     *
+     * @return bool
+     */
+    public function isPublished();
 
 }

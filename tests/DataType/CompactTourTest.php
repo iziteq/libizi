@@ -211,7 +211,8 @@ class CompactTourTest extends \PHPUnit_Framework_TestCase
 
         $this->route = 'foo;bar;';
 
-        $this->sut = new CompactTour($this->type, $this->uuid, $this->revisionHash,
+        $this->sut = new CompactTour($this->type, $this->uuid,
+          $this->revisionHash,
           $this->availableLanguageCodes, $this->status, $this->location,
           $this->triggerZones, $this->contentProvider, $this->purchase,
           $this->languageCode, $this->title, $this->summary, $this->images,

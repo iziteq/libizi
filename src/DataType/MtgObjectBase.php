@@ -157,12 +157,12 @@ abstract class MtgObjectBase implements MtgObjectInterface
 
     public function getType()
     {
-      return $this->type;
+        return $this->type;
     }
 
     public function getLocation()
     {
-      return $this->location;
+        return $this->location;
     }
 
     public function getTriggerZones()

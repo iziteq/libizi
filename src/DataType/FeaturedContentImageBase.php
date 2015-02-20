@@ -13,23 +13,24 @@ namespace Triquanta\IziTravel\DataType;
 abstract class FeaturedContentImageBase
 {
 
-  use FactoryTrait;
-  use UuidTrait;
+    use FactoryTrait;
+    use UuidTrait;
 
-  /**
-   * Constructs a new instance.
-   *
-   * @param string $uuid
-   */
-  public function __construct($uuid)
-  {
-    $this->uuid = $uuid;
-  }
+    /**
+     * Constructs a new instance.
+     *
+     * @param string $uuid
+     */
+    public function __construct($uuid)
+    {
+        $this->uuid = $uuid;
+    }
 
-  public static function createFromData($data) {
-    $data = (array) $data;
+    public static function createFromData($data)
+    {
+        $data = (array) $data;
 
-    return new static($data['uuid']);
-  }
+        return new static($data['uuid']);
+    }
 
 }

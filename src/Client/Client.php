@@ -49,9 +49,10 @@ final class Client implements ClientInterface
       $form = MultipleFormInterface::FORM_COMPACT,
       array $includes
     ) {
-        $objects = $this->getMtgObjectsByUuids([$uuid], $languages, $form, $includes);
+        $objects = $this->getMtgObjectsByUuids([$uuid], $languages, $form,
+          $includes);
 
-        return $objects ? reset($objects) : NULL;
+        return $objects ? reset($objects) : null;
     }
 
     public function getMtgObjectsByUuids(
@@ -250,25 +251,21 @@ final class Client implements ClientInterface
         $data = json_decode($json);
         $objects = [];
         foreach ($data as $objectData) {
-          if ($objectData->type === 'city') {
-            if ($form === MultipleFormInterface::FORM_COMPACT) {
-              $objects[] = CompactCity::createFromData($objectData);
+            if ($objectData->type === 'city') {
+                if ($form === MultipleFormInterface::FORM_COMPACT) {
+                    $objects[] = CompactCity::createFromData($objectData);
+                } else {
+                    $objects[] = FullCity::createFromData($objectData);
+                }
+            } elseif ($objectData->type === 'country') {
+                if ($form === MultipleFormInterface::FORM_COMPACT) {
+                    $objects[] = CompactCountry::createFromData($objectData);
+                } else {
+                    $objects[] = FullCountry::createFromData($objectData);
+                }
+            } else {
+                $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
             }
-            else {
-              $objects[] = FullCity::createFromData($objectData);
-            }
-          }
-          elseif ($objectData->type === 'country') {
-            if ($form === MultipleFormInterface::FORM_COMPACT) {
-              $objects[] = CompactCountry::createFromData($objectData);
-            }
-            else {
-              $objects[] = FullCountry::createFromData($objectData);
-            }
-          }
-          else {
-            $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
-          }
         }
 
         return $objects;
@@ -277,26 +274,24 @@ final class Client implements ClientInterface
     public function getFeaturedContent(
       array $languages
     ) {
-      $json = $this->requestHandler->request('/featured/', [
-        'languages' => $languages,
-      ]);
-      $data = json_decode($json);
-      $objects = [];
-      foreach ($data as $objectData) {
-        $objectData = (array) $objectData;
+        $json = $this->requestHandler->request('/featured/', [
+          'languages' => $languages,
+        ]);
+        $data = json_decode($json);
+        $objects = [];
+        foreach ($data as $objectData) {
+            $objectData = (array) $objectData;
 
-        if ($objectData['type'] == 'museum') {
-          $objects[] = FeaturedMuseum::createFromData($objectData);
+            if ($objectData['type'] == 'museum') {
+                $objects[] = FeaturedMuseum::createFromData($objectData);
+            } elseif ($objectData['type'] == 'tour') {
+                $objects[] = FeaturedTour::createFromData($objectData);
+            } elseif ($objectData['type'] == 'city') {
+                $objects[] = FeaturedCity::createFromData($objectData);
+            }
         }
-        elseif ($objectData['type'] == 'tour') {
-          $objects[] = FeaturedTour::createFromData($objectData);
-        }
-        elseif ($objectData['type'] == 'city') {
-          $objects[] = FeaturedCity::createFromData($objectData);
-        }
-      }
 
-      return $objects;
+        return $objects;
     }
 
 }

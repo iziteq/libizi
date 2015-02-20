@@ -201,55 +201,55 @@ interface ClientInterface
       array $includes
     );
 
-  /**
-   * Gets multiple MTGObjects, cities, and/or countries.
-   *
-   * @param string[] $languages
-   *   ISO 639-1 alpha-2 language codes.
-   * @param string $form
-   *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-   *   constants.
-   * @param string[] $includes
-   *   The names of the sections to include.
-   * @param string $query
-   *   The search query.
-   * @param int $limit
-   *   The number of objects to return.
-   * @param int $offset
-   *   How many items to skip.
-   * @param string $sort
-   *   The field to sort by and the direction ("asc", or "desc"), separated by a
-   *   colon.
-   * @param string[] $types
-   *   An array of \Triquanta\IziTravel\DataType\MtgObjectInterface::TYPE_*
-   *   constants, and/or "city", and/or "country".
-   *
-   * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]|\Triquanta\IziTravel\DataType\CityInterface[]|\Triquanta\IziTravel\DataType\CountryInterface[]
-   */
-  public function getMtgObjects(
-    array $languages,
-    $form = MultipleFormInterface::FORM_FULL,
-    array $includes,
-    $query,
-    $limit = 50,
-    $offset = 0,
-    $sort = 'popularity:desc',
-    array $types = [
-      MtgObjectInterface::TYPE_TOUR,
-      MtgObjectInterface::TYPE_MUSEUM
-    ]
-  );
+    /**
+     * Gets multiple MTGObjects, cities, and/or countries.
+     *
+     * @param string[] $languages
+     *   ISO 639-1 alpha-2 language codes.
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
+     *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
+     * @param string $query
+     *   The search query.
+     * @param int $limit
+     *   The number of objects to return.
+     * @param int $offset
+     *   How many items to skip.
+     * @param string $sort
+     *   The field to sort by and the direction ("asc", or "desc"), separated by a
+     *   colon.
+     * @param string[] $types
+     *   An array of \Triquanta\IziTravel\DataType\MtgObjectInterface::TYPE_*
+     *   constants, and/or "city", and/or "country".
+     *
+     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]|\Triquanta\IziTravel\DataType\CityInterface[]|\Triquanta\IziTravel\DataType\CountryInterface[]
+     */
+    public function getMtgObjects(
+      array $languages,
+      $form = MultipleFormInterface::FORM_FULL,
+      array $includes,
+      $query,
+      $limit = 50,
+      $offset = 0,
+      $sort = 'popularity:desc',
+      array $types = [
+        MtgObjectInterface::TYPE_TOUR,
+        MtgObjectInterface::TYPE_MUSEUM
+      ]
+    );
 
-  /**
-   * Gets featured content.
-   *
-   * @param string[] $languages
-   *   ISO 639-1 alpha-2 language codes.
-   *
-   * @return \Triquanta\IziTravel\DataType\FeaturedContentInterface[]
-   */
-  public function getFeaturedContent(
-    array $languages
-  );
+    /**
+     * Gets featured content.
+     *
+     * @param string[] $languages
+     *   ISO 639-1 alpha-2 language codes.
+     *
+     * @return \Triquanta\IziTravel\DataType\FeaturedContentInterface[]
+     */
+    public function getFeaturedContent(
+      array $languages
+    );
 
 }

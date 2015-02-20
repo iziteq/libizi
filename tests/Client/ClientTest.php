@@ -67,7 +67,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
         $languageCodes = ['en'];
 
-        $mtgObject = $this->sut->getMtgObjectByUuid($uuid, $languageCodes, MultipleFormInterface::FORM_COMPACT, []);
+        $mtgObject = $this->sut->getMtgObjectByUuid($uuid, $languageCodes,
+          MultipleFormInterface::FORM_COMPACT, []);
 
         $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
           $mtgObject);
@@ -378,22 +379,79 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Provides data to self::testGetMtgObjects().
      */
-    public function providerTestGetMtgObjects() {
+    public function providerTestGetMtgObjects()
+    {
         return [
-          [MtgObjectInterface::TYPE_TOUR, MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
-          [MtgObjectInterface::TYPE_TOUR, MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
-          [MtgObjectInterface::TYPE_TOURIST_ATTRACTION, MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
-          [MtgObjectInterface::TYPE_TOURIST_ATTRACTION, MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
-          [MtgObjectInterface::TYPE_MUSEUM, MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
-          [MtgObjectInterface::TYPE_MUSEUM, MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
-          [MtgObjectInterface::TYPE_EXHIBIT, MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
-          [MtgObjectInterface::TYPE_EXHIBIT, MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
-          [MtgObjectInterface::TYPE_STORY_NAVIGATION, MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
-          [MtgObjectInterface::TYPE_STORY_NAVIGATION, MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
-          ['city', MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactCityInterface'],
-          ['city', MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullCityInterface'],
-          ['country', MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactCountryInterface'],
-          ['country', MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullCountryInterface'],
+          [
+            MtgObjectInterface::TYPE_TOUR,
+            MultipleFormInterface::FORM_COMPACT,
+            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
+          ],
+          [
+            MtgObjectInterface::TYPE_TOUR,
+            MultipleFormInterface::FORM_FULL,
+            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
+          ],
+          [
+            MtgObjectInterface::TYPE_TOURIST_ATTRACTION,
+            MultipleFormInterface::FORM_COMPACT,
+            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
+          ],
+          [
+            MtgObjectInterface::TYPE_TOURIST_ATTRACTION,
+            MultipleFormInterface::FORM_FULL,
+            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
+          ],
+          [
+            MtgObjectInterface::TYPE_MUSEUM,
+            MultipleFormInterface::FORM_COMPACT,
+            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
+          ],
+          [
+            MtgObjectInterface::TYPE_MUSEUM,
+            MultipleFormInterface::FORM_FULL,
+            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
+          ],
+          [
+            MtgObjectInterface::TYPE_EXHIBIT,
+            MultipleFormInterface::FORM_COMPACT,
+            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
+          ],
+          [
+            MtgObjectInterface::TYPE_EXHIBIT,
+            MultipleFormInterface::FORM_FULL,
+            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
+          ],
+          [
+            MtgObjectInterface::TYPE_STORY_NAVIGATION,
+            MultipleFormInterface::FORM_COMPACT,
+            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
+          ],
+          [
+            MtgObjectInterface::TYPE_STORY_NAVIGATION,
+            MultipleFormInterface::FORM_FULL,
+            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
+          ],
+          [
+            'city',
+            MultipleFormInterface::FORM_COMPACT,
+            '\Triquanta\IziTravel\DataType\CompactCityInterface'
+          ],
+          [
+            'city',
+            MultipleFormInterface::FORM_FULL,
+            '\Triquanta\IziTravel\DataType\FullCityInterface'
+          ],
+          [
+            'country',
+            MultipleFormInterface::FORM_COMPACT,
+            '\Triquanta\IziTravel\DataType\CompactCountryInterface'
+          ],
+          [
+            'country',
+            MultipleFormInterface::FORM_FULL,
+            '\Triquanta\IziTravel\DataType\FullCountryInterface'
+          ],
         ];
     }
 

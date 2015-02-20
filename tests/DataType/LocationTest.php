@@ -91,7 +91,8 @@ class LocationTest extends \PHPUnit_Framework_TestCase
         $this->publicIpAddress = '12.34.56.78';
 
         $this->sut = new Location($this->latitude, $this->longitude,
-          $this->altitude, $this->exhibitNumber, $this->publicIpAddress, $this->cityUuid, $this->countryUuid, $this->countryCode);
+          $this->altitude, $this->exhibitNumber, $this->publicIpAddress,
+          $this->cityUuid, $this->countryUuid, $this->countryCode);
     }
 
     /**

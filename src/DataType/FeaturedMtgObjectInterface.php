@@ -13,18 +13,18 @@ namespace Triquanta\IziTravel\DataType;
 interface FeaturedMtgObjectInterface extends FeaturedContentInterface, TranslatableInterface
 {
 
-  /**
-   * Gets the UUID of the city this content belongs to.
-   *
-   * @return string|null
-   */
-  public function getCityUuid();
+    /**
+     * Gets the UUID of the city this content belongs to.
+     *
+     * @return string|null
+     */
+    public function getCityUuid();
 
-  /**
-   * Gets the UUID of the country this content belongs to.
-   *
-   * @return string|null
-   */
-  public function getCountryUuid();
+    /**
+     * Gets the UUID of the country this content belongs to.
+     *
+     * @return string|null
+     */
+    public function getCountryUuid();
 
 }

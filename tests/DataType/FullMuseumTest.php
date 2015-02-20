@@ -159,7 +159,8 @@ class FullMuseumTest extends \PHPUnit_Framework_TestCase
           $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
         ];
 
-        $this->sut = new FullMuseum($this->type, $this->uuid, $this->revisionHash,
+        $this->sut = new FullMuseum($this->type, $this->uuid,
+          $this->revisionHash,
           $this->availableLanguageCodes, $this->status,
           $this->location, $this->triggerZones, $this->contentProvider,
           $this->purchase, $this->parentUuid,

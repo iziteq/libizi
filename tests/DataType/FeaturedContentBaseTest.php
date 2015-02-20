@@ -13,116 +13,129 @@ namespace Triquanta\IziTravel\DataType;
 class FeaturedContentBaseTest extends \PHPUnit_Framework_TestCase
 {
 
-  /**
-   * The UUID.
-   *
-   * @var string
-   */
-  protected $uuid;
+    /**
+     * The UUID.
+     *
+     * @var string
+     */
+    protected $uuid;
 
-  /**
-   * The status.
-   *
-   * @var string
-   *   One of the \Triquanta\IziTravel\DataType\PublishableInterface::STATUS_*
-   *   constants.
-   */
-  protected $status;
+    /**
+     * The status.
+     *
+     * @var string
+     *   One of the \Triquanta\IziTravel\DataType\PublishableInterface::STATUS_*
+     *   constants.
+     */
+    protected $status;
 
-  /**
-   * Whether the object is promoted.
-   *
-   * @var bool
-   */
-  protected $promoted;
+    /**
+     * Whether the object is promoted.
+     *
+     * @var bool
+     */
+    protected $promoted;
 
-  /**
-   * The code of the language in which the object was requested.
-   *
-   * @var string
-   *   An ISO 639-1 alpha-2 language code.
-   */
-  protected $requestedLanguageCode;
+    /**
+     * The code of the language in which the object was requested.
+     *
+     * @var string
+     *   An ISO 639-1 alpha-2 language code.
+     */
+    protected $requestedLanguageCode;
 
-  /**
-   * The content's language.
-   *
-   * @var string
-   *   An ISO 639-1 alpha-2 language code.
-   */
-  protected $languageCode;
+    /**
+     * The content's language.
+     *
+     * @var string
+     *   An ISO 639-1 alpha-2 language code.
+     */
+    protected $languageCode;
 
-  /**
-   * The name.
-   *
-   * @var string|null
-   */
-  protected $name;
+    /**
+     * The name.
+     *
+     * @var string|null
+     */
+    protected $name;
 
-  /**
-   * The description.
-   *
-   * @var string|null
-   */
-  protected $description;
+    /**
+     * The description.
+     *
+     * @var string|null
+     */
+    protected $description;
 
-  /**
-   * The position (order).
-   *
-   * @var int|null
-   */
-  protected $position;
+    /**
+     * The position (order).
+     *
+     * @var int|null
+     */
+    protected $position;
 
-  /**
-   * The images.
-   *
-   * @var \Triquanta\IziTravel\DataType\FeaturedContentImageInterface[]|\Triquanta\IziTravel\DataType\FeaturedContentCoverImageInterface[]
-   */
-  protected $images = [];
+    /**
+     * The images.
+     *
+     * @var \Triquanta\IziTravel\DataType\FeaturedContentImageInterface[]|\Triquanta\IziTravel\DataType\FeaturedContentCoverImageInterface[]
+     */
+    protected $images = [];
 
-  /**
-   * The class under test.
-   *
-   * @var \Triquanta\IziTravel\DataType\FeaturedContentBase
-   */
-  protected $sut;
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\FeaturedContentBase
+     */
+    protected $sut;
 
-  public function setUp() {
-    $this->uuid = 'foo-bar-baz-' . mt_rand();
+    public function setUp()
+    {
+        $this->uuid = 'foo-bar-baz-' . mt_rand();
 
-    $this->status = array_rand([PublishableInterface::STATUS_PUBLISHED, PublishableInterface::STATUS_LIMITED]);
+        $this->status = array_rand([
+          PublishableInterface::STATUS_PUBLISHED,
+          PublishableInterface::STATUS_LIMITED
+        ]);
 
-    $this->promoted = (bool) mt_rand(0, 1);
+        $this->promoted = (bool) mt_rand(0, 1);
 
-    $this->requestedLanguageCode = 'uk';
+        $this->requestedLanguageCode = 'uk';
 
-    $this->languageCode = 'uk';
+        $this->languageCode = 'uk';
 
-    $this->name = 'Foo ' . mt_rand();
+        $this->name = 'Foo ' . mt_rand();
 
-    $this->description = 'Foo & Bar, episode' . mt_rand();
+        $this->description = 'Foo & Bar, episode' . mt_rand();
 
-    $this->position = mt_rand(1, 5);
+        $this->position = mt_rand(1, 5);
 
-    $this->images = [
-      $this->getMock('\Triquanta\IziTravel\DataType\FeaturedContentImageInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\FeaturedContentCoverImageInterface'),
-      $this->getMock('\Triquanta\IziTravel\DataType\FeaturedContentImageInterface'),
-    ];
+        $this->images = [
+          $this->getMock('\Triquanta\IziTravel\DataType\FeaturedContentImageInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\FeaturedContentCoverImageInterface'),
+          $this->getMock('\Triquanta\IziTravel\DataType\FeaturedContentImageInterface'),
+        ];
 
-    $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FeaturedContentBase', [
-      $this->uuid, $this->status, $this->promoted, $this->requestedLanguageCode, $this->languageCode, $this->name, $this->description, $this->position, $this->images,
-    ]);
-  }
+        $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FeaturedContentBase',
+          [
+            $this->uuid,
+            $this->status,
+            $this->promoted,
+            $this->requestedLanguageCode,
+            $this->languageCode,
+            $this->name,
+            $this->description,
+            $this->position,
+            $this->images,
+          ]);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   * @covers ::createFromData
-   */
-  public function testCreateFromJson()
-  {
-    $json = <<<'JSON'
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     */
+    public function testCreateFromJson()
+    {
+        $json = <<<'JSON'
 {
     "uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
     "name": "Amsterdam",
@@ -145,36 +158,36 @@ class FeaturedContentBaseTest extends \PHPUnit_Framework_TestCase
 }
 JSON;
 
-    /** @var \Triquanta\IziTravel\DataType\FeaturedContentBase $class */
-    $class = get_class($this->sut);
-    $class::createFromJson($json);
-  }
+        /** @var \Triquanta\IziTravel\DataType\FeaturedContentBase $class */
+        $class = get_class($this->sut);
+        $class::createFromJson($json);
+    }
 
-  /**
-   * @covers ::__construct
-   * @covers ::createFromJson
-   * @covers ::createFromData
-   *
-   * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
-   */
-  public function testCreateFromJsonWithInvalidJson()
-  {
-    $json = 'foo';
+    /**
+     * @covers ::__construct
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     *
+     * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
+     */
+    public function testCreateFromJsonWithInvalidJson()
+    {
+        $json = 'foo';
 
-    /** @var \Triquanta\IziTravel\DataType\FeaturedContentBase $class */
-    $class = get_class($this->sut);
-    $class::createFromJson($json);
-  }
+        /** @var \Triquanta\IziTravel\DataType\FeaturedContentBase $class */
+        $class = get_class($this->sut);
+        $class::createFromJson($json);
+    }
 
-  /**
-   * @covers ::createFromJson
-   * @covers ::createFromData
-   *
-   * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-   */
-  public function testCreateFromJsonWithoutUuid()
-  {
-    $json = <<<'JSON'
+    /**
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     *
+     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
+     */
+    public function testCreateFromJsonWithoutUuid()
+    {
+        $json = <<<'JSON'
 {
   "email": "john@doe.com",
   "custom": {
@@ -183,58 +196,66 @@ JSON;
 }
 JSON;
 
-    /** @var \Triquanta\IziTravel\DataType\FeaturedContentBase $class */
-    $class = get_class($this->sut);
-    $class::createFromJson($json);
-  }
+        /** @var \Triquanta\IziTravel\DataType\FeaturedContentBase $class */
+        $class = get_class($this->sut);
+        $class::createFromJson($json);
+    }
 
-  /**
-   * @covers ::isPromoted
-   */
-  public function testIsPromoted() {
-    $this->assertSame($this->promoted, $this->sut->isPromoted());
-  }
+    /**
+     * @covers ::isPromoted
+     */
+    public function testIsPromoted()
+    {
+        $this->assertSame($this->promoted, $this->sut->isPromoted());
+    }
 
-  /**
-   * @covers ::getRequestedLanguageCode
-   */
-  public function testGetRequestedLanguageCode() {
-    $this->assertSame($this->requestedLanguageCode, $this->sut->getRequestedLanguageCode());
-  }
+    /**
+     * @covers ::getRequestedLanguageCode
+     */
+    public function testGetRequestedLanguageCode()
+    {
+        $this->assertSame($this->requestedLanguageCode,
+          $this->sut->getRequestedLanguageCode());
+    }
 
-  /**
-   * @covers ::getLanguageCode
-   */
-  public function testGetLanguageCode() {
-    $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
-  }
+    /**
+     * @covers ::getLanguageCode
+     */
+    public function testGetLanguageCode()
+    {
+        $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
+    }
 
-  /**
-   * @covers ::getName
-   */
-  public function testGetName() {
-    $this->assertSame($this->name, $this->sut->getName());
-  }
+    /**
+     * @covers ::getName
+     */
+    public function testGetName()
+    {
+        $this->assertSame($this->name, $this->sut->getName());
+    }
 
-  /**
-   * @covers ::getDescription
-   */
-  public function testGetDescription() {
-    $this->assertSame($this->description, $this->sut->getDescription());
-  }
+    /**
+     * @covers ::getDescription
+     */
+    public function testGetDescription()
+    {
+        $this->assertSame($this->description, $this->sut->getDescription());
+    }
 
-  /**
-   * @covers ::getPosition
-   */
-  public function testGetPosition() {
-    $this->assertSame($this->position, $this->sut->getPosition());
-  }
+    /**
+     * @covers ::getPosition
+     */
+    public function testGetPosition()
+    {
+        $this->assertSame($this->position, $this->sut->getPosition());
+    }
 
-  /**
-   * @covers ::getImages
-   */
-  public function testGetImages() {
-    $this->assertSame($this->images, $this->sut->getImages());
-  }
+    /**
+     * @covers ::getImages
+     */
+    public function testGetImages()
+    {
+        $this->assertSame($this->images, $this->sut->getImages());
+    }
 
 }

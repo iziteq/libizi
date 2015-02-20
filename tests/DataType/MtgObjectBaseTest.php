@@ -103,7 +103,10 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
         $this->availableLanguageCodes = ['nl', 'uk'];
 
-        $this->status = array_rand([PublishableInterface::STATUS_PUBLISHED, PublishableInterface::STATUS_LIMITED]);
+        $this->status = array_rand([
+          PublishableInterface::STATUS_PUBLISHED,
+          PublishableInterface::STATUS_LIMITED
+        ]);
 
         $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
 
@@ -127,7 +130,7 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MtgObjectBase',
           [
-              $this->type,
+            $this->type,
             $this->uuid,
             $this->revisionHash,
             $this->availableLanguageCodes,
@@ -147,7 +150,7 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     {
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MtgObjectBase',
           [
-              $this->type,
+            $this->type,
             $this->uuid,
             $this->revisionHash,
             $this->availableLanguageCodes,
@@ -174,12 +177,11 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsPublished()
     {
-      if ($this->status === PublishableInterface::STATUS_PUBLISHED) {
-        $this->assertTrue($this->sut->isPublished());
-      }
-      else {
-        $this->assertFalse($this->sut->isPublished());
-      }
+        if ($this->status === PublishableInterface::STATUS_PUBLISHED) {
+            $this->assertTrue($this->sut->isPublished());
+        } else {
+            $this->assertFalse($this->sut->isPublished());
+        }
     }
 
     /**
