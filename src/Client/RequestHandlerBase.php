@@ -92,9 +92,12 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
     public static function getGuzzleQueryAggregator()
     {
         return function (array $data) {
-            return Query::walkQuery($data, '', function ($key, $prefix) {
-                return is_int($key) ? "{$prefix}[]" : "{$prefix}[{$key}]";
-            });
+            $aggregated_data = [];
+            foreach ($data as $key => $values) {
+                $aggregated_data[$key] = is_array($values) ? [implode(',', $values)] : [$values];
+            }
+
+            return $aggregated_data;
         };
     }
 
