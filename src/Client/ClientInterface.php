@@ -124,6 +124,31 @@ interface ClientInterface
     );
 
     /**
+     * Gets a country's children.
+     *
+     * @param string $uuid
+     * @param string[] $languages
+     *   ISO 639-1 alpha-2 language codes.
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
+     *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
+     * @param int $limit
+     * @param int $offset
+     *
+     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
+     */
+    public function getCountriesChildrenByUuid(
+      $uuid,
+      array $languages,
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes,
+      $limit = 20,
+      $offset = 0
+    );
+
+    /**
      * Gets a city by its UUIDs.
      *
      * @param string $uuid
@@ -160,6 +185,31 @@ interface ClientInterface
      * @return \Triquanta\IziTravel\DataType\CityInterface[]
      */
     public function getCities(
+      array $languages,
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes,
+      $limit = 20,
+      $offset = 0
+    );
+
+    /**
+     * Gets a city's children.
+     *
+     * @param string $uuid
+     * @param string[] $languages
+     *   ISO 639-1 alpha-2 language codes.
+     * @param string $form
+     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
+     *   constants.
+     * @param string[] $includes
+     *   The names of the sections to include.
+     * @param int $limit
+     * @param int $offset
+     *
+     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
+     */
+    public function getCitiesChildrenByUuid(
+      $uuid,
       array $languages,
       $form = MultipleFormInterface::FORM_COMPACT,
       array $includes,

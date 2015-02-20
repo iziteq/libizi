@@ -143,6 +143,30 @@ final class Client implements ClientInterface
         return $countries;
     }
 
+    public function getCountriesChildrenByUuid(
+      $uuid,
+      array $languages,
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes,
+      $limit = 20,
+      $offset = 0
+    ) {
+        $json = $this->requestHandler->request('/countries/' . $uuid . '/children', [
+          'languages' => $languages,
+          'includes' => $includes,
+          'form' => $form,
+          'limit' => $limit,
+          'offset' => $offset,
+        ]);
+        $data = json_decode($json);
+        $objects = [];
+        foreach ($data as $objectData) {
+            $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
+        }
+
+        return $objects;
+    }
+
     public function getCityByUuid(
       $uuid,
       array $languages,
@@ -187,6 +211,30 @@ final class Client implements ClientInterface
         }
 
         return $cities;
+    }
+
+    public function getCitiesChildrenByUuid(
+        $uuid,
+      array $languages,
+      $form = MultipleFormInterface::FORM_COMPACT,
+      array $includes,
+      $limit = 20,
+      $offset = 0
+    ) {
+        $json = $this->requestHandler->request('/cities/' . $uuid . '/children', [
+          'languages' => $languages,
+          'includes' => $includes,
+          'form' => $form,
+          'limit' => $limit,
+          'offset' => $offset,
+        ]);
+        $data = json_decode($json);
+        $objects = [];
+        foreach ($data as $objectData) {
+            $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
+        }
+
+        return $objects;
     }
 
     public function getCitiesByCountryUuid(

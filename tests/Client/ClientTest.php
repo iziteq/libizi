@@ -239,6 +239,28 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers:: getCountriesChildrenByUuid
+     */
+    public function testGetCountriesChildrenByUuid() {
+        $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
+        $languageCodes = ['en'];
+        $limit = mt_rand(1, 9);
+
+        $mtgObjects = $this->sut->getCountriesChildrenByUuid($uuid,
+          $languageCodes, MultipleFormInterface::FORM_COMPACT, [], $limit);
+
+        $this->assertInternalType('array', $mtgObjects);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($mtgObjects);
+        $this->assertTrue(count($mtgObjects) <= $limit);
+        foreach ($mtgObjects as $mtgObject) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
+              $mtgObject);
+        }
+    }
+
+    /**
      * @covers ::getCityByUuid
      */
     public function testGetCityByUuidInCompactForm()
@@ -309,6 +331,28 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         foreach ($cities as $city) {
             $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface',
               $city);
+        }
+    }
+
+    /**
+     * @covers:: getCitiesChildrenByUuid
+     */
+    public function testGetCitiesChildrenByUuid() {
+        $uuid = '3f879f37-21b0-479d-bd74-aa26f72fa328';
+        $languageCodes = ['en'];
+        $limit = mt_rand(1, 9);
+
+        $mtgObjects = $this->sut->getCitiesChildrenByUuid($uuid,
+          $languageCodes, MultipleFormInterface::FORM_COMPACT, [], $limit);
+
+        $this->assertInternalType('array', $mtgObjects);
+        // If the request does not return any data, we cannot test its
+        // integrity.
+        $this->assertNotEmpty($mtgObjects);
+        $this->assertTrue(count($mtgObjects) <= $limit);
+        foreach ($mtgObjects as $mtgObject) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
+              $mtgObject);
         }
     }
 
