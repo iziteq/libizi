@@ -7,9 +7,6 @@
 
 namespace Triquanta\IziTravel\Client;
 
-use Triquanta\IziTravel\DataType\MtgObjectInterface;
-use Triquanta\IziTravel\DataType\MultipleFormInterface;
-
 /**
  * Defines a client for interacting with the izi.TRAVEL MTG API.
  */
@@ -17,297 +14,143 @@ interface ClientInterface
 {
 
     /**
-     * Gets an object by UUID.
+     * Gets a request to get an MTGObject by its UUID.
      *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      * @param string $uuid
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
      *
-     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface
+     * @return \Triquanta\IziTravel\Request\MtgObjectByUuid
      */
-    public function getMtgObjectByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes
-    );
+    public function getMtgObjectByUuid(array $languageCodes, $uuid);
 
     /**
-     * Gets multiple objects by their UUIDs.
+     * Gets a request to get an MTGObject's children by its UUID.
      *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      * @param string[] $uuids
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
      *
-     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
+     * @return \Triquanta\IziTravel\Request\MtgObjectsByUuids
      */
-    public function getMtgObjectsByUuids(
-      array $uuids,
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes
-    );
+    public function getMtgObjectsByUuids(array $languageCodes, array $uuids);
 
     /**
-     * Gets an object's children by its UUIDs.
+     * Gets a request to get a city's children by UUID.
      *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      * @param string $uuid
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
      *
-     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
+     * @return \Triquanta\IziTravel\Request\CityChildrenByUuid
      */
-    public function getMtgObjectsChildrenByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $includes
-    );
+    public function getMtgObjectChildrenByUuid(array $languageCodes, $uuid);
 
     /**
-     * Gets a country by its UUIDs.
+     * Gets a request to get a country by its UUID.
      *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      * @param string $uuid
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
      *
-     * @return \Triquanta\IziTravel\DataType\CountryInterface
+     * @return \Triquanta\IziTravel\Request\CountryByUuid
      */
-    public function getCountryByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $includes
-    );
+    public function getCountryByUuid(array $languageCodes, $uuid);
 
     /**
-     * Gets multiple countries.
+     * Gets a request to get countries.
      *
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
-     * @param int $limit
-     * @param int $offset
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      *
-     * @return \Triquanta\IziTravel\DataType\CountryInterface[]
+     * @return \Triquanta\IziTravel\Request\countries
      */
-    public function getCountries(
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes,
-      $limit = 20,
-      $offset = 0
-    );
+    public function getCountries(array $languageCodes);
 
     /**
-     * Gets a country's children.
+     * Gets a request to get a country's children by UUID.
      *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      * @param string $uuid
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
-     * @param int $limit
-     * @param int $offset
      *
-     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
+     * @return \Triquanta\IziTravel\Request\CountryChildrenByUuid
      */
-    public function getCountriesChildrenByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes,
-      $limit = 20,
-      $offset = 0
-    );
+    public function getCountryChildrenByUuid(array $languageCodes, $uuid);
 
     /**
-     * Gets a city by its UUIDs.
+     * Gets a request to get a city by its UUID.
      *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      * @param string $uuid
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
      *
-     * @return \Triquanta\IziTravel\DataType\CityInterface
+     * @return \Triquanta\IziTravel\Request\CityByUuid
      */
-    public function getCityByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $includes
-    );
+    public function getCityByUuid(array $languageCodes, $uuid);
 
     /**
-     * Gets multiple cities.
+     * Gets a request to get cities.
      *
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
-     * @param int $limit
-     * @param int $offset
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      *
-     * @return \Triquanta\IziTravel\DataType\CityInterface[]
+     * @return \Triquanta\IziTravel\Request\Cities
      */
-    public function getCities(
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes,
-      $limit = 20,
-      $offset = 0
-    );
+    public function getCities(array $languageCodes);
 
     /**
-     * Gets a city's children.
+     * Gets a request to get a city's children by UUID.
      *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      * @param string $uuid
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
-     * @param int $limit
-     * @param int $offset
      *
-     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
+     * @return \Triquanta\IziTravel\Request\CityChildrenByUuid
      */
-    public function getCitiesChildrenByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes,
-      $limit = 20,
-      $offset = 0
-    );
+    public function getCityChildrenByUuid(array $languageCodes, $uuid);
 
     /**
-     * Gets multiple cities by a country's UUID.
+     * Gets a request to get cities by a country's UUIDs.
      *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      * @param string $uuid
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
      *
-     * @return \Triquanta\IziTravel\DataType\CityInterface[]
+     * @return \Triquanta\IziTravel\Request\CitiesByCountryUuid
      */
-    public function getCitiesByCountryUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes
-    );
+    public function getCitiesByCountryUuid(array $languageCodes, $uuid);
 
     /**
-     * Gets a publisher by its UUIDs.
+     * Gets a request to get a publisher by its UUID.
      *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      * @param string $uuid
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
      *
-     * @return \Triquanta\IziTravel\DataType\PublisherInterface
+     * @return \Triquanta\IziTravel\Request\PublisherByUuid
      */
-    public function getPublisherByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $includes
-    );
+    public function getPublisherByUuid(array $languageCodes, $uuid);
 
     /**
-     * Gets multiple MTGObjects, cities, and/or countries.
+     * Gets a search request.
      *
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     * @param string[] $includes
-     *   The names of the sections to include.
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      * @param string $query
-     *   The search query.
-     * @param int $limit
-     *   The number of objects to return.
-     * @param int $offset
-     *   How many items to skip.
-     * @param string $sort
-     *   The field to sort by and the direction ("asc", or "desc"), separated by a
-     *   colon.
-     * @param string[] $types
-     *   An array of \Triquanta\IziTravel\DataType\MtgObjectInterface::TYPE_*
-     *   constants, and/or "city", and/or "country".
      *
-     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]|\Triquanta\IziTravel\DataType\CityInterface[]|\Triquanta\IziTravel\DataType\CountryInterface[]
+     * @return \Triquanta\IziTravel\Request\Search
      */
-    public function getMtgObjects(
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $includes,
-      $query,
-      $limit = 50,
-      $offset = 0,
-      $sort = 'popularity:desc',
-      array $types = [
-        MtgObjectInterface::TYPE_TOUR,
-        MtgObjectInterface::TYPE_MUSEUM
-      ]
-    );
+    public function search(array $languageCodes, $query);
 
     /**
-     * Gets featured content.
+     * Gets a featured content request.
      *
-     * @param string[] $languages
-     *   ISO 639-1 alpha-2 language codes.
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
      *
-     * @return \Triquanta\IziTravel\DataType\FeaturedContentInterface[]
+     * @return \Triquanta\IziTravel\Request\FeaturedContent
      */
-    public function getFeaturedContent(
-      array $languages
-    );
+    public function getFeaturedContent(array $languageCodes);
 
 }

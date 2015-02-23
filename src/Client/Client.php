@@ -7,18 +7,19 @@
 
 namespace Triquanta\IziTravel\Client;
 
-use Triquanta\IziTravel\DataType\CompactCity;
-use Triquanta\IziTravel\DataType\CompactCountry;
-use Triquanta\IziTravel\DataType\CompactPublisher;
-use Triquanta\IziTravel\DataType\FeaturedCity;
-use Triquanta\IziTravel\DataType\FeaturedMuseum;
-use Triquanta\IziTravel\DataType\FeaturedTour;
-use Triquanta\IziTravel\DataType\FullCity;
-use Triquanta\IziTravel\DataType\FullCountry;
-use Triquanta\IziTravel\DataType\FullPublisher;
-use Triquanta\IziTravel\DataType\MtgObjectBase;
-use Triquanta\IziTravel\DataType\MtgObjectInterface;
-use Triquanta\IziTravel\DataType\MultipleFormInterface;
+use Triquanta\IziTravel\Request\Cities;
+use Triquanta\IziTravel\Request\CitiesByCountryUuid;
+use Triquanta\IziTravel\Request\CityByUuid;
+use Triquanta\IziTravel\Request\CityChildrenByUuid;
+use Triquanta\IziTravel\Request\Countries;
+use Triquanta\IziTravel\Request\CountryByUuid;
+use Triquanta\IziTravel\Request\CountryChildrenByUuid;
+use Triquanta\IziTravel\Request\FeaturedContent;
+use Triquanta\IziTravel\Request\MtgObjectByUuid;
+use Triquanta\IziTravel\Request\MtgObjectChildrenByUuid;
+use Triquanta\IziTravel\Request\MtgObjectsByUuids;
+use Triquanta\IziTravel\Request\PublisherByUuid;
+use Triquanta\IziTravel\Request\Search;
 
 /**
  * Provides a client for interacting with the izi.TRAVEL MTG API.
@@ -43,311 +44,92 @@ final class Client implements ClientInterface
         $this->requestHandler = $requestHandler;
     }
 
-    public function getMtgObjectByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes
-    ) {
-        $objects = $this->getMtgObjectsByUuids([$uuid], $languages, $form,
-          $includes);
-
-        return $objects ? reset($objects) : null;
+    public function getMtgObjectByUuid(array $languageCodes, $uuid)
+    {
+        return MtgObjectByUuid::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
     }
 
-    public function getMtgObjectsByUuids(
-      array $uuids,
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes
-    ) {
-        $json = $this->requestHandler->request('/mtgobjects/batch/' . implode(',',
-            $uuids), [
-          'languages' => $languages,
-          'includes' => $includes,
-          'form' => $form,
-        ]);
-        $data = json_decode($json);
-        $objects = [];
-        foreach ($data as $objectData) {
-            $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
-        }
-
-        return $objects;
+    public function getMtgObjectsByUuids(array $languageCodes, array $uuids)
+    {
+        return MtgObjectsByUuids::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuids($uuids);
     }
 
-    public function getMtgObjectsChildrenByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $includes
-    ) {
-        $json = $this->requestHandler->request('/mtgobjects/' . $uuid . '/children',
-          [
-            'languages' => $languages,
-            'includes' => $includes,
-            'form' => $form,
-          ]);
-        $data = json_decode($json);
-        $objects = [];
-        foreach ($data as $objectData) {
-            $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
-        }
-
-        return $objects;
+    public function getMtgObjectChildrenByUuid(array $languageCodes, $uuid)
+    {
+        return MtgObjectChildrenByUuid::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
     }
 
-    public function getCountryByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $includes
-    ) {
-        $json = $this->requestHandler->request('/countries/' . $uuid, [
-          'languages' => $languages,
-          'includes' => $includes,
-          'form' => $form,
-        ]);
-        $data = json_decode($json);
-        if ($form == MultipleFormInterface::FORM_COMPACT) {
-            return CompactCountry::createFromData($data);
-        } else {
-            return FullCountry::createFromData($data);
-        }
+    public function getCountryByUuid(array $languageCodes, $uuid)
+    {
+        return CountryByUuid::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
     }
 
-    public function getCountries(
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes,
-      $limit = 20,
-      $offset = 0
-    ) {
-        $json = $this->requestHandler->request('/countries', [
-          'languages' => $languages,
-          'includes' => $includes,
-          'form' => $form,
-          'limit' => $limit,
-          'offset' => $offset,
-        ]);
-        $data = json_decode($json);
-        $countries = [];
-        foreach ($data as $countryData) {
-            if ($form == MultipleFormInterface::FORM_COMPACT) {
-                $countries[] = CompactCountry::createFromData($countryData);
-            } else {
-                $countries[] = FullCountry::createFromData($countryData);
-            }
-        }
-
-        return $countries;
+    public function getCountries(array $languageCodes)
+    {
+        return Countries::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes);
     }
 
-    public function getCountriesChildrenByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes,
-      $limit = 20,
-      $offset = 0
-    ) {
-        $json = $this->requestHandler->request('/countries/' . $uuid . '/children', [
-          'languages' => $languages,
-          'includes' => $includes,
-          'form' => $form,
-          'limit' => $limit,
-          'offset' => $offset,
-        ]);
-        $data = json_decode($json);
-        $objects = [];
-        foreach ($data as $objectData) {
-            $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
-        }
-
-        return $objects;
+    public function getCountryChildrenByUuid(array $languageCodes, $uuid)
+    {
+        return CountryChildrenByUuid::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
     }
 
-    public function getCityByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $includes
-    ) {
-        $json = $this->requestHandler->request('/cities/' . $uuid, [
-          'languages' => $languages,
-          'includes' => $includes,
-          'form' => $form,
-        ]);
-        $data = json_decode($json);
-        if ($form == MultipleFormInterface::FORM_COMPACT) {
-            return CompactCity::createFromData($data);
-        } else {
-            return FullCity::createFromData($data);
-        }
+    public function getCityByUuid(array $languageCodes, $uuid)
+    {
+        return CityByUuid::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
     }
 
-    public function getCities(
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes,
-      $limit = 20,
-      $offset = 0
-    ) {
-        $json = $this->requestHandler->request('/cities', [
-          'languages' => $languages,
-          'includes' => $includes,
-          'form' => $form,
-          'limit' => $limit,
-          'offset' => $offset,
-        ]);
-        $data = json_decode($json);
-        $cities = [];
-        foreach ($data as $cityData) {
-            if ($form == MultipleFormInterface::FORM_COMPACT) {
-                $cities[] = CompactCity::createFromData($cityData);
-            } else {
-                $cities[] = FullCity::createFromData($cityData);
-            }
-        }
-
-        return $cities;
+    public function getCities(array $languageCodes)
+    {
+        return Cities::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes);
     }
 
-    public function getCitiesChildrenByUuid(
-        $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes,
-      $limit = 20,
-      $offset = 0
-    ) {
-        $json = $this->requestHandler->request('/cities/' . $uuid . '/children', [
-          'languages' => $languages,
-          'includes' => $includes,
-          'form' => $form,
-          'limit' => $limit,
-          'offset' => $offset,
-        ]);
-        $data = json_decode($json);
-        $objects = [];
-        foreach ($data as $objectData) {
-            $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
-        }
-
-        return $objects;
+    public function getCityChildrenByUuid(array $languageCodes, $uuid)
+    {
+        return CityChildrenByUuid::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
     }
 
-    public function getCitiesByCountryUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_COMPACT,
-      array $includes
-    ) {
-        $json = $this->requestHandler->request('/countries/' . $uuid . '/cities',
-          [
-            'languages' => $languages,
-            'includes' => $includes,
-            'form' => $form,
-          ]);
-        $data = json_decode($json);
-        $cities = [];
-        foreach ($data as $cityData) {
-            if ($form == MultipleFormInterface::FORM_COMPACT) {
-                $cities[] = CompactCity::createFromData($cityData);
-            } else {
-                $cities[] = FullCity::createFromData($cityData);
-            }
-        }
-
-        return $cities;
+    public function getCitiesByCountryUuid(array $languageCodes, $uuid)
+    {
+        return CitiesByCountryUuid::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
     }
 
-    public function getPublisherByUuid(
-      $uuid,
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $includes
-    ) {
-        $json = $this->requestHandler->request('/mtg/publishers/' . $uuid, [
-          'languages' => $languages,
-          'includes' => $includes,
-          'form' => $form,
-        ]);
-        $data = json_decode($json);
-        if ($form == MultipleFormInterface::FORM_COMPACT) {
-            return CompactPublisher::createFromData($data);
-        } else {
-            return FullPublisher::createFromData($data);
-        }
+    public function getPublisherByUuid(array $languageCodes, $uuid)
+    {
+        return PublisherByUuid::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
     }
 
-    public function getMtgObjects(
-      array $languages,
-      $form = MultipleFormInterface::FORM_FULL,
-      array $includes,
-      $query,
-      $limit = 50,
-      $offset = 0,
-      $sort = 'popularity:desc',
-      array $types = [
-        MtgObjectInterface::TYPE_TOUR,
-        MtgObjectInterface::TYPE_MUSEUM
-      ]
-    ) {
-        $json = $this->requestHandler->request('/mtg/objects/search/', [
-          'languages' => $languages,
-          'includes' => $includes,
-          'form' => $form,
-          'sort_by' => $sort,
-          'type' => $types,
-          'query' => $query,
-          'limit' => $limit,
-          'offset' => $offset,
-        ]);
-        $data = json_decode($json);
-        $objects = [];
-        foreach ($data as $objectData) {
-            if ($objectData->type === 'city') {
-                if ($form === MultipleFormInterface::FORM_COMPACT) {
-                    $objects[] = CompactCity::createFromData($objectData);
-                } else {
-                    $objects[] = FullCity::createFromData($objectData);
-                }
-            } elseif ($objectData->type === 'country') {
-                if ($form === MultipleFormInterface::FORM_COMPACT) {
-                    $objects[] = CompactCountry::createFromData($objectData);
-                } else {
-                    $objects[] = FullCountry::createFromData($objectData);
-                }
-            } else {
-                $objects[] = MtgObjectBase::createMtgObject($objectData, $form);
-            }
-        }
-
-        return $objects;
+    public function search(array $languageCodes, $query)
+    {
+        return Search::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setQuery($query);
     }
 
-    public function getFeaturedContent(
-      array $languages
-    ) {
-        $json = $this->requestHandler->request('/featured/', [
-          'languages' => $languages,
-        ]);
-        $data = json_decode($json);
-        $objects = [];
-        foreach ($data as $objectData) {
-            $objectData = (array) $objectData;
-
-            if ($objectData['type'] == 'museum') {
-                $objects[] = FeaturedMuseum::createFromData($objectData);
-            } elseif ($objectData['type'] == 'tour') {
-                $objects[] = FeaturedTour::createFromData($objectData);
-            } elseif ($objectData['type'] == 'city') {
-                $objects[] = FeaturedCity::createFromData($objectData);
-            }
-        }
-
-        return $objects;
+    public function getFeaturedContent(array $languageCodes)
+    {
+        return FeaturedContent::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes);
     }
 
 }

@@ -10,8 +10,6 @@ namespace Triquanta\IziTravel\Tests\Client;
 use GuzzleHttp\Client as HttpClient;
 use Triquanta\IziTravel\Client\Client;
 use Triquanta\IziTravel\Client\ProductionRequestHandler;
-use Triquanta\IziTravel\DataType\MtgObjectInterface;
-use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\Tests\TestConfiguration;
 
 /**
@@ -73,490 +71,128 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetMtgObjectByUuid()
     {
+        $languageCodes = ['en', 'uk', 'nl'];
         $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
-        $languageCodes = ['en'];
-
-        $mtgObject = $this->sut->getMtgObjectByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT, []);
-
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
-          $mtgObject);
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\MtgObjectByUuid', $this->sut->getMtgObjectByUuid($languageCodes, $uuid));
     }
 
     /**
      * @covers ::getMtgObjectsByUuids
      */
-    public function testGetMtgObjectsByUuidsInCompactForm()
+    public function testGetMtgObjectsByUuids()
     {
+        $languageCodes = ['en', 'uk', 'nl'];
         $uuids = [
           'bcf57367-77f6-4e39-9da6-1b481826501f',
           '9a7d0fd4-aa50-4d12-a8fa-26f080cd7e0c'
         ];
-        $languageCodes = ['en'];
-
-        $mtgObjects = $this->sut->getMtgObjectsByUuids($uuids, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT, []);
-
-        $this->assertInternalType('array', $mtgObjects);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($mtgObjects);
-        foreach ($mtgObjects as $mtgObject) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
-              $mtgObject);
-        }
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\MtgObjectsByUuids', $this->sut->getMtgObjectsByUuids($languageCodes, $uuids));
     }
 
     /**
-     * @covers ::getMtgObjectsByUuids
+     * @covers ::getMtgObjectChildrenByUuid
      */
-    public function testGetMtgObjectsByUuidsInFullForm()
+    public function testGetMtgObjectChildrenByUuid()
     {
-        $uuids = [
-          'bcf57367-77f6-4e39-9da6-1b481826501f',
-          '9a7d0fd4-aa50-4d12-a8fa-26f080cd7e0c'
-        ];
-        $languageCodes = ['en'];
-
-        $mtgObjects = $this->sut->getMtgObjectsByUuids($uuids, $languageCodes,
-          MultipleFormInterface::FORM_FULL, []);
-
-        $this->assertInternalType('array', $mtgObjects);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($mtgObjects);
-        foreach ($mtgObjects as $mtgObject) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMtgObjectInterface',
-              $mtgObject);
-        }
-    }
-
-    /**
-     * @covers:: getMtgObjectsChildrenByUuid
-     */
-    public function testGetMtgObjectsChildrenByUuidInCompactForm()
-    {
+        $languageCodes = ['en', 'uk', 'nl'];
         $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
-        $languageCodes = ['en'];
-
-        $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid,
-          $languageCodes, MultipleFormInterface::FORM_COMPACT, []);
-
-        $this->assertInternalType('array', $mtgObjects);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($mtgObjects);
-        foreach ($mtgObjects as $mtgObject) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
-              $mtgObject);
-        }
-    }
-
-    /**
-     * @covers:: getMtgObjectsChildrenByUuid
-     */
-    public function testGetMtgObjectsChildrenByUuidInFullForm()
-    {
-        $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
-        $languageCodes = ['en'];
-
-        $mtgObjects = $this->sut->getMtgObjectsChildrenByUuid($uuid,
-          $languageCodes, MultipleFormInterface::FORM_FULL, []);
-
-        $this->assertInternalType('array', $mtgObjects);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($mtgObjects);
-        foreach ($mtgObjects as $mtgObject) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMtgObjectInterface',
-              $mtgObject);
-        }
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\MtgObjectChildrenByUuid', $this->sut->getMtgObjectChildrenByUuid($languageCodes, $uuid));
     }
 
     /**
      * @covers ::getCountryByUuid
      */
-    public function testGetCountryByUuidInCompactForm()
+    public function testGetCountryByUuid()
     {
-        $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
-        $languageCodes = ['en'];
-
-        $mtgObject = $this->sut->getCountryByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT, []);
-
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCountryInterface',
-          $mtgObject);
+        $languageCodes = ['en', 'uk', 'nl'];
+        $uuid = '69929d8f-ba82-49b2-88fe-e5a0c687caca';
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CountryByUuid', $this->sut->getCountryByUuid($languageCodes, $uuid));
     }
 
     /**
-     * @covers ::getCountryByUuid
-     */
-    public function testGetCountryByUuidInFullForm()
-    {
-        $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
-        $languageCodes = ['en'];
-
-        $mtgObject = $this->sut->getCountryByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_FULL, []);
-
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface',
-          $mtgObject);
-    }
-
-    /**
-     * @covers:: getCountries
+     * @covers ::getCountries
      */
     public function testGetCountriesInCompactForm()
     {
-        $languageCodes = ['en'];
-        $limit = mt_rand(1, 9);
-
-        $countries = $this->sut->getCountries($languageCodes,
-          MultipleFormInterface::FORM_COMPACT, [], $limit);
-
-        $this->assertInternalType('array', $countries);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($countries);
-        $this->assertTrue(count($countries) <= $limit);
-        foreach ($countries as $country) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCountryInterface',
-              $country);
-        }
+        $languageCodes = ['en', 'uk', 'nl'];
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\Countries', $this->sut->getCountries($languageCodes));
     }
 
     /**
-     * @covers:: getCountries
+     * @covers ::getCountryChildrenByUuid
      */
-    public function testGetCountriesInFullForm()
-    {
-        $languageCodes = ['en'];
-        $limit = mt_rand(1, 9);
-
-        $countries = $this->sut->getCountries($languageCodes,
-          MultipleFormInterface::FORM_FULL, [], $limit);
-
-        $this->assertInternalType('array', $countries);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($countries);
-        $this->assertTrue(count($countries) <= $limit);
-        foreach ($countries as $country) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface',
-              $country);
-        }
-    }
-
-    /**
-     * @covers:: getCountriesChildrenByUuid
-     */
-    public function testGetCountriesChildrenByUuid() {
-        $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
-        $languageCodes = ['en'];
-        $limit = mt_rand(1, 9);
-
-        $mtgObjects = $this->sut->getCountriesChildrenByUuid($uuid,
-          $languageCodes, MultipleFormInterface::FORM_COMPACT, [], $limit);
-
-        $this->assertInternalType('array', $mtgObjects);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($mtgObjects);
-        $this->assertTrue(count($mtgObjects) <= $limit);
-        foreach ($mtgObjects as $mtgObject) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
-              $mtgObject);
-        }
+    public function testGetCountryChildrenByUuid() {
+        $languageCodes = ['en', 'uk', 'nl'];
+        $uuid = '69929d8f-ba82-49b2-88fe-e5a0c687caca';
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CountryChildrenByUuid', $this->sut->getCountryChildrenByUuid($languageCodes, $uuid));
     }
 
     /**
      * @covers ::getCityByUuid
      */
-    public function testGetCityByUuidInCompactForm()
+    public function testGetCityByUuid()
     {
+        $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '3f879f37-21b0-479d-bd74-aa26f72fa328';
-        $languageCodes = ['en'];
-
-        $mtgObject = $this->sut->getCityByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT, []);
-
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCityInterface',
-          $mtgObject);
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CityByUuid', $this->sut->getCityByUuid($languageCodes, $uuid));
     }
 
     /**
-     * @covers ::getCityByUuid
+     * @covers ::getCities
      */
-    public function testGetCityByUuidInFullForm()
+    public function testGetCities()
     {
+        $languageCodes = ['en', 'uk', 'nl'];
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\Cities', $this->sut->getCities($languageCodes));
+    }
+
+    /**
+     * @covers ::getCityChildrenByUuid
+     */
+    public function testGetCityChildrenByUuid()
+    {
+        $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '3f879f37-21b0-479d-bd74-aa26f72fa328';
-        $languageCodes = ['en'];
-
-        $mtgObject = $this->sut->getCityByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_FULL, []);
-
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface',
-          $mtgObject);
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CityChildrenByUuid', $this->sut->getCityChildrenByUuid($languageCodes, $uuid));
     }
 
     /**
-     * @covers:: getCities
+     * @covers ::getCitiesByCountryUuid
      */
-    public function testGetCitiesInCompactForm()
+    public function testGetCitiesByCountryUuid()
     {
-        $languageCodes = ['en'];
-        $limit = mt_rand(1, 9);
-
-        $cities = $this->sut->getCities($languageCodes,
-          MultipleFormInterface::FORM_COMPACT, [], $limit);
-
-        $this->assertInternalType('array', $cities);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($cities);
-        $this->assertTrue(count($cities) <= $limit);
-        foreach ($cities as $city) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCityInterface',
-              $city);
-        }
-    }
-
-    /**
-     * @covers:: getCities
-     */
-    public function testGetCitiesInFullForm()
-    {
-        $languageCodes = ['en'];
-        $limit = mt_rand(1, 9);
-
-        $cities = $this->sut->getCities($languageCodes,
-          MultipleFormInterface::FORM_FULL, [], $limit);
-
-        $this->assertInternalType('array', $cities);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($cities);
-        $this->assertTrue(count($cities) <= $limit);
-        foreach ($cities as $city) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface',
-              $city);
-        }
-    }
-
-    /**
-     * @covers:: getCitiesChildrenByUuid
-     */
-    public function testGetCitiesChildrenByUuid() {
-        $uuid = '3f879f37-21b0-479d-bd74-aa26f72fa328';
-        $languageCodes = ['en'];
-        $limit = mt_rand(1, 9);
-
-        $mtgObjects = $this->sut->getCitiesChildrenByUuid($uuid,
-          $languageCodes, MultipleFormInterface::FORM_COMPACT, [], $limit);
-
-        $this->assertInternalType('array', $mtgObjects);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($mtgObjects);
-        $this->assertTrue(count($mtgObjects) <= $limit);
-        foreach ($mtgObjects as $mtgObject) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface',
-              $mtgObject);
-        }
-    }
-
-    /**
-     * @covers:: getCitiesByCountryUuid
-     */
-    public function testGetCitiesByCountryUuidInCompactForm()
-    {
-        $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
-        $languageCodes = ['en'];
-
-        $cities = $this->sut->getCitiesByCountryUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT, []);
-
-        $this->assertInternalType('array', $cities);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($cities);
-        foreach ($cities as $city) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCityInterface',
-              $city);
-        }
-    }
-
-    /**
-     * @covers:: getCitiesByCountryUuid
-     */
-    public function testGetCitiesByCountryUuidInFullForm()
-    {
-        $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
-        $languageCodes = ['en'];
-
-        $cities = $this->sut->getCitiesByCountryUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_FULL, []);
-
-        $this->assertInternalType('array', $cities);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($cities);
-        foreach ($cities as $city) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCityInterface',
-              $city);
-        }
+        $languageCodes = ['en', 'uk', 'nl'];
+        $uuid = '69929d8f-ba82-49b2-88fe-e5a0c687caca';
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CitiesByCountryUuid', $this->sut->getCitiesByCountryUuid($languageCodes, $uuid));
     }
 
     /**
      * @covers ::getPublisherByUuid
      */
-    public function testGetPublisherByUuidInCompactForm()
+    public function testGetPublisherByUuid()
     {
+        $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '7d84ef00-f4f6-4b90-89d7-f20207ee9ca6';
-        $languageCodes = ['en'];
-
-        $mtgObject = $this->sut->getPublisherByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_COMPACT, []);
-
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactPublisherInterface',
-          $mtgObject);
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\PublisherByUuid', $this->sut->getPublisherByUuid($languageCodes, $uuid));
     }
 
     /**
-     * @covers ::getPublisherByUuid
+     * @covers ::search
      */
-    public function testGetPublisherByUuidInFullForm()
+    public function testSearch()
     {
-        $uuid = '7d84ef00-f4f6-4b90-89d7-f20207ee9ca6';
-        $languageCodes = ['en'];
-
-        $mtgObject = $this->sut->getPublisherByUuid($uuid, $languageCodes,
-          MultipleFormInterface::FORM_FULL, []);
-
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullPublisherInterface',
-          $mtgObject);
+        $languageCodes = ['en', 'uk', 'nl'];
+        $query = 'Famous clock towers in Lviv';
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\Search', $this->sut->search($languageCodes, $query));
     }
 
     /**
-     * Provides data to self::testGetMtgObjects().
-     */
-    public function providerTestGetMtgObjects()
-    {
-        return [
-          [
-            MtgObjectInterface::TYPE_TOUR,
-            MultipleFormInterface::FORM_COMPACT,
-            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
-          ],
-          [
-            MtgObjectInterface::TYPE_TOUR,
-            MultipleFormInterface::FORM_FULL,
-            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
-          ],
-          [
-            MtgObjectInterface::TYPE_TOURIST_ATTRACTION,
-            MultipleFormInterface::FORM_COMPACT,
-            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
-          ],
-          [
-            MtgObjectInterface::TYPE_TOURIST_ATTRACTION,
-            MultipleFormInterface::FORM_FULL,
-            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
-          ],
-          [
-            MtgObjectInterface::TYPE_MUSEUM,
-            MultipleFormInterface::FORM_COMPACT,
-            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
-          ],
-          [
-            MtgObjectInterface::TYPE_MUSEUM,
-            MultipleFormInterface::FORM_FULL,
-            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
-          ],
-          [
-            MtgObjectInterface::TYPE_EXHIBIT,
-            MultipleFormInterface::FORM_COMPACT,
-            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
-          ],
-          [
-            MtgObjectInterface::TYPE_EXHIBIT,
-            MultipleFormInterface::FORM_FULL,
-            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
-          ],
-          [
-            MtgObjectInterface::TYPE_STORY_NAVIGATION,
-            MultipleFormInterface::FORM_COMPACT,
-            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
-          ],
-          [
-            MtgObjectInterface::TYPE_STORY_NAVIGATION,
-            MultipleFormInterface::FORM_FULL,
-            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
-          ],
-          [
-            'city',
-            MultipleFormInterface::FORM_COMPACT,
-            '\Triquanta\IziTravel\DataType\CompactCityInterface'
-          ],
-          [
-            'city',
-            MultipleFormInterface::FORM_FULL,
-            '\Triquanta\IziTravel\DataType\FullCityInterface'
-          ],
-          [
-            'country',
-            MultipleFormInterface::FORM_COMPACT,
-            '\Triquanta\IziTravel\DataType\CompactCountryInterface'
-          ],
-          [
-            'country',
-            MultipleFormInterface::FORM_FULL,
-            '\Triquanta\IziTravel\DataType\FullCountryInterface'
-          ],
-        ];
-    }
-
-    /**
-     * @covers:: getMtgObjects
-     *
-     * @dataProvider providerTestGetMtgObjects
-     */
-    public function testGetMtgObjects($type, $form, $instanceof)
-    {
-        $languageCodes = ['en'];
-        $query = '';
-        $limit = mt_rand(1, 9);
-
-        $mtgObjects = $this->sut->getMtgObjects($languageCodes,
-          $form, [], $query, $limit, 0, 'popularity:desc', [$type]);
-
-        $this->assertInternalType('array', $mtgObjects);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($mtgObjects);
-        $this->assertTrue(count($mtgObjects) <= $limit);
-        foreach ($mtgObjects as $mtgObject) {
-            $this->assertInstanceOf($instanceof, $mtgObject);
-        }
-    }
-
-    /**
-     * @covers:: getFeaturedContent
+     * @covers ::getFeaturedContent
      */
     public function testGetFeaturedContent()
     {
-        $languageCodes = ['en'];
-
-        $objects = $this->sut->getFeaturedContent($languageCodes);
-
-        $this->assertInternalType('array', $objects);
-        // If the request does not return any data, we cannot test its
-        // integrity.
-        $this->assertNotEmpty($objects);
-        foreach ($objects as $object) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FeaturedContentInterface',
-              $object);
-        }
+        $languageCodes = ['en', 'uk', 'nl'];
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\FeaturedContent', $this->sut->getFeaturedContent($languageCodes));
     }
 
 }
