@@ -21,6 +21,13 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
+     * The event dispatcher.
+     *
+     * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $eventDispatcher;
+
+    /**
      * The HTTP client.
      *
      * @var \GuzzleHttp\Client
@@ -43,9 +50,11 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $configuration = TestConfiguration::getConfiguration();
 
+        $this->eventDispatcher = $this->getMock('\Symfony\Component\EventDispatcher\EventDispatcherInterface');
+
         $this->httpClient = new HttpClient();
 
-        $this->requestHandler = new ProductionRequestHandler($this->httpClient,
+        $this->requestHandler = new ProductionRequestHandler($this->eventDispatcher, $this->httpClient,
           $configuration['apiKey']);
 
         $this->sut = new Client($this->requestHandler);

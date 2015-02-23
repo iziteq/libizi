@@ -8,7 +8,10 @@
 namespace Triquanta\IziTravel\Client;
 
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Query;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Triquanta\IziTravel\Event\PostResponse;
+use Triquanta\IziTravel\Event\PreRequest;
+use Triquanta\IziTravel\Event\IziTravelEvents;
 
 /**
  * Provides an handler for making API requests.
@@ -27,6 +30,13 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
     protected $apiKey;
 
     /**
+     * The event dispatcher.
+     *
+     * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface
+     */
+    protected $eventDispatcher;
+
+    /**
      * The HTTP client.
      *
      * @var \GuzzleHttp\ClientInterface
@@ -40,9 +50,10 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
      * @param string $apiKey
      *   The MTG API key.
      */
-    public function __construct(ClientInterface $httpClient, $apiKey)
+    public function __construct(EventDispatcherInterface $eventDispatcher, ClientInterface $httpClient, $apiKey)
     {
         $this->apiKey = $apiKey;
+        $this->eventDispatcher = $eventDispatcher;
         $this->httpClient = $httpClient;
     }
 
@@ -56,12 +67,16 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
         $request->setHeader('X-IZI-API-KEY', $this->apiKey);
         $request->getQuery()->replace($parameters);
         $request->getQuery()->setAggregator(static::getGuzzleQueryAggregator());
+        $pre_request_event = new PreRequest($request);
+        $this->eventDispatcher->dispatch(IziTravelEvents::PRE_REQUEST, $pre_request_event);
         try {
             $response = $this->httpClient->send($request);
+            $post_response_event = new PostResponse($response);
+            $this->eventDispatcher->dispatch(IziTravelEvents::POST_RESPONSE, $post_response_event);
             $json = $response->getBody()->getContents();
         } catch (\Exception $e) {
-            throw new HttpRequestException(sprintf('An exception was thrown during the API request to %s.',
-              $request->getUrl()), 0, $e);
+            throw new HttpRequestException(sprintf('An exception was thrown during the API request to %s: %s',
+              $request->getUrl(), $e->getMessage()), 0, $e);
         }
 
         $responseData = json_decode($json);
