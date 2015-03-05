@@ -9,41 +9,13 @@ namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\CompactPublisher;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
+use Triquanta\IziTravel\Tests\TestHelper;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\CompactPublisher
  */
 class CompactPublisherTest extends \PHPUnit_Framework_TestCase
 {
-
-    protected $json = <<<'JSON'
-{
-    "uuid": "7d84ef00-f4f6-4b90-89d7-f20207ee9ca6",
-    "type": "publisher",
-    "languages": [
-        "en"
-    ],
-    "status": "published",
-    "hash": "e8ce336bc687892e6b1a98cb9f7d1254128a17a6",
-    "title": "Amsterdam Museum",
-    "summary": "Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen.",
-    "language": "en",
-    "images": [
-        {
-            "uuid": "95e14c61-d879-456e-9085-47d5274c5d1d",
-            "type": "brand_logo",
-            "order": 1,
-            "hash": "baae2a048f560756a55f54f9d6bc58c8",
-            "size": 52621
-        }
-    ],
-    "content_provider": {
-        "uuid": "d75cdc77-2376-4e9d-b62f-0338861420c0",
-        "name": "Amsterdam Museum",
-        "copyright": "Amsterdam Museum"
-    }
-}
-JSON;
 
     /**
      * The class under test.
@@ -54,7 +26,7 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = CompactPublisher::createFromJson($this->json, MultipleFormInterface::FORM_COMPACT);
+        $this->sut = CompactPublisher::createFromJson(TestHelper::getJsonResponse('publisher_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -64,7 +36,7 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        CompactPublisher::createFromJson($this->json, MultipleFormInterface::FORM_COMPACT);
+        CompactPublisher::createFromJson(TestHelper::getJsonResponse('publisher_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
     }
 
     /**

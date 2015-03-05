@@ -68,7 +68,7 @@ abstract class CityBase implements CityInterface
      */
     protected $visible = false;
 
-    public static function createBaseFromData(\stdClass $data, $form)
+    protected static function createBaseFromData(\stdClass $data, $form)
     {
         if (!isset($data->uuid)) {
             throw new MissingUuidFactoryException($data);
@@ -95,6 +95,11 @@ abstract class CityBase implements CityInterface
         if (isset($data->translations)) {
             foreach ($data->translations as $translationData) {
                 $city->translations[] = CountryCityTranslation::createFromData($translationData, $form);
+            }
+        }
+        if (isset($data->children)) {
+            foreach ($data->children as $childData) {
+                $city->children[] = MtgObjectBase::createFromData($childData, $form);
             }
         }
 

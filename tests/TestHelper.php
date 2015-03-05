@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Triquanta\IziTravel\Tests\TestConfiguration.
+ * Contains \Triquanta\IziTravel\Tests\TestHelper.
  */
 
 namespace Triquanta\IziTravel\Tests;
@@ -10,9 +10,9 @@ namespace Triquanta\IziTravel\Tests;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * Provides configuration for testing.
+ * Provides testing helpers.
  */
-class TestConfiguration
+class TestHelper
 {
 
     /**
@@ -45,6 +45,26 @@ class TestConfiguration
             return $configuration;
         }
 
+    }
+
+    /**
+     * Gets a testing JSON response.
+     *
+     * @param string $name
+     *   The response's name.
+     *
+     * @return string
+     *
+     * @throws \InvalidArgumentException
+     */
+    public static function getJsonResponse($name) {
+        $filename = __DIR__ . '/responses/' . $name . '.json';
+        if (is_readable($filename)) {
+            return file_get_contents($filename);
+        }
+        else {
+            throw new \InvalidArgumentException(sprintf('The file %s does not exist or is not readable.', $filename));
+        }
     }
 
 }

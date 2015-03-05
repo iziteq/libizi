@@ -26,7 +26,7 @@ abstract class PublisherBase implements PublisherInterface
      */
     protected $contentProvider;
 
-    public static function createBaseFromData(\stdClass $data, $form) {
+    protected static function createBaseFromData(\stdClass $data, $form) {
         if (!isset($data->uuid)) {
             throw new MissingUuidFactoryException($data);
         }

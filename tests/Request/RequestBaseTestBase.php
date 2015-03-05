@@ -9,7 +9,7 @@ namespace Triquanta\IziTravel\Tests\Request;
 
 use GuzzleHttp\Client;
 use Triquanta\IziTravel\Client\ProductionRequestHandler;
-use Triquanta\IziTravel\Tests\TestConfiguration;
+use Triquanta\IziTravel\Tests\TestHelper;
 
 /**
  * Provides a base for tests that cover classes that extend
@@ -41,7 +41,7 @@ class RequestBaseTestBase extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $configuration = TestConfiguration::getConfiguration();
+        $configuration = TestHelper::getConfiguration();
 
         $this->eventDispatcher = $this->getMock('\Symfony\Component\EventDispatcher\EventDispatcherInterface');
 

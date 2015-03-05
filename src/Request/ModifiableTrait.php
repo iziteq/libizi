@@ -22,6 +22,9 @@ Trait ModifiableTrait
 
     public function setIncludes(array $sections)
     {
+        if (in_array('none', $sections)) {
+            throw new \BadMethodCallException('Only specific sections can be including. Including "none" is not supported.');
+        }
         $this->includes = $sections;
 
         return $this;

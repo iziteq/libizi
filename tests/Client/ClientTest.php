@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\Tests\Client;
 use GuzzleHttp\Client as HttpClient;
 use Triquanta\IziTravel\Client\Client;
 use Triquanta\IziTravel\Client\ProductionRequestHandler;
-use Triquanta\IziTravel\Tests\TestConfiguration;
+use Triquanta\IziTravel\Tests\TestHelper;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\Client\Client
@@ -46,7 +46,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $configuration = TestConfiguration::getConfiguration();
+        $configuration = TestHelper::getConfiguration();
 
         $this->eventDispatcher = $this->getMock('\Symfony\Component\EventDispatcher\EventDispatcherInterface');
 
