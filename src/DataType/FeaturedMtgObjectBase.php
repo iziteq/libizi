@@ -13,8 +13,6 @@ namespace Triquanta\IziTravel\DataType;
 abstract class FeaturedMtgObjectBase extends FeaturedContentBase implements FeaturedMtgObjectInterface
 {
 
-    use TranslatableTrait;
-
     /**
      * The UUID of the city this content belongs to.
      *
@@ -29,68 +27,14 @@ abstract class FeaturedMtgObjectBase extends FeaturedContentBase implements Feat
      */
     protected $countryUuid;
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param string $uuid
-     * @param string $status
-     *   One of the \Triquanta\IziTravel|DataType\PublishableInterface::STATUS_*
-     *   constants.
-     * @param bool $promoted
-     * @param string $requestedLanguageCode
-     *   An ISO 639-1 alpha-2 language code.
-     * @param string $languageCode
-     *   An ISO 639-1 alpha-2 language code.
-     * @param string $name
-     * @param string $description
-     * @param int|null $position
-     * @param \Triquanta\IziTravel\DataType\FeaturedContentImageInterface[]|\Triquanta\IziTravel\DataType\FeaturedContentCoverImageInterface[] $images
-     * @param string|null $cityUuid
-     * @param string|null $countryUuid
-     */
-    public function __construct(
-      $uuid,
-      $status,
-      $promoted,
-      $requestedLanguageCode,
-      $languageCode,
-      $name,
-      $description,
-      $position,
-      array $images,
-      $cityUuid,
-      $countryUuid
-    ) {
-        parent::__construct($uuid, $status, $promoted, $requestedLanguageCode,
-          $languageCode, $name, $description, $position, $images);
-        $this->cityUuid = $cityUuid;
-        $this->countryUuid = $countryUuid;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'content_languages' => [],
-            'country_uuid' => null,
-            'city_uuid' => null,
-            'description' => null,
-            'images' => [],
-            'name' => null,
-            'position' => null,
-          ];
-        if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($data);
-        }
+        /** @var static $object */
+        $object = parent::createFromData($data, $form);
+        $object->cityUuid = $data->city_uuid;
+        $object->countryUuid = $data->country_uuid;
 
-        $images = [];
-        foreach ($data['images'] as $imageData) {
-            $images[] = FeaturedContentImage::createFromData($imageData);
-        }
-
-        return new static($data['uuid'], $data['status'], $data['promoted'],
-          $data['language'], $data['content_language'], $data['name'],
-          $data['description'], $data['position'], $images, $data['city_uuid'],
-          $data['country_uuid']);
+        return $object;
     }
 
     public function getCityUuid()

@@ -33,24 +33,15 @@ class Map implements MapInterface
      */
     protected $route;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string $bounds
-     * @param string|null $route
-     */
-    public function __construct($bounds, $route)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->bounds = $bounds;
-        $this->route = $route;
-    }
+        $map = new static();
+        $map->bounds = $data->bounds;
+        if (isset($data->route)) {
+            $map->route = $data->route;
+        }
 
-    public static function createFromData($data)
-    {
-        $data = (array) $data + [
-            'route' => null,
-          ];
-        return new static($data['bounds'], $data['route']);
+        return $map;
     }
 
     /**

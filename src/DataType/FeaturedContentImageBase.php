@@ -16,21 +16,16 @@ abstract class FeaturedContentImageBase
     use FactoryTrait;
     use UuidTrait;
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param string $uuid
-     */
-    public function __construct($uuid)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->uuid = $uuid;
-    }
+        if (!isset($data->uuid)) {
+            throw new MissingUuidFactoryException($data);
+        }
 
-    public static function createFromData($data)
-    {
-        $data = (array) $data;
+        $image = new static();
+        $image->uuid = $data->uuid;
 
-        return new static($data['uuid']);
+        return $image;
     }
 
 }

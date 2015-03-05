@@ -42,11 +42,4 @@ interface CompactMtgObjectInterface extends MtgObjectInterface
      */
     public function getImages();
 
-    /**
-     * Counts the child objects.
-     *
-     * @return int|null
-     */
-    public function countChildren();
-
 }

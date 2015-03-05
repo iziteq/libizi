@@ -43,37 +43,23 @@ class PublisherContactInformation implements PublisherContactInformationInterfac
      */
     protected $facebookUrl;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string|null $websiteUrl
-     * @param string|null $emailAddress
-     * @param string|null $twitterUrl
-     * @param string|null $facebookUrl
-     */
-    public function __construct(
-      $websiteUrl,
-      $emailAddress,
-      $twitterUrl,
-      $facebookUrl
-    ) {
-        $this->websiteUrl = $websiteUrl;
-        $this->emailAddress = $emailAddress;
-        $this->twitterUrl = $twitterUrl;
-        $this->facebookUrl = $facebookUrl;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'website' => null,
-            'email' => null,
-            'twitter' => null,
-            'facebook' => null,
-          ];
+        $contactInformation = new static();
+        if (isset($data->website)) {
+            $contactInformation->websiteUrl = $data->website;
+        }
+        if (isset($data->email)) {
+            $contactInformation->emailAddress = $data->email;
+        }
+        if (isset($data->facebook)) {
+            $contactInformation->facebookUrl = $data->facebook;
+        }
+        if (isset($data->twitter)) {
+            $contactInformation->twitterUrl = $data->twitter;
+        }
 
-        return new static($data['website'], $data['email'], $data['twitter'],
-          $data['facebook']);
+        return $contactInformation;
     }
 
     public function getWebsiteUrl()

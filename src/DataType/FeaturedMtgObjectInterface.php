@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a featured MTG Object.
  */
-interface FeaturedMtgObjectInterface extends FeaturedContentInterface, TranslatableInterface
+interface FeaturedMtgObjectInterface extends FeaturedContentInterface
 {
 
     /**

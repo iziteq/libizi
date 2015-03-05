@@ -7,9 +7,7 @@
 
 namespace Triquanta\IziTravel\Request;
 
-use Triquanta\IziTravel\DataType\CompactCountry;
-use Triquanta\IziTravel\DataType\FullCountry;
-use Triquanta\IziTravel\DataType\MultipleFormInterface;
+use Triquanta\IziTravel\DataType\CountryBase;
 
 /**
  * Requests Countries.
@@ -35,16 +33,12 @@ class Countries extends RequestBase implements FormInterface, LimitInterface, Mo
           'offset' => $this->offset,
         ]);
         $data = json_decode($json);
-        $Countries = [];
+        $countries = [];
         foreach ($data as $countryData) {
-            if ($this->form == MultipleFormInterface::FORM_COMPACT) {
-                $Countries[] = CompactCountry::createFromData($countryData);
-            } else {
-                $Countries[] = FullCountry::createFromData($countryData);
-            }
+            $countries[] = CountryBase::createFromData($countryData, $this->form);
         }
 
-        return $Countries;
+        return $countries;
     }
 
 }

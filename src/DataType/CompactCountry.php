@@ -35,62 +35,15 @@ class CompactCountry extends CountryBase implements CompactCountryInterface
      */
     protected $summary;
 
-    /**
-     * Created a new instance.
-     *
-     * @param string $uuid
-     * @param string $revisionHash
-     * @param string[] $availableLanguageCodes
-     * @param string $countryCode
-     * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
-     * @param \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[] $translations
-     * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
-     * @param string $status
-     * @param string $languageCode
-     * @param string $title
-     * @param string $summary
-     */
-    public function __construct(
-      $uuid,
-      $revisionHash,
-      $availableLanguageCodes,
-      $countryCode,
-      MapInterface $map = null,
-      array $translations,
-      LocationInterface $location = null,
-      $status,
-      $languageCode,
-      $title,
-      $summary
-    ) {
-        parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
-          $countryCode, $map, $translations, $location, $status);
-        $this->languageCode = $languageCode;
-        $this->title = $title;
-        $this->summary = $summary;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'location' => null,
-            'map' => null,
-            'translations' => [],
-            'country_code' => null,
-          ];
-        if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($data);
-        }
-        $location = $data['location'] ? Location::createFromData($data['location']) : null;
-        $map = $data['location'] ? Map::createFromData($data['map']) : null;
-        $translations = [];
-        foreach ($data['translations'] as $translationData) {
-            $translations[] = CountryCityTranslation::createFromData($translationData);
-        }
+        /** @var static $country */
+        $country = parent::createBaseFromData($data, $form);
+        $country->languageCode = $data->language;
+        $country->title = $data->title;
+        $country->summary = $data->summary;
 
-        return new static($data['uuid'], $data['hash'], $data['languages'],
-          $data['country_code'], $map, $translations, $location,
-          $data['status'], $data['language'], $data['title'], $data['summary']);
+        return $country;
     }
 
     public function getLanguageCode()

@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\FullPublisher;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\DataType\PublisherInterface;
 
 /**
@@ -16,100 +17,7 @@ use Triquanta\IziTravel\DataType\PublisherInterface;
 class FullPublisherTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The UUID.
-     *
-     * @var string
-     */
-    protected $uuid;
-
-    /**
-     * The revision hash.
-     *
-     * @var string
-     */
-    protected $revisionHash;
-
-    /**
-     * The language codes for available translations.
-     *
-     * @var string[]
-     *   Values are ISO 639-1 alpha-2 language codes.
-     */
-    protected $availableLanguageCodes = [];
-
-    /**
-     * The status.
-     *
-     * @var string
-     */
-    protected $status;
-
-    /**
-     * The content provider.
-     *
-     * @var \Triquanta\IziTravel\DataType\ContentProviderInterface
-     */
-    protected $contentProvider;
-
-    /**
-     * The content.
-     *
-     * @var \Triquanta\IziTravel\DataType\PublisherContentInterface[]
-     */
-    protected $content = [];
-
-    /**
-     * The contact information.
-     *
-     * @return \Triquanta\IziTravel\DataType\PublisherContactInformationInterface[]
-     */
-    protected $contactInformation = [];
-
-    /**
-     * The class under test.
-     *
-     * @var \Triquanta\IziTravel\DataType\FullPublisher
-     */
-    protected $sut;
-
-    public function setUp()
-    {
-        $this->uuid = 'foo-bar-baz-' . mt_rand();
-
-        $this->revisionHash = 'hgo82ut097q398yquwfwhi4jt';
-
-        $this->availableLanguageCodes = ['nl', 'uk'];
-
-        $this->status = PublisherInterface::STATUS_PUBLISHED;
-
-        $this->contentProvider = $this->getMock('\Triquanta\IziTravel\DataType\ContentProviderInterface');
-
-        $this->content = [
-          $this->getMock('\Triquanta\IziTravel\DataType\PublisherContentInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\PublisherContentInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\PublisherContentInterface'),
-        ];
-
-        $this->contactInformation = [
-          $this->getMock('\Triquanta\IziTravel\DataType\PublisherContactInformationInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\PublisherContactInformationInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\PublisherContactInformationInterface'),
-        ];
-
-        $this->sut = new FullPublisher($this->uuid, $this->revisionHash,
-          $this->availableLanguageCodes, $this->contentProvider, $this->status,
-          $this->content, $this->contactInformation);
-    }
-
-    /**
-     * @covers ::__construct
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     */
-    public function testCreateFromJson()
-    {
-        $json = <<<'JSON'
+    protected $json = <<<'JSON'
 {
     "uuid": "7d84ef00-f4f6-4b90-89d7-f20207ee9ca6",
     "type": "publisher",
@@ -145,7 +53,8 @@ class FullPublisherTest extends \PHPUnit_Framework_TestCase
                 {
                     "uuid": "57deeecb-c5b0-4a8f-b561-7589ceb5c47b",
                     "type": "brand_cover",
-                    "order": 1
+                    "order": 1,
+                    "hash": "baae2a048f560756a55f54f9d6bc58c8"
                 }
             ]
         }
@@ -153,13 +62,34 @@ class FullPublisherTest extends \PHPUnit_Framework_TestCase
 }
 JSON;
 
-        FullPublisher::createFromJson($json);
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\FullPublisher
+     */
+    protected $sut;
+
+    public function setUp()
+    {
+        $this->sut = FullPublisher::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\PublisherBase::createBaseFromData
+     */
+    public function testCreateFromJson()
+    {
+
+
+        FullPublisher::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+    }
+
+    /**
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\PublisherBase::createBaseFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
      */
@@ -167,12 +97,13 @@ JSON;
     {
         $json = 'foo';
 
-        FullPublisher::createFromJson($json);
+        FullPublisher::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\PublisherBase::createBaseFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
      */
@@ -187,7 +118,7 @@ JSON;
 }
 JSON;
 
-        FullPublisher::createFromJson($json);
+        FullPublisher::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -195,7 +126,10 @@ JSON;
      */
     public function testGetContent()
     {
-        $this->assertSame($this->content, $this->sut->getContent());
+        $this->assertInternalType('array', $this->sut->getContent());
+        foreach ($this->sut->getContent() as $content) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PublisherContentInterface', $content);
+        }
     }
 
     /**
@@ -203,8 +137,7 @@ JSON;
      */
     public function testGetContactInformation()
     {
-        $this->assertSame($this->contactInformation,
-          $this->sut->getContactInformation());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PublisherContactInformationInterface', $this->sut->getContactInformation());
     }
 
 }

@@ -7,6 +7,7 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\DataType\QuizAnswer;
 
 /**
@@ -15,19 +16,12 @@ use Triquanta\IziTravel\DataType\QuizAnswer;
 class QuizAnswerTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The answer.
-     *
-     * @var string
-     */
-    protected $answer;
-
-    /**
-     * Whether the answer is correct.
-     *
-     * @var bool
-     */
-    protected $isCorrect;
+    protected $json = <<<'JSON'
+{
+  "content" : "Qq",
+  "correct" : false
+}
+JSON;
 
     /**
      * The class under test.
@@ -38,31 +32,19 @@ class QuizAnswerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->answer = 'Foo Bar ' . mt_rand();
-        $this->isCorrect = (bool) mt_rand(0, 1);
-
-        $this->sut = new QuizAnswer($this->answer, $this->isCorrect);
+        $this->sut = QuizAnswer::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        $json = <<<'JSON'
-{
-  "content" : "Qq",
-  "correct" : false
-}
-JSON;
-
-        QuizAnswer::createFromJson($json);
+        QuizAnswer::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -72,7 +54,7 @@ JSON;
     {
         $json = 'foo';
 
-        QuizAnswer::createFromJson($json);
+        QuizAnswer::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -80,7 +62,7 @@ JSON;
      */
     public function testGetAnswer()
     {
-        $this->assertSame($this->answer, $this->sut->getAnswer());
+        $this->assertSame('Qq', $this->sut->getAnswer());
     }
 
     /**
@@ -88,7 +70,7 @@ JSON;
      */
     public function testIsCorrect()
     {
-        $this->assertSame($this->isCorrect, $this->sut->isCorrect());
+        $this->assertFalse($this->sut->isCorrect());
     }
 
 }

@@ -30,23 +30,13 @@ class Purchase implements PurchaseInterface
      */
     protected $price;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string $currencyCode
-     *   An ISO 4217 currency code.
-     * @param float $price
-     */
-    public function __construct($currencyCode, $price)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->currencyCode = $currencyCode;
-        $this->price = $price;
-    }
+        $purchase = new static();
+        $purchase->currencyCode = $data->currency;
+        $purchase->price = $data->price;
 
-    public static function createFromData($data)
-    {
-        $data = (array) $data;
-        return new static($data['currency'], $data['price']);
+        return $purchase;
     }
 
     public function getPrice()

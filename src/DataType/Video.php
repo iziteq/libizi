@@ -10,6 +10,6 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Provides a video data type.
  */
-class Video extends PlayableMediaBase
+class Video extends PlayableMediaBase implements VideoInterface
 {
 }

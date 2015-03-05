@@ -72,53 +72,35 @@ class Location implements LocationInterface
      */
     protected $publicIpAddress;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param float|null $latitude
-     * @param float|null $longitude
-     * @param float|null $altitude
-     * @param string|null $exhibitNumber
-     * @param string|null $publicIpAddress
-     * @param string|null $cityUuid
-     * @param string|null $countryUuid
-     * @param string|null $countryCode
-     */
-    public function __construct(
-      $latitude,
-      $longitude,
-      $altitude,
-      $exhibitNumber,
-      $publicIpAddress,
-      $cityUuid,
-      $countryUuid,
-      $countryCode
-    ) {
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
-        $this->altitude = $altitude;
-        $this->exhibitNumber = $exhibitNumber;
-        $this->publicIpAddress = $publicIpAddress;
-        $this->cityUuid = $cityUuid;
-        $this->countryUuid = $countryUuid;
-        $this->countryCode = $countryCode;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'latitude' => null,
-            'longitude' => null,
-            'altitude' => null,
-            'number' => null,
-            'ip' => null,
-            'city_uuid' => null,
-            'country_uuid' => null,
-            'country_code' => null,
-          ];
-        return new static($data['latitude'], $data['longitude'],
-          $data['altitude'], $data['number'], $data['ip'], $data['city_uuid'],
-          $data['country_uuid'], $data['country_code']);
+        $location = new static();
+        if (isset($data->latitude)) {
+            $location->latitude = $data->latitude;
+        }
+        if (isset($data->longitude)) {
+            $location->longitude = $data->longitude;
+        }
+        if (isset($data->altitude)) {
+            $location->altitude = $data->altitude;
+        }
+        if (isset($data->number)) {
+            $location->exhibitNumber = $data->number;
+        }
+        if (isset($data->ip)) {
+            $location->publicIpAddress = $data->ip;
+        }
+        if (isset($data->city_uuid)) {
+            $location->cityUuid = $data->city_uuid;
+        }
+        if (isset($data->country_uuid)) {
+            $location->countryUuid = $data->country_uuid;
+        }
+        if (isset($data->country_code)) {
+            $location->countryCode = $data->country_code;
+        }
+
+        return $location;
     }
 
     public function getLatitude()

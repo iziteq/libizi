@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines featured content.
  */
-interface FeaturedContentInterface extends UuidInterface, PublishableInterface, FactoryInterface
+interface FeaturedContentInterface extends UuidInterface, PublishableInterface, FactoryInterface, TranslatableInterface
 {
 
     /**

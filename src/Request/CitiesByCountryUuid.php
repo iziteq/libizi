@@ -7,9 +7,7 @@
 
 namespace Triquanta\IziTravel\Request;
 
-use Triquanta\IziTravel\DataType\CompactCity;
-use Triquanta\IziTravel\DataType\FullCity;
-use Triquanta\IziTravel\DataType\MultipleFormInterface;
+use Triquanta\IziTravel\DataType\CityBase;
 
 /**
  * Requests cities by country UUID.
@@ -36,11 +34,7 @@ class CitiesByCountryUuid extends RequestBase implements FormInterface, Modifiab
         $data = json_decode($json);
         $cities = [];
         foreach ($data as $cityData) {
-            if ($this->form == MultipleFormInterface::FORM_COMPACT) {
-                $cities[] = CompactCity::createFromData($cityData);
-            } else {
-                $cities[] = FullCity::createFromData($cityData);
-            }
+            $cities[] = CityBase::createFromData($cityData, $this->form);
         }
 
         return $cities;

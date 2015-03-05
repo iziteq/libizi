@@ -7,8 +7,8 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
-use Triquanta\IziTravel\DataType\CityInterface;
 use Triquanta\IziTravel\DataType\CompactCity;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\CompactCity
@@ -16,157 +16,7 @@ use Triquanta\IziTravel\DataType\CompactCity;
 class CompactCityTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The UUID.
-     *
-     * @var string
-     */
-    protected $uuid;
-
-    /**
-     * The revision hash.
-     *
-     * @var string
-     */
-    protected $revisionHash;
-
-    /**
-     * The language codes for available translations.
-     *
-     * @var string[]
-     *   Values are ISO 639-1 alpha-2 language codes.
-     */
-    protected $availableLanguageCodes = [];
-
-    /**
-     * The map.
-     *
-     * @var \Triquanta\IziTravel\DataType\MapInterface|null
-     */
-    protected $map;
-
-    /**
-     * The translations.
-     *
-     * @var \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[]
-     */
-    protected $translations = [];
-
-    /**
-     * The location.
-     *
-     * @var \Triquanta\IziTravel\DataType\LocationInterface|null
-     */
-    protected $location;
-
-    /**
-     * The status.
-     *
-     * @var string
-     */
-    protected $status;
-
-    /**
-     * The number of child objects.
-     *
-     * @return int|null
-     */
-    protected $numberOfChildren;
-
-    /**
-     * Whether the object must be visible in listings.
-     *
-     * @var bool
-     */
-    protected $visible = false;
-
-    /**
-     * The language.
-     *
-     * @var string
-     *   An ISO 639-1 alpha-2 language code.
-     */
-    protected $languageCode;
-
-    /**
-     * The title.
-     *
-     * @Var string
-     */
-    protected $title;
-
-    /**
-     * The summary.
-     *
-     * @var string
-     */
-    protected $summary;
-
-    /**
-     * The images.
-     *
-     * @var \Triquanta\IziTravel\DataType\ImageInterface[]
-     */
-    protected $images = [];
-
-    /**
-     * The class under test.
-     *
-     * @var \Triquanta\IziTravel\DataType\CompactCity|\PHPUnit_Framework_MockObject_MockObject
-     */
-    protected $sut;
-
-    public function setUp()
-    {
-        $this->uuid = 'foo-bar-baz-' . mt_rand();
-
-        $this->revisionHash = 'hwg98309t82ohtwqlekhgf0823yt';
-
-        $this->availableLanguageCodes = ['nl', 'uk'];
-
-        $this->languageCode = 'uk';
-
-        $this->map = $this->getMock('\Triquanta\IziTravel\DataType\MapInterface');
-
-        $this->translations = [
-          $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
-        ];
-
-        $this->status = CityInterface::STATUS_PUBLISHED;
-
-        $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
-
-        $this->title = 'Foo & Bar ' . mt_rand();
-
-        $this->summary = 'A story about Foo & Bar ' . mt_rand();
-
-        $this->numberOfChildren = mt_rand();
-
-        $this->visible = (bool) mt_rand(0, 1);
-
-        $this->images = [
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-        ];
-
-        $this->sut = new CompactCity($this->uuid, $this->revisionHash,
-          $this->availableLanguageCodes, $this->map, $this->translations,
-          $this->location, $this->status, $this->numberOfChildren,
-          $this->visible, $this->languageCode, $this->title, $this->summary,
-          $this->images);
-    }
-
-    /**
-     * @covers ::__construct
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     */
-    public function testCreateFromJson()
-    {
-        $json = <<<'JSON'
+    protected $json = <<<'JSON'
 {
   "uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
   "type": "city",
@@ -234,14 +84,16 @@ class CompactCityTest extends \PHPUnit_Framework_TestCase
   "hash": "68ad379344ed90799b8171f0acda9f62180d9905",
   "visible": true,
   "title": "Amsterdam",
-  "summary": "",
+  "summary": "Damsko, jeweet.",
   "language": "en",
   "images": [
-      {
-          "uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
-          "type": "city",
-          "order": 1
-      }
+        {
+            "uuid" : "b5c30e91-66c0-4382-aa55-56c0b13e2263",
+            "type" : "story",
+            "order" : 1,
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
+            "size" : 231663
+        }
   ],
   "location": {
       "altitude": 0,
@@ -253,13 +105,33 @@ class CompactCityTest extends \PHPUnit_Framework_TestCase
 }
 JSON;
 
-        CompactCity::createFromJson($json);
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\CompactCity|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $sut;
+
+    public function setUp()
+    {
+        $this->sut = CompactCity::createFromJson($this->json, MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\CityBase::createBaseFromData
+     */
+    public function testCreateFromJson()
+    {
+
+        CompactCity::createFromJson($this->json, MultipleFormInterface::FORM_COMPACT);
+    }
+
+    /**
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\CityBase::createBaseFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
      */
@@ -267,12 +139,13 @@ JSON;
     {
         $json = 'foo';
 
-        CompactCity::createFromJson($json);
+        CompactCity::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\CityBase::createBaseFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
      */
@@ -322,7 +195,7 @@ JSON;
 }
 JSON;
 
-        CompactCity::createFromJson($json);
+        CompactCity::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -330,7 +203,7 @@ JSON;
      */
     public function testGetLanguageCode()
     {
-        $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
+        $this->assertSame('en', $this->sut->getLanguageCode());
     }
 
     /**
@@ -338,7 +211,7 @@ JSON;
      */
     public function testGetTitle()
     {
-        $this->assertSame($this->title, $this->sut->getTitle());
+        $this->assertSame('Amsterdam', $this->sut->getTitle());
     }
 
     /**
@@ -346,7 +219,7 @@ JSON;
      */
     public function testGetSummary()
     {
-        $this->assertSame($this->summary, $this->sut->getSummary());
+        $this->assertSame('Damsko, jeweet.', $this->sut->getSummary());
     }
 
     /**
@@ -354,7 +227,10 @@ JSON;
      */
     public function testGetImages()
     {
-        $this->assertSame($this->images, $this->sut->getImages());
+        $this->assertInternalType('array', $this->sut->getImages());
+        foreach ($this->sut->getImages() as $image) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+        }
     }
 
 }

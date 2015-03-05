@@ -27,54 +27,18 @@ class FullPublisher extends PublisherBase implements FullPublisherInterface
      */
     protected $contactInformation = [];
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param string $uuid
-     * @param string $revisionHash
-     * @param string[] $availableLanguageCodes
-     * @param \Triquanta\IziTravel\DataType\ContentProviderInterface $contentProvider
-     * @param string $status
-     * @param \Triquanta\IziTravel\DataType\PublisherContentInterface[] $content
-     * @param \Triquanta\IziTravel\DataType\PublisherContactInformationInterface[] $contactInformation
-     */
-    public function __construct(
-      $uuid,
-      $revisionHash,
-      array $availableLanguageCodes,
-      ContentProviderInterface $contentProvider,
-      $status,
-      array $content,
-      array $contactInformation
-    ) {
-        parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
-          $contentProvider, $status);
-        $this->content = $content;
-        $this->contactInformation = $contactInformation;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'content' => [],
-            'contacts' => [],
-          ];
-        if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($data);
+        /** @var static $publisher */
+        $publisher = parent::createBaseFromData($data, $form);
+        foreach ($data->content as $contentData) {
+            $publisher->content[] = PublisherContent::createFromData($contentData, $form);
+        }
+        if (isset($data->contacts)) {
+            $publisher->contactInformation = PublisherContactInformation::createFromData($data->contacts, $form);
         }
 
-        $contentProvider = ContentProvider::createFromData($data['content_provider']);
-        $content = [];
-        foreach ($data['content'] as $contentData) {
-            $content[] = PublisherContent::createFromData($contentData);
-        }
-        $contactInformation = [];
-        foreach ($data['contacts'] as $contactInformationData) {
-            $contactInformation[] = PublisherContactInformation::createFromData($contactInformationData);
-        }
-
-        return new static($data['uuid'], $data['hash'], $data['languages'],
-          $contentProvider, $data['status'], $content, $contactInformation);
+        return $publisher;
     }
 
     public function getContent()

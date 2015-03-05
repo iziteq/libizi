@@ -16,12 +16,12 @@ class MissingUuidFactoryException extends \Exception
     /**
      * Constructs a new instance.
      *
-     * @param mixed $data
+     * @param \stdClass $data
      *  The decoded JSON.
      * @param int $code
      * @param \Exception $previous
      */
-    public function __construct($data, $code = 0, \Exception $previous = null)
+    public function __construct(\stdClass $data, $code = 0, \Exception $previous = null)
     {
         parent::__construct(sprintf('Missing UUID in JSON: %s',
           json_encode($data)), $code,

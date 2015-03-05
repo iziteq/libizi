@@ -37,7 +37,7 @@ class CountryChildrenByUuid extends RequestBase implements FormInterface, LimitI
         $data = json_decode($json);
         $objects = [];
         foreach ($data as $objectData) {
-            $objects[] = MtgObjectBase::createMtgObject($objectData,
+            $objects[] = MtgObjectBase::createFromData($objectData,
               $this->form);
         }
 

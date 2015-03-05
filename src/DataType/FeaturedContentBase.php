@@ -15,6 +15,7 @@ abstract class FeaturedContentBase implements FeaturedContentInterface
 
     use FactoryTrait;
     use PublishableTrait;
+    use TranslatableTrait;
     use UuidTrait;
 
     /**
@@ -68,69 +69,41 @@ abstract class FeaturedContentBase implements FeaturedContentInterface
      */
     protected $images = [];
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param string $uuid
-     * @param string $status
-     *   One of the \Triquanta\IziTravel|DataType\PublishableInterface::STATUS_*
-     *   constants.
-     * @param bool $promoted
-     * @param string $requestedLanguageCode
-     *   An ISO 639-1 alpha-2 language code.
-     * @param string $languageCode
-     *   An ISO 639-1 alpha-2 language code.
-     * @param string $name
-     * @param string $description
-     * @param int|null $position
-     * @param \Triquanta\IziTravel\DataType\FeaturedContentImageInterface[]|\Triquanta\IziTravel\DataType\FeaturedContentCoverImageInterface[] $images
-     */
-    public function __construct(
-      $uuid,
-      $status,
-      $promoted,
-      $requestedLanguageCode,
-      $languageCode,
-      $name,
-      $description,
-      $position,
-      array $images
-    ) {
-        $this->uuid = $uuid;
-        $this->status = $status;
-        $this->promoted = $promoted;
-        $this->requestedLanguageCode = $requestedLanguageCode;
-        $this->languageCode = $languageCode;
-        $this->name = $name;
-        $this->description = $description;
-        $this->position = $position;
-        $this->images = $images;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'description' => null,
-            'images' => [],
-            'name' => null,
-            'position' => null,
-          ];
-        if (!isset($data['uuid'])) {
+        if (!isset($data->uuid)) {
             throw new MissingUuidFactoryException($data);
         }
 
-        $images = [];
-        foreach ($data['images'] as $imageData) {
-            if ($imageData->type == 'image') {
-                $images[] = FeaturedContentImage::createFromData($imageData);
-            } elseif ($imageData->type == 'cover') {
-                $images[] = FeaturedContentCoverImage::createFromData($imageData);
+        $content = new static();
+        $content->uuid = $data->uuid;
+        $content->status = $data->status;
+        $content->requestedLanguageCode = $data->language;
+        $content->languageCode = $data->content_language;
+        $content->name = $data->name;
+        if (isset($data->description)) {
+            $content->description = $data->description;
+        }
+        if (property_exists($data, 'promoted')) {
+            $content->promoted = $data->promoted;
+        }
+        if (isset($data->content_languages)) {
+            $content->availableLanguageCodes = $data->content_languages;
+        }
+        if (isset($data->position)) {
+            $content->position = $data->position;
+        }
+        if (isset($data->images)) {
+            foreach ($data->images as $imageData) {
+                if ($imageData->type == 'image') {
+                    $content->images[] = FeaturedContentImage::createFromData($imageData, $form);
+                } elseif ($imageData->type == 'cover') {
+                    $content->images[] = FeaturedContentCoverImage::createFromData($imageData, $form);
+                }
             }
         }
 
-        return new static($data['uuid'], $data['status'], $data['promoted'],
-          $data['language'], $data['content_language'], $data['name'],
-          $data['description'], $data['position'], $images);
+        return $content;
     }
 
     public function isPromoted()

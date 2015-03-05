@@ -30,29 +30,20 @@ class ContentProvider implements ContentProviderInterface
      */
     protected $name;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string $uuid
-     * @param string $name
-     * @param string $copyrightMessage
-     */
-    public function __construct($uuid, $name, $copyrightMessage)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->uuid = $uuid;
-        $this->name = $name;
-        $this->copyrightMessage = $copyrightMessage;
-    }
-
-    public static function createFromData($data)
-    {
-        $data = (array) $data + [
-            'copyright' => null,
-          ];
-        if (!isset($data['uuid'])) {
+        if (!isset($data->uuid)) {
             throw new MissingUuidFactoryException($data);
         }
-        return new static($data['uuid'], $data['name'], $data['copyright']);
+
+        $contentProvider = new static();
+        $contentProvider->uuid = $data->uuid;
+        $contentProvider->name = $data->name;
+        if (isset($data->copyright)) {
+            $contentProvider->copyrightMessage = $data->copyright;
+        }
+
+        return $contentProvider;
     }
 
     public function getName()

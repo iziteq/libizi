@@ -7,6 +7,7 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\DataType\Playback;
 
 /**
@@ -15,20 +16,15 @@ use Triquanta\IziTravel\DataType\Playback;
 class PlaybackTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The type.
-     *
-     * @var string
-     *   One of the static::TYPE_* constants.
-     */
-    protected $type;
-
-    /**
-     * The UUIDs.
-     *
-     * @var string[]
-     */
-    protected $uuids = [];
+    protected $json = <<<'JSON'
+{
+  "type": "sequential",
+  "order": [
+    "3afcd4ab-837f-4055-a8ed-ce43910f9446",
+    "7b5092de-43f3-4762-9142-df30529f7942"
+  ]
+}
+JSON;
 
     /**
      * The class under test.
@@ -39,34 +35,19 @@ class PlaybackTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->type = Playback::TYPE_RANDOM;
-        $this->uuids = ['foo-bar-baz-' . mt_rand(), 'foo-bar-qux-' . mt_rand()];
-
-        $this->sut = new Playback($this->type, $this->uuids);
+        $this->sut = Playback::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        $json = <<<'JSON'
-{
-  "type": "sequential",
-  "order": [
-    "3afcd4ab-837f-4055-a8ed-ce43910f9446",
-    "7b5092de-43f3-4762-9142-df30529f7942"
-  ]
-}
-JSON;
-
-        Playback::createFromJson($json);
+        Playback::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -76,7 +57,7 @@ JSON;
     {
         $json = 'foo';
 
-        Playback::createFromJson($json);
+        Playback::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -84,7 +65,7 @@ JSON;
      */
     public function testGetType()
     {
-        $this->assertSame($this->type, $this->sut->getType());
+        $this->assertSame('sequential', $this->sut->getType());
     }
 
     /**
@@ -92,7 +73,7 @@ JSON;
      */
     public function testGetUuids()
     {
-        $this->assertSame($this->uuids, $this->sut->getUuids());
+        $this->assertSame(['3afcd4ab-837f-4055-a8ed-ce43910f9446', '7b5092de-43f3-4762-9142-df30529f7942'], $this->sut->getUuids());
     }
 
     /**
@@ -100,12 +81,7 @@ JSON;
      */
     public function testIsRandom()
     {
-        $playbackRandom = new Playback(Playback::TYPE_RANDOM, $this->uuids);
-        $playbackSequential = new Playback(Playback::TYPE_SEQUENTIAL,
-          $this->uuids);
-
-        $this->assertTrue($playbackRandom->isRandom());
-        $this->assertFalse($playbackSequential->isRandom());
+        $this->assertFalse($this->sut->isRandom());
     }
 
     /**
@@ -113,12 +89,7 @@ JSON;
      */
     public function testIsSequential()
     {
-        $playbackRandom = new Playback(Playback::TYPE_RANDOM, $this->uuids);
-        $playbackSequential = new Playback(Playback::TYPE_SEQUENTIAL,
-          $this->uuids);
-
-        $this->assertFalse($playbackRandom->isSequential());
-        $this->assertTrue($playbackSequential->isSequential());
+        $this->assertTrue($this->sut->isSequential());
     }
 
 }

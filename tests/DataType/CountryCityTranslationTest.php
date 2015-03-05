@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\CountryCityTranslation;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\CountryCityTranslation
@@ -15,20 +16,12 @@ use Triquanta\IziTravel\DataType\CountryCityTranslation;
 class CountryCityTranslationTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The country/city name.
-     *
-     * @return string
-     */
-    protected $name;
-
-    /**
-     * The language.
-     *
-     * @return string
-     *   An ISO 639-1 alpha-2 language code.
-     */
-    protected $languageCode;
+    protected $json = <<<'JSON'
+{
+  "name": "foo_bar",
+  "language":  "UK"
+}
+JSON;
 
     /**
      * The class under test.
@@ -39,32 +32,19 @@ class CountryCityTranslationTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->name = 'foo_bar_' . mt_rand();
-        $this->languageCode = 'uk';
-
-        $this->sut = new CountryCityTranslation($this->name,
-          $this->languageCode);
+        $this->sut = CountryCityTranslation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        $json = <<<'JSON'
-{
-  "name": "foo_bar",
-  "language":  "UK"
-}
-JSON;
-
-        CountryCityTranslation::createFromJson($json);
+        CountryCityTranslation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -74,7 +54,7 @@ JSON;
     {
         $json = 'foo';
 
-        CountryCityTranslation::createFromJson($json);
+        CountryCityTranslation::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -82,7 +62,7 @@ JSON;
      */
     public function testGetName()
     {
-        $this->assertSame($this->name, $this->sut->getName());
+        $this->assertSame('foo_bar', $this->sut->getName());
     }
 
     /**
@@ -90,7 +70,7 @@ JSON;
      */
     public function testGetLanguageCode()
     {
-        $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
+        $this->assertSame('UK', $this->sut->getLanguageCode());
     }
 
 }

@@ -7,185 +7,15 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
+
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\CompactMtgObjectBase
  */
 class CompactMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The data type.
-     *
-     * @var string
-     */
-    protected $type;
-
-    /**
-     * The UUID.
-     *
-     * @var string
-     */
-    protected $uuid;
-
-    /**
-     * The language codes for available translations.
-     *
-     * @var string[]
-     *   Values are ISO 639-1 alpha-2 language codes.
-     */
-    protected $availableLanguageCodes = [];
-
-    /**
-     * Whether the object is published.
-     *
-     * @return bool
-     */
-    protected $status;
-
-    /**
-     * The location.
-     *
-     * @var \Triquanta\IziTravel\DataType\LocationInterface|null
-     */
-    protected $location;
-
-    /**
-     * The trigger zones.
-     *
-     * @var \Triquanta\IziTravel\DataType\TriggerZoneInterface[]
-     */
-    protected $triggerZones = [];
-
-    /**
-     * The content provider.
-     *
-     * @var \Triquanta\IziTravel\DataType\ContentProviderInterface
-     */
-    protected $contentProvider;
-
-    /**
-     * The purchase.
-     *
-     * @var \Triquanta\IziTravel\DataType\PurchaseInterface|null
-     */
-    protected $purchase;
-
-    /**
-     * The language code.
-     *
-     * @return string
-     *   An ISO 639-1 alpha-2 language code.
-     */
-    protected $languageCode;
-
-    /**
-     * The title.
-     *
-     * @return string
-     */
-    protected $title;
-
-    /**
-     * The summary.
-     *
-     * @return string
-     */
-    protected $summary;
-
-    /**
-     * The images.
-     *
-     * @return \Triquanta\IziTravel\DataType\ImageInterface[]
-     */
-    protected $images = [];
-
-    /**
-     * The number of child objects.
-     *
-     * @return int|null
-     */
-    protected $numberOfChildren;
-
-    /**
-     * The revision hash.
-     *
-     * @var string
-     */
-    protected $revisionHash;
-
-    /**
-     * The class under test.
-     *
-     * @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase
-     */
-    protected $sut;
-
-    public function setUp()
-    {
-        $this->type = 'foo_bar_' . mt_rand();
-
-        $this->uuid = 'foo-bar-baz-' . mt_rand();
-
-        $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
-
-        $this->availableLanguageCodes = ['nl', 'uk'];
-
-        $this->status = (bool) mt_rand(0, 1);;
-
-        $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
-
-        $this->triggerZones = [
-          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-        ];
-
-        $this->contentProvider = $this->getMock('\Triquanta\IziTravel\DataType\ContentProviderInterface');
-
-        $this->purchase = $this->getMock('\Triquanta\IziTravel\DataType\PurchaseInterface');
-
-        $this->languageCode = 'uk';
-
-        $this->title = 'Foo to the bar';
-
-        $this->title = 'A story about foo to the bar.';
-
-        $this->images = [
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-        ];
-
-        $this->numberOfChildren = mt_rand();
-
-        $this->sut = $this->getMockBuilder('\Triquanta\IziTravel\DataType\CompactMtgObjectBase')
-          ->setConstructorArgs([
-            $this->type,
-            $this->uuid,
-            $this->revisionHash,
-            $this->availableLanguageCodes,
-            $this->status,
-            $this->location,
-            $this->triggerZones,
-            $this->contentProvider,
-            $this->purchase,
-            $this->languageCode,
-            $this->title,
-            $this->summary,
-            $this->images,
-            $this->numberOfChildren
-          ])
-          ->getMockForAbstractClass();
-    }
-
-    /**
-     * @covers ::__construct
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     */
-    public function testCreateFromJson()
-    {
-        $json = <<<'JSON'
+    protected $json = <<<'JSON'
 {
   "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
   "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
@@ -215,28 +45,56 @@ class CompactMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
   },
   "images": [
     {
-      "order": 1,
-      "type":  "story",
-      "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-    },
-    {
-      "order": 1,
-      "type":  "story",
-      "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-    }
+        "uuid" : "b5c30e91-66c0-4382-aa55-56c0b13e2263",
+        "type" : "story",
+        "order" : 1,
+        "hash" : "b638e89534de7a84304942ce7887bdb4",
+        "size" : 231663
+      },
+      {
+        "uuid" : "b5c30e91-66c0-4382-aa55-56c0b13e2263",
+        "type" : "story",
+        "order" : 1,
+        "hash" : "b638e89534de7a84304942ce7887bdb4",
+        "size" : 231663
+      }
   ]
 }
 JSON;
 
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase
+     */
+    protected $sut;
+
+    public function setUp()
+    {
+        $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\CompactMtgObjectBase');
         /** @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase $class */
         $class = get_class($this->sut);
-        $class::createFromJson($json);
+        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\MtgObjectBase::createBaseFromData
+     */
+    public function testCreateFromJson()
+    {
+
+
+        /** @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase $class */
+        $class = get_class($this->sut);
+        $class::createFromJson($this->json, MultipleFormInterface::FORM_COMPACT);
+    }
+
+    /**
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\MtgObjectBase::createBaseFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
      */
@@ -246,12 +104,13 @@ JSON;
 
         /** @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase $class */
         $class = get_class($this->sut);
-        $class::createFromJson($json);
+        $class::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\MtgObjectBase::createBaseFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
      */
@@ -268,7 +127,7 @@ JSON;
 
         /** @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase $class */
         $class = get_class($this->sut);
-        $class::createFromJson($json);
+        $class::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -276,7 +135,7 @@ JSON;
      */
     public function testGetLanguageCode()
     {
-        $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
+        $this->assertSame('en', $this->sut->getLanguageCode());
     }
 
     /**
@@ -284,7 +143,7 @@ JSON;
      */
     public function testGetTitle()
     {
-        $this->assertSame($this->title, $this->sut->getTitle());
+        $this->assertSame('Foo to the bar', $this->sut->getTitle());
     }
 
     /**
@@ -292,7 +151,7 @@ JSON;
      */
     public function testGetSummary()
     {
-        $this->assertSame($this->summary, $this->sut->getSummary());
+        $this->assertSame('A story about foo to the bar.', $this->sut->getSummary());
     }
 
     /**
@@ -300,15 +159,10 @@ JSON;
      */
     public function testGetImages()
     {
-        $this->assertSame($this->images, $this->sut->getImages());
-    }
-
-    /**
-     * @covers ::countChildren
-     */
-    public function testCountChildren()
-    {
-        $this->assertSame($this->numberOfChildren, $this->sut->countChildren());
+        $this->assertInternalType('array', $this->sut->getImages());
+        foreach ($this->sut->getImages() as $image) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+        }
     }
 
 }

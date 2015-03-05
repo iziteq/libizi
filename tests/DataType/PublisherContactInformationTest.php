@@ -7,6 +7,7 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\DataType\PublisherContactInformation;
 
 /**
@@ -15,33 +16,14 @@ use Triquanta\IziTravel\DataType\PublisherContactInformation;
 class PublisherContactInformationTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The website URL.
-     *
-     * @var string|null
-     */
-    protected $websiteUrl;
-
-    /**
-     * The email address.
-     *
-     * @var string|null
-     */
-    protected $emailAddress;
-
-    /**
-     * The URL to the Twitter account.
-     *
-     * @var string|null
-     */
-    protected $twitterUrl;
-
-    /**
-     * The URL to the Facebook page.
-     *
-     * @var string|null
-     */
-    protected $facebookUrl;
+    protected $json = <<<'JSON'
+{
+    "website": "http://www.amsterdammuseum.nl",
+    "twitter": "https://twitter.com/AmsterdamMuseum",
+    "facebook": "https://www.facebook.com/amsterdammuseum",
+    "email": "info@example.com"
+}
+JSON;
 
     /**
      * The class under test.
@@ -52,38 +34,19 @@ class PublisherContactInformationTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->websiteUrl = 'http://example.com/foo/' . mt_rand();
-
-        $this->emailAddress = 'example@example.com';
-
-        $this->twitterUrl = 'http://example.com/foo/' . mt_rand();
-
-        $this->facebookUrl = 'http://example.com/foo/' . mt_rand();
-
-        $this->sut = new PublisherContactInformation($this->websiteUrl,
-          $this->emailAddress, $this->twitterUrl, $this->facebookUrl);
+        $this->sut = PublisherContactInformation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        $json = <<<'JSON'
-{
-    "website": "http://www.amsterdammuseum.nl",
-    "twitter": "https://twitter.com/AmsterdamMuseum",
-    "facebook": "https://www.facebook.com/amsterdammuseum"
-}
-JSON;
-
-        PublisherContactInformation::createFromJson($json);
+        PublisherContactInformation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -93,7 +56,7 @@ JSON;
     {
         $json = 'foo';
 
-        PublisherContactInformation::createFromJson($json);
+        PublisherContactInformation::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -101,7 +64,7 @@ JSON;
      */
     public function testGetWebsiteUrl()
     {
-        $this->assertSame($this->websiteUrl, $this->sut->getWebsiteUrl());
+        $this->assertSame('http://www.amsterdammuseum.nl', $this->sut->getWebsiteUrl());
     }
 
     /**
@@ -109,7 +72,7 @@ JSON;
      */
     public function testGetEmailAddress()
     {
-        $this->assertSame($this->emailAddress, $this->sut->getEmailAddress());
+        $this->assertSame('info@example.com', $this->sut->getEmailAddress());
     }
 
     /**
@@ -117,7 +80,7 @@ JSON;
      */
     public function testGetTwitterUrl()
     {
-        $this->assertSame($this->twitterUrl, $this->sut->getTwitterUrl());
+        $this->assertSame('https://twitter.com/AmsterdamMuseum', $this->sut->getTwitterUrl());
     }
 
     /**
@@ -125,7 +88,7 @@ JSON;
      */
     public function testGetFacebookUrl()
     {
-        $this->assertSame($this->facebookUrl, $this->sut->getFacebookUrl());
+        $this->assertSame('https://www.facebook.com/amsterdammuseum', $this->sut->getFacebookUrl());
     }
 
 }

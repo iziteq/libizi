@@ -7,6 +7,7 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\DataType\PolygonalTriggerZone;
 
 /**
@@ -15,12 +16,12 @@ use Triquanta\IziTravel\DataType\PolygonalTriggerZone;
 class PolygonalTriggerZoneTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The corners.
-     *
-     * @var string|null
-     */
-    protected $corners;
+    protected $json = <<<'JSON'
+{
+  "type": "polygon",
+  "polygon_corners": "52.397921441224504,4.8016028153642765;52.4188651275828,4.835248445247089;52.42095894931356,4.788556550715839;52.40734733067369,4.778600190852558"
+}
+JSON;
 
     /**
      * The class under test.
@@ -31,30 +32,19 @@ class PolygonalTriggerZoneTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->corners = '52.397921441224504,4.8016028153642765;52.4188651275828,4.835248445247089;52.42095894931356,4.788556550715839;52.40734733067369,4.778600190852558';
-
-        $this->sut = new PolygonalTriggerZone($this->corners);
+        $this->sut = PolygonalTriggerZone::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        $json = <<<'JSON'
-{
-  "type": "polygon",
-  "polygon_corners": "52.397921441224504,4.8016028153642765;52.4188651275828,4.835248445247089;52.42095894931356,4.788556550715839;52.40734733067369,4.778600190852558"
-}
-JSON;
-
-        PolygonalTriggerZone::createFromJson($json);
+        PolygonalTriggerZone::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -64,7 +54,7 @@ JSON;
     {
         $json = 'foo';
 
-        PolygonalTriggerZone::createFromJson($json);
+        PolygonalTriggerZone::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -72,7 +62,7 @@ JSON;
      */
     public function testGetCorners()
     {
-        $this->assertSame($this->corners, $this->sut->getCorners());
+        $this->assertSame('52.397921441224504,4.8016028153642765;52.4188651275828,4.835248445247089;52.42095894931356,4.788556550715839;52.40734733067369,4.778600190852558', $this->sut->getCorners());
     }
 
 }

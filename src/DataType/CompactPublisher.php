@@ -42,56 +42,20 @@ class CompactPublisher extends PublisherBase implements CompactPublisherInterfac
      */
     protected $summary;
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param string $uuid
-     * @param string $revisionHash
-     * @param string[] $availableLanguageCodes
-     * @param \Triquanta\IziTravel\DataType\ContentProviderInterface $contentProvider
-     * @param string $status
-     * @param string $languageCode
-     * @param string $title
-     * @param string $summary
-     * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
-     */
-    public function __construct(
-      $uuid,
-      $revisionHash,
-      array $availableLanguageCodes,
-      ContentProviderInterface $contentProvider,
-      $status,
-      $languageCode,
-      $title,
-      $summary,
-      array $images
-    ) {
-        parent::__construct($uuid, $revisionHash, $availableLanguageCodes,
-          $contentProvider, $status);
-        $this->images = $images;
-        $this->languageCode = $languageCode;
-        $this->title = $title;
-        $this->summary = $summary;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'images' => [],
-          ];
-        if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($data);
+        /** @var static $publisher */
+        $publisher = parent::createBaseFromData($data, $form);
+        $publisher->languageCode = $data->language;
+        $publisher->title = $data->title;
+        $publisher->summary = $data->summary;
+        if (isset($data->images)) {
+            foreach ($data->images as $imageData) {
+                $publisher->images[] = Image::createFromData($imageData, $form);
+            }
         }
 
-        $contentProvider = ContentProvider::createFromData($data['content_provider']);
-        $images = [];
-        foreach ($data['images'] as $imageData) {
-            $images[] = Image::createFromData($imageData);
-        }
-
-        return new static($data['uuid'], $data['hash'], $data['languages'],
-          $contentProvider, $data['status'], $data['language'], $data['title'],
-          $data['summary'], $images);
+        return $publisher;
     }
 
     public function getImages()

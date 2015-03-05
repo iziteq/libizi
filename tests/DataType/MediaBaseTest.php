@@ -7,7 +7,7 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
-use Triquanta\IziTravel\DataType\MediaInterface;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\MediaBase
@@ -15,41 +15,18 @@ use Triquanta\IziTravel\DataType\MediaInterface;
 class MediaBaseTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The type.
-     *
-     * @var string
-     *   One of the static::TYPE_* constants.
-     */
-    protected $type;
-
-    /**
-     * The order.
-     *
-     * @var int
-     */
-    protected $order;
-
-    /**
-     * The URL.
-     *
-     * @var string|null
-     */
-    protected $url;
-
-    /**
-     * The title.
-     *
-     * @var string|null
-     */
-    protected $title;
-
-    /**
-     * The UUID.
-     *
-     * @var string
-     */
-    protected $uuid;
+    protected $json = <<<'JSON'
+{
+    "uuid" : "d2cea5b6-a781-4d67-be7b-7c46f034e6ae",
+    "type" : "story",
+    "duration" : 44,
+    "order" : 7,
+    "hash" : "89754396ad760e91985c622ecb0acce5",
+    "url" : "http://example.com/foo/89",
+    "size" : 365477,
+    "title": "Joepie!"
+  }
+JSON;
 
     /**
      * The class under test.
@@ -60,21 +37,21 @@ class MediaBaseTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->type = MediaInterface::TYPE_MAP;
-        $this->order = mt_rand();
-        $this->url = 'http://example.com';
-        $this->title = 'Foo to the bar!';
-        $this->uuid = 'foo-bar-baz-' . mt_rand();
+        $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MediaBase');
+        /** @var \Triquanta\IziTravel\DataType\MediaBase $class */
+        $class = get_class($this->sut);
+        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+    }
 
-        $this->sut = $this->getMockBuilder('\Triquanta\IziTravel\DataType\MediaBase')
-          ->setConstructorArgs([
-            $this->uuid,
-            $this->type,
-            $this->order,
-            $this->url,
-            $this->title
-          ])
-          ->getMockForAbstractClass();
+    /**
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     */
+    public function testCreateFromJson()
+    {
+        /** @var \Triquanta\IziTravel\DataType\MediaBase $class */
+        $class = get_class($this->sut);
+        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -82,7 +59,7 @@ class MediaBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetType()
     {
-        $this->assertSame($this->type, $this->sut->getType());
+        $this->assertSame('story', $this->sut->getType());
     }
 
     /**
@@ -90,7 +67,7 @@ class MediaBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetOrder()
     {
-        $this->assertSame($this->order, $this->sut->getOrder());
+        $this->assertSame(7, $this->sut->getOrder());
     }
 
     /**
@@ -98,7 +75,7 @@ class MediaBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetUrl()
     {
-        $this->assertSame($this->url, $this->sut->getUrl());
+        $this->assertSame('http://example.com/foo/89', $this->sut->getUrl());
     }
 
     /**
@@ -106,7 +83,7 @@ class MediaBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetTitle()
     {
-        $this->assertSame($this->title, $this->sut->getTitle());
+        $this->assertSame('Joepie!', $this->sut->getTitle());
     }
 
 }

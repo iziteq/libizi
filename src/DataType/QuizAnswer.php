@@ -29,22 +29,13 @@ class QuizAnswer implements QuizAnswerInterface
      */
     protected $isCorrect;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string $answer
-     * @param bool $isCorrect
-     */
-    public function __construct($answer, $isCorrect)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->answer = $answer;
-        $this->isCorrect = $isCorrect;
-    }
+        $answer = new static();
+        $answer->answer = $data->content;
+        $answer->isCorrect = $data->correct;
 
-    public static function createFromData($data)
-    {
-        $data = (array) $data;
-        return new static($data['content'], $data['correct']);
+        return $answer;
     }
 
     public function getAnswer()

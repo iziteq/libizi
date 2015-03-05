@@ -24,21 +24,12 @@ class Schedule implements ScheduleInterface
      */
     protected $schedule = [];
 
-    /**
-     * Creates a new instance.
-     *
-     * @param array[] $schedule
-     *   Keys are three-letter weekday abbreviations and values are arrays of
-     *   opening and closing hours respectively, in a 24-hour format.
-     */
-    public function __construct(array $schedule)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->schedule = $schedule;
-    }
+        $schedule = new static();
+        $schedule->schedule = (array) $data;
 
-    public static function createFromData($data)
-    {
-        return new static((array) $data);
+        return $schedule;
     }
 
     public function getMondaySchedule()

@@ -7,6 +7,7 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\DataType\PublisherContent;
 
 /**
@@ -15,80 +16,10 @@ use Triquanta\IziTravel\DataType\PublisherContent;
 class PublisherContentTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The language code.
-     *
-     * @var string
-     *   An ISO 639-1 alpha-2 language code.
-     */
-    protected $languageCode;
-
-    /**
-     * The title.
-     *
-     * @var string
-     */
-    protected $title;
-
-    /**
-     * The summary.
-     *
-     * @var string
-     */
-    protected $summary;
-
-    /**
-     * The description.
-     *
-     * @var string
-     */
-    protected $description;
-
-    /**
-     * The images.
-     *
-     * @var \Triquanta\IziTravel\DataType\ImageInterface[]
-     */
-    protected $images = [];
-
-    /**
-     * The class under test.
-     *
-     * @var \Triquanta\IziTravel\DataType\PublisherContent
-     */
-    protected $sut;
-
-    public function setUp()
-    {
-        $this->languageCode = 'uk';
-
-        $this->title = 'Foo & Bar ' . mt_rand();
-
-        $this->summary = 'The story of Foo & Bar ' . mt_rand();
-
-        $this->description = 'A description of the story of Foo & Bar ' . mt_rand();
-
-        $this->images = [
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-        ];
-
-        $this->sut = new PublisherContent($this->languageCode, $this->images,
-          $this->title, $this->summary, $this->description);
-    }
-
-    /**
-     * @covers ::__construct
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     */
-    public function testCreateFromJson()
-    {
-        $json = <<<'JSON'
+    protected $json = <<<'JSON'
 {
     "title": "Amsterdam Museum",
-    "summary": "Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen. ",
+    "summary": "Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen.",
     "desc": "Het Amsterdam Museum vertelt het verhaal van de ......",
     "language": "en",
     "images": [
@@ -102,17 +33,35 @@ class PublisherContentTest extends \PHPUnit_Framework_TestCase
         {
             "uuid": "57deeecb-c5b0-4a8f-b561-7589ceb5c47b",
             "type": "brand_cover",
+            "hash": "baae2a048f560756a55f54f9d6bc58c8",
             "order": 1
         }
     ]
 }
 JSON;
 
-        PublisherContent::createFromJson($json);
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\PublisherContent
+     */
+    protected $sut;
+
+    public function setUp()
+    {
+        $this->sut = PublisherContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     */
+    public function testCreateFromJson()
+    {
+        PublisherContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+    }
+
+    /**
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -122,7 +71,7 @@ JSON;
     {
         $json = 'foo';
 
-        PublisherContent::createFromJson($json);
+        PublisherContent::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -130,7 +79,7 @@ JSON;
      */
     public function testGetLanguageCode()
     {
-        $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
+        $this->assertSame('en', $this->sut->getLanguageCode());
     }
 
     /**
@@ -138,7 +87,7 @@ JSON;
      */
     public function testGetTitle()
     {
-        $this->assertSame($this->title, $this->sut->getTitle());
+        $this->assertSame('Amsterdam Museum', $this->sut->getTitle());
     }
 
     /**
@@ -146,7 +95,7 @@ JSON;
      */
     public function testGetSummary()
     {
-        $this->assertSame($this->summary, $this->sut->getSummary());
+        $this->assertSame('Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen.', $this->sut->getSummary());
     }
 
     /**
@@ -154,7 +103,7 @@ JSON;
      */
     public function testGetDescription()
     {
-        $this->assertSame($this->description, $this->sut->getDescription());
+        $this->assertSame('Het Amsterdam Museum vertelt het verhaal van de ......', $this->sut->getDescription());
     }
 
     /**
@@ -162,7 +111,10 @@ JSON;
      */
     public function testGetImages()
     {
-        $this->assertSame($this->images, $this->sut->getImages());
+        $this->assertInternalType('array', $this->sut->getImages());
+        foreach ($this->sut->getImages() as $image) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+        }
     }
 
 }

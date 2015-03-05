@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\Content;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\Content
@@ -15,156 +16,12 @@ use Triquanta\IziTravel\DataType\Content;
 class ContentTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The language.
-     *
-     * @var string
-     *   An ISO 639-1 alpha-2 language code.
-     */
-    protected $languageCode;
-
-    /**
-     * The title.
-     *
-     * @var string
-     */
-    protected $title;
-
-    /**
-     * The summary.
-     *
-     * @var string
-     */
-    protected $summary;
-
-    /**
-     * The description
-     *
-     * @var string
-     */
-    protected $description;
-
-    /**
-     * The playback.
-     *
-     * @var \Triquanta\IziTravel\DataType\PlaybackInterface|null
-     */
-    protected $playback;
-
-    /**
-     * The images.
-     *
-     * @var \Triquanta\IziTravel\DataType\ImageInterface[]
-     */
-    protected $images = [];
-
-    /**
-     * The audio media.
-     *
-     * @var \Triquanta\IziTravel\DataType\AudioInterface[]
-     */
-    protected $audio = [];
-
-    /**
-     * The videos.
-     *
-     * @var \Triquanta\IziTravel\DataType\VideoInterface[]
-     */
-    protected $videos = [];
-
-    /**
-     * The child objects.
-     *
-     * @var \Triquanta\IziTravel\DataType\CompactMtgObjectInterface[]
-     */
-    protected $children = [];
-
-    /**
-     * The collections.
-     *
-     * @var \Triquanta\IziTravel\DataType\CompactMtgObjectInterface[]
-     */
-    protected $collections = [];
-
-    /**
-     * The references.
-     *
-     * @var \Triquanta\IziTravel\DataType\CompactMtgObjectInterface[]
-     */
-    protected $references = [];
-
-    /**
-     * The quiz.
-     *
-     * @var \Triquanta\IziTravel\DataType\QuizInterface|null
-     */
-    protected $quiz;
-
-    /**
-     * The class under test.
-     *
-     * @var \Triquanta\IziTravel\DataType\Content
-     */
-    protected $sut;
-
-    public function setUp()
-    {
-        $this->languageCode = 'fo';
-        $this->title = 'Foo Baz Bar';
-        $this->summary = 'Qux.';
-        $this->description = 'Qux & Bar.';
-        $this->playback = $this->getMock('\Triquanta\IziTravel\DataType\PlaybackInterface');
-        $this->images = [
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-        ];
-        $this->audio = [
-          $this->getMock('\Triquanta\IziTravel\DataType\AudioInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\AudioInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\AudioInterface'),
-        ];
-        $this->videos = [
-          $this->getMock('\Triquanta\IziTravel\DataType\VideoInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\VideoInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\VideoInterface'),
-        ];
-        $this->children = [
-          $this->getMock('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'),
-        ];
-        $this->collections = [
-          $this->getMock('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'),
-        ];
-        $this->references = [
-          $this->getMock('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'),
-        ];
-        $this->quiz = $this->getMock('\Triquanta\IziTravel\DataType\QuizInterface');
-
-        $this->sut = new Content($this->languageCode, $this->title,
-          $this->summary, $this->description, $this->playback, $this->images,
-          $this->audio, $this->videos, $this->children, $this->collections,
-          $this->references, $this->quiz);
-    }
-
-    /**
-     * @covers ::__construct
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     */
-    public function testCreateFromJson()
-    {
-        $json = <<<'JSON'
+    protected $json = <<<'JSON'
 {
   "language":   "en",
   "title":      "Navigation Story",
-  "summary":    "",
-  "desc":       "",
+  "summary":    "Cool story, bro!",
+  "desc":       "Dit gaat toch helemaal nergens meer over...",
   "playback": {
     "type": "sequential",
     "order": [
@@ -174,25 +31,33 @@ class ContentTest extends \PHPUnit_Framework_TestCase
   },
   "images": [
     {
-      "order": 1,
-      "type":  "story",
-      "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+      "uuid" : "a3f93ef2-5829-4115-becf-beda63db386a",
+      "type" : "brand_logo",
+      "order" : 1,
+      "hash" : "3aec6365e75adadf44f87a52893e706e",
+      "size" : 5904
     },
     {
-      "order": 1,
-      "type":  "story",
-      "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+      "uuid" : "a3f93ef2-5829-4115-becf-beda63db386a",
+      "type" : "brand_logo",
+      "order" : 1,
+      "hash" : "3aec6365e75adadf44f87a52893e706e",
+      "size" : 5904
     }
   ],
   "audio": [
     {
       "order": 1,
       "type":  "story",
+      "hash" : "3aec6365e75adadf44f87a52893e706e",
+      "duration": 13,
       "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
     },
     {
       "order": 1,
       "type":  "story",
+      "hash" : "3aec6365e75adadf44f87a52893e706e",
+      "duration": 13,
       "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
     }
   ],
@@ -200,11 +65,15 @@ class ContentTest extends \PHPUnit_Framework_TestCase
     {
       "order": 1,
       "type":  "story",
+      "hash" : "3aec6365e75adadf44f87a52893e706e",
+      "duration": 13,
       "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
     },
     {
       "order": 1,
       "type":  "story",
+      "hash" : "3aec6365e75adadf44f87a52893e706e",
+      "duration": 13,
       "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
     }
   ],
@@ -238,14 +107,18 @@ class ContentTest extends \PHPUnit_Framework_TestCase
       },
       "images": [
         {
-          "order": 1,
-          "type":  "story",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+          "uuid" : "a3f93ef2-5829-4115-becf-beda63db386a",
+          "type" : "brand_logo",
+          "order" : 1,
+          "hash" : "3aec6365e75adadf44f87a52893e706e",
+          "size" : 5904
         },
         {
-          "order": 1,
-          "type":  "story",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+          "uuid" : "a3f93ef2-5829-4115-becf-beda63db386a",
+          "type" : "brand_logo",
+          "order" : 1,
+          "hash" : "3aec6365e75adadf44f87a52893e706e",
+          "size" : 5904
         }
       ]
       }
@@ -280,14 +153,18 @@ class ContentTest extends \PHPUnit_Framework_TestCase
       },
       "images": [
         {
-          "order": 1,
-          "type":  "story",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+          "uuid" : "a3f93ef2-5829-4115-becf-beda63db386a",
+          "type" : "brand_logo",
+          "order" : 1,
+          "hash" : "3aec6365e75adadf44f87a52893e706e",
+          "size" : 5904
         },
         {
-          "order": 1,
-          "type":  "story",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+          "uuid" : "a3f93ef2-5829-4115-becf-beda63db386a",
+          "type" : "brand_logo",
+          "order" : 1,
+          "hash" : "3aec6365e75adadf44f87a52893e706e",
+          "size" : 5904
         }
       ]
       }
@@ -322,14 +199,18 @@ class ContentTest extends \PHPUnit_Framework_TestCase
       },
       "images": [
         {
-          "order": 1,
-          "type":  "story",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+          "uuid" : "a3f93ef2-5829-4115-becf-beda63db386a",
+          "type" : "brand_logo",
+          "order" : 1,
+          "hash" : "3aec6365e75adadf44f87a52893e706e",
+          "size" : 5904
         },
         {
-          "order": 1,
-          "type":  "story",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+          "uuid" : "a3f93ef2-5829-4115-becf-beda63db386a",
+          "type" : "brand_logo",
+          "order" : 1,
+          "hash" : "3aec6365e75adadf44f87a52893e706e",
+          "size" : 5904
         }
       ]
       }
@@ -355,11 +236,28 @@ class ContentTest extends \PHPUnit_Framework_TestCase
 }
 JSON;
 
-        Content::createFromJson($json);
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\Content
+     */
+    protected $sut;
+
+    public function setUp()
+    {
+        $this->sut = Content::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     */
+    public function testCreateFromJson()
+    {
+        Content::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+    }
+
+    /**
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -369,7 +267,7 @@ JSON;
     {
         $json = 'foo';
 
-        Content::createFromJson($json);
+        Content::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -377,7 +275,7 @@ JSON;
      */
     public function testGetLanguageCode()
     {
-        $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
+        $this->assertSame('en', $this->sut->getLanguageCode());
     }
 
     /**
@@ -385,7 +283,7 @@ JSON;
      */
     public function testGetTitle()
     {
-        $this->assertSame($this->title, $this->sut->getTitle());
+        $this->assertSame('Navigation Story', $this->sut->getTitle());
     }
 
     /**
@@ -393,7 +291,7 @@ JSON;
      */
     public function testGetSummary()
     {
-        $this->assertSame($this->summary, $this->sut->getSummary());
+        $this->assertSame('Cool story, bro!', $this->sut->getSummary());
     }
 
     /**
@@ -401,7 +299,7 @@ JSON;
      */
     public function testGetDescription()
     {
-        $this->assertSame($this->description, $this->sut->getDescription());
+        $this->assertSame('Dit gaat toch helemaal nergens meer over...', $this->sut->getDescription());
     }
 
     /**
@@ -409,7 +307,7 @@ JSON;
      */
     public function testGetPlayback()
     {
-        $this->assertSame($this->playback, $this->sut->getPlayback());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\Playback', $this->sut->getPlayback());
     }
 
     /**
@@ -417,7 +315,10 @@ JSON;
      */
     public function testGetImages()
     {
-        $this->assertSame($this->images, $this->sut->getImages());
+        $this->assertInternalType('array', $this->sut->getImages());
+        foreach ($this->sut->getImages() as $image) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+        }
     }
 
     /**
@@ -425,7 +326,10 @@ JSON;
      */
     public function testGetAudio()
     {
-        $this->assertSame($this->audio, $this->sut->getAudio());
+        $this->assertInternalType('array', $this->sut->getAudio());
+        foreach ($this->sut->getAudio() as $audio) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\AudioInterface', $audio);
+        }
     }
 
     /**
@@ -433,7 +337,10 @@ JSON;
      */
     public function testGetVideos()
     {
-        $this->assertSame($this->videos, $this->sut->getVideos());
+        $this->assertInternalType('array', $this->sut->getVideos());
+        foreach ($this->sut->getVideos() as $video) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\VideoInterface', $video);
+        }
     }
 
     /**
@@ -441,7 +348,10 @@ JSON;
      */
     public function testGetChildren()
     {
-        $this->assertSame($this->children, $this->sut->getChildren());
+        $this->assertInternalType('array', $this->sut->getChildren());
+        foreach ($this->sut->getChildren() as $object) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MtgObjectInterface', $object);
+        }
     }
 
     /**
@@ -449,7 +359,10 @@ JSON;
      */
     public function testGetCollections()
     {
-        $this->assertSame($this->collections, $this->sut->getCollections());
+        $this->assertInternalType('array', $this->sut->getCollections());
+        foreach ($this->sut->getCollections() as $object) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MtgObjectInterface', $object);
+        }
     }
 
     /**
@@ -457,7 +370,10 @@ JSON;
      */
     public function testGetReferences()
     {
-        $this->assertSame($this->references, $this->sut->getReferences());
+        $this->assertInternalType('array', $this->sut->getReferences());
+        foreach ($this->sut->getReferences() as $object) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MtgObjectInterface', $object);
+        }
     }
 
     /**
@@ -465,7 +381,7 @@ JSON;
      */
     public function testGetQuiz()
     {
-        $this->assertSame($this->quiz, $this->sut->getQuiz());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\QuizInterface', $this->sut->getQuiz());
     }
 
 }

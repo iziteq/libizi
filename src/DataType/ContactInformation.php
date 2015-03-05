@@ -65,46 +65,26 @@ class ContactInformation implements ContactInformationInterface
      */
     protected $administrativeSubdivision;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string $countryCode
-     * @param string $city
-     * @param string $address
-     * @param string $postalCode
-     * @param string $administrativeSubdivision
-     * @param string $phoneNumber
-     * @param string $website
-     */
-    public function __construct(
-      $countryCode,
-      $city,
-      $address,
-      $postalCode,
-      $administrativeSubdivision,
-      $phoneNumber,
-      $website
-    ) {
-        $this->countryCode = $countryCode;
-        $this->city = $city;
-        $this->address = $address;
-        $this->postalCode = $postalCode;
-        $this->administrativeSubdivision = $administrativeSubdivision;
-        $this->phoneNumber = $phoneNumber;
-        $this->website = $website;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'postcode' => null,
-            'state' => null,
-            'phone_number' => null,
-            'website' => null,
-          ];
-        return new static($data['country'], $data['city'], $data['address'],
-          $data['postcode'], $data['state'], $data['phone_number'],
-          $data['website']);
+        $contactInformation = new static();
+        $contactInformation->countryCode = $data->country;
+        $contactInformation->city = $data->city;
+        $contactInformation->address = $data->address;
+        if (isset($data->postcode)) {
+            $contactInformation->postalCode = $data->postcode;
+        }
+        if (isset($data->state)) {
+            $contactInformation->administrativeSubdivision = $data->state;
+        }
+        if (isset($data->phone_number)) {
+            $contactInformation->phoneNumber = $data->phone_number;
+        }
+        if (isset($data->website)) {
+            $contactInformation->website = $data->website;
+        }
+
+        return $contactInformation;
     }
 
     public function getCountryCode()

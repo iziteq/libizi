@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\Location;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\Location
@@ -15,62 +16,18 @@ use Triquanta\IziTravel\DataType\Location;
 class LocationTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The UUID of the city this location is in.
-     *
-     * @var string|null
-     */
-    protected $cityUuid;
-
-    /**
-     * The UUID of the country this location is in.
-     *
-     * @var string|null
-     */
-    protected $countryUuid;
-
-    /**
-     * The code of the country this location is in.
-     *
-     * @var string|null
-     *   An ISO 3166-1 alpha-2 code or NULL.
-     */
-    protected $countryCode;
-
-    /**
-     * The latitude.
-     *
-     * @var float|null
-     */
-    protected $latitude;
-
-    /**
-     * The longitude.
-     *
-     * @var float|null
-     */
-    protected $longitude;
-
-    /**
-     * The altitude.
-     *
-     * @var float|null
-     */
-    protected $altitude;
-
-    /**
-     * The exhibit number.
-     *
-     * @var string|null
-     */
-    protected $exhibitNumber;
-
-    /**
-     * The public IP address.
-     *
-     * @var string|null
-     */
-    protected $publicIpAddress;
+    protected $json = <<<'JSON'
+{
+    "city_uuid": "8881e8de-d426-4cef-91b3-0c2ca298ab0b",
+    "altitude": 0,
+    "country_code": "fr",
+    "country_uuid": "1204cada-f918-49cd-8483-81795d69e2bd",
+    "latitude": 48.7988217036239,
+    "longitude": 2.12748527526855,
+    "number": 134,
+    "ip": "92.111.222.50"
+}
+JSON;
 
     /**
      * The class under test.
@@ -81,40 +38,19 @@ class LocationTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->cityUuid = 'foo-bar-baz-' . mt_rand();
-        $this->countryUuid = 'foo-bar-baz-' . mt_rand();
-        $this->countryCode = 'UK';
-        $this->latitude = 12.345;
-        $this->longitude = 67.890;
-        $this->altitude = 123.098;
-        $this->exhibitNumber = mt_rand();
-        $this->publicIpAddress = '12.34.56.78';
-
-        $this->sut = new Location($this->latitude, $this->longitude,
-          $this->altitude, $this->exhibitNumber, $this->publicIpAddress,
-          $this->cityUuid, $this->countryUuid, $this->countryCode);
+        $this->sut = Location::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        $json = <<<'JSON'
-{
-  "altitude":  0.0,
-  "latitude":  59.9308144003772,
-  "longitude": 30.3516736220902
-}
-JSON;
-
-        Location::createFromJson($json);
+        Location::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -124,7 +60,7 @@ JSON;
     {
         $json = 'foo';
 
-        Location::createFromJson($json);
+        Location::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -132,7 +68,7 @@ JSON;
      */
     public function testGetLatitude()
     {
-        $this->assertSame($this->latitude, $this->sut->getLatitude());
+        $this->assertSame(48.7988217036239, $this->sut->getLatitude());
     }
 
     /**
@@ -140,7 +76,7 @@ JSON;
      */
     public function testGetLongitude()
     {
-        $this->assertSame($this->longitude, $this->sut->getLongitude());
+        $this->assertSame(2.12748527526855, $this->sut->getLongitude());
     }
 
     /**
@@ -148,7 +84,7 @@ JSON;
      */
     public function testGetAltitude()
     {
-        $this->assertSame($this->altitude, $this->sut->getAltitude());
+        $this->assertSame(0, $this->sut->getAltitude());
     }
 
     /**
@@ -156,7 +92,7 @@ JSON;
      */
     public function testGetExhibitNumber()
     {
-        $this->assertSame($this->exhibitNumber, $this->sut->getExhibitNumber());
+        $this->assertSame(134, $this->sut->getExhibitNumber());
     }
 
     /**
@@ -164,8 +100,7 @@ JSON;
      */
     public function testGetPublicIpAddress()
     {
-        $this->assertSame($this->publicIpAddress,
-          $this->sut->getPublicIpAddress());
+        $this->assertSame('92.111.222.50', $this->sut->getPublicIpAddress());
     }
 
     /**
@@ -173,8 +108,7 @@ JSON;
      */
     public function testGetCityUuid()
     {
-        $this->assertSame($this->cityUuid,
-          $this->sut->getCityUuid());
+        $this->assertSame('8881e8de-d426-4cef-91b3-0c2ca298ab0b', $this->sut->getCityUuid());
     }
 
     /**
@@ -182,8 +116,7 @@ JSON;
      */
     public function testGetCountryUuid()
     {
-        $this->assertSame($this->countryUuid,
-          $this->sut->getCountryUuid());
+        $this->assertSame('1204cada-f918-49cd-8483-81795d69e2bd', $this->sut->getCountryUuid());
     }
 
     /**
@@ -191,8 +124,7 @@ JSON;
      */
     public function testGetCountryCode()
     {
-        $this->assertSame($this->countryCode,
-          $this->sut->getCountryCode());
+        $this->assertSame('fr', $this->sut->getCountryCode());
     }
 
 }

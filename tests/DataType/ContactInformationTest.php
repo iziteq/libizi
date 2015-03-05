@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\ContactInformation;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\ContactInformation
@@ -15,55 +16,17 @@ use Triquanta\IziTravel\DataType\ContactInformation;
 class ContactInformationTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The website address.
-     *
-     * @var string|null
-     */
-    protected $website;
-
-    /**
-     * The country code.
-     *
-     * @var string
-     *   An ISO 3166-1 alpha-2 country code.
-     */
-    protected $countryCode;
-
-    /**
-     * The name of the city.
-     *
-     * @var string
-     */
-    protected $city;
-
-    /**
-     * The address.
-     *
-     * @var string
-     */
-    protected $address;
-
-    /**
-     * The postal code.
-     *
-     * @var string|null
-     */
-    protected $postalCode;
-
-    /**
-     * The phone number.
-     *
-     * @var string|null
-     */
-    protected $phoneNumber;
-
-    /**
-     * The administrative subdivision.
-     *
-     * @var string|null
-     */
-    protected $administrativeSubdivision;
+    protected $json = <<<'JSON'
+{
+  "phone_number": "79035935578",
+  "website": "http://google.com",
+  "country": "nl",
+  "city": "Amsterdam",
+  "address": "Spaarndammerplantsoen 21/4",
+  "postcode": "70044",
+  "state": "Second-hand"
+}
+JSON;
 
     /**
      * The class under test.
@@ -74,42 +37,19 @@ class ContactInformationTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->countryCode = 'UA';
-        $this->city = 'Lviv';
-        $this->address = 'Ploshcha Rynok';
-        $this->postalCode = mt_rand();
-        $this->administrativeSubdivision = 'Qux';
-        $this->phoneNumber = '+1234567890';
-        $this->website = 'http://example.com';
-
-        $this->sut = new ContactInformation($this->countryCode, $this->city,
-          $this->address, $this->postalCode, $this->administrativeSubdivision,
-          $this->phoneNumber, $this->website);
+        $this->sut = ContactInformation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        $json = <<<'JSON'
-{
-  "phone_number": "79035935578",
-  "website": "http://google.com",
-  "country": "nl",
-  "city": "Amsterdam",
-  "address": "Spaarndammerplantsoen 21/4",
-  "postcode": "70044"
-}
-JSON;
-
-        ContactInformation::createFromJson($json);
+        ContactInformation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -119,7 +59,7 @@ JSON;
     {
         $json = 'foo';
 
-        ContactInformation::createFromJson($json);
+        ContactInformation::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -127,7 +67,7 @@ JSON;
      */
     public function testGetWebsite()
     {
-        $this->assertSame($this->website, $this->sut->getWebsite());
+        $this->assertSame('http://google.com', $this->sut->getWebsite());
     }
 
     /**
@@ -135,7 +75,7 @@ JSON;
      */
     public function testGetCountryCode()
     {
-        $this->assertSame($this->countryCode, $this->sut->getCountryCode());
+        $this->assertSame('nl', $this->sut->getCountryCode());
     }
 
     /**
@@ -143,7 +83,7 @@ JSON;
      */
     public function testGetCity()
     {
-        $this->assertSame($this->city, $this->sut->getCity());
+        $this->assertSame('Amsterdam', $this->sut->getCity());
     }
 
     /**
@@ -151,7 +91,7 @@ JSON;
      */
     public function testGetAddress()
     {
-        $this->assertSame($this->address, $this->sut->getAddress());
+        $this->assertSame('Spaarndammerplantsoen 21/4', $this->sut->getAddress());
     }
 
     /**
@@ -159,7 +99,7 @@ JSON;
      */
     public function testGetPostalCode()
     {
-        $this->assertSame($this->postalCode, $this->sut->getPostalCode());
+        $this->assertSame('70044', $this->sut->getPostalCode());
     }
 
     /**
@@ -167,7 +107,7 @@ JSON;
      */
     public function testGetPhoneNumber()
     {
-        $this->assertSame($this->phoneNumber, $this->sut->getPhoneNumber());
+        $this->assertSame('79035935578', $this->sut->getPhoneNumber());
     }
 
     /**
@@ -175,8 +115,7 @@ JSON;
      */
     public function testGetAdministrativeSubdivision()
     {
-        $this->assertSame($this->administrativeSubdivision,
-          $this->sut->getAdministrativeSubdivision());
+        $this->assertSame('Second-hand', $this->sut->getAdministrativeSubdivision());
     }
 
 }

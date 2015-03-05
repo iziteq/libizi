@@ -44,28 +44,15 @@ class CountryContent implements CountryContentInterface
      */
     protected $description;
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param string $languageCode
-     * @param string $title
-     * @param string $summary
-     * @param string $description
-     */
-    public function __construct($languageCode, $title, $summary, $description)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->languageCode = $languageCode;
-        $this->title = $title;
-        $this->summary = $summary;
-        $this->description = $description;
-    }
+        $content = new static();
+        $content->languageCode = $data->language;
+        $content->title = $data->title;
+        $content->summary = $data->summary;
+        $content->description = $data->desc;
 
-    public static function createFromData($data)
-    {
-        $data = (array) $data;
-
-        return new static($data['language'], $data['title'], $data['summary'],
-          $data['desc']);
+        return $content;
     }
 
     public function getLanguageCode()

@@ -7,9 +7,7 @@
 
 namespace Triquanta\IziTravel\Request;
 
-use Triquanta\IziTravel\DataType\CompactPublisher;
-use Triquanta\IziTravel\DataType\FullPublisher;
-use Triquanta\IziTravel\DataType\MultipleFormInterface;
+use Triquanta\IziTravel\DataType\PublisherBase;
 
 /**
  * Requests a publisher by UUID.
@@ -34,11 +32,8 @@ class PublisherByUuid extends RequestBase implements FormInterface, ModifiableIn
             'form' => $this->form,
           ]);
         $data = json_decode($json);
-        if ($this->form == MultipleFormInterface::FORM_COMPACT) {
-            return CompactPublisher::createFromData($data);
-        } else {
-            return FullPublisher::createFromData($data);
-        }
+
+        return PublisherBase::createFromData($data, $this->form);
     }
 
 }

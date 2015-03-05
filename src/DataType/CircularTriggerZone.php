@@ -43,32 +43,23 @@ class CircularTriggerZone implements CircularTriggerZoneInterface
      */
     protected $radius;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param float|null $latitude
-     * @param float|null $longitude
-     * @param float|null $altitude
-     * @param float|null $radius
-     */
-    public function __construct($latitude, $longitude, $altitude, $radius)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
-        $this->altitude = $altitude;
-        $this->radius = $radius;
-    }
+        $triggerZone = new static();
+        if (isset($data->circle_latitude)) {
+            $triggerZone->latitude = $data->circle_latitude;
+        }
+        if (isset($data->circle_longitude)) {
+            $triggerZone->longitude = $data->circle_longitude;
+        }
+        if (isset($data->circle_altitude)) {
+            $triggerZone->altitude = $data->circle_altitude;
+        }
+        if (isset($data->circle_radius)) {
+            $triggerZone->radius = $data->circle_radius;
+        }
 
-    public static function createFromData($data)
-    {
-        $data = (array) $data + [
-            'latitude' => null,
-            'longitude' => null,
-            'altitude' => null,
-            'radius' => null,
-          ];
-        return new static($data['latitude'], $data['longitude'],
-          $data['altitude'], $data['radius']);
+        return $triggerZone;
     }
 
     public function getLatitude()

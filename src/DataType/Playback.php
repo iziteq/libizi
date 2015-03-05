@@ -30,25 +30,15 @@ class Playback implements PlaybackInterface
      */
     protected $uuids = [];
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string $type
-     *   One of the static::TYPE_* constants.
-     * @param string[] $uuids
-     */
-    public function __construct($type, array $uuids)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->type = $type;
-        $this->uuids = $uuids;
-    }
+        $playback = new static();
+        $playback->type = $data->type;
+        if (isset($data->order)) {
+            $playback->uuids = $data->order;
+        }
 
-    public static function createFromData($data)
-    {
-        $data = (array) $data + [
-            'order' => [],
-          ];
-        return new static($data['type'], $data['order']);
+        return $playback;
     }
 
     public function isRandom()

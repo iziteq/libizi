@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\MediaInterface;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\PlayableMediaBase
@@ -15,49 +16,16 @@ use Triquanta\IziTravel\DataType\MediaInterface;
 class PlayableMediaBaseTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The type.
-     *
-     * @var string
-     *   One of the static::TYPE_* constants.
-     */
-    protected $type;
-
-    /**
-     * The order.
-     *
-     * @var int
-     */
-    protected $order;
-
-    /**
-     * The duration.
-     *
-     * @var int
-     *   The duration in seconds.
-     */
-    protected $duration;
-
-    /**
-     * The URL.
-     *
-     * @var string|null
-     */
-    protected $url;
-
-    /**
-     * The title.
-     *
-     * @var string|null
-     */
-    protected $title;
-
-    /**
-     * The UUID.
-     *
-     * @var string
-     */
-    protected $uuid;
+    protected $json = <<<'JSON'
+{
+    "uuid" : "d2cea5b6-a781-4d67-be7b-7c46f034e6ae",
+    "type" : "story",
+    "duration" : 44,
+    "order" : 1,
+    "hash" : "89754396ad760e91985c622ecb0acce5",
+    "size" : 365477
+}
+JSON;
 
     /**
      * The class under test.
@@ -68,23 +36,21 @@ class PlayableMediaBaseTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->type = MediaInterface::TYPE_MAP;
-        $this->order = mt_rand();
-        $this->duration = mt_rand();
-        $this->url = 'http://example.com';
-        $this->title = 'Foo to the bar!';
-        $this->uuid = 'foo-bar-baz-' . mt_rand();
+        $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\PlayableMediaBase');
+        /** @var \Triquanta\IziTravel\DataType\PlayableMediaBase $class */
+        $class = get_class($this->sut);
+        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+    }
 
-        $this->sut = $this->getMockBuilder('\Triquanta\IziTravel\DataType\PlayableMediaBase')
-          ->setConstructorArgs([
-            $this->uuid,
-            $this->type,
-            $this->order,
-            $this->url,
-            $this->title,
-            $this->duration
-          ])
-          ->getMockForAbstractClass();
+    /**
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     */
+    public function testCreateFromJson()
+    {
+        /** @var \Triquanta\IziTravel\DataType\PlayableMediaBase $class */
+        $class = get_class($this->sut);
+        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -106,7 +72,7 @@ JSON;
 
         /** @var \Triquanta\IziTravel\DataType\PlayableMediaBase $class */
         $class = get_class($this->sut);
-        $class::createFromJson($json);
+        $class::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -114,7 +80,7 @@ JSON;
      */
     public function testGetDuration()
     {
-        $this->assertSame($this->duration, $this->sut->getDuration());
+        $this->assertSame(44, $this->sut->getDuration());
     }
 
 }

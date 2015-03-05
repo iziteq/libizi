@@ -32,7 +32,7 @@ class MtgObjectByUuid extends RequestBase implements FormInterface, ModifiableIn
         ]);
         $data = json_decode($json);
 
-        return MtgObjectBase::createMtgObject(reset($data), $this->form);
+        return MtgObjectBase::createFromData(reset($data), $this->form);
     }
 
 }

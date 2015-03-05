@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\FullMuseum;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\FullMuseum
@@ -15,167 +16,7 @@ use Triquanta\IziTravel\DataType\FullMuseum;
 class FullMuseumTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The data type.
-     *
-     * @var string
-     */
-    protected $type;
-
-    /**
-     * The UUID.
-     *
-     * @var string
-     */
-    protected $uuid;
-
-    /**
-     * The language codes for available translations.
-     *
-     * @var string[]
-     *   Values are ISO 639-1 alpha-2 language codes.
-     */
-    protected $availableLanguageCodes = [];
-
-    /**
-     * Whether the object is published.
-     *
-     * @return bool
-     */
-    protected $status;
-
-    /**
-     * The location.
-     *
-     * @var \Triquanta\IziTravel\DataType\LocationInterface|null
-     */
-    protected $location;
-
-    /**
-     * The trigger zones.
-     *
-     * @var \Triquanta\IziTravel\DataType\TriggerZoneInterface[]
-     */
-    protected $triggerZones = [];
-
-    /**
-     * The content provider.
-     *
-     * @var \Triquanta\IziTravel\DataType\ContentProviderInterface
-     */
-    protected $contentProvider;
-
-    /**
-     * The purchase.
-     *
-     * @var \Triquanta\IziTravel\DataType\PurchaseInterface|null
-     */
-    protected $purchase;
-
-    /**
-     * The UUID of the parent object.
-     *
-     * @var string|null
-     */
-    protected $parentUuid;
-
-    /**
-     * The schedule.
-     *
-     * @var \Triquanta\IziTravel\DataType\ScheduleInterface|null
-     */
-    protected $schedule;
-
-    /**
-     * The contact information.
-     *
-     * @var \Triquanta\IziTravel\DataType\ContactInformationInterface|null
-     */
-    protected $contactInformation;
-
-    /**
-     * The map.
-     *
-     * @var \Triquanta\IziTravel\DataType\MapInterface|null
-     */
-    protected $map;
-
-    /**
-     * The content.
-     *
-     * @var \Triquanta\IziTravel\DataType\ContentInterface[]
-     */
-    protected $content = [];
-
-    /**
-     * The revision hash.
-     *
-     * @var string
-     */
-    protected $revisionHash;
-
-    /**
-     * The class under test.
-     *
-     * @var \Triquanta\IziTravel\DataType\FullMuseum
-     */
-    protected $sut;
-
-    public function setUp()
-    {
-        $this->type = 'foo_bar_' . mt_rand();
-
-        $this->uuid = 'foo-bar-baz-' . mt_rand();
-
-        $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
-
-        $this->availableLanguageCodes = ['nl', 'uk'];
-
-        $this->status = (bool) mt_rand(0, 1);;
-
-        $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
-
-        $this->triggerZones = [
-          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-        ];
-
-        $this->contentProvider = $this->getMock('\Triquanta\IziTravel\DataType\ContentProviderInterface');
-
-        $this->purchase = $this->getMock('\Triquanta\IziTravel\DataType\PurchaseInterface');
-
-        $this->parentUuid = 'foo-bar-qux-' . mt_rand();
-
-        $this->schedule = $this->getMock('\Triquanta\IziTravel\DataType\ScheduleInterface');
-
-        $this->contactInformation = $this->getMock('\Triquanta\IziTravel\DataType\ContactInformationInterface');
-
-        $this->map = $this->getMock('\Triquanta\IziTravel\DataType\MapInterface');
-
-        $this->content = [
-          $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
-        ];
-
-        $this->sut = new FullMuseum($this->type, $this->uuid,
-          $this->revisionHash,
-          $this->availableLanguageCodes, $this->status,
-          $this->location, $this->triggerZones, $this->contentProvider,
-          $this->purchase, $this->parentUuid,
-          $this->contactInformation, $this->map, $this->content,
-          $this->schedule);
-    }
-
-    /**
-     * @covers ::__construct
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     */
-    public function testCreateFromJson()
-    {
-        $json = <<<'JSON'
+    protected $json = <<<'JSON'
 {
   "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
   "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
@@ -217,11 +58,13 @@ class FullMuseumTest extends \PHPUnit_Framework_TestCase
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         },
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         }
       ],
@@ -229,11 +72,15 @@ class FullMuseumTest extends \PHPUnit_Framework_TestCase
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
+            "duration": 17,
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         },
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
+            "duration": 17,
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         }
       ],
@@ -241,11 +88,15 @@ class FullMuseumTest extends \PHPUnit_Framework_TestCase
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
+            "duration": 17,
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         },
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
+            "duration": 17,
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         }
       ],
@@ -268,15 +119,41 @@ class FullMuseumTest extends \PHPUnit_Framework_TestCase
         ]
       }
     }
-  ]
+  ],
+  "schedule" : {
+      "mon" : ["10:00", "18:00"],
+      "tue" : ["10:00", "18:00"],
+      "wed" : ["10:00", "18:00"],
+      "thu" : ["10:00", "18:00"],
+      "fri" : ["10:00", "18:00"],
+      "sat" : ["11:00", "17:00"],
+      "sun" : ["11:00", "15:00"]
+    }
 }
 JSON;
 
-        FullMuseum::createFromJson($json);
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\FullMuseum
+     */
+    protected $sut;
+
+    public function setUp()
+    {
+        $this->sut = FullMuseum::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     */
+    public function testCreateFromJson()
+    {
+        FullMuseum::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+    }
+
+    /**
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -286,7 +163,7 @@ JSON;
     {
         $json = 'foo';
 
-        FullMuseum::createFromJson($json);
+        FullMuseum::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -306,7 +183,7 @@ JSON;
 }
 JSON;
 
-        FullMuseum::createFromJson($json);
+        FullMuseum::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -314,7 +191,7 @@ JSON;
      */
     public function testGetSchedule()
     {
-        $this->assertSame($this->schedule, $this->sut->getSchedule());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ScheduleInterface', $this->sut->getSchedule());
     }
 
 }

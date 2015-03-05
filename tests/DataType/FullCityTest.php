@@ -7,8 +7,8 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
-use Triquanta\IziTravel\DataType\CityInterface;
 use Triquanta\IziTravel\DataType\FullCity;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\FullCity
@@ -16,146 +16,7 @@ use Triquanta\IziTravel\DataType\FullCity;
 class FullCityTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The UUID.
-     *
-     * @var string
-     */
-    protected $uuid;
-
-    /**
-     * The revision hash.
-     *
-     * @var string
-     */
-    protected $revisionHash;
-
-    /**
-     * The language codes for available translations.
-     *
-     * @var string[]
-     *   Values are ISO 639-1 alpha-2 language codes.
-     */
-    protected $availableLanguageCodes = [];
-
-    /**
-     * The country code.
-     *
-     * @var string|null
-     *   An ISO 3166-1 alpha-2 country code.
-     */
-    protected $countryCode;
-
-    /**
-     * The map.
-     *
-     * @var \Triquanta\IziTravel\DataType\MapInterface|null
-     */
-    protected $map;
-
-    /**
-     * The translations.
-     *
-     * @var \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[]
-     */
-    protected $translations = [];
-
-    /**
-     * The location.
-     *
-     * @var \Triquanta\IziTravel\DataType\LocationInterface|null
-     */
-    protected $location;
-
-    /**
-     * The status.
-     *
-     * @var string
-     */
-    protected $status;
-
-    /**
-     * The number of child objects.
-     *
-     * @return int|null
-     */
-    protected $numberOfChildren;
-
-    /**
-     * Whether the object must be visible in listings.
-     *
-     * @var bool
-     */
-    protected $visible = false;
-
-    /**
-     * The content.
-     *
-     * @Var \Triquanta\IziTravel\DataType\CityContentInterface[]
-     */
-    protected $content = [];
-
-    /**
-     * The class under test.
-     *
-     * @var \Triquanta\IziTravel\DataType\FullCity|\PHPUnit_Framework_MockObject_MockObject
-     */
-    protected $sut;
-
-    public function setUp()
-    {
-        $this->uuid = 'foo-bar-baz-' . mt_rand();
-
-        $this->revisionHash = 'hwg98309t82ohtwqlekhgf0823yt';
-
-        $this->availableLanguageCodes = ['nl', 'uk'];
-
-        $this->countryCode = 'UA';
-
-        $this->map = $this->getMock('\Triquanta\IziTravel\DataType\MapInterface');
-
-        $this->translations = [
-          $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CountryCityTranslationInterface'),
-        ];
-
-        $this->status = CityInterface::STATUS_PUBLISHED;
-
-        $this->numberOfChildren = mt_rand();
-
-        $this->visible = (bool) mt_rand(0, 1);
-
-        $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
-
-        $this->content = [
-          $this->getMock('\Triquanta\IziTravel\DataType\CityContentInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CityContentInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\CityContentInterface'),
-        ];
-
-        $this->sut = new FullCity(
-          $this->uuid,
-          $this->revisionHash,
-          $this->availableLanguageCodes,
-          $this->map,
-          $this->translations,
-          $this->location,
-          $this->status,
-          $this->numberOfChildren,
-          $this->visible,
-          $this->content
-        );
-    }
-
-    /**
-     * @covers ::__construct
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     */
-    public function testCreateFromJson()
-    {
-        $json = <<<'JSON'
+    protected $json = <<<'JSON'
 {
         "uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
         "type": "city",
@@ -230,10 +91,12 @@ class FullCityTest extends \PHPUnit_Framework_TestCase
                 "language": "en",
                 "images": [
                     {
-                        "uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
-                        "type": "city",
-                        "order": 1
-                    }
+                        "uuid" : "b5c30e91-66c0-4382-aa55-56c0b13e2263",
+                        "type" : "story",
+                        "order" : 1,
+                        "hash" : "b638e89534de7a84304942ce7887bdb4",
+                        "size" : 231663
+                      }
                 ]
             }
         ],
@@ -247,13 +110,32 @@ class FullCityTest extends \PHPUnit_Framework_TestCase
     }
 JSON;
 
-        FullCity::createFromJson($json);
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\FullCity|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $sut;
+
+    public function setUp()
+    {
+        $this->sut = FullCity::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\CityBase::createBaseFromData
+     */
+    public function testCreateFromJson()
+    {
+        FullCity::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+    }
+
+    /**
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\CityBase::createBaseFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
      */
@@ -261,12 +143,13 @@ JSON;
     {
         $json = 'foo';
 
-        FullCity::createFromJson($json);
+        FullCity::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\CityBase::createBaseFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
      */
@@ -321,7 +204,7 @@ JSON;
 }
 JSON;
 
-        FullCity::createFromJson($json);
+        FullCity::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -329,7 +212,10 @@ JSON;
      */
     public function testGetContent()
     {
-        $this->assertSame($this->content, $this->sut->getContent());
+        $this->assertInternalType('array', $this->sut->getContent());
+        foreach ($this->sut->getContent() as $content) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CityContentInterface', $content);
+        }
     }
 
 }

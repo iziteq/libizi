@@ -14,6 +14,7 @@ abstract class MediaBase implements MediaInterface
 {
 
     use FactoryTrait;
+    use RevisionableTrait;
     use UuidTrait;
 
     /**
@@ -45,22 +46,23 @@ abstract class MediaBase implements MediaInterface
      */
     protected $title;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string $uuid
-     * @param string $type
-     * @param int $order
-     * @param string|null $url
-     * @param string|null $title
-     */
-    public function __construct($uuid, $type, $order, $url, $title)
-    {
-        $this->uuid = $uuid;
-        $this->type = $type;
-        $this->order = $order;
-        $this->url = $url;
-        $this->title = $title;
+    public static function createFromData(\stdClass $data, $form) {
+        if (!isset($data->uuid)) {
+            throw new MissingUuidFactoryException($data);
+        }
+
+        $media = new static();
+        $media->uuid = $data->uuid;
+        $media->type= $data->type;
+        $media->order = $data->order;
+        if (isset($data->url)) {
+            $media->url = $data->url;
+        }
+        if (isset($data->title)) {
+            $media->title = $data->title;
+        }
+
+        return $media;
     }
 
     public function getType()

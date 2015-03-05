@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\CountryContent;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\CountryContent
@@ -15,34 +16,14 @@ use Triquanta\IziTravel\DataType\CountryContent;
 class CountryContentTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The language code.
-     *
-     * @var string
-     *   An ISO 639-1 alpha-2 language code.
-     */
-    protected $languageCode;
-
-    /**
-     * The title.
-     *
-     * @var string
-     */
-    protected $title;
-
-    /**
-     * The summary.
-     *
-     * @var string
-     */
-    protected $summary;
-
-    /**
-     * The description.
-     *
-     * @var string
-     */
-    protected $description;
+    protected $json = <<<'JSON'
+{
+  "title": "Netherlands",
+  "summary": "Poehee",
+  "desc": "Het is vandaag woensdag.",
+  "language": "en"
+}
+JSON;
 
     /**
      * The class under test.
@@ -53,39 +34,19 @@ class CountryContentTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->languageCode = 'uk';
-
-        $this->title = 'Foo & Bar ' . mt_rand();
-
-        $this->summary = 'The story of Foo & Bar ' . mt_rand();
-
-        $this->description = 'A description of the story of Foo & Bar ' . mt_rand();
-
-        $this->sut = new CountryContent($this->languageCode, $this->title,
-          $this->summary, $this->description);
+        $this->sut = CountryContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        $json = <<<'JSON'
-{
-  "title": "Netherlands",
-  "summary": "",
-  "desc": "",
-  "language": "en"
-}
-JSON;
-
-        CountryContent::createFromJson($json);
+        CountryContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -95,7 +56,7 @@ JSON;
     {
         $json = 'foo';
 
-        CountryContent::createFromJson($json);
+        CountryContent::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -103,7 +64,7 @@ JSON;
      */
     public function testGetLanguageCode()
     {
-        $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
+        $this->assertSame('en', $this->sut->getLanguageCode());
     }
 
     /**
@@ -111,7 +72,7 @@ JSON;
      */
     public function testGetTitle()
     {
-        $this->assertSame($this->title, $this->sut->getTitle());
+        $this->assertSame('Netherlands', $this->sut->getTitle());
     }
 
     /**
@@ -119,7 +80,7 @@ JSON;
      */
     public function testGetSummary()
     {
-        $this->assertSame($this->summary, $this->sut->getSummary());
+        $this->assertSame('Poehee', $this->sut->getSummary());
     }
 
     /**
@@ -127,7 +88,7 @@ JSON;
      */
     public function testGetDescription()
     {
-        $this->assertSame($this->description, $this->sut->getDescription());
+        $this->assertSame('Het is vandaag woensdag.', $this->sut->getDescription());
     }
 
 }

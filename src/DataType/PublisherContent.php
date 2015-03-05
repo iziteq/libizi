@@ -50,42 +50,20 @@ class PublisherContent implements PublisherContentInterface
      */
     protected $description;
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param string $languageCode
-     * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
-     * @param string $title
-     * @param string $summary
-     * @param string $description
-     */
-    public function __construct(
-      $languageCode,
-      array $images,
-      $title,
-      $summary,
-      $description
-    ) {
-        $this->languageCode = $languageCode;
-        $this->images = $images;
-        $this->title = $title;
-        $this->summary = $summary;
-        $this->description = $description;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'images' => [],
-          ];
-
-        $images = [];
-        foreach ($data['images'] as $imageData) {
-            $images[] = Image::createFromData($imageData);
+        $content = new static();
+        $content->languageCode = $data->language;
+        $content->title = $data->title;
+        $content->summary = $data->summary;
+        $content->description = $data->desc;
+        if (isset($data->images)) {
+            foreach ($data->images as $imageData) {
+                $content->images[] = Image::createFromData($imageData, $form);
+            }
         }
 
-        return new static($data['language'], $images, $data['title'],
-          $data['summary'], $data['desc']);
+        return $content;
     }
 
     public function getLanguageCode()

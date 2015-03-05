@@ -7,13 +7,10 @@
 
 namespace Triquanta\IziTravel\Request;
 
-use Triquanta\IziTravel\DataType\CompactCity;
-use Triquanta\IziTravel\DataType\CompactCountry;
-use Triquanta\IziTravel\DataType\FullCity;
-use Triquanta\IziTravel\DataType\FullCountry;
+use Triquanta\IziTravel\DataType\CityBase;
+use Triquanta\IziTravel\DataType\CountryBase;
 use Triquanta\IziTravel\DataType\MtgObjectBase;
 use Triquanta\IziTravel\DataType\MtgObjectInterface;
-use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * Requests featured content.
@@ -73,19 +70,11 @@ class Search extends RequestBase implements FormInterface, ModifiableInterface, 
         $objects = [];
         foreach ($data as $objectData) {
             if ($objectData->type === 'city') {
-                if ($this->form === MultipleFormInterface::FORM_COMPACT) {
-                    $objects[] = CompactCity::createFromData($objectData);
-                } else {
-                    $objects[] = FullCity::createFromData($objectData);
-                }
+                $objects[] = CityBase::createFromData($objectData, $this->form);
             } elseif ($objectData->type === 'country') {
-                if ($this->form === MultipleFormInterface::FORM_COMPACT) {
-                    $objects[] = CompactCountry::createFromData($objectData);
-                } else {
-                    $objects[] = FullCountry::createFromData($objectData);
-                }
+                $objects[] = CountryBase::createFromData($objectData, $this->form);
             } else {
-                $objects[] = MtgObjectBase::createMtgObject($objectData,
+                $objects[] = MtgObjectBase::createFromData($objectData,
                   $this->form);
             }
         }

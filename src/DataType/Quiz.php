@@ -36,28 +36,18 @@ class Quiz implements QuizInterface
      */
     protected $question;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string $question
-     * @param \Triquanta\IziTravel\DataType\QuizAnswerInterface[] $answers
-     * @param string|null $comment
-     */
-    public function __construct($question, array $answers, $comment)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->question = $question;
-        $this->answers = $answers;
-        $this->comment = $comment;
-    }
-
-    public static function createFromData($data)
-    {
-        $data = (array) $data;
-        $answers = [];
-        foreach ($data['answers'] as $answerData) {
-            $answers[] = QuizAnswer::createFromData($answerData);
+        $quiz = new static();
+        $quiz->question = $data->question;
+        foreach ($data->answers as $answerData) {
+            $quiz->answers[] = QuizAnswer::createFromData($answerData, $form);
         }
-        return new static($data['question'], $answers, $data['comment']);
+        if (isset($data->comment)) {
+            $quiz->comment = $data->comment;
+        }
+
+        return $quiz;
     }
 
     public function getQuestion()

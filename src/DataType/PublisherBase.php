@@ -26,25 +26,28 @@ abstract class PublisherBase implements PublisherInterface
      */
     protected $contentProvider;
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param string $uuid
-     * @param string $revisionHash
-     * @param string[] $availableLanguageCodes
-     */
-    public function __construct(
-      $uuid,
-      $revisionHash,
-      array $availableLanguageCodes,
-      ContentProviderInterface $contentProvider,
-      $status
-    ) {
-        $this->uuid = $uuid;
-        $this->revisionHash = $revisionHash;
-        $this->availableLanguageCodes = $availableLanguageCodes;
-        $this->contentProvider = $contentProvider;
-        $this->status = $status;
+    public static function createBaseFromData(\stdClass $data, $form) {
+        if (!isset($data->uuid)) {
+            throw new MissingUuidFactoryException($data);
+        }
+
+        $publisher = new static();
+        $publisher->uuid = $data->uuid;
+        $publisher->revisionHash = $data->hash;
+        $publisher->availableLanguageCodes = $data->languages;
+        $publisher->status = $data->status;
+        $publisher->contentProvider = ContentProvider::createFromData($data->content_provider, $form);
+
+        return $publisher;
+    }
+
+    public static function createFromData(\stdClass $data, $form) {
+        if ($form === MultipleFormInterface::FORM_FULL) {
+            return FullPublisher::createFromData($data, $form);
+        }
+        elseif ($form === MultipleFormInterface::FORM_COMPACT) {
+            return CompactPublisher::createFromData($data, $form);
+        }
     }
 
     public function getContentProvider()

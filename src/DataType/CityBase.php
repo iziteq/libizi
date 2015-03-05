@@ -20,6 +20,20 @@ abstract class CityBase implements CityInterface
     use UuidTrait;
 
     /**
+     * The children.
+     *
+     * @var \Triquanta\IziTravel\DataType\MapInterface|null
+     */
+    protected $children = [];
+
+    /**
+     * The country.
+     *
+     * @var \Triquanta\IziTravel\DataType\CountryInterface|null
+     */
+    protected $country;
+
+    /**
      * The map.
      *
      * @var \Triquanta\IziTravel\DataType\MapInterface|null
@@ -54,39 +68,46 @@ abstract class CityBase implements CityInterface
      */
     protected $visible = false;
 
-    /**
-     * Created a new instance.
-     *
-     * @param string $uuid
-     * @param string $revisionHash
-     * @param string[] $availableLanguageCodes
-     * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
-     * @param \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[] $translations
-     * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
-     * @param string $status
-     * @param int|null $numberOfChildren
-     * @param bool $visible
-     */
-    public function __construct(
-      $uuid,
-      $revisionHash,
-      array $availableLanguageCodes,
-      MapInterface $map = null,
-      array $translations,
-      LocationInterface $location = null,
-      $status,
-      $numberOfChildren,
-      $visible
-    ) {
-        $this->uuid = $uuid;
-        $this->revisionHash = $revisionHash;
-        $this->availableLanguageCodes = $availableLanguageCodes;
-        $this->map = $map;
-        $this->translations = $translations;
-        $this->location = $location;
-        $this->status = $status;
-        $this->numberOfChildren = $numberOfChildren;
-        $this->visible = $visible;
+    public static function createBaseFromData(\stdClass $data, $form)
+    {
+        if (!isset($data->uuid)) {
+            throw new MissingUuidFactoryException($data);
+        }
+
+        $city = new static();
+        $city->uuid = $data->uuid;
+        $city->revisionHash = $data->hash;
+        $city->availableLanguageCodes = $data->languages;
+        $city->status = $data->status;
+        $city->visible = $data->visible;
+        if (isset($data->children_count)) {
+            $city->numberOfChildren = $data->children_count;
+        }
+        if (isset($data->country)) {
+            $city->country = CountryBase::createFromData($data->country, $form);
+        }
+        if (isset($data->location)) {
+            $city->location = Location::createFromData($data->location, $form);
+        }
+        if (isset($data->map)) {
+            $city->map = Map::createFromData($data->map, $form);
+        }
+        if (isset($data->translations)) {
+            foreach ($data->translations as $translationData) {
+                $city->translations[] = CountryCityTranslation::createFromData($translationData, $form);
+            }
+        }
+
+        return $city;
+    }
+
+    public static function createFromData(\stdClass $data, $form) {
+        if ($form === MultipleFormInterface::FORM_FULL) {
+            return FullCity::createFromData($data, $form);
+        }
+        elseif ($form === MultipleFormInterface::FORM_COMPACT) {
+            return CompactCity::createFromData($data, $form);
+        }
     }
 
     public function getMap()

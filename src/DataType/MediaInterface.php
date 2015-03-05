@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a media data type.
  */
-interface MediaInterface extends FactoryInterface, UuidInterface
+interface MediaInterface extends FactoryInterface, RevisionableInterface, UuidInterface
 {
 
     /**

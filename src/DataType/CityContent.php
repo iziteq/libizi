@@ -51,41 +51,20 @@ class CityContent implements CityContentInterface
      */
     protected $images = [];
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param string $languageCode
-     * @param string $title
-     * @param string $summary
-     * @param string $description
-     * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
-     */
-    public function __construct(
-      $languageCode,
-      $title,
-      $summary,
-      $description,
-      array $images
-    ) {
-        $this->languageCode = $languageCode;
-        $this->title = $title;
-        $this->summary = $summary;
-        $this->description = $description;
-        $this->images = $images;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'images' => [],
-          ];
-        $images = [];
-        foreach ($data['images'] as $imageData) {
-            $images[] = Image::createFromData($imageData);
+        $content = new static();
+        $content->languageCode = $data->language;
+        $content->title = $data->title;
+        $content->summary = $data->summary;
+        $content->description = $data->desc;
+        if (isset($data->images)) {
+            foreach ($data->images as $imageData) {
+                $content->images[] = Image::createFromData($imageData, $form);
+            }
         }
 
-        return new static($data['language'], $data['title'], $data['summary'],
-          $data['desc'], $images);
+        return $content;
     }
 
     public function getLanguageCode()

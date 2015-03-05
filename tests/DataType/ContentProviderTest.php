@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\ContentProvider;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\ContentProvider
@@ -15,26 +16,13 @@ use Triquanta\IziTravel\DataType\ContentProvider;
 class ContentProviderTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The copyright message.
-     *
-     * @var string
-     */
-    protected $copyrightMessage;
-
-    /**
-     * The name.
-     *
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * The UUID.
-     *
-     * @var string
-     */
-    protected $uuid;
+    protected $json = <<<'JSON'
+{
+  "name": "Sample CP",
+  "uuid": "15ad4ee2-ff55-4a86-950d-8dee4c79fc35",
+  "copyright": "Here be dragons."
+}
+JSON;
 
     /**
      * The class under test.
@@ -45,33 +33,19 @@ class ContentProviderTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->uuid = 'foo-bar-' . mt_rand();
-        $this->name = 'Foo Baz';
-        $this->copyrightMessage = 'Private property!';
-
-        $this->sut = new ContentProvider($this->uuid, $this->name,
-          $this->copyrightMessage);
+        $this->sut = ContentProvider::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        $json = <<<'JSON'
-{
-  "name": "Sample CP",
-  "uuid": "15ad4ee2-ff55-4a86-950d-8dee4c79fc35"
-}
-JSON;
-
-        ContentProvider::createFromJson($json);
+        ContentProvider::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -81,7 +55,7 @@ JSON;
     {
         $json = 'foo';
 
-        ContentProvider::createFromJson($json);
+        ContentProvider::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -98,7 +72,15 @@ JSON;
 }
 JSON;
 
-        ContentProvider::createFromJson($json);
+        ContentProvider::createFromJson($json, MultipleFormInterface::FORM_FULL);
+    }
+
+    /**
+     * @covers ::getUuid
+     */
+    public function testGetUuid()
+    {
+        $this->assertSame('15ad4ee2-ff55-4a86-950d-8dee4c79fc35', $this->sut->getUuid());
     }
 
     /**
@@ -106,7 +88,7 @@ JSON;
      */
     public function testGetName()
     {
-        $this->assertSame($this->name, $this->sut->getName());
+        $this->assertSame('Sample CP', $this->sut->getName());
     }
 
     /**
@@ -114,8 +96,7 @@ JSON;
      */
     public function testGetCopyrightMessage()
     {
-        $this->assertSame($this->copyrightMessage,
-          $this->sut->getCopyrightMessage());
+        $this->assertSame('Here be dragons.', $this->sut->getCopyrightMessage());
     }
 
 }

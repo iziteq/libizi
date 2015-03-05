@@ -42,73 +42,20 @@ class CompactCity extends CityBase implements CompactCityInterface
      */
     protected $images = [];
 
-    /**
-     * Created a new instance.
-     *
-     * @param string $uuid
-     * @param string $revisionHash
-     * @param string[] $availableLanguageCodes
-     * @param \Triquanta\IziTravel\DataType\MapInterface|null $map
-     * @param \Triquanta\IziTravel\DataType\CountryCityTranslationInterface[] $translations
-     * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
-     * @param string $status
-     * @param int|null $numberOfChildren
-     * @param bool $visible
-     * @param string $languageCode
-     * @param string $title
-     * @param string $summary
-     * @param \Triquanta\IziTravel\DataType\ImageInterface[] $images
-     */
-    public function __construct(
-      $uuid,
-      $revisionHash,
-      array $availableLanguageCodes,
-      MapInterface $map = null,
-      array $translations,
-      LocationInterface $location = null,
-      $status,
-      $numberOfChildren,
-      $visible,
-      $languageCode,
-      $title,
-      $summary,
-      array $images
-    ) {
-        parent::__construct($uuid, $revisionHash, $availableLanguageCodes, $map,
-          $translations, $location, $status, $numberOfChildren, $visible);
-        $this->languageCode = $languageCode;
-        $this->title = $title;
-        $this->summary = $summary;
-        $this->images = $images;
-    }
-
-    public static function createFromData($data)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $data = (array) $data + [
-            'location' => null,
-            'map' => null,
-            'translations' => [],
-            'images' => [],
-            'children_count' => null,
-          ];
-        if (!isset($data['uuid'])) {
-            throw new MissingUuidFactoryException($data);
-        }
-        $location = $data['location'] ? Location::createFromData($data['location']) : null;
-        $map = $data['map'] ? Map::createFromData($data['map']) : null;
-        $translations = [];
-        foreach ($data['translations'] as $translationData) {
-            $translations[] = CountryCityTranslation::createFromData($translationData);
-        }
-        $images = [];
-        foreach ($data['images'] as $imageData) {
-            $images[] = Image::createFromData($imageData);
+        /** @var static $city */
+        $city = parent::createBaseFromData($data, $form);
+        $city->languageCode = $data->language;
+        $city->title = $data->title;
+        $city->summary = $data->summary;
+        if (isset($data->images)) {
+            foreach ($data->images as $imageData) {
+                $city->images[] = Image::createFromData($imageData, $form);
+            }
         }
 
-        return new static($data['uuid'], $data['hash'], $data['languages'],
-          $map, $translations, $location, $data['status'],
-          $data['children_count'], $data['visible'], $data['language'],
-          $data['title'], $data['summary'], $images);
+        return $city;
     }
 
     public function getLanguageCode()

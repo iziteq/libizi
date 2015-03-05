@@ -55,54 +55,35 @@ abstract class MtgObjectBase implements MtgObjectInterface
      */
     protected $purchase;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string $type
-     * @param string $uuid
-     * @param string $revisionHash
-     * @param string[] $availableLanguageCodes
-     * @param string $status
-     * @param \Triquanta\IziTravel\DataType\LocationInterface|null $location
-     * @param \Triquanta\IziTravel\DataType\TriggerZoneInterface[] $triggerZones
-     * @param \Triquanta\IziTravel\DataType\ContentProviderInterface $contentProvider
-     * @param \Triquanta\IziTravel\DataType\PurchaseInterface|null $purchase
-     */
-    public function __construct(
-      $type,
-      $uuid,
-      $revisionHash,
-      array $availableLanguageCodes,
-      $status,
-      LocationInterface $location = null,
-      array $triggerZones,
-      ContentProviderInterface $contentProvider,
-      PurchaseInterface $purchase = null
-    ) {
-        $this->type = $type;
-        $this->uuid = $uuid;
-        $this->revisionHash = $revisionHash;
-        $this->availableLanguageCodes = $availableLanguageCodes;
-        $this->status = $status;
-        $this->location = $location;
-        $this->triggerZones = $triggerZones;
-        $this->contentProvider = $contentProvider;
-        $this->purchase = $purchase;
+    protected static function createBaseFromData(\stdClass $data, $form)
+    {
+        if (!isset($data->uuid)) {
+            throw new MissingUuidFactoryException($data);
+        }
+
+        $object = new static();
+        $object->type = $data->type;
+        $object->uuid = $data->uuid;
+        $object->revisionHash = $data->hash;
+        $object->availableLanguageCodes = $data->languages;
+        $object->status = $data->status;
+        $object->contentProvider = ContentProvider::createFromData($data->content_provider, $form);
+        if (isset($data->location)) {
+            $object->location = Location::createFromData($data->location, $form);
+        }
+        if (isset($data->trigger_zones)) {
+            foreach ($data->trigger_zones as $triggerZoneData) {
+                $object->triggerZones[] = TriggerZone::createFromData($triggerZoneData, $form);
+            }
+        }
+        if (isset($data->purchase)) {
+            $object->purchase = Purchase::createFromData($data->purchase, $form);
+        }
+
+        return $object;
     }
 
-    /**
-     * Creates an MTG Object.
-     *
-     * @param \stdClass $data
-     * @param string $form
-     *   One of the \Triquanta\IziTravel\DataType\MultipleFormInterface::FORM_*
-     *   constants.
-     *
-     * @return \Triquanta\IziTravel\DataType\MtgObjectInterface
-     *
-     * @throws \Exception
-     */
-    public static function createMtgObject(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data, $form)
     {
         if (!isset($data->type)) {
             throw new \Exception('MTG Object data must contain a "type" key.');
@@ -111,7 +92,7 @@ abstract class MtgObjectBase implements MtgObjectInterface
         /** @var \Triquanta\IziTravel\DataType\MtgObjectInterface $class */
         $class = static::getClassMap()[$data->type][$form];
 
-        return $class::createFromData($data);
+        return $class::createFromData($data, $form);
     }
 
     /**

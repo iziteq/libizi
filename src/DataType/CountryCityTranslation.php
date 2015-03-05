@@ -30,23 +30,13 @@ class CountryCityTranslation implements CountryCityTranslationInterface
      */
     protected $languageCode;
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param string $name
-     * @param string $language_code
-     */
-    public function __construct($name, $language_code)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->name = $name;
-        $this->languageCode = $language_code;
-    }
+        $translation = new static();
+        $translation->name = $data->name;
+        $translation->languageCode = $data->language;
 
-    public static function createFromData($data)
-    {
-        $data = (array) $data;
-
-        return new static($data['name'], $data['language']);
+        return $translation;
     }
 
     public function getName()

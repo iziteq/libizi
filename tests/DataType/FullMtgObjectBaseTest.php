@@ -7,175 +7,18 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
+
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\FullMtgObjectBase
  */
 class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The data type.
-     *
-     * @var string
-     */
-    protected $type;
-
-    /**
-     * The UUID.
-     *
-     * @var string
-     */
-    protected $uuid;
-
-    /**
-     * The language codes for available translations.
-     *
-     * @var string[]
-     *   Values are ISO 639-1 alpha-2 language codes.
-     */
-    protected $availableLanguageCodes = [];
-
-    /**
-     * Whether the object is published.
-     *
-     * @return bool
-     */
-    protected $status;
-
-    /**
-     * The location.
-     *
-     * @var \Triquanta\IziTravel\DataType\LocationInterface|null
-     */
-    protected $location;
-
-    /**
-     * The trigger zones.
-     *
-     * @var \Triquanta\IziTravel\DataType\TriggerZoneInterface[]
-     */
-    protected $triggerZones = [];
-
-    /**
-     * The content provider.
-     *
-     * @var \Triquanta\IziTravel\DataType\ContentProviderInterface
-     */
-    protected $contentProvider;
-
-    /**
-     * The purchase.
-     *
-     * @var \Triquanta\IziTravel\DataType\PurchaseInterface|null
-     */
-    protected $purchase;
-
-    /**
-     * The UUID of the parent object.
-     *
-     * @var string|null
-     */
-    protected $parentUuid;
-
-    /**
-     * The contact information.
-     *
-     * @var \Triquanta\IziTravel\DataType\ContactInformationInterface|null
-     */
-    protected $contactInformation;
-
-    /**
-     * The map.
-     *
-     * @var \Triquanta\IziTravel\DataType\MapInterface|null
-     */
-    protected $map;
-
-    /**
-     * The content.
-     *
-     * @var \Triquanta\IziTravel\DataType\ContentInterface[]
-     */
-    protected $content = [];
-
-    /**
-     * The revision hash.
-     *
-     * @var string
-     */
-    protected $revisionHash;
-
-    /**
-     * The class under test.
-     *
-     * @var \Triquanta\IziTravel\DataType\FullMtgObjectBase
-     */
-    protected $sut;
-
-    public function setUp()
-    {
-        $this->type = 'foo_bar_' . mt_rand();
-
-        $this->uuid = 'foo-bar-baz-' . mt_rand();
-
-        $this->revisionHash = 'jkhsg897q309hkjghif89qu0r3qhjkfah';
-
-        $this->availableLanguageCodes = ['nl', 'uk'];
-
-        $this->status = (bool) mt_rand(0, 1);;
-
-        $this->location = $this->getMock('\Triquanta\IziTravel\DataType\LocationInterface');
-
-        $this->triggerZones = [
-          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\TriggerZoneInterface'),
-        ];
-
-        $this->contentProvider = $this->getMock('\Triquanta\IziTravel\DataType\ContentProviderInterface');
-
-        $this->purchase = $this->getMock('\Triquanta\IziTravel\DataType\PurchaseInterface');
-
-        $this->parentUuid = 'foo-bar-qux-' . mt_rand();
-
-        $this->contactInformation = $this->getMock('\Triquanta\IziTravel\DataType\ContactInformationInterface');
-
-        $this->map = $this->getMock('\Triquanta\IziTravel\DataType\MapInterface');
-
-        $this->content = [
-          $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ContentInterface'),
-        ];
-
-        $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FullMtgObjectBase',
-          [
-            $this->type,
-            $this->uuid,
-            $this->revisionHash,
-            $this->availableLanguageCodes,
-            $this->status,
-            $this->location,
-            $this->triggerZones,
-            $this->contentProvider,
-            $this->purchase,
-            $this->parentUuid,
-            $this->contactInformation,
-            $this->map,
-            $this->content
-          ]);
-    }
-
-    /**
-     * @covers ::__construct
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     */
-    public function testCreateFromJson()
-    {
-        $json = <<<'JSON'
+    protected $json = <<<'JSON'
 {
   "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
+  "parent_uuid":       "3afcd4ab-837f-4055-a8ed-ce43910f9446",
   "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
   "type":       "story_navigation",
   "category":   "bike",
@@ -215,11 +58,13 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         },
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         }
       ],
@@ -227,11 +72,15 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
+            "duration": 17,
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         },
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
+            "duration": 17,
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         }
       ],
@@ -239,11 +88,15 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
+            "duration": 17,
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         },
         {
           "order": 1,
           "type":  "story",
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
+            "duration": 17,
           "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
         }
       ],
@@ -266,19 +119,45 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         ]
       }
     }
-  ]
+  ],
+  "map": {
+    "route": "48.80056018925834,2.128772735595703;48.79945774194329,...,2.129995822906494;48.80162021190271,2.129502296447754",
+    "bounds": "48.795118387011776,2.118215560913086,48.809616,2.133493423461914"
+  }
 }
 JSON;
 
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\FullMtgObjectBase
+     */
+    protected $sut;
+
+    public function setUp()
+    {
+        $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FullMtgObjectBase');
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);
-        $class::createFromJson($json);
+        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\MtgObjectBase::createBaseFromData
+     */
+    public function testCreateFromJson()
+    {
+        /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
+        $class = get_class($this->sut);
+        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+    }
+
+    /**
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\MtgObjectBase::createBaseFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
      */
@@ -288,12 +167,13 @@ JSON;
 
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);
-        $class::createFromJson($json);
+        $this->sut = $class::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\MtgObjectBase::createBaseFromData
      *
      * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
      */
@@ -310,7 +190,7 @@ JSON;
 
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);
-        $class::createFromJson($json);
+        $this->sut = $class::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -318,16 +198,7 @@ JSON;
      */
     public function testGetParentUuid()
     {
-        $this->assertSame($this->parentUuid, $this->sut->getParentUuid());
-    }
-
-    /**
-     * @covers ::getContactInformation
-     */
-    public function testGetContactInformation()
-    {
-        $this->assertSame($this->contactInformation,
-          $this->sut->getContactInformation());
+        $this->assertSame('3afcd4ab-837f-4055-a8ed-ce43910f9446', $this->sut->getParentUuid());
     }
 
     /**
@@ -335,7 +206,7 @@ JSON;
      */
     public function testGetMap()
     {
-        $this->assertSame($this->map, $this->sut->getMap());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MapInterface', $this->sut->getMap());
     }
 
     /**
@@ -343,7 +214,11 @@ JSON;
      */
     public function testGetContent()
     {
-        $this->assertSame($this->content, $this->sut->getContent());
+        $this->assertInternalType('array', $this->sut->getContent());
+        foreach ($this->sut->getContent() as $content) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ContentInterface', $content);
+
+        }
     }
 
 }

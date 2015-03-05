@@ -21,13 +21,6 @@ interface FullMtgObjectInterface extends MtgObjectInterface
     public function getParentUuid();
 
     /**
-     * Gets the contact information.
-     *
-     * @return \Triquanta\IziTravel\DataType\ContactInformationInterface|null
-     */
-    public function getContactInformation();
-
-    /**
      * Gets the map.
      *
      * @return \Triquanta\IziTravel\DataType\MapInterface|null

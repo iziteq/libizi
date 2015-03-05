@@ -21,22 +21,14 @@ class PolygonalTriggerZone implements PolygonalTriggerZoneInterface
      */
     protected $corners;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param string|null $corners
-     */
-    public function __construct($corners)
+    public static function createFromData(\stdClass $data, $form)
     {
-        $this->corners = $corners;
-    }
+        $triggerZone = new static();
+        if (isset($data->polygon_corners)) {
+            $triggerZone->corners = $data->polygon_corners;
+        }
 
-    public static function createFromData($data)
-    {
-        $data = (array) $data + [
-            'corners' => null,
-          ];
-        return new static($data['corners']);
+        return $triggerZone;
     }
 
     public function getCorners()

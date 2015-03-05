@@ -7,6 +7,7 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\DataType\Quiz;
 
 /**
@@ -15,54 +16,7 @@ use Triquanta\IziTravel\DataType\Quiz;
 class QuizTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The suggested answers.
-     *
-     * @var \Triquanta\IziTravel\DataType\QuizAnswerInterface[]
-     */
-    protected $answers = [];
-
-    /**
-     * The comment.
-     *
-     * @var string|null
-     */
-    protected $comment;
-
-    /**
-     * The question.
-     *
-     * @var string
-     */
-    protected $question;
-
-    /**
-     * The class under test.
-     *
-     * @var \Triquanta\IziTravel\DataType\Quiz
-     */
-    protected $sut;
-
-    public function setUp()
-    {
-        $this->question = 'Foo Qux?';
-        $this->comment = 'Foo Qux!';
-        $this->answers = [
-          $this->getMock('\Triquanta\IziTravel\DataType\QuizAnswerInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\QuizAnswerInterface'),
-        ];
-
-        $this->sut = new Quiz($this->question, $this->answers, $this->comment);
-    }
-
-    /**
-     * @covers ::__construct
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     */
-    public function testCreateFromJson()
-    {
-        $json = <<<'JSON'
+    protected $json = <<<'JSON'
 {
   "question": "Dolor illo iure beatae inventore fuga voluptatem quam error.",
   "comment": "Bla bla bla",
@@ -82,11 +36,28 @@ class QuizTest extends \PHPUnit_Framework_TestCase
 ] }
 JSON;
 
-        Quiz::createFromJson($json);
+    /**
+     * The class under test.
+     *
+     * @var \Triquanta\IziTravel\DataType\Quiz
+     */
+    protected $sut;
+
+    public function setUp()
+    {
+        $this->sut = Quiz::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
+     * @covers ::createFromJson
+     * @covers ::createFromData
+     */
+    public function testCreateFromJson()
+    {
+        Quiz::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+    }
+
+    /**
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -96,7 +67,7 @@ JSON;
     {
         $json = 'foo';
 
-        Quiz::createFromJson($json);
+        Quiz::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -104,7 +75,7 @@ JSON;
      */
     public function testGetQuestion()
     {
-        $this->assertSame($this->question, $this->sut->getQuestion());
+        $this->assertSame('Dolor illo iure beatae inventore fuga voluptatem quam error.', $this->sut->getQuestion());
     }
 
     /**
@@ -112,7 +83,10 @@ JSON;
      */
     public function testGetAnswers()
     {
-        $this->assertSame($this->answers, $this->sut->getAnswers());
+        $this->assertInternalType('array', $this->sut->getAnswers());
+        foreach ($this->sut->getAnswers() as $answer) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\QuizAnswerInterface', $answer);
+        }
     }
 
     /**
@@ -120,7 +94,7 @@ JSON;
      */
     public function testGetComment()
     {
-        $this->assertSame($this->comment, $this->sut->getComment());
+        $this->assertSame('Bla bla bla', $this->sut->getComment());
     }
 
 }

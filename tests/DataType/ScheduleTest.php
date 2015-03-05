@@ -7,6 +7,7 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\DataType\Schedule;
 
 /**
@@ -43,17 +44,16 @@ class ScheduleTest extends \PHPUnit_Framework_TestCase
           'sun' => null,
         ];
 
-        $this->sut = new Schedule($this->schedule);
+        $this->sut = Schedule::createFromJson(json_encode($this->schedule), MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        Schedule::createFromJson(json_encode($this->schedule));
+        Schedule::createFromJson(json_encode($this->schedule), MultipleFormInterface::FORM_FULL);
     }
 
     /**

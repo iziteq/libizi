@@ -7,9 +7,7 @@
 
 namespace Triquanta\IziTravel\Request;
 
-use Triquanta\IziTravel\DataType\CompactCountry;
-use Triquanta\IziTravel\DataType\FullCountry;
-use Triquanta\IziTravel\DataType\MultipleFormInterface;
+use Triquanta\IziTravel\DataType\CountryBase;
 
 /**
  * Requests a country by UUID.
@@ -33,11 +31,8 @@ class CountryByUuid extends RequestBase implements FormInterface, ModifiableInte
           'form' => $this->form,
         ]);
         $data = json_decode($json);
-        if ($this->form == MultipleFormInterface::FORM_COMPACT) {
-            return CompactCountry::createFromData($data);
-        } else {
-            return FullCountry::createFromData($data);
-        }
+
+        return CountryBase::createFromData($data, $this->form);
     }
 
 }

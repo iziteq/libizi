@@ -49,17 +49,17 @@ class CountriesTest extends RequestBaseTestBase
         $languageCodes = ['en'];
         $limit = mt_rand(1, 9);
 
-        $Countries = $this->sut->setLanguageCodes($languageCodes)
+        $countries = $this->sut->setLanguageCodes($languageCodes)
           ->setForm($form)
           ->setLimit($limit)
           ->execute();
 
-        $this->assertInternalType('array', $Countries);
+        $this->assertInternalType('array', $countries);
         // If the request does not return any data, we cannot test its
         // integrity.
-        $this->assertNotEmpty($Countries);
-        $this->assertTrue(count($Countries) <= $limit);
-        foreach ($Countries as $city) {
+        $this->assertNotEmpty($countries);
+        $this->assertTrue(count($countries) <= $limit);
+        foreach ($countries as $city) {
             $this->assertInstanceOf($instanceof, $city);
         }
     }

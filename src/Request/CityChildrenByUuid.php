@@ -37,7 +37,7 @@ class CityChildrenByUuid extends RequestBase implements FormInterface, LimitInte
         $data = json_decode($json);
         $objects = [];
         foreach ($data as $objectData) {
-            $objects[] = MtgObjectBase::createMtgObject($objectData,
+            $objects[] = MtgObjectBase::createFromData($objectData,
               $this->form);
         }
 

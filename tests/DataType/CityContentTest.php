@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\CityContent;
+use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\DataType\CityContent
@@ -15,41 +16,23 @@ use Triquanta\IziTravel\DataType\CityContent;
 class CityContentTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * The language code.
-     *
-     * @var string
-     *   An ISO 639-1 alpha-2 language code.
-     */
-    protected $languageCode;
-
-    /**
-     * The title.
-     *
-     * @var string
-     */
-    protected $title;
-
-    /**
-     * The summary.
-     *
-     * @var string
-     */
-    protected $summary;
-
-    /**
-     * The description.
-     *
-     * @var string
-     */
-    protected $description;
-
-    /**
-     * The images.
-     *
-     * @var \Triquanta\IziTravel\DataType\ImageInterface[]
-     */
-    protected $images = [];
+    protected $json = <<<'JSON'
+{
+    "title": "Amsterdam",
+    "summary": "Mokum de beste!",
+    "desc": "Hipstertown #1",
+    "language": "en",
+    "images": [
+        {
+            "uuid" : "b5c30e91-66c0-4382-aa55-56c0b13e2263",
+            "type" : "story",
+            "order" : 1,
+            "hash" : "b638e89534de7a84304942ce7887bdb4",
+            "size" : 231663
+        }
+    ]
+}
+JSON;
 
     /**
      * The class under test.
@@ -60,52 +43,19 @@ class CityContentTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->languageCode = 'uk';
-
-        $this->title = 'Foo & Bar ' . mt_rand();
-
-        $this->summary = 'The story of Foo & Bar ' . mt_rand();
-
-        $this->description = 'A description of the story of Foo & Bar ' . mt_rand();
-
-        $this->images = [
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-          $this->getMock('\Triquanta\IziTravel\DataType\ImageInterface'),
-        ];
-
-        $this->sut = new CityContent($this->languageCode, $this->title,
-          $this->summary, $this->description, $this->images);
+        $this->sut = CityContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      */
     public function testCreateFromJson()
     {
-        $json = <<<'JSON'
-{
-    "title": "Amsterdam",
-    "summary": "",
-    "desc": "",
-    "language": "en",
-    "images": [
-        {
-            "uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
-            "type": "city",
-            "order": 1
-        }
-    ]
-}
-JSON;
-
-        CityContent::createFromJson($json);
+        CityContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::createFromJson
      * @covers ::createFromData
      *
@@ -115,7 +65,7 @@ JSON;
     {
         $json = 'foo';
 
-        CityContent::createFromJson($json);
+        CityContent::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -123,7 +73,7 @@ JSON;
      */
     public function testGetLanguageCode()
     {
-        $this->assertSame($this->languageCode, $this->sut->getLanguageCode());
+        $this->assertSame('en', $this->sut->getLanguageCode());
     }
 
     /**
@@ -131,7 +81,7 @@ JSON;
      */
     public function testGetTitle()
     {
-        $this->assertSame($this->title, $this->sut->getTitle());
+        $this->assertSame('Amsterdam', $this->sut->getTitle());
     }
 
     /**
@@ -139,7 +89,7 @@ JSON;
      */
     public function testGetSummary()
     {
-        $this->assertSame($this->summary, $this->sut->getSummary());
+        $this->assertSame('Mokum de beste!', $this->sut->getSummary());
     }
 
     /**
@@ -147,7 +97,7 @@ JSON;
      */
     public function testGetDescription()
     {
-        $this->assertSame($this->description, $this->sut->getDescription());
+        $this->assertSame('Hipstertown #1', $this->sut->getDescription());
     }
 
     /**
@@ -155,7 +105,10 @@ JSON;
      */
     public function testGetImages()
     {
-        $this->assertSame($this->images, $this->sut->getImages());
+        $this->assertInternalType('array', $this->sut->getImages());
+        foreach ($this->sut->getImages() as $image) {
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+        }
     }
 
 }
