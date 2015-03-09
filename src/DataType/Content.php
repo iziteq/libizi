@@ -100,7 +100,7 @@ class Content implements ContentInterface
      */
     protected $quiz;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $content = new static();
         $content->languageCode = $data->language;
@@ -109,42 +109,39 @@ class Content implements ContentInterface
         $content->description = $data->desc;
         if (isset($data->images)) {
             foreach ($data->images as $imageData) {
-                $content->images[] = Image::createFromData($imageData, $form);
+                $content->images[] = Image::createFromData($imageData);
             }
         }
         if (isset($data->audio)) {
             foreach ($data->audio as $audioData) {
-                $content->audio[] = Audio::createFromData($audioData, $form);
+                $content->audio[] = Audio::createFromData($audioData);
             }
         }
         if (isset($data->video)) {
             foreach ($data->video as $videoData) {
-                $content->videos[] = Video::createFromData($videoData, $form);
+                $content->videos[] = Video::createFromData($videoData);
             }
         }
         if (isset($data->children)) {
             foreach ($data->children as $childData) {
-                $content->children[] = MtgObjectBase::createFromData($childData,
-                  MultipleFormInterface::FORM_COMPACT);
+                $content->children[] = MtgObjectBase::createFromData($childData);
             }
         }
         if (isset($data->collections)) {
             foreach ($data->collections as $collectionData) {
-                $content->collections[] = MtgObjectBase::createFromData($collectionData,
-                  MultipleFormInterface::FORM_COMPACT);
+                $content->collections[] = MtgObjectBase::createFromData($collectionData);
             }
         }
         if (isset($data->references)) {
             foreach ($data->references as $referenceData) {
-                $content->references[] = MtgObjectBase::createFromData($referenceData,
-                  MultipleFormInterface::FORM_COMPACT);
+                $content->references[] = MtgObjectBase::createFromData($referenceData);
             }
         }
         if (isset($data->playback)) {
-            $content->playback = Playback::createFromData($data->playback, $form);
+            $content->playback = Playback::createFromData($data->playback);
         }
         if (isset($data->quiz)) {
-            $content->quiz = Quiz::createFromData($data->quiz, $form);
+            $content->quiz = Quiz::createFromData($data->quiz);
         }
 
         return $content;

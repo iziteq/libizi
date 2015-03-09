@@ -1,66 +1,71 @@
 {
-  "uuid":"69929d8f-ba82-49b2-88fe-e5a0c687caca",
+  "uuid":"15845ecf-4274-4286-b086-e407ff8207de",
   "type":"country",
   "languages":[
+    "de",
     "en",
-    "ru",
-    "uk"
+    "es",
+    "fr",
+    "it",
+    "ja",
+    "nl",
+    "ru"
   ],
   "status":"published",
   "translations":[
     {
-      "name":"Ukraine",
+      "name":"Netherlands",
       "language":"en"
     },
     {
-      "name":"Украина",
+      "name":"Нидерланды",
       "language":"ru"
     },
     {
-      "name":"Oekraïne",
+      "name":"Nederland",
       "language":"nl"
     },
     {
-      "name":"Ukraine",
+      "name":"Pays-Bas",
       "language":"fr"
     },
     {
-      "name":"Ukraina",
+      "name":"Nederländerna",
       "language":"sv"
     },
     {
-      "name":"Ucraina",
+      "name":"Olanda",
       "language":"ro"
     },
     {
-      "name":"Ucraina",
+      "name":"Paesi Bassi",
       "language":"it"
     },
     {
-      "name":"Ucrania",
+      "name":"Países Bajos",
       "language":"es"
     },
     {
-      "name":"Ucrânia",
+      "name":"Holanda",
       "language":"pt"
     },
     {
-      "name":"Ukraine",
+      "name":"Niederlande",
       "language":"de"
     },
     {
-      "name":"乌克兰",
+      "name":"荷兰",
       "language":"zh"
     }
   ],
   "map":{
-    "bounds":"44.386463,22.1371589,52.37958099999999,40.228581"
+    "bounds":"50.75038379999999,3.357962,53.5560213,7.227510199999999"
   },
-  "hash":"8a9cf335808a9e084346c2b5c3698ea5e664c5e8",
-  "country_code":"ua",
+  "hash":"625fa5ae924390fdc162e25d704549f83ec2dac8",
+  "country_code":"nl",
   "content":[
     {
-      "title":"Ukraine",
+      "title":"Netherlands",
       "summary":"",
       "desc":"",
       "language":"en"
@@ -68,7 +73,7 @@
   ],
   "location":{
     "altitude":0.0,
-    "latitude":48.379433,
-    "longitude":31.16558
+    "latitude":52.132633,
+    "longitude":5.291266
   }
 }

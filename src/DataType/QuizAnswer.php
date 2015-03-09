@@ -29,7 +29,7 @@ class QuizAnswer implements QuizAnswerInterface
      */
     protected $isCorrect;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $answer = new static();
         $answer->answer = $data->content;

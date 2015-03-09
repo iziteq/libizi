@@ -1,40 +1,500 @@
 {
-  "uuid": "7d84ef00-f4f6-4b90-89d7-f20207ee9ca6",
-  "type": "publisher",
-  "languages": [
+  "uuid":"7d84ef00-f4f6-4b90-89d7-f20207ee9ca6",
+  "type":"publisher",
+  "languages":[
     "en"
   ],
-  "status": "published",
-  "hash": "e8ce336bc687892e6b1a98cb9f7d1254128a17a6",
-  "content_provider": {
-    "uuid": "d75cdc77-2376-4e9d-b62f-0338861420c0",
-    "name": "Amsterdam Museum",
-    "copyright": "Amsterdam Museum"
+  "status":"published",
+  "hash":"e8ce336bc687892e6b1a98cb9f7d1254128a17a6",
+  "content_provider":{
+    "uuid":"d75cdc77-2376-4e9d-b62f-0338861420c0",
+    "name":"Amsterdam Museum",
+    "copyright":"Amsterdam Museum"
   },
-  "contacts": {
-    "website": "http://www.amsterdammuseum.nl",
-    "twitter": "https://twitter.com/AmsterdamMuseum",
-    "facebook": "https://www.facebook.com/amsterdammuseum"
+  "contacts":{
+    "website":"http://www.amsterdammuseum.nl",
+    "twitter":"https://twitter.com/AmsterdamMuseum",
+    "facebook":"https://www.facebook.com/amsterdammuseum"
   },
-  "content": [
+  "content":[
     {
-      "title": "Amsterdam Museum",
-      "summary": "Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen. ",
-      "desc": "Het Amsterdam Museum vertelt het verhaal van de ......",
-      "language": "en",
-      "images": [
+      "title":"Amsterdam Museum",
+      "summary":"Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen. ",
+      "desc":"Het Amsterdam Museum vertelt het verhaal van de stad Amsterdam: over toen, nu en straks.\r\nAmsterdam, een wereldstad? Ja, en ook: klein, gezellig en eigenwijs. De stad van Johan Cruijff, Rembrandt, Ajax, de Wallen, de Verenigde Oost-Indische Compagnie en wiet. De hoofdstad van Nederland. Een 1000 jaar oude, waterrijke handelsstad waarbij ondernemerschap, creativiteit, burgerschap en vrijdenken centraal staan.\r\n\r\nIn het monumentale pand van het Amsterdam Museum ontdek je het verhaal van Amsterdam aan de hand van een groot aantal topstukken, zoals de vogelvluchtplattegrond uit de Middeleeuwen, De Dam van Breitner, een anatomische les van Rembrandt, de witkar en een portret van Theo van Gogh. In het Amsterdam Museum zie, lees, hoor en proef je hoe de stad tot stand is gekomen.",
+      "language":"en",
+      "images":[
         {
-          "uuid": "95e14c61-d879-456e-9085-47d5274c5d1d",
-          "type": "brand_logo",
-          "order": 1,
-          "hash": "baae2a048f560756a55f54f9d6bc58c8",
-          "size": 52621
+          "uuid":"95e14c61-d879-456e-9085-47d5274c5d1d",
+          "type":"brand_logo",
+          "order":1,
+          "hash":"baae2a048f560756a55f54f9d6bc58c8",
+          "size":52621
         },
         {
-          "uuid": "57deeecb-c5b0-4a8f-b561-7589ceb5c47b",
-          "type": "brand_cover",
-          "order": 1,
-          "hash": "baae2a048f560756a55f54f9d6bc58c8"
+          "uuid":"57deeecb-c5b0-4a8f-b561-7589ceb5c47b",
+          "type":"brand_cover",
+          "order":1
+        }
+      ],
+      "children":[
+        {
+          "uuid":"6ff37543-b10d-45b6-be39-c36eec586842",
+          "status":"published",
+          "type":"tour",
+          "category":"walk",
+          "duration":2308,
+          "distance":2565,
+          "placement":"outdoor",
+          "languages":[
+            "en",
+            "nl"
+          ],
+          "map":{
+            "bounds":"52.357678,4.878535,52.37079,4.891553968191147"
+          },
+          "hash":"3954f81a31cbe58fb4ad289165353677d298615b",
+          "children_count":10,
+          "route":"52.37039508024471,4.890815019607544;52.36990051180268,4.890616536140442;52.369468169290705,4.890519976615906;52.36910951831391,4.8904019594192505;52.36906366318456,4.890249073505402;52.36895393821753,4.889905750751495;52.368842575285676,4.889371991157532;52.3686427763807,4.889350533485413;52.36882619836027,4.890410006046295;52.368013895240345,4.890831112861633;52.3677551342547,4.891067147254944;52.36738500514694,4.8899030685424805;52.3676732475511,4.889549016952515;52.36764049282716,4.889457821846008;52.36744068848521,4.889554381370544;52.36750292272142,4.889388084411621;52.36740138260666,4.889189600944519;52.367562290825546,4.888952225446701;52.3675528738212,4.888891875743866;52.36708365880431,4.889581203460693;52.366586596622476,4.887761324644089;52.36587333947082,4.886209666728973;52.36571743327883,4.886482853967323;52.365698755830635,4.886444160977135;52.36586023705037,4.886172115802765;52.36497417684792,4.884291887283325;52.3653099318808,4.883613288402557;52.36495452281573,4.884313344955444;52.36420111165647,4.882612824440002;52.36384078003856,4.882344603538513;52.36374250726907,4.882033467292786;52.36414951890057,4.881419241428375;52.3640979260844,4.8813629150390625;52.363859615627774,4.881757199764252;52.363673716200374,4.88191545009613;52.3634575150015,4.881770610809326;52.362956317244105,4.880740642547607;52.362674595747166,4.880805015563965;52.36242890692881,4.8809874057769775;52.36221269963854,4.881357550621033;52.362088216173305,4.881615042686462;52.361944076985935,4.881969094276428;52.3617327811909,4.881781339645386;52.36165907311774,4.882226586341858;52.3602733384568,4.883267283439636;52.36014229746909,4.8831868171691895;52.35956898857855,4.883562326431274;52.3582913020054,4.8795390129089355",
+          "city":{
+            "uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
+            "type":"city",
+            "languages":[
+              "de",
+              "en",
+              "es",
+              "fr",
+              "it",
+              "ja",
+              "nl",
+              "ru"
+            ],
+            "status":"published",
+            "translations":[
+              {
+                "name":"Amsterdam",
+                "language":"en"
+              },
+              {
+                "name":"Amesterdão",
+                "language":"pt"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"ro"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"it"
+              },
+              {
+                "name":"Амстердам",
+                "language":"ru"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"de"
+              },
+              {
+                "name":"阿姆斯特丹",
+                "language":"zh"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"fr"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"nl"
+              },
+              {
+                "name":"Ámsterdam",
+                "language":"es"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"sv"
+              }
+            ],
+            "map":{
+              "bounds":"52.3182742,4.7288558,52.4311573,5.0683775"
+            },
+            "hash":"c2215526ea8449b00744660841c8593f027f9293",
+            "visible":false,
+            "title":"Amsterdam",
+            "summary":"",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
+                "type":"city",
+                "order":1
+              }
+            ],
+            "location":{
+              "altitude":0.0,
+              "latitude":52.3702157,
+              "longitude":4.8951679,
+              "country_code":"nl",
+              "country_uuid":"15845ecf-4274-4286-b086-e407ff8207de"
+            }
+          },
+          "country":{
+            "uuid":"15845ecf-4274-4286-b086-e407ff8207de",
+            "type":"country",
+            "languages":[
+              "de",
+              "en",
+              "es",
+              "fr",
+              "it",
+              "ja",
+              "nl",
+              "ru"
+            ],
+            "status":"published",
+            "translations":[
+              {
+                "name":"Netherlands",
+                "language":"en"
+              },
+              {
+                "name":"Нидерланды",
+                "language":"ru"
+              },
+              {
+                "name":"Nederland",
+                "language":"nl"
+              },
+              {
+                "name":"Pays-Bas",
+                "language":"fr"
+              },
+              {
+                "name":"Nederländerna",
+                "language":"sv"
+              },
+              {
+                "name":"Olanda",
+                "language":"ro"
+              },
+              {
+                "name":"Paesi Bassi",
+                "language":"it"
+              },
+              {
+                "name":"Países Bajos",
+                "language":"es"
+              },
+              {
+                "name":"Holanda",
+                "language":"pt"
+              },
+              {
+                "name":"Niederlande",
+                "language":"de"
+              },
+              {
+                "name":"荷兰",
+                "language":"zh"
+              }
+            ],
+            "map":{
+              "bounds":"50.75038379999999,3.357962,53.5560213,7.227510199999999"
+            },
+            "hash":"625fa5ae924390fdc162e25d704549f83ec2dac8",
+            "country_code":"nl",
+            "title":"Netherlands",
+            "summary":"",
+            "language":"en",
+            "location":{
+              "altitude":0.0,
+              "latitude":52.132633,
+              "longitude":5.291266
+            }
+          },
+          "content_provider":{
+            "uuid":"d75cdc77-2376-4e9d-b62f-0338861420c0",
+            "name":"Amsterdam Museum",
+            "copyright":"Amsterdam Museum"
+          },
+          "images":[
+            {
+              "uuid":"c8b14a19-ce91-44f4-9e29-9d574be2cf45",
+              "type":"story",
+              "order":1,
+              "hash":"5ba04fd14503fd6aa7e948ffa95ca88c",
+              "size":48540
+            }
+          ],
+          "publisher":{
+            "uuid":"7d84ef00-f4f6-4b90-89d7-f20207ee9ca6",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"e8ce336bc687892e6b1a98cb9f7d1254128a17a6",
+            "title":"Amsterdam Museum",
+            "summary":"Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen. ",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"95e14c61-d879-456e-9085-47d5274c5d1d",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"baae2a048f560756a55f54f9d6bc58c8",
+                "size":52621
+              }
+            ],
+            "content_provider":{
+              "uuid":"d75cdc77-2376-4e9d-b62f-0338861420c0",
+              "name":"Amsterdam Museum",
+              "copyright":"Amsterdam Museum"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "city_uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
+            "country_code":"nl",
+            "country_uuid":"15845ecf-4274-4286-b086-e407ff8207de",
+            "latitude":52.364233999999996,
+            "longitude":4.885044484095573
+          },
+          "language":"en",
+          "summary":"",
+          "title":"Civic Virtue Tour"
+        },
+        {
+          "uuid":"2d177dc4-44b6-4d94-8242-8c04387543a4",
+          "status":"published",
+          "type":"tour",
+          "category":"walk",
+          "duration":1791,
+          "distance":1991,
+          "placement":"outdoor",
+          "languages":[
+            "en",
+            "nl"
+          ],
+          "map":{
+            "bounds":"52.368401,4.888443,52.37595941237072,4.901387"
+          },
+          "hash":"7ae2c4bc510ae41995f3b30b5dd245aedf5c5d6a",
+          "children_count":13,
+          "route":"52.36951074866534,4.889962077140808;52.36910788063155,4.8898279666900635;52.368868778353715,4.890021085739136;52.368809821428776,4.890037178993225;52.36876069059787,4.889034032821655;52.36885567682163,4.888765811920166;52.36913735890496,4.888765811920166;52.37169534304194,4.889339804649353;52.37231107126364,4.8894524574279785;52.3722906017134,4.88971933722496;52.37259600641852,4.890632629394531;52.37269425949399,4.891147613525391;52.372730285566895,4.892011284828186;52.373015218017315,4.892853498458862;52.37276303651677,4.893518686294556;52.37259273131223,4.8934972286224365;52.372422425451,4.894073903560638;52.37252722913565,4.893937110900879;52.37268770929574,4.8941463232040405;52.3722504813673,4.895361363887787;52.37207526146949,4.895873665809631;52.37355560209845,4.897724390029907;52.3739002981873,4.898189753293991;52.37430230376662,4.898786544799805;52.37502361214,4.899372607469559;52.375762920528665,4.900170564651489;52.37586771628656,4.900181293487549;52.37595941237072,4.9004387855529785;52.375743271296365,4.9007391929626465;52.37542233259807,4.901050329208374;52.37514724042889,4.901082515716553;52.374773898315624,4.9008142948150635;52.373742278699,4.900182634592056;52.3730037552531,4.9003006517887115",
+          "city":{
+            "uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
+            "type":"city",
+            "languages":[
+              "de",
+              "en",
+              "es",
+              "fr",
+              "it",
+              "ja",
+              "nl",
+              "ru"
+            ],
+            "status":"published",
+            "translations":[
+              {
+                "name":"Amsterdam",
+                "language":"en"
+              },
+              {
+                "name":"Amesterdão",
+                "language":"pt"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"ro"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"it"
+              },
+              {
+                "name":"Амстердам",
+                "language":"ru"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"de"
+              },
+              {
+                "name":"阿姆斯特丹",
+                "language":"zh"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"fr"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"nl"
+              },
+              {
+                "name":"Ámsterdam",
+                "language":"es"
+              },
+              {
+                "name":"Amsterdam",
+                "language":"sv"
+              }
+            ],
+            "map":{
+              "bounds":"52.3182742,4.7288558,52.4311573,5.0683775"
+            },
+            "hash":"c2215526ea8449b00744660841c8593f027f9293",
+            "visible":false,
+            "title":"Amsterdam",
+            "summary":"",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
+                "type":"city",
+                "order":1
+              }
+            ],
+            "location":{
+              "altitude":0.0,
+              "latitude":52.3702157,
+              "longitude":4.8951679,
+              "country_code":"nl",
+              "country_uuid":"15845ecf-4274-4286-b086-e407ff8207de"
+            }
+          },
+          "country":{
+            "uuid":"15845ecf-4274-4286-b086-e407ff8207de",
+            "type":"country",
+            "languages":[
+              "de",
+              "en",
+              "es",
+              "fr",
+              "it",
+              "ja",
+              "nl",
+              "ru"
+            ],
+            "status":"published",
+            "translations":[
+              {
+                "name":"Netherlands",
+                "language":"en"
+              },
+              {
+                "name":"Нидерланды",
+                "language":"ru"
+              },
+              {
+                "name":"Nederland",
+                "language":"nl"
+              },
+              {
+                "name":"Pays-Bas",
+                "language":"fr"
+              },
+              {
+                "name":"Nederländerna",
+                "language":"sv"
+              },
+              {
+                "name":"Olanda",
+                "language":"ro"
+              },
+              {
+                "name":"Paesi Bassi",
+                "language":"it"
+              },
+              {
+                "name":"Países Bajos",
+                "language":"es"
+              },
+              {
+                "name":"Holanda",
+                "language":"pt"
+              },
+              {
+                "name":"Niederlande",
+                "language":"de"
+              },
+              {
+                "name":"荷兰",
+                "language":"zh"
+              }
+            ],
+            "map":{
+              "bounds":"50.75038379999999,3.357962,53.5560213,7.227510199999999"
+            },
+            "hash":"625fa5ae924390fdc162e25d704549f83ec2dac8",
+            "country_code":"nl",
+            "title":"Netherlands",
+            "summary":"",
+            "language":"en",
+            "location":{
+              "altitude":0.0,
+              "latitude":52.132633,
+              "longitude":5.291266
+            }
+          },
+          "content_provider":{
+            "uuid":"d75cdc77-2376-4e9d-b62f-0338861420c0",
+            "name":"Amsterdam Museum",
+            "copyright":"Amsterdam Museum"
+          },
+          "reviews":{
+            "rating_average":8.0,
+            "ratings_count":1,
+            "reviews_count":0
+          },
+          "images":[
+            {
+              "uuid":"b28a9d06-ed5a-4b12-84eb-5ad2a5d86a02",
+              "type":"story",
+              "order":1,
+              "hash":"4181567c727975e5348678b6d00fde69",
+              "size":119356
+            }
+          ],
+          "publisher":{
+            "uuid":"7d84ef00-f4f6-4b90-89d7-f20207ee9ca6",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"e8ce336bc687892e6b1a98cb9f7d1254128a17a6",
+            "title":"Amsterdam Museum",
+            "summary":"Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen. ",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"95e14c61-d879-456e-9085-47d5274c5d1d",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"baae2a048f560756a55f54f9d6bc58c8",
+                "size":52621
+              }
+            ],
+            "content_provider":{
+              "uuid":"d75cdc77-2376-4e9d-b62f-0338861420c0",
+              "name":"Amsterdam Museum",
+              "copyright":"Amsterdam Museum"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "city_uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
+            "country_code":"nl",
+            "country_uuid":"15845ecf-4274-4286-b086-e407ff8207de",
+            "latitude":52.37218020618536,
+            "longitude":4.894914999999999
+          },
+          "language":"en",
+          "summary":"",
+          "title":"Freedom of Thought"
         }
       ]
     }

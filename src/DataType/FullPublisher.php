@@ -7,6 +7,8 @@
 
 namespace Triquanta\IziTravel\DataType;
 
+use Iziteq\IziApiSchemes\Assets;
+
 /**
  * Defines a compact publisher data type.
  */
@@ -27,15 +29,19 @@ class FullPublisher extends PublisherBase implements FullPublisherInterface
      */
     protected $contactInformation = [];
 
-    public static function createFromData(\stdClass $data, $form)
+    protected static function getJsonSchemaPath() {
+        return Assets::getJsonSchemaPath() . '/mtgobjects/publisher_full_object';
+    }
+
+    public static function createFromData(\stdClass $data)
     {
         /** @var static $publisher */
-        $publisher = parent::createBaseFromData($data, $form);
+        $publisher = parent::createBaseFromData($data);
         foreach ($data->content as $contentData) {
-            $publisher->content[] = PublisherContent::createFromData($contentData, $form);
+            $publisher->content[] = PublisherContent::createFromData($contentData);
         }
         if (isset($data->contacts)) {
-            $publisher->contactInformation = PublisherContactInformation::createFromData($data->contacts, $form);
+            $publisher->contactInformation = PublisherContactInformation::createFromData($data->contacts);
         }
 
         return $publisher;

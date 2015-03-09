@@ -7,6 +7,8 @@
 
 namespace Triquanta\IziTravel\DataType;
 
+use Iziteq\IziApiSchemes\Assets;
+
 /**
  * Provides a country data type in compact form.
  */
@@ -42,16 +44,20 @@ class CompactCity extends CityBase implements CompactCityInterface
      */
     protected $images = [];
 
-    public static function createFromData(\stdClass $data, $form)
+    protected static function getJsonSchemaPath() {
+        return Assets::getJsonSchemaPath() . '/compactmtgobjects/city_compact_object';
+    }
+
+    public static function createFromData(\stdClass $data)
     {
         /** @var static $city */
-        $city = parent::createBaseFromData($data, $form);
+        $city = parent::createBaseFromData($data);
         $city->languageCode = $data->language;
         $city->title = $data->title;
         $city->summary = $data->summary;
         if (isset($data->images)) {
             foreach ($data->images as $imageData) {
-                $city->images[] = Image::createFromData($imageData, $form);
+                $city->images[] = Image::createFromData($imageData);
             }
         }
 

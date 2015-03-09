@@ -77,14 +77,6 @@ class CityBaseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::countChildren
-     */
-    public function testCountChildren()
-    {
-        $this->assertInternalType('int', $this->sut->countChildren());
-    }
-
-    /**
      * @covers ::isVisible
      */
     public function testIsVisible()

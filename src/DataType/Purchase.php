@@ -30,7 +30,7 @@ class Purchase implements PurchaseInterface
      */
     protected $price;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data, $form = null)
     {
         $purchase = new static();
         $purchase->currencyCode = $data->currency;

@@ -43,7 +43,7 @@ class CircularTriggerZone implements CircularTriggerZoneInterface
      */
     protected $radius;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $triggerZone = new static();
         if (isset($data->circle_latitude)) {

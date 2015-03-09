@@ -1,116 +1,1826 @@
 {
-  "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
-  "parent_uuid":       "3afcd4ab-837f-4055-a8ed-ce43910f9446",
-  "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
-  "type":       "tour",
-  "category":   "bike",
-  "status":     "published",
-  "languages":  ["en"],
-  "content_provider": {
-    "name": "Sample CP",
-    "uuid": "15ad4ee2-ff55-4a86-950d-8dee4c79fc35"
-  },
-  "trigger_zones": [
-    {
-      "type":             "circle",
-      "circle_latitude":  52.4341477399124,
-      "circle_longitude": 4.81567904827443,
-      "circle_radius":    818.92609425069
-    }
+  "uuid":"bcf57367-77f6-4e39-9da6-1b481826501f",
+  "parent_uuid":"3afcd4ab-837f-4055-a8ed-ce43910f9446",
+  "status":"published",
+  "type":"tour",
+  "category":"walk",
+  "duration":3600,
+  "distance":3895,
+  "placement":"outdoor",
+  "languages":[
+    "sv",
+    "en"
   ],
-  "location": {
-    "altitude":  0.0,
-    "latitude":  59.9308144003772,
-    "longitude": 30.3516736220902
+  "map":{
+    "route":"60.3979738843223,5.310616192590373;60.39746194732828,5.311564056759607;60.39726427439821,5.3120594465164;60.39711959921367,5.312597751617432;60.39663200565632,5.314276814460754;60.39637760611841,5.315116345882416;60.39610200437549,5.31589150428772;60.39614970484414,5.31613826751709;60.39604370370783,5.316417217254639;60.39572569822786,5.317361354827881;60.39551899300008,5.3179192543029785;60.39498367336062,5.319195985794067;60.394904169693135,5.319550037384033;60.39477431328538,5.319571495056152;60.39472926094121,5.319678783416748;60.394633855771374,5.319957733154297;60.394978373122164,5.32037615776062;60.39519038198744,5.320671200752258;60.395296385902334,5.3209662437438965;60.39471866038059,5.322790145874023;60.394419193116974,5.3239381313323975;60.394236331220846,5.325107574462891;60.39461265458454,5.325504541397095;60.3954447908033,5.326030254364014;60.39581845014712,5.32562255859375;60.395892651492176,5.325456261634827;60.396117904539466,5.325053930282593;60.396451806189035,5.324420928955078;60.39654323104343,5.324217081069946;60.39662670568626,5.3239864110946655;60.39673535490074,5.324109792709351;60.397172598073304,5.32511830329895;60.39653925605509,5.3262099623680115;60.39593770222632,5.3273606300354;60.395598495166084,5.326652526855469;60.39545804120797,5.326920747756958;60.39535998808557,5.327296257019043;60.395195682191385,5.327988266944885;60.39498367336062,5.32862663269043;60.39462325517969,5.32912015914917;60.39408527061895,5.329645872116089;60.3936214836898,5.330257415771484;60.39292181547805,5.330986976623535;60.391522433945795,5.3334760665893555;60.391108968800886,5.333347320556641;60.3901654004744,5.331974029541016;60.39003287464318,5.3315019607543945;60.38977312244935,5.331072807312012;60.389629992804004,5.330847501754761;60.38940204429226,5.330708026885986;60.3887977079565,5.329849720001221;60.38906276913373,5.32861590385437;60.38922180480446,5.328012406826019;60.389359635090784,5.327301621437073;60.38961408947125,5.325944423675537;60.38985263864712,5.324914455413818;60.389933479915804,5.324600636959076;60.3900381756868,5.324302911758423;60.39036418820993,5.323010087013245;60.38974661700694,5.322350263595581;60.38943782701312,5.323544517159462;60.390077933486346,5.3242988884449005;60.39067164418412,5.324847400188446;60.390953918017935,5.3237611055374146;60.39118715652252,5.3240373730659485;60.39140647870576,5.324301570653915;60.39133723666551,5.324386730790138;60.391290688704,5.324437357485294;60.39128389700295,5.3244853019714355;60.39122426249419,5.324724018573761;60.39116396526873,5.324989557266235;60.39123618940469,5.325289964675903;60.39132620865966,5.325271999534607;60.39140695123149,5.325262081020355;60.391556226538036,5.324715971946716;60.39154098674589,5.324442386627197;60.391608571856814,5.324301570653915;60.3916841079912,5.324034690856934;60.39175434318701,5.323817431926727;60.39175898135502,5.323600172996521;60.39179277370175,5.323539823293686;60.39188818719737,5.323224663734436;60.392047209068686,5.322602391242981;60.39243415904462,5.321223735809326;60.39224068463153,5.3210413455963135;60.39233079614503,5.320719480514526;60.39248451521015,5.320644378662109;60.39249776681971,5.320461988449097;60.392452711325184,5.320360064506531;60.392452711325184,5.320295691490173;60.39246861327155,5.320239365100861",
+    "bounds":"60.319325,5.310074,60.39844454481837,5.333715"
   },
-  "content": [
+  "hash":"8f8f0b5cb7f90dbdafa5e16d851df3cfb6e6e6c4",
+  "size":18282577,
+  "city":{
+    "uuid":"456d3e06-f278-46d1-8456-65d1d6357af6",
+    "type":"city",
+    "languages":[
+      "en",
+      "sv"
+    ],
+    "status":"published",
+    "translations":[
+      {
+        "name":"Bergen",
+        "language":"sv"
+      },
+      {
+        "name":"Bergen",
+        "language":"pt"
+      },
+      {
+        "name":"Bergen",
+        "language":"en"
+      },
+      {
+        "name":"Bergen",
+        "language":"es"
+      },
+      {
+        "name":"Bergen",
+        "language":"it"
+      },
+      {
+        "name":"卑爾根",
+        "language":"zh"
+      },
+      {
+        "name":"Берген",
+        "language":"ru"
+      }
+    ],
+    "map":{
+      "bounds":"60.2390077576482,5.1657836814453,60.5170400448409,5.40143302324213"
+    },
+    "hash":"bc68be57acfe13ff391b726ec721154404afb9a0",
+    "visible":false,
+    "title":"Bergen",
+    "summary":"",
+    "language":"en",
+    "location":{
+      "altitude":0.0,
+      "latitude":60.3912628,
+      "longitude":5.3220544,
+      "country_code":"no",
+      "country_uuid":"78d1711b-7c4f-4269-903b-b3debfea4828"
+    }
+  },
+  "country":{
+    "uuid":"78d1711b-7c4f-4269-903b-b3debfea4828",
+    "type":"country",
+    "languages":[
+      "en",
+      "sv"
+    ],
+    "status":"published",
+    "translations":[
+      {
+        "name":"Norway",
+        "language":"en"
+      },
+      {
+        "name":"Норвегия",
+        "language":"ru"
+      },
+      {
+        "name":"Noorwegen",
+        "language":"nl"
+      },
+      {
+        "name":"Norvège",
+        "language":"fr"
+      },
+      {
+        "name":"Norge",
+        "language":"sv"
+      },
+      {
+        "name":"Norvegia",
+        "language":"ro"
+      },
+      {
+        "name":"Norvegia",
+        "language":"it"
+      },
+      {
+        "name":"Noruega",
+        "language":"es"
+      },
+      {
+        "name":"Noruega",
+        "language":"pt"
+      },
+      {
+        "name":"Norwegen",
+        "language":"de"
+      },
+      {
+        "name":"挪威",
+        "language":"zh"
+      }
+    ],
+    "map":{
+      "bounds":"57.95974380000001,4.5000962,71.1854762,31.1682684"
+    },
+    "hash":"2d6228b7f0226b9d90685bbb96fd9fae1e2f2221",
+    "country_code":"no",
+    "title":"Norway",
+    "summary":"",
+    "language":"en",
+    "location":{
+      "altitude":0.0,
+      "latitude":60.472024,
+      "longitude":8.468946
+    }
+  },
+  "content_provider":{
+    "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+    "name":"Simply Enjoying",
+    "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+  },
+  "publisher":{
+    "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+    "type":"publisher",
+    "languages":[
+      "en"
+    ],
+    "status":"published",
+    "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+    "title":"Simply Enjoying",
+    "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+    "language":"en",
+    "images":[
+      {
+        "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+        "type":"brand_logo",
+        "order":1,
+        "hash":"06169aabdd438eae957b28b3b182b42d",
+        "size":3975
+      }
+    ],
+    "content_provider":{
+      "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+      "name":"Simply Enjoying",
+      "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+    }
+  },
+  "content":[
     {
-      "language":   "en",
-      "title":      "Navigation Story",
-      "summary":    "",
-      "desc":       "",
-      "playback": {
-        "type": "sequential",
-        "order": [
-          "3afcd4ab-837f-4055-a8ed-ce43910f9446",
-          "7b5092de-43f3-4762-9142-df30529f7942"
+      "audio":[
+        {
+          "uuid":"d4312537-ff41-4263-8069-ef1e5159f8a5",
+          "type":"story",
+          "duration":83,
+          "order":1,
+          "hash":"1ad41b9df4a629d095479fdf2d596602",
+          "size":682236
+        }
+      ],
+      "images":[
+        {
+          "uuid":"0234e09e-6a26-46b2-8653-1bf571bbfe9f",
+          "type":"story",
+          "order":1,
+          "hash":"cf6f454d508536ccc8bb18d7a03c17f8",
+          "size":433289
+        },
+        {
+          "uuid":"29a8c222-66ab-489b-b60d-27c5d9493363",
+          "type":"story",
+          "order":2,
+          "hash":"2607307cc2dfac869f07d1a686ef4e8a",
+          "size":292755
+        }
+      ],
+      "playback":{
+        "type":"random",
+        "order":[
+          "164681cf-f35c-4af1-b689-83971620ca19",
+          "b4014fcd-40a5-4574-87e0-f8d769813dba",
+          "c7afa599-b3b9-4ced-9cff-48d97a440a95",
+          "05ffdfd9-cefb-4228-b4ec-ce8decefd4b5",
+          "1e2cd209-06ae-4ca1-9ea2-61646e78adac",
+          "c9edab62-8fdc-4fab-a916-8a9001f7b081",
+          "1fdc4557-9195-479f-b84b-e57db56a72a1",
+          "d0bc509a-f791-4dcd-ace3-1e1931643e9a",
+          "7ad1fa44-c7dd-469e-8de0-4473c692edbd",
+          "17aa5f25-57db-4d04-b448-428a12e93ff6",
+          "27d4a1c0-fa27-4121-b8a5-b9507c69fccc",
+          "c55a4c49-d191-4b0f-bd85-9573b39f131d",
+          "b0066f8f-e026-4617-a668-1c0e1a601cc8",
+          "c829eb38-2fc4-4ed7-83e7-0feb6e03cf85",
+          "d5c46376-3db0-42d0-8e31-21c1e07ad416",
+          "be71a37d-9e29-4a26-92bc-f75d55d849ee",
+          "e405b100-cf88-473f-9717-2395d9fe61ff",
+          "63bf1fc1-4190-4045-a1fa-a38bb51f8efb",
+          "b788e772-62f0-45b6-b677-dc1775f9be75",
+          "2dbd7616-b78f-4c5e-93d8-d22c675ff054",
+          "705506a8-aa7b-4cef-a169-0ce6290c68e1",
+          "02ebaa05-bc58-470b-9ebb-88948afe84d5",
+          "fd42323f-a5e2-4fa2-9aa0-0361c38c0c62",
+          "fe341767-2ae9-4a00-bf70-9ba52abc7e85",
+          "9ebc391f-7c25-4404-96a9-d21a2e915dec"
         ]
       },
-      "images": [
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+      "download":{
+        "ios-jpg:high-m4a-mp4":{
+          "md5":"a77c9e534a526c720dc3a438ea03a62a",
+          "size":18641778,
+          "url":"http://packages.izi.travel/ios-jpg:high-m4a-mp4/en/1.2/bcf57367-77f6-4e39-9da6-1b481826501f.tar.gz",
+          "updated_at":"2015-01-21 20:07:07 UTC"
         },
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        }
-      ],
-      "audio": [
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+        "android-jpg:high-m4a-mp4":{
+          "md5":"a2c8958679e446ece294b40c05bd1d12",
+          "size":18715176,
+          "url":"http://packages.izi.travel/android-jpg:high-m4a-mp4/en/1.2/bcf57367-77f6-4e39-9da6-1b481826501f.zip",
+          "updated_at":"2015-01-21 20:07:20 UTC"
         },
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        }
-      ],
-      "video": [
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+        "ios-jpg:low-m4a-mp4":{
+          "md5":"7210780ba59682d6405a4c2e7dde31e1",
+          "size":15813167,
+          "url":"http://packages.izi.travel/ios-jpg:low-m4a-mp4/en/1.2/bcf57367-77f6-4e39-9da6-1b481826501f.tar.gz",
+          "updated_at":"2015-01-21 20:06:47 UTC"
         },
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+        "android-jpg:low-m4a-mp4":{
+          "md5":"a10c8db05e5e22e4038c954e99b1f267",
+          "size":15907949,
+          "url":"http://packages.izi.travel/android-jpg:low-m4a-mp4/en/1.2/bcf57367-77f6-4e39-9da6-1b481826501f.zip",
+          "updated_at":"2015-01-21 20:07:30 UTC"
+        },
+        "map-mbtiles":{
+          "md5":"df005abd394345d1b211b1bc2ffae301",
+          "size":32614400,
+          "url":"http://mbtiles.izi.travel/bcf57367-77f6-4e39-9da6-1b481826501f.mbtiles",
+          "updated_at":"2014-09-21 04:39:05 UTC"
         }
-      ],
-      "quiz": {
-        "question": "Dolor illo iure beatae inventore fuga voluptatem quam error.",
-        "comment": "Bla bla bla",
-        "answers": [
-          {
-            "content": "Qq",
-            "correct": false
+      },
+      "language":"en",
+      "summary":"",
+      "desc":"This tour will take you through the city of Bergen, and no matter if you have been here before or not, this tour will show you a different side of the place: The Bergen of Edvard Grieg. This beautiful little city was once home to one of the worlds’ most famous composers, so today we are going back over 150 years in time to find the places that played a significant role in the life of this musical genius. \r\nGrieg was born in 1843 here in Bergen and at the age of 6 he started playing the piano tutored by his mother, who was the best piano teacher in Bergen at the time. Thanks to a friend of the family, the world famous violinist Ole Bull, he was later sent to the Leipzig Conservatory at the age of 15 to study there, but of course he then came back to this enchanted place. If you look around at the dramatic nature scenery you can probably imagine how he came to write masterpieces about trolls and their majestic stone halls up in the mountains!  \r\nDuring this tour we will see where he was baptized, where he got great inspiration for his different pieces, where he used to get on the train to go home to Troldhaug, where, up until this day, his home still stands, preserved as it once was. And of course lots of other interesting places that has to do with the composer. \r\nSo let´s begin to our tour in Edvard Griegs’ footsteps, accompanied by the inspiring tunes of his never dying masterpieces. \r\n",
+      "title":"Bergen in Edvard Grieg's footsteps",
+      "children":[
+        {
+          "uuid":"c9edab62-8fdc-4fab-a916-8a9001f7b081",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"7c67b6153e84f40ffb78d9421c4089ac84477940",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
           },
-          {
-            "content": "Wow",
-            "correct": false
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
           },
-          {
-            "content": "Eeey",
-            "correct": true
-          }
-        ]
-      }
+          "language":"en",
+          "summary":"",
+          "desc":"Take left onto Strandkaien and walk alongside the water. Turn left onto Torget and in 150 meters take slightly left onto Bryggen and you will find The Hanseatic museum on your right hand side. ",
+          "title":"Navigational story for Buekorps Museum"
+        },
+        {
+          "uuid":"e405b100-cf88-473f-9717-2395d9fe61ff",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "en",
+            "sv"
+          ],
+          "hash":"dbcfc308c4fcef1f4861bfb56d0e6a7d37b38ba6",
+          "trigger_zones":[
+            {
+              "circle_altitude":0.0,
+              "type":"circle",
+              "circle_latitude":60.3897815054338,
+              "circle_longitude":5.32253913244131,
+              "circle_radius":55.3108336675069
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"404798a6-bb18-4046-958e-2d8455c46d12",
+              "type":"story",
+              "order":1,
+              "hash":"6921ec4ac757f4cc49a62a5a20ed2c4b",
+              "size":37195
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.3897762043502,
+            "longitude":5.32257131904908
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to the Arbeiderforeningen, The workers council! \r\nIt was along time ago that this was actually the workers council building, and different businesses have used this building up until today, for a while it used to be a cinema for example. \r\n\r\nHere Edvard and his wife Nina used to sing and play for a long period of time, and Edvard was also the maestro of the orchestra for three years. \r\n\r\nYou can imagine that here he performed all kinds of great works, music that really moved the people of his time as it moves people still today. After his studies in Leipzig Edvard spent years living in Denmark, and after that went to Oslo (at that time Christiania) to teach music to make a living. He was already composing at that time, so during the summer and sometimes even in the winter he could be seen struggling alongside the stony banks of the fjord in Hardanger to get to a small one room cottage standing lonely on the edge of the water. In the small cottage he had placed his desk and his piano. Here, in the midst of breathtaking nature, to the sound of the winds and the fjord, he would sit and compose the great pieces that he later performed to the locals in the building you are standing in front of right now! No wonder his music has always been described as a national tribute to Norway, to its people and its nature! Griegs ambition was to create music that would give the Norwegian people an identity, and not only did he succeed in doing that, but also managed to touch people world wide with his music for generations!\r\n\r\nSo lets move on to another place where Griegs music was often heard, and today still is!\r\n",
+          "title":"Arbeiderforeningen"
+        },
+        {
+          "uuid":"b788e772-62f0-45b6-b677-dc1775f9be75",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"27f1aabd9d013e20e8a01c8d594618d09ad31fe9",
+          "trigger_zones":[
+            {
+              "type":"polygon",
+              "polygon_corners":"60.39062923663612,5.323541164398193;60.39109041575462,5.324018597602844;60.39081741970898,5.324887633323669;60.390482135026026,5.324603319168091"
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"cdaa0ed6-01a1-4c9a-8b3b-cee0a01b28eb",
+              "type":"story",
+              "order":1,
+              "hash":"0170d754fa1952d4c19d108459f0d801",
+              "size":164834
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.390673,
+            "longitude":5.32423300000005
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to Permanenten! This is the place where Edvard Grieg was on “Lit de parade” after his death in 1907. During his last days he was laying in bed at home or being hospitalized in periods. Only four days before his death he wrote the last page of his diary, in which he talks about that the drugs don’t have any effect, so he lies sleepless many nights, and curiously enough he hasn’t totally given up on an overseas trip to England, in only a few days, although he admits it might not be easy. He looks forward to get away from the climate in Bergen, and also talks about how one of the past days has been the one sunny day of that summer and how he really needed that sun to light up his life. However, the trip to England never took place since Edvard died four days after writing that. His last words were “ Well, if it must be this way”. \r\n\r\nBetween 30000 and 40000 people honoured him by marching out in the streets on the day of his funeral. Imagine all these small streets full of mourning people walking around in honour of their towns greatest legend, to the tunes of Funeral March in memory of Rickard Nordraak, written by Grieg himself. That must have been a touching sight! His body was cremated and buried in a mountain crypt near Troldhaugen, his home, where later also his wife was buried. \r\n",
+          "title":"Permanenten "
+        },
+        {
+          "uuid":"705506a8-aa7b-4cef-a169-0ce6290c68e1",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "en",
+            "sv"
+          ],
+          "hash":"9119b00b6eadc5d54dc57eb31e7b6cdace222688",
+          "trigger_zones":[
+            {
+              "type":"polygon",
+              "polygon_corners":"60.39134485661015,5.323707461357117;60.390987048589125,5.3248608112335205;60.39147737710157,5.325354337692261;60.39174771723162,5.32424122095108"
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"51f0d42f-36a3-4fcc-8ac9-45441a18d78f",
+              "type":"story",
+              "order":1,
+              "hash":"0a48fbe4b1311cf3c6370bea781b164d",
+              "size":160302
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.391399,
+            "longitude":5.325018
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to the Grieg Statue in Byparken, the village park! \r\nThis peaceful place is Bergen’s first official park and dates back to 1855. The park used to stretch over a bigger area but after the big fire in 1855 the streets where straightened and the houses where rebuilt in another order, so that the result was a city with less winding roads and more uniform buildings. Here in Byparken you can go for a stroll, have a picnic on a sunny day, or just sit down and relax underneath a tree listening to the birds singing. \r\n\r\nApart from being a nice park where you can take a moment to relax your feet on our tour, we are here for a special reason. Since 1917 there is a monument in the park in honour of Edvard Grieg! The statue made of bronze and made by Ingebrigt Vik can be found on one of the sides of the park. Ever since it was inaugurated people have come here from near and from far to pay a visit to the great composer. Great in terms of personality and deeds, but curiously enough small in physical appearance! Edvard measured only 152 CM and did only weight 50 kilos as a full grown man! His wife was 10 cm taller than him, and sometimes they used to call themselves “the little trolls”. Anyone who met Edvard would probably not pay too much attention to that, as his blue, starlit eyes, always awake and attentive, is what most people described as his most noticeable attribute. Nothing suggests that Edvard had issues with being of small size, and in most group photos he is sitting down, making the difference in height compared to the others invisible. \r\n\r\nTake a moment to check out the other statues in the park, of which the most famous would be The crying child and since the year 2000 there is a statue of another composer; Harald Saeverud, to be seen here as well. In the summer you might be lucky enough to run into a concert given for free here in the park.\r\n",
+          "title":"Byparken, The Grieg Sculpture"
+        },
+        {
+          "uuid":"05ffdfd9-cefb-4228-b4ec-ce8decefd4b5",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"c3f2aa1e4ff77049c278b63212d5e0eb899514b1",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Continue on Strandgaten about 500 meters until you reach Buekorps museum right in front of you.",
+          "title":"Navigational story for Nykirken"
+        },
+        {
+          "uuid":"b0066f8f-e026-4617-a668-1c0e1a601cc8",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"b6007680e7d50ef98fdf99bc98d4d7e66b8a4db4",
+          "trigger_zones":[
+            {
+              "circle_altitude":0.0,
+              "type":"circle",
+              "circle_latitude":60.390501,
+              "circle_longitude":5.33280600000001,
+              "circle_radius":49.9997005075067
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"4f87675c-1e6c-489a-bfd8-9cd8ba7dab01",
+              "type":"story",
+              "order":1,
+              "hash":"4b9eab5a78d88cfb377c53a72856bc39",
+              "size":304812
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.390501,
+            "longitude":5.33280600000001
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to Bergen railway station!\r\nThe station has stood here since 1913 and is one of the most spectacular stations in Norway. It is designed in National Romantic style and little has changed since it was inaugurated. It is now a protected historical site, so generations after ours will be able to see this well preserved station as it used to look right from the start! Take a moment to look around and imagine 20th century people rushing to get on the train, in their hats, with their walking canes and their old style coffers. \r\n\r\nHere, in this station, but before this building was raised, Edvard used to hop on the train to get home to Troldhaugen after working or spending time in town. In the 19th century travelling obviously wasn’t as easily done as it is today. Despite that Edvard was a travelling man! In his home in Troldhaugen his coffer still stands in its corner, just like he left it after his last trip. \r\n\r\nThe first time Edvard left Norway was as a boy, when he went with his father to London on a business trip. So when he went to Leipzig to study at the age of 15, unlike many young men of his time, he already had some travel experience. In these times the fairly long and tiresome trip between Bergen and Leipzig included ferries, train, and even a dangerous sleigh ride over the Alps in an open sleigh! Luckily he survived the avalanches and snowstorms that are frequent in that area and got to Leipzig to start his musical studies. Later in life Edvard and his wife Nina travelled a lot, to central Europe to give concerts, and to Denmark, where he felt like home and always was well received by the audience when he played. \r\n",
+          "title":"Bergen jernbanestasjon"
+        },
+        {
+          "uuid":"d0bc509a-f791-4dcd-ace3-1e1931643e9a",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"5f934de2906ea4852800ab0df5a9a26bdbb228b6",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Continue along Bryggen and on your right hand side you find all that Bryggen has to offer!",
+          "title":"Navigational story for Hanseatic Museum "
+        },
+        {
+          "uuid":"1e2cd209-06ae-4ca1-9ea2-61646e78adac",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "en",
+            "sv"
+          ],
+          "hash":"416ec58efefdd5e452a48ac625579fb8955784fe",
+          "trigger_zones":[
+            {
+              "circle_altitude":0.0,
+              "type":"circle",
+              "circle_latitude":60.394756,
+              "circle_longitude":5.31989299999998,
+              "circle_radius":39.0842243741385
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"2619718e-4cf5-46dd-9e93-36fbd8f27904",
+              "type":"story",
+              "order":1,
+              "hash":"13169e947a04489cd9a7f97736f81065",
+              "size":89891
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.394756,
+            "longitude":5.31989299999998
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to the Buekorps Museum!\r\nYou are now in the place of a unique sociological phenomenon here in Bergen! The Buekorps, means “Bow corps” or “Archery Brigade” in Norwegian and here at the museum we will be able to learn more about their history, their skills, and how they played an important part in World War II! As a matter of fact, the Buekorps have shaped the history of Bergen throughout their entire existence, and therefor also Edvard Griegs life.  But let´s begin from the start! \r\nThe first group of boys organized themselves in 1850 according to strict military patterns, in companies, battalions, platoons and troops. Edvard was then only 7 years old and still a bit young to join the Buekorps. You could see them then, as well as today, marching through the streets of Bergen, flying their flags and showing off their uniforms to the beat of the drums, 8-19 year old boys armed with cross-bows! We can only imagine that even later when Edvard was old enough to join, this wasn’t exactly his cup of tea; he liked to spend his spare time playing the piano and reading note sheets, and it is not likely that the other boys would have pushed such a short and skinny boy to join their battalion for the sake of manpower. \r\n\r\nThe background of the Buekorps was actually something that naturally sprung from the tradition of Norwegian towns at that time having their own Citizens’ Guards. These would come to aid when needed in the neighborhood, defending the streets from intruders. The boys would choose their own officers among the oldest and fittest boys in the streets. \r\n\r\nToday the remaining 12 of Norways all Buekorps can only be found in Bergen and are really famous for their skills with the crossbow. Amongst them are some of the first Buekorps founded in 1850. Their busiest time of year is the Constitution Day, on the 17th of May each year, when they parade and have an especially nice ceremony.\r\n",
+          "title":"Buekorps Museum"
+        },
+        {
+          "uuid":"b4014fcd-40a5-4574-87e0-f8d769813dba",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "en",
+            "sv"
+          ],
+          "hash":"30e09b98baaa50bb2af5678a83b5d9a3077c8a0f",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Continue on Strandgaten about 200 meters until you find Nykirken on your left hand side.",
+          "title":"Navigational story for Griegs childhood home"
+        },
+        {
+          "uuid":"17aa5f25-57db-4d04-b448-428a12e93ff6",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"776fc74d501bbe72a2aa4b49e30b5080ae3b4f55",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Take Rosenkrantzgaten back in the same direction you came from, until you find FV264, where you take right and then left onto Fv263. Stay on Fv263 and you will find Tanks School on your right side in about 250 meters. \r\n",
+          "title":"Navigational story for Bryggen"
+        },
+        {
+          "uuid":"c55a4c49-d191-4b0f-bd85-9573b39f131d",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"b3d761e42ffdcb617477ecfd3506bc19403a5ff0",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Continue on Fv263 that changes name to Kong Oscars gate for about 450 meters then take right onto Stromgaten where you find your destination on your left hand side in about 100 meters.",
+          "title":"Navigational story for Tanks School"
+        },
+        {
+          "uuid":"c829eb38-2fc4-4ed7-83e7-0feb6e03cf85",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"6aa184af4284af8b4973c0e3dfa0e52a0b96555f",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Continue on Stromgaten for about 250 meters then take right onto Lars Hilles gate, where you find the Grieg Hall on your left.",
+          "title":"Navigational story for Bergen jernbanestasjon"
+        },
+        {
+          "uuid":"27d4a1c0-fa27-4121-b8a5-b9507c69fccc",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "en",
+            "sv"
+          ],
+          "hash":"3f6e6bd6ee7249c9b306f94d0cdbefa72d1af40f",
+          "trigger_zones":[
+            {
+              "circle_altitude":0.0,
+              "type":"circle",
+              "circle_latitude":60.3940833992098,
+              "circle_longitude":5.32948391535501,
+              "circle_radius":54.277805569633
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"3f4eadc6-fcab-4139-abe6-90266a195340",
+              "type":"story",
+              "order":1,
+              "hash":"0223db811dbeb0967ca0a053c3836d98",
+              "size":314735
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.394094,
+            "longitude":5.32944099999997
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to Tanks Skole, Tanks School! At the age of 10, Edvard started his education at Tanks School. Up until then he had been homeschooled. Thanks to the solid economic situation of his family, Edvard never had to work extra to earn money for school, like many other children of his age. So he could continue to play the piano for several hours a day after school, or run around in the harbor getting new inspiration and all the other things that he so enjoyed to do in his spare time. Even though starting at Tanks didn’t mean he had to stop doing what he loved, he still didn’t like school at all. \r\nFrom early spring until late autumn he lived with his family on the countryside so his way to school was long and due to the weather in this region, often wet and windy. You can easily understand that Edvard was no fan of walking back and forth to a place he didn’t really want to be, cold and wet. He soon found out that children who came to school with wet clothes were sent home in order not to fall ill. Edvard was a clever and cunning kid, and soon found ways to get wet even though it was only raining moderately. He found puddles and drains where he could soak himself completely and succeeded to get sent home, which in his case meant that he didn’t have to come back thank to his long way home. His clever tricks abruptly came to an end one day when he showed up soaking wet from head to toe on a day when it hardly rained at all! The teacher was already a bit suspicious of the many times that one child had arrived much wetter than the others, and this time was just one too many! Edvard got to taste the bat, and that put an end once and for all to his clever plan. \r\nPoor Edvard had a hard time at school! He was somewhat of a dreamer; his classmates teased him and even his professors made fun of him as he was secretly studying his note papers instead of German verbs. One year he even had to repeat due to weak performance. All in all he was average in most subjects, except one; music! Edvard was a bright shining star and an outstanding number 1 in music, and one can imagine that in the end that’s what really mattered the most to him, as he later graduated from one of Europes most renown music academies with top grades!\r\nHappy ending after all, but let’s leave this dark chapter of Edvard’s life and move on to happier grounds.  \r\n",
+          "title":"Tanks School"
+        },
+        {
+          "uuid":"164681cf-f35c-4af1-b689-83971620ca19",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"e0f29cf7c911c22853fc3494ef52f9dfabacf0b8",
+          "trigger_zones":[
+            {
+              "circle_altitude":0.0,
+              "type":"circle",
+              "circle_latitude":60.3977095444665,
+              "circle_longitude":5.3108755906859,
+              "circle_radius":44.10137035946
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"9bdd0927-8662-4512-9ce2-5fdbc6beea41",
+              "type":"story",
+              "order":1,
+              "hash":"7e2cd336c54a452317dc43a35edab230",
+              "size":171659
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.3976558976977,
+            "longitude":5.31100243068852
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to Bergen! This beautiful and saga-like place even has a fairytale ring to the original form of its name, Bergvin, meaning 'the meadow among the mountains'. Because of its location Bergen is still often referred to as the city of the seven mountains. \r\nBergen, despite not being a very big city, has a very long and interesting history. It was founded around a thousand years ago, by King Olav Kyrre and during the 14th century it used to be the most important town of Norway.  Bergens trading success story began with the export of dried cod, which was also the business that Edward Griegs great grandfather chose to start a family business in when he arrived here from Scotland in the late 18th century. \r\nHere, on our first stop of the tour, Strandgaten 152, little baby Edvard Grieg was born in 1843. A hundred years later an explosion demolished the entire street, which was later re-built and had the numbers re-arranged. The house we are looking at today, like the rest of the buildings in this street, used to be a traditional red wooden house with white details. Look, you can see the metal sign saying that this is actually the place, although it has changed a lot since then. \r\nThis street used to be bustling with life! Boatmen, fishermen and captains from all over the world would be walking back and forth on their way to or from the quay; the street was full of carpenters workshops, black smiths, and small stores selling groceries and handicraft. Little Edvard used to love the lively environment, and later said that the smells and sounds of this special place was one of the things that greatly influenced his music. \r\nHere, in number 152 the young Edvard began playing on the family’s piano at the age of five! Only one year later, his mother started to give him actual piano lessons. She was a concert pianist and piano teacher who had received her schooling at the prestigious music conservatory in Hamburg, an education normally reserved for men. Little Edvard loved to play the piano, and was a very active, slightly naughty child, full of imagination, who disliked discipline in general. Of that we will actually see more proof later, during his early school years and even during his higher musical education. \r\nSo let´s proceed along the street to the next stop of the tour!\r\n",
+          "title":"Griegs childhood home"
+        },
+        {
+          "uuid":"9ebc391f-7c25-4404-96a9-d21a2e915dec",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"89383cb2fbcf718cf69a08ab9670489b42a8d6e3",
+          "trigger_zones":[
+            {
+              "circle_altitude":0.0,
+              "type":"circle",
+              "circle_latitude":60.3200074985224,
+              "circle_longitude":5.33047696128233,
+              "circle_radius":76.0193209260739
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"9ed47a57-032c-4338-9874-b9d78693dd28",
+              "type":"story",
+              "order":1,
+              "hash":"fd618354042f45bc00ca923b02bdae3e",
+              "size":219887
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.319625,
+            "longitude":5.32944699999996
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to Troldhaugen, meaning “The Troll Hill”! This place is a true gem for all Grieg fans! Here you find not only Griegs’ home, but also a Grieg museum, a concert hall and the tomb of Edvard and Nina Grieg. \r\nSo let´s start with the house! Here our great composer lived with his wife Nina from 1885 until his death. The house has been restored during the summer of 2014 so now it is actually as beautiful as ever! \r\nDid you know that Edvard was a man that cared a lot about personal relations? Him and his wife actually bought this land and moved to this place to be near their friends who lived so close they could wave to each other from their windows. They had Edvards cousin Shak Bull design the house, and the result was this typical 19th century residence with the tower and large veranda that we are looking at right now. \r\nLet´s enter the house and see if we can feel the spirit of passed times. Check out the living room! Do you see the old Steinway grand piano over there? It was a gift for Edvard at his silver wedding anniversary. It still works and is actually still used at occasions such as private concerts to honor the composer. Walk around the rooms and feel the past touch you; here Edvard put down his suitcase after the last trip he made, and there it still stands as if it was only yesterday that he left! \r\nWhen you leave the house, go down to the lake and check out Griegs composers’ cabin! You can imagine what great inspiration a man who loved nature more than anything most have gotten when he was sitting here composing! The views of Nordås Lake are stunning, don’t you think?\r\nDon’t miss the Edvard Grieg Museum, opened in 1995 here on this site! It has a permanent exhibition and is totally devoted to the composers’ life, history and music. Another thing you should check out is Troldsalen; the concert hall! It seats 200 people and if you are lucky you will be able to listen to the unforgettable tunes of our great composer here during summer and autumn. Not only would your ears thank you, but also your eyes, as the enormous windows serving as a back drop behind de scene provides you the most spectacular views of Edvards composers’ cabin at the lake. \r\nThere is now only one thing left to do before you leave this beautiful place. Go over to the mountain tomb near the house where Edvard rests with his wife, according to his last wishes of being buried in the place he so loved. There you can say a last farewell to our composer and thank him for sharing his life with you during this tour. Hope you enjoyed Bergen in Griegs Footsteps!\r\n",
+          "title":"Troldhaugen"
+        },
+        {
+          "uuid":"fe341767-2ae9-4a00-bf70-9ba52abc7e85",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "en",
+            "sv"
+          ],
+          "hash":"1e1ceade27812545b03075b3c45c97e2e8e2e3b7",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"This last stop of our tour is optional but highly recommended. It is situated outside the center, approximately 9 km away from here. You can either take a bus from the Bus Station and get off at Hopsbroen, which takes about 15 minutes, or take the Bergen Light Rail and then walk the remaining 15 minutes to Troldhaugen.",
+          "title":"Navigational story for The National Stage"
+        },
+        {
+          "uuid":"02ebaa05-bc58-470b-9ebb-88948afe84d5",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"00e92732eaf6265facd396c8d15f879d4857cfe2",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Leave the park via Nedre Ole Bulls plass. Continue for about 200 meters until you reach Engen where you take left and in a few meters will find your destination on the right. ",
+          "title":"Navigational story for Byparken, The Grieg Sculpture"
+        },
+        {
+          "uuid":"7ad1fa44-c7dd-469e-8de0-4473c692edbd",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "en",
+            "sv"
+          ],
+          "hash":"af945cb58515b4229b522c0d15aa12b29fb9d1ae",
+          "trigger_zones":[
+            {
+              "type":"polygon",
+              "polygon_corners":"60.39762838470421,5.321781635284424;60.39844454481837,5.323605537414551;60.39707720006384,5.326695442199707;60.396165604984816,5.324796438217163"
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"99467573-d113-4a67-91ae-80ef13b4422b",
+              "type":"story",
+              "order":1,
+              "hash":"cbdff3594f1cd50ce0af2c5e20ea47ce",
+              "size":260914
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.396758904613,
+            "longitude":5.32421143862302
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to Bryggen, (the Quay), or Tyskebryggen, (the German Quay) as it was known before WWII. \r\n\r\nWhere you are now standing ancient Bergen was founded around a thousand years ago. Later this place developed into one of Europe’s most important trading centers and was during 300 years strictly controlled by the Hanseatic League and its German merchants. Stockfish from northern Norway was sold and cereal from Southern Europe was purchased, and the trade went on after the Hansa left in the 18th century, and continued during Grieg’s time. \r\n\r\nAs a child Edvard Grieg was crazy about this place! And you can imagine how many interesting characters, things, boats and animals this place would have had to offer a curious child! The smell of fish met that of foreign spices and merchandise from countries far, far away, and mixed with the smell of the horses pulling the carriages! The ears of young Edvard picked up languages from all over the world, shouting from the ships to the quay in the daily hustle and bustle of this once upon a time busy harbor. Grieg later used to say that his music contained both cod and coalfish, suggesting that the inspiration he got from hanging around Bryggen was present in his music. \r\n\r\nToday Bryggen is a World Heritage City and amongst the over 60 wooden buildings you find restaurants, museums, shops and pubs. So before you leave, take some time to get the real feel of the place, maybe order some mouthwatering fish at one of the local restaurants? \r\n",
+          "title":"Bryggen"
+        },
+        {
+          "uuid":"be71a37d-9e29-4a26-92bc-f75d55d849ee",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"3686fa68022e07d153db39161eac0f96697736cb",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Continue on Lars Hilles gate for about 250 meters then take left onto Olav Kyrres gate where you find your destination on the next corner on your left side. \r\n",
+          "title":"Navigational story for Grieg Hall"
+        },
+        {
+          "uuid":"2dbd7616-b78f-4c5e-93d8-d22c675ff054",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"d3845ebf15f4b69ebc5d2fb40fa221d89ce02cfc",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Continue on Nordahl Bruns gate and take right onto Olav Kyrres gate. In 50 meters you find Byparken on your right hand side.",
+          "title":"Navigational story for Permanenten "
+        },
+        {
+          "uuid":"d5c46376-3db0-42d0-8e31-21c1e07ad416",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"bb539882d63823ebb3c92754dadfa7feec2371e3",
+          "trigger_zones":[
+            {
+              "type":"polygon",
+              "polygon_corners":"60.389651197235686,5.32711386680603;60.38937288797221,5.327097773551941;60.38910517872191,5.3262341022491455;60.3882145657719,5.328240394592285;60.389171443592765,5.329763889312744"
+            }
+          ],
+          "city":{
+            "uuid":"456d3e06-f278-46d1-8456-65d1d6357af6",
+            "type":"city",
+            "languages":[
+              "en",
+              "sv"
+            ],
+            "status":"published",
+            "translations":[
+              {
+                "name":"Bergen",
+                "language":"sv"
+              },
+              {
+                "name":"Bergen",
+                "language":"pt"
+              },
+              {
+                "name":"Bergen",
+                "language":"en"
+              },
+              {
+                "name":"Bergen",
+                "language":"es"
+              },
+              {
+                "name":"Bergen",
+                "language":"it"
+              },
+              {
+                "name":"卑爾根",
+                "language":"zh"
+              },
+              {
+                "name":"Берген",
+                "language":"ru"
+              }
+            ],
+            "map":{
+              "bounds":"60.2390077576482,5.1657836814453,60.5170400448409,5.40143302324213"
+            },
+            "hash":"bc68be57acfe13ff391b726ec721154404afb9a0",
+            "visible":false,
+            "title":"Bergen",
+            "summary":"",
+            "language":"en",
+            "location":{
+              "altitude":0.0,
+              "latitude":60.3912628,
+              "longitude":5.3220544,
+              "country_code":"no",
+              "country_uuid":"78d1711b-7c4f-4269-903b-b3debfea4828"
+            }
+          },
+          "country":{
+            "uuid":"78d1711b-7c4f-4269-903b-b3debfea4828",
+            "type":"country",
+            "languages":[
+              "en",
+              "sv"
+            ],
+            "status":"published",
+            "translations":[
+              {
+                "name":"Norway",
+                "language":"en"
+              },
+              {
+                "name":"Норвегия",
+                "language":"ru"
+              },
+              {
+                "name":"Noorwegen",
+                "language":"nl"
+              },
+              {
+                "name":"Norvège",
+                "language":"fr"
+              },
+              {
+                "name":"Norge",
+                "language":"sv"
+              },
+              {
+                "name":"Norvegia",
+                "language":"ro"
+              },
+              {
+                "name":"Norvegia",
+                "language":"it"
+              },
+              {
+                "name":"Noruega",
+                "language":"es"
+              },
+              {
+                "name":"Noruega",
+                "language":"pt"
+              },
+              {
+                "name":"Norwegen",
+                "language":"de"
+              },
+              {
+                "name":"挪威",
+                "language":"zh"
+              }
+            ],
+            "map":{
+              "bounds":"57.95974380000001,4.5000962,71.1854762,31.1682684"
+            },
+            "hash":"2d6228b7f0226b9d90685bbb96fd9fae1e2f2221",
+            "country_code":"no",
+            "title":"Norway",
+            "summary":"",
+            "language":"en",
+            "location":{
+              "altitude":0.0,
+              "latitude":60.472024,
+              "longitude":8.468946
+            }
+          },
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"9dc5669a-bbcb-45d4-85b0-7e61ac6ff9b2",
+              "type":"story",
+              "order":1,
+              "hash":"1b1af6453009e80a4ff4a153a61c0e9f",
+              "size":51119
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "city_uuid":"456d3e06-f278-46d1-8456-65d1d6357af6",
+            "country_code":"no",
+            "country_uuid":"78d1711b-7c4f-4269-903b-b3debfea4828",
+            "latitude":60.388862,
+            "longitude":5.32820400000003
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to the Grieg Hall!\r\nAs you can see this isn’t a building from Griegs lifetime, it was actually built as late as in 1978, after years of struggling with economic issues and other obstacles. \r\n\r\nThe curious thing is that Edvard Grieg really tried hard to make a proper concert hall in Bergen reality during his lifetime. He wrote letters to the council to make them invest money in the project, and he proposed a place for the hall and everything. It was hard to find a perfect spot for such a big building in Bergen, but finally he did. Luck wasn’t his companion though, as unfortunately right at this time another man was striving to realize a theatre in Bergen. The theater people snatched the perfect spot right in front of the Opera peoples noses, and after that it took almost another hundred years for the Grieg Hall to be built. \r\n\r\nHere the orchestra have many times played the masterpieces of Edvard Grieg; In the Hall of the Mountain King, for example; the music he composed for Henrik Ibsen’s Peer Gynt. The unfortunate anti-hero Peer experiences all kinds of adventure accompanied by Edvard’s expressive and dramatic music! He steals a bride at a wedding, gets chased by the angry guests, when suddenly he falls and hits his head on a rock. When he wakes up after the black out caused by the fall, he finds himself in a mountain cave surrounded by angry trolls! The music really brings out the voices of the angry trolls, so that you can almost feel the fear and anxiety of Peer Gynt when he gets taunted by the trolls, as the music gets louder and louder. If you know the story by Ibsen, you know that the trolls were cheated on their human dinner that day, and that the anti-hero managed to escape the mountain. \r\n",
+          "title":"The Grieg Hall"
+        },
+        {
+          "uuid":"fd42323f-a5e2-4fa2-9aa0-0361c38c0c62",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"174260ea049b6108dee98acca9b35d83faf613a0",
+          "trigger_zones":[
+            {
+              "type":"polygon",
+              "polygon_corners":"60.392721718205536,5.3197914361953735;60.39274159547315,5.319952368736267;60.39279460146049,5.320150852203369;60.3927177427506,5.320419073104858;60.39265281025095,5.320397615432739;60.3925183068039,5.321733355522156;60.392013748281165,5.321054756641388;60.3918669842225,5.320826768875122;60.39225128599894,5.319898724555969;60.39246331262359,5.319265723228455"
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"2495db41-7eff-40be-bc15-8fb2c94101e8",
+              "type":"story",
+              "order":1,
+              "hash":"a8d5fbbafadd24432e050ae29bf21bef",
+              "size":110975
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.3924986866958,
+            "longitude":5.31977510185243
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to the Old Norwegian Theatre, nowadays the National Stage. \r\nThe first theatre was founded here by Ole Bull, the man that convinced Grieg’s parents to send their son to Leipzig to study music. Ole was married to Edvard’s aunt, and was a great violinist of his times and his fame lives on. Ole was Edvard’s favourite uncle and helped and inspired young Edvard throughout his musical career. Here, on Engen, he started the first Norwegian Theatre that later became the National Stage in an old building called the comedy house. The comedy house was mostly used by travelling Danish theatre groups in the late 19th century, and later the old theatre house was turned into a theatre museum, as this building that you look at today was built for the National Stage. Sadly enough the old comedy house was destroyed in the German bombings in 1944. Even this building was partly destroyed by the bombings, as the foyer and the hall came crashing down in one of the German raids. It has now been restored to its original style from the early 20th century, so today we are able to enjoy its former glory. At night the façade is illuminated, and if you pass by here then its in truth a beautiful sight!\r\n\r\nEdvard Grieg rented a house here on Engen with his wife Nina, when they came back after being to Karlsbad to try and cure Edvards instable health at the sanatorium there. According to Edvard, no matter how expensive and exclusive the continental institutes where, they couldn’t compete with Norway’s fresh air to cure his lung problems. So here, with unspoiled views of the old theatre, they lived for a few years while Edvard was head of the orchestra. \r\n\r\nYou can only imagine how living in front of his old favourite uncles theatre must have cheered him up when composing during these years was slow and his inspiration refused to show. \r\n",
+          "title":"The National Stage"
+        },
+        {
+          "uuid":"63bf1fc1-4190-4045-a1fa-a38bb51f8efb",
+          "status":"published",
+          "type":"story_navigation",
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"3604482213732e1a1a1034073355ddae81b5759e",
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Take left onto Nygårdsgaten and then left again onto Christies gate where in 150 meters you take left on Nordahl Bruns gate and find your destination on your left hand side. ",
+          "title":"Navigational story for Arbeiderforeningen"
+        },
+        {
+          "uuid":"c7afa599-b3b9-4ced-9cff-48d97a440a95",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "en",
+            "sv"
+          ],
+          "hash":"4fb2aff60e59c39860703d652c55fba2b64fae79",
+          "trigger_zones":[
+            {
+              "circle_altitude":0.0,
+              "type":"circle",
+              "circle_latitude":60.3969845015876,
+              "circle_longitude":5.31339144100014,
+              "circle_radius":41.1500965329715
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"aff83dfa-1cc9-4cfa-b292-ff8971a86ce9",
+              "type":"story",
+              "order":1,
+              "hash":"af2cd3896d10a0339362fd772903975e",
+              "size":117835
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.397064,
+            "longitude":5.31346654232789
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to Nykirken, the New Church! This is the place where Edvard Grieg was baptized for the second time, only a week after he was born. At that time the newborn used to be baptized at home immediately when they were born, so that in the unfortunate case of an early passing they would go to heaven. That this was fairly common at the time, one can tell from the church records from when Edvard was baptized. The list is full of babies that didn’t even make it to church to get baptized, but died within a week after they were born. \r\nHowever; Little Edvard made it to his baptism as well as later on to get his communion in this very church! So let´s take a closer look at it:  Nykirken is a parish church from the 17th century, so it isn’t so new after all, but comparing to the other churches in Bergen at that time, already hundreds of years old, it was once new. This beautiful, white stone building actually substituted the original building destroyed in one of the fires that took place here in the 18th century. It was once again re-built after being destroyed by German fire in World War II, at that time following the old architectural plans, which resulted in todays’ mixture of Baroque and Rococo. For over ten years now it has been called the Childrens’ Cathedral, focusing on children and their families. \r\nCome on, let´s go in and have a look! When stepping into the church you will become aware of the influence the new focus has had on the interior; look around at all the crafts made by local children! Here you can find icons, hanging mobiles and large paintings made by the hands of Bergens local young artists.\r\nBefore you leave don´t miss the Baptismal Angel descending from the ceiling, with a bowl for baptism in his hand! Nowadays it is electrically operated, while the original was mechanical, and most probably the one used to baptize young Edvard. \r\n",
+          "title":"Nykirken"
+        },
+        {
+          "uuid":"1fdc4557-9195-479f-b84b-e57db56a72a1",
+          "status":"published",
+          "type":"tourist_attraction",
+          "hidden":false,
+          "languages":[
+            "sv",
+            "en"
+          ],
+          "hash":"c89ca44f69b2c4b9296d63bd8a0d782cf3495fd0",
+          "trigger_zones":[
+            {
+              "circle_altitude":0.0,
+              "type":"circle",
+              "circle_latitude":60.395948,
+              "circle_longitude":5.32591300000001,
+              "circle_radius":46.4596754983962
+            }
+          ],
+          "content_provider":{
+            "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+            "name":"Simply Enjoying",
+            "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+          },
+          "images":[
+            {
+              "uuid":"d7c7a119-7b65-45d1-b0fa-d394ddc19b61",
+              "type":"story",
+              "order":1,
+              "hash":"4f5caf804c99eeec9180dbdb4722acbe",
+              "size":228485
+            }
+          ],
+          "publisher":{
+            "uuid":"ee51c45f-758b-4866-b12f-264b10d05e50",
+            "type":"publisher",
+            "languages":[
+              "en"
+            ],
+            "status":"published",
+            "hash":"65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
+            "title":"Simply Enjoying",
+            "summary":"Simply Enjoying - inspiration to live your life in full! We guide you through travel, fine foods, sports, health and wellbeing.\r\n",
+            "language":"en",
+            "images":[
+              {
+                "uuid":"1c03c211-8f0e-44b2-a192-32ed7e99d709",
+                "type":"brand_logo",
+                "order":1,
+                "hash":"06169aabdd438eae957b28b3b182b42d",
+                "size":3975
+              }
+            ],
+            "content_provider":{
+              "uuid":"cd9b44b4-d2c6-4ee4-a3ea-9296c8916cff",
+              "name":"Simply Enjoying",
+              "copyright":"Simply Enjoying 2014 Copyright All rights reserved"
+            }
+          },
+          "location":{
+            "altitude":0.0,
+            "latitude":60.395948,
+            "longitude":5.32591300000001
+          },
+          "language":"en",
+          "summary":"",
+          "desc":"Welcome to the Hanseatic Museum here at Bryggen!\r\nThe Hanseatic times ranging from 1350 to 1750 were already over by almost a hundred years when baby Edvard Grieg was born, but nevertheless has had an extreme influence on Bergen. Check out the museum buildings; two old trading houses, one facing the sea and the other is in the back. Let´s go in and look at the interior! In fact these are the only buildings here at Bryggen that have remained unharmed by the tooth of time and the various fires that the city has seen. \r\nIn here you can imagine how the German traders from the Hanseatic League were trading stockfish from northern Norway and buying grains from southern Europe, the hall full of people wanting a good price, a hustle and bustle over the goods! As a matter of fact, the only ones who were allowed to live and trade here were the Germans, as this very business center of Bergen was reserved for the men of the Hanseatic League, reducing the Norwegians to mere customers in their own town.\r\nAlthough the Hanseatic League was before Edvards time, this museum actually dates back to when he was in his 30s, so he might have visited it sometime during his life. As a matter of fact he loved these neighborhoods as a kid, as they inspired him with all their sounds and smells! So when we´re done here, let´s move on to discover more of the surroundings at Bryggen and how they influenced the life of our dear composer!\r\n",
+          "title":"Hanseatic Museum "
+        }
+      ]
     }
   ],
-  "map": {
-    "route": "48.80056018925834,2.128772735595703;48.79945774194329,...,2.129995822906494;48.80162021190271,2.129502296447754",
-    "bounds": "48.795118387011776,2.118215560913086,48.809616,2.133493423461914"
-  },
-  "purchase": {
-    "price":      111.0,
-    "currency":   "EUR"
-  },
-  "duration": 1700,
-  "distance": 2500,
-  "placement": "outdoor"
+  "location":{
+    "altitude":0.0,
+    "city_uuid":"456d3e06-f278-46d1-8456-65d1d6357af6",
+    "country_code":"no",
+    "country_uuid":"78d1711b-7c4f-4269-903b-b3debfea4828",
+    "latitude":60.35888477240918,
+    "longitude":5.3218945
+  }
 }

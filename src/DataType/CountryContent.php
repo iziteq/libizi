@@ -44,7 +44,7 @@ class CountryContent implements CountryContentInterface
      */
     protected $description;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $content = new static();
         $content->languageCode = $data->language;

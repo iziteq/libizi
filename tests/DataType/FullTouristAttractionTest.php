@@ -52,19 +52,4 @@ class FullTouristAttractionTest extends \PHPUnit_Framework_TestCase
         FullTouristAttraction::createFromJson($json, MultipleFormInterface::FORM_FULL);
     }
 
-    /**
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-     */
-    public function testCreateFromJsonWithoutUuid()
-    {
-        $json = <<<'JSON'
-{}
-JSON;
-
-        FullTouristAttraction::createFromJson($json, MultipleFormInterface::FORM_FULL);
-    }
-
 }

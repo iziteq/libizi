@@ -57,27 +57,6 @@ class FullPublisherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     * @covers \Triquanta\IziTravel\DataType\PublisherBase::createBaseFromData
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-     */
-    public function testCreateFromJsonWithoutUuid()
-    {
-        $json = <<<'JSON'
-{
-  "email": "john@doe.com",
-  "custom": {
-    "check": "w00t"
-  }
-}
-JSON;
-
-        FullPublisher::createFromJson($json, MultipleFormInterface::FORM_FULL);
-    }
-
-    /**
      * @covers ::getContent
      */
     public function testGetContent()

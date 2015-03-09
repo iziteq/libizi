@@ -52,26 +52,6 @@ class FullMuseumTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-     */
-    public function testCreateFromJsonWithoutUuid()
-    {
-        $json = <<<'JSON'
-{
-  "email": "john@doe.com",
-  "custom": {
-    "check": "w00t"
-  }
-}
-JSON;
-
-        FullMuseum::createFromJson($json, MultipleFormInterface::FORM_FULL);
-    }
-
-    /**
      * @covers ::getSchedule
      */
     public function testGetSchedule()

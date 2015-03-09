@@ -65,7 +65,7 @@ class ContactInformation implements ContactInformationInterface
      */
     protected $administrativeSubdivision;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $contactInformation = new static();
         $contactInformation->countryCode = $data->country;

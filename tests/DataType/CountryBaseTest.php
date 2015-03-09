@@ -47,7 +47,7 @@ class CountryBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetCountryCode()
     {
-        $this->assertSame('ua', $this->sut->getCountryCode());
+        $this->assertSame('nl', $this->sut->getCountryCode());
     }
 
     /**

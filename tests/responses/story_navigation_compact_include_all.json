@@ -1,44 +1,50 @@
 {
-  "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
-  "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
-  "type":       "story_navigation",
-  "title":      "Foo to the bar",
-  "summary":    "A story about foo to the bar.",
-  "category":   "bike",
-  "status":     "published",
-  "language": "en",
-  "languages":  ["en"],
-  "content_provider": {
-    "name": "Sample CP",
-    "uuid": "15ad4ee2-ff55-4a86-950d-8dee4c79fc35"
-  },
-  "trigger_zones": [
+  "uuid":"ca5bb2ae-ff5e-407d-b542-edeef71f5a46",
+  "status":"published",
+  "type":"story_navigation",
+  "languages":[
+    "en",
+    "fr",
+    "es"
+  ],
+  "hash":"8000cdbcc3a63acaa822bb556fe98efe7cd23ac2",
+  "trigger_zones":[
     {
-      "type":             "circle",
-      "circle_latitude":  52.4341477399124,
-      "circle_longitude": 4.81567904827443,
-      "circle_radius":    818.92609425069
+      "circle_altitude":0.0,
+      "type":"circle",
+      "circle_latitude":48.8088883848945,
+      "circle_longitude":2.13307673784743,
+      "circle_radius":50.0
     }
   ],
-  "location": {
-    "altitude":  0.0,
-    "latitude":  59.9308144003772,
-    "longitude": 30.3516736220902
+  "content_provider":{
+    "uuid":"4e9d2b2c-83c3-4a84-8675-7cc276270305",
+    "name":"Tours around the world",
+    "copyright":"@Tours around the world. All rights reserved."
   },
-  "images": [
-    {
-      "uuid" : "b5c30e91-66c0-4382-aa55-56c0b13e2263",
-      "type" : "story",
-      "order" : 1,
-      "hash" : "b638e89534de7a84304942ce7887bdb4",
-      "size" : 231663
-    },
-    {
-      "uuid" : "b5c30e91-66c0-4382-aa55-56c0b13e2263",
-      "type" : "story",
-      "order" : 1,
-      "hash" : "b638e89534de7a84304942ce7887bdb4",
-      "size" : 231663
+  "publisher":{
+    "uuid":"f4bee612-31d2-4f62-9a64-f53546c591cf",
+    "type":"publisher",
+    "languages":[
+      "en"
+    ],
+    "status":"published",
+    "hash":"94ea063925b6fddc87cfd81f9bb4c74bc5a94ade",
+    "title":"Tours around the world",
+    "summary":"We are a group of enthusiasts who would love to share our favourite tours with the world!\r\nPlease enjoy!",
+    "language":"en",
+    "content_provider":{
+      "uuid":"4e9d2b2c-83c3-4a84-8675-7cc276270305",
+      "name":"Tours around the world",
+      "copyright":"@Tours around the world. All rights reserved."
     }
-  ]
+  },
+  "location":{
+    "altitude":0.0,
+    "latitude":48.8088883848945,
+    "longitude":2.13307673784743
+  },
+  "language":"en",
+  "summary":"A story about foo to the bar.",
+  "title":"Straight until"
 }

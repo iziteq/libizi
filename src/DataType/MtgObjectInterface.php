@@ -73,10 +73,24 @@ interface MtgObjectInterface extends FactoryInterface, MultipleFormInterface, Pu
     public function getContentProvider();
 
     /**
-     * Gets the purchase.
+     * Gets the publisher.
      *
-     * @return \Triquanta\IziTravel\DataType\PurchaseInterface|null
+     * @return \Triquanta\IziTravel\DataType\PublisherInterface|null
      */
-    public function getPurchase();
+    public function getPublisher();
+
+    /**
+     * Gets the city.
+     *
+     * @return \Triquanta\IziTravel\DataType\CityInterface|null
+     */
+    public function getCity();
+
+    /**
+     * Gets the country.
+     *
+     * @return \Triquanta\IziTravel\DataType\CountryInterface|null
+     */
+    public function getCountry();
 
 }

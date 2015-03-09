@@ -1,113 +1,66 @@
 {
-  "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
-  "parent_uuid":       "3afcd4ab-837f-4055-a8ed-ce43910f9446",
-  "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
-  "type":       "story_navigation",
-  "category":   "bike",
-  "status":     "published",
-  "languages":  ["en"],
-  "content_provider": {
-    "name": "Sample CP",
-    "uuid": "15ad4ee2-ff55-4a86-950d-8dee4c79fc35"
-  },
-  "trigger_zones": [
+  "uuid":"ca5bb2ae-ff5e-407d-b542-edeef71f5a46",
+  "status":"published",
+  "type":"story_navigation",
+  "languages":[
+    "en",
+    "fr",
+    "es"
+  ],
+  "hash":"8000cdbcc3a63acaa822bb556fe98efe7cd23ac2",
+  "parent_uuid":"2e7f5302-6ff3-4c0e-9820-75dcd04c425e",
+  "trigger_zones":[
     {
-      "type":             "circle",
-      "circle_latitude":  52.4341477399124,
-      "circle_longitude": 4.81567904827443,
-      "circle_radius":    818.92609425069
+      "circle_altitude":0.0,
+      "type":"circle",
+      "circle_latitude":48.8088883848945,
+      "circle_longitude":2.13307673784743,
+      "circle_radius":50.0
     }
   ],
-  "location": {
-    "altitude":  0.0,
-    "latitude":  59.9308144003772,
-    "longitude": 30.3516736220902
+  "content_provider":{
+    "uuid":"4e9d2b2c-83c3-4a84-8675-7cc276270305",
+    "name":"Tours around the world",
+    "copyright":"@Tours around the world. All rights reserved."
   },
-  "content": [
+  "publisher":{
+    "uuid":"f4bee612-31d2-4f62-9a64-f53546c591cf",
+    "type":"publisher",
+    "languages":[
+      "en"
+    ],
+    "status":"published",
+    "hash":"94ea063925b6fddc87cfd81f9bb4c74bc5a94ade",
+    "title":"Tours around the world",
+    "summary":"We are a group of enthusiasts who would love to share our favourite tours with the world!\r\nPlease enjoy!",
+    "language":"en",
+    "content_provider":{
+      "uuid":"4e9d2b2c-83c3-4a84-8675-7cc276270305",
+      "name":"Tours around the world",
+      "copyright":"@Tours around the world. All rights reserved."
+    }
+  },
+  "content":[
     {
-      "language":   "en",
-      "title":      "Navigation Story",
-      "summary":    "",
-      "desc":       "",
-      "playback": {
-        "type": "sequential",
-        "order": [
-          "3afcd4ab-837f-4055-a8ed-ce43910f9446",
-          "7b5092de-43f3-4762-9142-df30529f7942"
-        ]
-      },
-      "images": [
+      "audio":[
         {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        },
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
+          "uuid":"b47703c9-fd5a-4356-a3ab-457ad904c114",
+          "type":"story",
+          "duration":4,
+          "order":1,
+          "hash":"34cd68962d37a28bc2108289329e9c12",
+          "size":36785
         }
       ],
-      "audio": [
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        },
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        }
-      ],
-      "video": [
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        },
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        }
-      ],
-      "quiz": {
-        "question": "Dolor illo iure beatae inventore fuga voluptatem quam error.",
-        "comment": "Bla bla bla",
-        "answers": [
-          {
-            "content": "Qq",
-            "correct": false
-          },
-          {
-            "content": "Wow",
-            "correct": false
-          },
-          {
-            "content": "Eeey",
-            "correct": true
-          }
-        ]
-      }
+      "language":"en",
+      "summary":"",
+      "desc":"Continue until you see a hospital building on your right.",
+      "title":"Straight until"
     }
   ],
-  "map": {
-    "route": "48.80056018925834,2.128772735595703;48.79945774194329,...,2.129995822906494;48.80162021190271,2.129502296447754",
-    "bounds": "48.795118387011776,2.118215560913086,48.809616,2.133493423461914"
-  },
-  "purchase": {
-    "price":      111.0,
-    "currency":   "EUR"
+  "location":{
+    "altitude":0.0,
+    "latitude":48.8088883848945,
+    "longitude":2.13307673784743
   }
 }

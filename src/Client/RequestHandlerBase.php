@@ -7,7 +7,7 @@
 
 namespace Triquanta\IziTravel\Client;
 
-use GuzzleHttp\ClientInterface;
+use GuzzleHttp\ClientInterface as HttpClientInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Triquanta\IziTravel\Event\PostResponse;
 use Triquanta\IziTravel\Event\PreRequest;
@@ -50,7 +50,7 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
      * @param string $apiKey
      *   The MTG API key.
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher, ClientInterface $httpClient, $apiKey)
+    public function __construct(EventDispatcherInterface $eventDispatcher, HttpClientInterface $httpClient, $apiKey)
     {
         $this->apiKey = $apiKey;
         $this->eventDispatcher = $eventDispatcher;

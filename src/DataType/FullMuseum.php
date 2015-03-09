@@ -7,6 +7,8 @@
 
 namespace Triquanta\IziTravel\DataType;
 
+use Iziteq\IziApiSchemes\Assets;
+
 /**
  * Provides a full museum data type.
  */
@@ -20,12 +22,16 @@ class FullMuseum extends FullMtgObjectBase implements FullMuseumInterface
      */
     protected $schedule;
 
-    public static function createFromData(\stdClass $data, $form)
+    protected static function getJsonSchemaPath() {
+        return Assets::getJsonSchemaPath() . '/mtgobjects/museum_full_object';
+    }
+
+    public static function createFromData(\stdClass $data)
     {
         /** @var static $museum */
-        $museum = parent::createFromData($data, $form);
+        $museum = parent::createFromData($data);
         if (isset($data->schedule)) {
-            $museum->schedule = Schedule::createFromData($data->schedule, $form);
+            $museum->schedule = Schedule::createFromData($data->schedule);
         }
 
         return $museum;

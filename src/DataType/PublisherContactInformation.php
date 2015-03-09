@@ -43,7 +43,7 @@ class PublisherContactInformation implements PublisherContactInformationInterfac
      */
     protected $facebookUrl;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $contactInformation = new static();
         if (isset($data->website)) {

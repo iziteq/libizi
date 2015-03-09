@@ -28,7 +28,7 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FullMtgObjectBase');
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('story_navigation_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'), MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -40,7 +40,7 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     {
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('story_navigation_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'), MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -53,29 +53,6 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromJsonWithInvalidJson()
     {
         $json = 'foo';
-
-        /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
-        $class = get_class($this->sut);
-        $this->sut = $class::createFromJson($json, MultipleFormInterface::FORM_FULL);
-    }
-
-    /**
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     * @covers \Triquanta\IziTravel\DataType\MtgObjectBase::createBaseFromData
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-     */
-    public function testCreateFromJsonWithoutUuid()
-    {
-        $json = <<<'JSON'
-{
-  "email": "john@doe.com",
-  "custom": {
-    "check": "w00t"
-  }
-}
-JSON;
 
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);

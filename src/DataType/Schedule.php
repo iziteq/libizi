@@ -24,7 +24,7 @@ class Schedule implements ScheduleInterface
      */
     protected $schedule = [];
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $schedule = new static();
         $schedule->schedule = (array) $data;

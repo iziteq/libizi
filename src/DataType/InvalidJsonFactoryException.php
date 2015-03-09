@@ -18,13 +18,19 @@ class InvalidJsonFactoryException extends \Exception
      *
      * @param string $json
      *  The invalid JSON.
+     * @param string|null $message
      * @param int $code
-     * @param \Exception $previous
+     * @param \Exception|null $previous
      */
-    public function __construct($json, $code = 0, \Exception $previous = null)
+    public function __construct($json, $message = null, $code = 0, \Exception $previous = null)
     {
-        parent::__construct(sprintf('Invalid JSON: %s', $json), $code,
-          $previous);
+        if ($message) {
+            parent::__construct(sprintf('Invalid JSON (%s): %s', $message, $json), $code,
+              $previous);
+        }
+        else {
+            parent::__construct(sprintf('Invalid JSON: %s', $json), $code, $previous);
+        }
     }
 
 }

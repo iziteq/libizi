@@ -72,7 +72,7 @@ class Location implements LocationInterface
      */
     protected $publicIpAddress;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $location = new static();
         if (isset($data->latitude)) {

@@ -21,10 +21,10 @@ abstract class PlayableMediaBase extends MediaBase implements PlayableMediaInter
      */
     protected $duration;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         /** @var static $media */
-        $media = parent::createFromData($data, $form);
+        $media = parent::createFromData($data);
         $media->duration = $data->duration;
 
         return $media;

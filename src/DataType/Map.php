@@ -33,7 +33,7 @@ class Map implements MapInterface
      */
     protected $route;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $map = new static();
         $map->bounds = $data->bounds;

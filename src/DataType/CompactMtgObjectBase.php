@@ -42,16 +42,16 @@ abstract class CompactMtgObjectBase extends MtgObjectBase implements CompactMtgO
      */
     protected $images = [];
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         /** @var static $object */
-        $object = parent::createBaseFromData($data, $form);
+        $object = parent::createBaseFromData($data);
         $object->languageCode = $data->language;
         $object->title = $data->title;
         $object->summary = $data->summary;
         if (isset($data->images)) {
             foreach ($data->images as $imageData) {
-                $object->images[] = Image::createFromData($imageData, $form);
+                $object->images[] = Image::createFromData($imageData);
             }
         }
 

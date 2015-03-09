@@ -7,6 +7,8 @@
 
 namespace Triquanta\IziTravel\DataType;
 
+use Iziteq\IziApiSchemes\Assets;
+
 /**
  * Provides a country data type in full form.
  */
@@ -20,13 +22,17 @@ class FullCountry extends CountryBase implements FullCountryInterface
      */
     protected $content = [];
 
-    public static function createFromData(\stdClass $data, $form)
+    protected static function getJsonSchemaPath() {
+        return Assets::getJsonSchemaPath() . '/mtgobjects/country_full_object';
+    }
+
+    public static function createFromData(\stdClass $data)
     {
         /** @var static $country */
-        $country = parent::createBaseFromData($data, $form);
+        $country = parent::createBaseFromData($data);
         if (isset($data->content)) {
             foreach ($data->content as $contentData) {
-                $country->content[] = CountryContent::createFromData($contentData, $form);
+                $country->content[] = CountryContent::createFromData($contentData);
             }
         }
 

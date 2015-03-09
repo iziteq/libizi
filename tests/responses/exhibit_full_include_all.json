@@ -1,116 +1,107 @@
 {
-  "uuid":       "f165ef31-91d5-4dae-b4ac-11a2cb93fa83",
-  "parent_uuid":       "3afcd4ab-837f-4055-a8ed-ce43910f9446",
-  "hash":       "65dd8712d7b793b1a327fbef9e51a60d2a54ccdc",
-  "type":       "exhibit",
-  "category":   "bike",
-  "status":     "published",
-  "languages":  ["en"],
-  "content_provider": {
-    "name": "Sample CP",
-    "uuid": "15ad4ee2-ff55-4a86-950d-8dee4c79fc35"
-  },
-  "trigger_zones": [
-    {
-      "type":             "circle",
-      "circle_latitude":  52.4341477399124,
-      "circle_longitude": 4.81567904827443,
-      "circle_radius":    818.92609425069
-    }
+  "uuid":"b776b0fe-d59c-4e26-ab6d-9a865b225533",
+  "status":"published",
+  "type":"exhibit",
+  "languages":[
+    "en",
+    "nl"
   ],
-  "location": {
-    "altitude":  0.0,
-    "latitude":  59.9308144003772,
-    "longitude": 30.3516736220902
+  "hash":"b18243869506d6370ec419c0979f3f62f0808bca",
+  "parent_uuid":"7061495d-f2bf-43e2-9f3b-e232b2a921b9",
+  "content_provider":{
+    "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
+    "name":"200 GREATEST PAINTINGS",
+    "copyright":"200 Greatest Paintings"
   },
-  "content": [
-    {
-      "language":   "en",
-      "title":      "Navigation Story",
-      "summary":    "",
-      "desc":       "",
-      "playback": {
-        "type": "sequential",
-        "order": [
-          "3afcd4ab-837f-4055-a8ed-ce43910f9446",
-          "7b5092de-43f3-4762-9142-df30529f7942"
-        ]
-      },
-      "images": [
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        },
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        }
-      ],
-      "audio": [
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        },
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        }
-      ],
-      "video": [
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        },
-        {
-          "order": 1,
-          "type":  "story",
-          "hash" : "b638e89534de7a84304942ce7887bdb4",
-          "duration": 17,
-          "uuid":  "37452efa-47d4-4ddf-8110-1b5050c14cff"
-        }
-      ],
-      "quiz": {
-        "question": "Dolor illo iure beatae inventore fuga voluptatem quam error.",
-        "comment": "Bla bla bla",
-        "answers": [
-          {
-            "content": "Qq",
-            "correct": false
-          },
-          {
-            "content": "Wow",
-            "correct": false
-          },
-          {
-            "content": "Eeey",
-            "correct": true
-          }
-        ]
+  "publisher":{
+    "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+    "type":"publisher",
+    "languages":[
+      "en"
+    ],
+    "status":"published",
+    "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+    "title":"200 GREATEST PAINTINGS",
+    "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+    "language":"en",
+    "images":[
+      {
+        "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+        "type":"brand_logo",
+        "order":1,
+        "hash":"16cd499c13040897566e1630a8abf022",
+        "size":48385
       }
+    ],
+    "content_provider":{
+      "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
+      "name":"200 GREATEST PAINTINGS",
+      "copyright":"200 Greatest Paintings"
+    }
+  },
+  "content":[
+    {
+      "audio":[
+        {
+          "uuid":"adecaa86-ab24-40a8-b8a4-990f931619ff",
+          "type":"story",
+          "duration":81,
+          "order":1,
+          "hash":"ffb0b5c501a45b25021efe2d54cd82d3",
+          "size":670459
+        }
+      ],
+      "images":[
+        {
+          "uuid":"fb675a12-763e-45dc-a8ce-9f70a43c3037",
+          "type":"story",
+          "order":1,
+          "hash":"accb9440b1c63ecb3d4a55529febfcc0",
+          "size":285484
+        },
+        {
+          "uuid":"aec05c7b-0a8d-4c83-98d4-32d3c6486e9d",
+          "type":"story",
+          "order":2,
+          "hash":"b59bde19aa8ca4c5aa3ecd41a44b7b34",
+          "size":98874
+        },
+        {
+          "uuid":"0e4f3828-7bd4-4b67-a1c0-760bacc3a5d4",
+          "type":"story",
+          "order":3,
+          "hash":"ea82663117d479c8332ea5e46aa41cf3",
+          "size":83607
+        },
+        {
+          "uuid":"2f9d28a4-edf8-405f-8e6b-228a98b728f4",
+          "type":"story",
+          "order":4,
+          "hash":"0f5b2d5622205d4bbd8092474d96ad9c",
+          "size":205861
+        },
+        {
+          "uuid":"7bc83348-447d-432a-af1a-10d657b11657",
+          "type":"story",
+          "order":5,
+          "hash":"7cd6ee6a0b7b65184a20e20a8b5d894f",
+          "size":133132
+        },
+        {
+          "uuid":"ed88ebfc-af83-4de6-8875-d47e5b00b784",
+          "type":"story",
+          "order":6,
+          "hash":"4f15b2fe3853a3891f96c830f502a286",
+          "size":236119
+        }
+      ],
+      "language":"en",
+      "summary":"",
+      "desc":"The famous Starry night shows Van Gogh’s lovely combination of the colors yellow and blue. It depicts the night view from his room in the psychiatric institution in Saint-Rémy-de-Provence. This depiction is not completely reminiscent of the reality. The pointed steeple appears to be rather more Dutch than French, and the structure of the Town is completely from Van Gogh’s imagination. Even the mountains in the background are not in their actual location.\r\n\r\nSome suggest that this distortion of reality is the result of Van Gogh’s hallucinations attributed to his mental disorder.\r\n",
+      "title":"Vincent van Gogh, Starry night, 1889"
     }
   ],
-  "map": {
-    "route": "48.80056018925834,2.128772735595703;48.79945774194329,...,2.129995822906494;48.80162021190271,2.129502296447754",
-    "bounds": "48.795118387011776,2.118215560913086,48.809616,2.133493423461914"
-  },
-  "purchase": {
-    "price":      111.0,
-    "currency":   "EUR"
-  },
-  "duration": 1700,
-  "distance": 2500,
-  "placement": "outdoor"
+  "location":{
+    "number":"14"
+  }
 }

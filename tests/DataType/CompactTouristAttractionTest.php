@@ -52,19 +52,4 @@ class CompactTouristAttractionTest extends \PHPUnit_Framework_TestCase
         CompactTouristAttraction::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
     }
 
-    /**
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-     */
-    public function testCreateFromJsonWithoutUuid()
-    {
-        $json = <<<'JSON'
-{}
-JSON;
-
-        CompactTouristAttraction::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
-    }
-
 }

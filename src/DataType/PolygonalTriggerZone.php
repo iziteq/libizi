@@ -21,7 +21,7 @@ class PolygonalTriggerZone implements PolygonalTriggerZoneInterface
      */
     protected $corners;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data, $form = null)
     {
         $triggerZone = new static();
         if (isset($data->polygon_corners)) {

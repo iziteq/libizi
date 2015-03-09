@@ -30,7 +30,7 @@ class Playback implements PlaybackInterface
      */
     protected $uuids = [];
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $playback = new static();
         $playback->type = $data->type;

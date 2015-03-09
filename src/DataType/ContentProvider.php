@@ -30,12 +30,8 @@ class ContentProvider implements ContentProviderInterface
      */
     protected $name;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data, $form = null)
     {
-        if (!isset($data->uuid)) {
-            throw new MissingUuidFactoryException($data);
-        }
-
         $contentProvider = new static();
         $contentProvider->uuid = $data->uuid;
         $contentProvider->name = $data->name;

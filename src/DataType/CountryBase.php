@@ -48,11 +48,7 @@ abstract class CountryBase implements CountryInterface
      */
     protected $location;
 
-    protected static function createBaseFromData(\stdClass $data, $form) {
-        if (!isset($data->uuid)) {
-            throw new MissingUuidFactoryException($data);
-        }
-
+    protected static function createBaseFromData(\stdClass $data) {
         $country = new static();
         $country->uuid = $data->uuid;
         $country->revisionHash = $data->hash;
@@ -60,26 +56,26 @@ abstract class CountryBase implements CountryInterface
         $country->countryCode = $data->country_code;
         $country->status = $data->status;
         if (isset($data->map)) {
-            $country->map = Map::createFromData($data->map, $form);
+            $country->map = Map::createFromData($data->map);
         }
         if (isset($data->translations)) {
             foreach ($data->translations as $translationData) {
-                $country->translations[] = CountryCityTranslation::createFromData($translationData, $form);
+                $country->translations[] = CountryCityTranslation::createFromData($translationData);
             }
         }
         if (isset($data->location)) {
-            $country->location = Location::createFromData($data->location, $form);
+            $country->location = Location::createFromData($data->location);
         }
 
         return $country;
     }
 
-    public static function createFromData(\stdClass $data, $form) {
-        if ($form === MultipleFormInterface::FORM_FULL) {
-            return FullCountry::createFromData($data, $form);
+    public static function createFromData(\stdClass $data) {
+        if (isset($data->content)) {
+            return FullCountry::createFromData($data);
         }
-        elseif ($form === MultipleFormInterface::FORM_COMPACT) {
-            return CompactCountry::createFromData($data, $form);
+        else {
+            return CompactCountry::createFromData($data);
         }
     }
 

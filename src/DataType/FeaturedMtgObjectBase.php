@@ -27,10 +27,10 @@ abstract class FeaturedMtgObjectBase extends FeaturedContentBase implements Feat
      */
     protected $countryUuid;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         /** @var static $object */
-        $object = parent::createFromData($data, $form);
+        $object = parent::createFromData($data);
         $object->cityUuid = $data->city_uuid;
         $object->countryUuid = $data->country_uuid;
 

@@ -41,11 +41,4 @@ interface CityInterface extends FactoryInterface, MultipleFormInterface, Publish
      */
     public function isVisible();
 
-    /**
-     * Counts the child objects.
-     *
-     * @return int|null
-     */
-    public function countChildren();
-
 }

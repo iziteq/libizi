@@ -69,12 +69,8 @@ abstract class FeaturedContentBase implements FeaturedContentInterface
      */
     protected $images = [];
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
-        if (!isset($data->uuid)) {
-            throw new MissingUuidFactoryException($data);
-        }
-
         $content = new static();
         $content->uuid = $data->uuid;
         $content->status = $data->status;
@@ -96,9 +92,9 @@ abstract class FeaturedContentBase implements FeaturedContentInterface
         if (isset($data->images)) {
             foreach ($data->images as $imageData) {
                 if ($imageData->type == 'image') {
-                    $content->images[] = FeaturedContentImage::createFromData($imageData, $form);
+                    $content->images[] = FeaturedContentImage::createFromData($imageData);
                 } elseif ($imageData->type == 'cover') {
-                    $content->images[] = FeaturedContentCoverImage::createFromData($imageData, $form);
+                    $content->images[] = FeaturedContentCoverImage::createFromData($imageData);
                 }
             }
         }

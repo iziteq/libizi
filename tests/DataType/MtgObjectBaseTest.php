@@ -31,12 +31,13 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MtgObjectBase');
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('story_navigation_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'), MultipleFormInterface::FORM_FULL);
     }
 
     /**
      * @covers ::createFromJson
      * @covers ::createFromData
+     * @covers \Triquanta\IziTravel\DataType\MtgObjectBase::createBaseFromData
      * @covers ::getClassMap
      */
     public function testCreateFromJson()
@@ -78,34 +79,11 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     * @covers ::getClassMap
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-     */
-    public function testCreateFromJsonWithoutUuid()
-    {
-        $json = <<<'JSON'
-{
-  "email": "john@doe.com",
-  "custom": {
-    "check": "w00t"
-  }
-}
-JSON;
-
-        /** @var \Triquanta\IziTravel\DataType\MtgObjectBase $class */
-        $class = get_class($this->sut);
-        $this->sut = $class::createFromJson($json, MultipleFormInterface::FORM_FULL);
-    }
-
-    /**
      * @covers ::getAvailableLanguageCodes
      */
     public function testGetAvailableLanguageCodes()
     {
-        $this->assertSame(['en'], $this->sut->getAvailableLanguageCodes());
+        $this->assertSame(['sv', 'en'], $this->sut->getAvailableLanguageCodes());
     }
 
     /**
@@ -145,11 +123,11 @@ JSON;
     }
 
     /**
-     * @covers ::getPurchase
+     * @covers ::getPublisher
      */
-    public function testGetPurchase()
+    public function testGetPublisher()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PurchaseInterface', $this->sut->getPurchase());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PublisherInterface', $this->sut->getPublisher());
     }
 
     /**
@@ -157,7 +135,23 @@ JSON;
      */
     public function testGetType()
     {
-        $this->assertSame(MtgObjectInterface::TYPE_STORY_NAVIGATION, $this->sut->getType());
+        $this->assertSame(MtgObjectInterface::TYPE_TOUR, $this->sut->getType());
+    }
+
+    /**
+     * @covers ::getCity
+     */
+    public function testGetCity()
+    {
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CityInterface', $this->sut->getCity());
+    }
+
+    /**
+     * @covers ::getCountry
+     */
+    public function testGetCountry()
+    {
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CountryInterface', $this->sut->getCountry());
     }
 
 }

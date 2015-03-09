@@ -54,27 +54,6 @@ class CompactPublisherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     * @covers \Triquanta\IziTravel\DataType\PublisherBase::createBaseFromData
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-     */
-    public function testCreateFromJsonWithoutUuid()
-    {
-        $json = <<<'JSON'
-{
-  "email": "john@doe.com",
-  "custom": {
-    "check": "w00t"
-  }
-}
-JSON;
-
-        CompactPublisher::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
-    }
-
-    /**
      * @covers ::getImages
      */
     public function testGetImages()
@@ -106,7 +85,7 @@ JSON;
      */
     public function testGetSummary()
     {
-        $this->assertSame('Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen.', $this->sut->getSummary());
+        $this->assertSame('Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen. ', $this->sut->getSummary());
     }
 
 }

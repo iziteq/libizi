@@ -36,12 +36,12 @@ class Quiz implements QuizInterface
      */
     protected $question;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $quiz = new static();
         $quiz->question = $data->question;
         foreach ($data->answers as $answerData) {
-            $quiz->answers[] = QuizAnswer::createFromData($answerData, $form);
+            $quiz->answers[] = QuizAnswer::createFromData($answerData);
         }
         if (isset($data->comment)) {
             $quiz->comment = $data->comment;

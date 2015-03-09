@@ -62,29 +62,6 @@ class CompactMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     * @covers \Triquanta\IziTravel\DataType\MtgObjectBase::createBaseFromData
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-     */
-    public function testCreateFromJsonWithoutUuid()
-    {
-        $json = <<<'JSON'
-{
-  "email": "john@doe.com",
-  "custom": {
-    "check": "w00t"
-  }
-}
-JSON;
-
-        /** @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase $class */
-        $class = get_class($this->sut);
-        $class::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
-    }
-
-    /**
      * @covers ::getLanguageCode
      */
     public function testGetLanguageCode()
@@ -97,7 +74,7 @@ JSON;
      */
     public function testGetTitle()
     {
-        $this->assertSame('Foo to the bar', $this->sut->getTitle());
+        $this->assertSame('Straight until', $this->sut->getTitle());
     }
 
     /**

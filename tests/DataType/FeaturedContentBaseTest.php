@@ -79,28 +79,6 @@ JSON;
     }
 
     /**
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-     */
-    public function testCreateFromJsonWithoutUuid()
-    {
-        $json = <<<'JSON'
-{
-  "email": "john@doe.com",
-  "custom": {
-    "check": "w00t"
-  }
-}
-JSON;
-
-        /** @var \Triquanta\IziTravel\DataType\FeaturedContentBase $class */
-        $class = get_class($this->sut);
-        $class::createFromJson($json, MultipleFormInterface::FORM_FULL);
-    }
-
-    /**
      * @covers ::isPromoted
      */
     public function testIsPromoted()

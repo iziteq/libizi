@@ -68,12 +68,8 @@ abstract class CityBase implements CityInterface
      */
     protected $visible = false;
 
-    protected static function createBaseFromData(\stdClass $data, $form)
+    protected static function createBaseFromData(\stdClass $data)
     {
-        if (!isset($data->uuid)) {
-            throw new MissingUuidFactoryException($data);
-        }
-
         $city = new static();
         $city->uuid = $data->uuid;
         $city->revisionHash = $data->hash;
@@ -84,34 +80,34 @@ abstract class CityBase implements CityInterface
             $city->numberOfChildren = $data->children_count;
         }
         if (isset($data->country)) {
-            $city->country = CountryBase::createFromData($data->country, $form);
+            $city->country = CountryBase::createFromData($data->country);
         }
         if (isset($data->location)) {
-            $city->location = Location::createFromData($data->location, $form);
+            $city->location = Location::createFromData($data->location);
         }
         if (isset($data->map)) {
-            $city->map = Map::createFromData($data->map, $form);
+            $city->map = Map::createFromData($data->map);
         }
         if (isset($data->translations)) {
             foreach ($data->translations as $translationData) {
-                $city->translations[] = CountryCityTranslation::createFromData($translationData, $form);
+                $city->translations[] = CountryCityTranslation::createFromData($translationData);
             }
         }
         if (isset($data->children)) {
             foreach ($data->children as $childData) {
-                $city->children[] = MtgObjectBase::createFromData($childData, $form);
+                $city->children[] = MtgObjectBase::createFromData($childData);
             }
         }
 
         return $city;
     }
 
-    public static function createFromData(\stdClass $data, $form) {
-        if ($form === MultipleFormInterface::FORM_FULL) {
-            return FullCity::createFromData($data, $form);
+    public static function createFromData(\stdClass $data) {
+        if (isset($data->content)) {
+            return FullCity::createFromData($data);
         }
-        elseif ($form === MultipleFormInterface::FORM_COMPACT) {
-            return CompactCity::createFromData($data, $form);
+        else {
+            return CompactCity::createFromData($data);
         }
     }
 
@@ -128,11 +124,6 @@ abstract class CityBase implements CityInterface
     public function getLocation()
     {
         return $this->location;
-    }
-
-    public function countChildren()
-    {
-        return $this->numberOfChildren;
     }
 
     public function isVisible()

@@ -59,23 +59,6 @@ JSON;
     }
 
     /**
-     * @covers ::createFromJson
-     * @covers ::createFromData
-     *
-     * @expectedException \Triquanta\IziTravel\DataType\MissingUuidFactoryException
-     */
-    public function testCreateFromJsonWithoutUuid()
-    {
-        $json = <<<'JSON'
-{
-  "name": "Sample CP"
-}
-JSON;
-
-        ContentProvider::createFromJson($json, MultipleFormInterface::FORM_FULL);
-    }
-
-    /**
      * @covers ::getUuid
      */
     public function testGetUuid()

@@ -7,6 +7,8 @@
 
 namespace Triquanta\IziTravel\DataType;
 
+use Iziteq\IziApiSchemes\Assets;
+
 /**
  * Provides a compact tour data type.
  */
@@ -23,10 +25,14 @@ class CompactTour extends CompactMtgObjectBase implements CompactTourInterface
      */
     protected $route;
 
-    public static function createFromData(\stdClass $data, $form)
+    protected static function getJsonSchemaPath() {
+        return Assets::getJsonSchemaPath() . '/compactmtgobjects/common_compact_object';
+    }
+
+    public static function createFromData(\stdClass $data)
     {
         /** @var static $tour */
-        $tour = parent::createFromData($data, $form);
+        $tour = parent::createFromData($data);
         $tour->category = $data->category;
         $tour->duration = $data->duration;
         $tour->distance = $data->distance;

@@ -34,20 +34,20 @@ abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectI
      */
     protected $content = [];
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         /** @var static $object */
-        $object = parent::createBaseFromData($data, $form);
+        $object = parent::createBaseFromData($data);
         if (isset($data->parent_uuid)) {
             $object->parentUuid = $data->parent_uuid;
         }
         if (isset($data->content)) {
             foreach ($data->content as $contentData) {
-                $object->content[] = Content::createFromData($contentData, $form);
+                $object->content[] = Content::createFromData($contentData);
             }
         }
         if (isset($data->map)) {
-            $object->map = Map::createFromData($data->map, $form);
+            $object->map = Map::createFromData($data->map);
         }
 
         return $object;

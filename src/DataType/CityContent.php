@@ -51,7 +51,7 @@ class CityContent implements CityContentInterface
      */
     protected $images = [];
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $content = new static();
         $content->languageCode = $data->language;
@@ -60,7 +60,7 @@ class CityContent implements CityContentInterface
         $content->description = $data->desc;
         if (isset($data->images)) {
             foreach ($data->images as $imageData) {
-                $content->images[] = Image::createFromData($imageData, $form);
+                $content->images[] = Image::createFromData($imageData);
             }
         }
 

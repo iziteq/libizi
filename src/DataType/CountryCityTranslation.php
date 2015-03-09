@@ -30,7 +30,7 @@ class CountryCityTranslation implements CountryCityTranslationInterface
      */
     protected $languageCode;
 
-    public static function createFromData(\stdClass $data, $form)
+    public static function createFromData(\stdClass $data)
     {
         $translation = new static();
         $translation->name = $data->name;
