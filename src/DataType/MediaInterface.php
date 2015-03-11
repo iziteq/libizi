@@ -14,14 +14,24 @@ interface MediaInterface extends FactoryInterface, RevisionableInterface, UuidIn
 {
 
     /**
-     * A story media item.
+     * A brand cover media item.
      */
-    const TYPE_STORY = 'story';
+    const TYPE_BRAND_COVER = 'brand_cover';
+
+    /**
+     * A brand logo media item.
+     */
+    const TYPE_BRAND_LOGO = 'brand_logo';
 
     /**
      * A map media item.
      */
     const TYPE_MAP = 'map';
+
+    /**
+     * A story media item.
+     */
+    const TYPE_STORY = 'story';
 
     /**
      * Image media.
