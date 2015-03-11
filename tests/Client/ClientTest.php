@@ -177,6 +177,16 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers ::getPublisherChildrenByUuid
+     */
+    public function testGetPublisherChildrenByUuid()
+    {
+        $languageCodes = ['en', 'uk', 'nl'];
+        $uuid = '7d84ef00-f4f6-4b90-89d7-f20207ee9ca6';
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\PublisherChildrenByUuid', $this->sut->getPublisherChildrenByUuid($languageCodes, $uuid));
+    }
+
+    /**
      * @covers ::search
      */
     public function testSearch()
