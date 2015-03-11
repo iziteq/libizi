@@ -23,7 +23,7 @@ interface FullPublisherInterface extends PublisherInterface
     /**
      * Gets the contact information.
      *
-     * @return \Triquanta\IziTravel\DataType\PublisherContactInformationInterface[]
+     * @return \Triquanta\IziTravel\DataType\PublisherContactInformationInterface
      */
     public function getContactInformation();
 
