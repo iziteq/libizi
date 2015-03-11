@@ -16,7 +16,7 @@ class CompactExhibit extends CompactMtgObjectBase implements CompactExhibitInter
 {
 
     protected static function getJsonSchemaPath() {
-        return Assets::getJsonSchemaPath() . '/compactmtgobjects/exhibit_full_object';
+        return Assets::getJsonSchemaPath() . '/compactmtgobjects/common_compact_object';
     }
 
 }
