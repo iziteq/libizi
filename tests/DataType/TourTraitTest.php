@@ -7,6 +7,7 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
+use Triquanta\IziTravel\DataType\PurchaseInterface;
 use Triquanta\IziTravel\DataType\TourInterface;
 use Triquanta\IziTravel\DataType\TourTrait;
 
@@ -158,7 +159,7 @@ class TourTraitTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->sut = new TourTraitTestTraitImplementation($this->category,
-          $this->duration, $this->distance, $this->placement);
+          $this->duration, $this->distance, $this->placement, $this->purchase);
     }
 
     /**
@@ -193,6 +194,14 @@ class TourTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($this->placement, $this->sut->getPlacement());
     }
 
+    /**
+     * @covers ::getPurchase
+     */
+    public function testGetPurchase()
+    {
+        $this->assertSame($this->purchase, $this->sut->getPurchase());
+    }
+
 }
 
 class TourTraitTestTraitImplementation
@@ -211,12 +220,14 @@ class TourTraitTestTraitImplementation
      *   The distance in meters.
      * @param string|null $placement
      *   One of the static::PLACEMENT_* constants.
+     * @param \Triquanta\IziTravel\DataType\PurchaseInterface $purchase
      */
-    public function __construct($category, $duration, $distance, $placement)
+    public function __construct($category, $duration, $distance, $placement, PurchaseInterface $purchase)
     {
         $this->category = $category;
         $this->duration = $duration;
         $this->distance = $distance;
         $this->placement = $placement;
+        $this->purchase = $purchase;
     }
 }

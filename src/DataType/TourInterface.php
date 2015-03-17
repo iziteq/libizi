@@ -80,4 +80,11 @@ interface TourInterface extends MtgObjectInterface
      */
     public function getPlacement();
 
+    /**
+     * Gets the purchase.
+     *
+     * @return \Triquanta\IziTravel\DataType\PurchaseInterface|null
+     */
+    public function getPurchase();
+
 }

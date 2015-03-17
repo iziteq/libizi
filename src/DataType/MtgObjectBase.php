@@ -69,13 +69,6 @@ abstract class MtgObjectBase implements MtgObjectInterface
      */
     protected $publisher;
 
-    /**
-     * The purchase.
-     *
-     * @var \Triquanta\IziTravel\DataType\PurchaseInterface|null
-     */
-    protected $purchase;
-
     protected static function createBaseFromData(\stdClass $data)
     {
         $object = new static();
