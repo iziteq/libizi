@@ -20,6 +20,7 @@ use Triquanta\IziTravel\Request\MtgObjectChildrenByUuid;
 use Triquanta\IziTravel\Request\MtgObjectsByUuids;
 use Triquanta\IziTravel\Request\PublisherByUuid;
 use Triquanta\IziTravel\Request\PublisherChildrenByUuid;
+use Triquanta\IziTravel\Request\PublisherChildrenLanguagesByUuid;
 use Triquanta\IziTravel\Request\Search;
 
 /**
@@ -123,6 +124,13 @@ final class Client implements ClientInterface
     public function getPublisherChildrenByUuid(array $languageCodes, $uuid)
     {
         return PublisherChildrenByUuid::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
+    }
+
+    public function getPublisherChildrenLanguagesByUuid(array $languageCodes, $uuid)
+    {
+        return PublisherChildrenLanguagesByUuid::create($this->requestHandler)
           ->setLanguageCodes($languageCodes)
           ->setUuid($uuid);
     }

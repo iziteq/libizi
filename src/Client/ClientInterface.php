@@ -144,6 +144,17 @@ interface ClientInterface
     public function getPublisherChildrenByUuid(array $languageCodes, $uuid);
 
     /**
+     * Gets a request to get a publisher's children's languages by its UUID.
+     *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
+     * @param string $uuid
+     *
+     * @return \Triquanta\IziTravel\Request\PublisherChildrenLanguagesByUuid
+     */
+    public function getPublisherChildrenLanguagesByUuid(array $languageCodes, $uuid);
+
+    /**
      * Gets a search request.
      *
      * @param string[] $languageCodes
