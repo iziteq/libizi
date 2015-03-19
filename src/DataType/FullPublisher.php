@@ -25,9 +25,9 @@ class FullPublisher extends PublisherBase implements FullPublisherInterface
     /**
      * The contact information.
      *
-     * @return \Triquanta\IziTravel\DataType\PublisherContactInformationInterface[]
+     * @return \Triquanta\IziTravel\DataType\PublisherContactInformationInterface
      */
-    protected $contactInformation = [];
+    protected $contactInformation;
 
     protected static function getJsonSchemaPath() {
         return Assets::getJsonSchemaPath() . '/mtgobjects/publisher_full_object';
