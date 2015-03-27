@@ -41,8 +41,50 @@ class CitiesTest extends RequestBaseTestBase
 
     /**
      * @covers ::execute
+     * @covers \Triquanta\IziTravel\Request\FormTrait::setForm
+     * @covers \Triquanta\IziTravel\Request\LimitTrait::setLimit
+     * @covers \Triquanta\IziTravel\Request\LimitTrait::setOffset
+     * @covers \Triquanta\IziTravel\Request\ModifiableTrait::setIncludes
+     * @covers \Triquanta\IziTravel\Request\MultiLingualTrait::setLanguageCodes
+     */
+    public function testExecute()
+    {
+        $languageCodesOptions = ['en', 'nl', 'uk'];
+        $languageCodes = [$languageCodesOptions[array_rand($languageCodesOptions)]];
+        $limit = mt_rand();
+        $offset = mt_rand();
+        $formOptions = [MultipleFormInterface::FORM_COMPACT, MultipleFormInterface::FORM_FULL];
+        $form = $formOptions[array_rand($formOptions)];
+        $includesOptions = ['city', 'country'];
+        $includes = [$includesOptions[array_rand($includesOptions)]];
+
+        $expectedParameters = [
+          'languages' => $languageCodes,
+          'includes' => $includes,
+          'form' => $form,
+          'limit' => $limit,
+          'offset' => $offset,
+        ];
+
+        $this->requestHandler->expects($this->once())
+          ->method('request')
+          ->with($this->isType('string'), new \PHPUnit_Framework_Constraint_IsEqual($expectedParameters))
+          ->willReturn(json_encode([]));
+
+        $this->sut->setLanguageCodes($languageCodes)
+          ->setForm($form)
+          ->setLimit($limit)
+          ->setOffset($offset)
+          ->setIncludes($includes)
+          ->execute();
+    }
+
+    /**
+     * @covers ::execute
      *
      * @dataProvider providerTestExecute
+     *
+     * @depends testExecute
      */
     public function testExecuteRealRequest($form, $instanceof)
     {

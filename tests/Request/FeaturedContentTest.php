@@ -40,6 +40,30 @@ class FeaturedContentTest extends RequestBaseTestBase
 
     /**
      * @covers ::execute
+     * @covers \Triquanta\IziTravel\Request\MultiLingualTrait::setLanguageCodes
+     */
+    public function testExecute()
+    {
+        $languageCodesOptions = ['en', 'nl', 'uk'];
+        $languageCodes = [$languageCodesOptions[array_rand($languageCodesOptions)]];
+
+        $expectedParameters = [
+          'languages' => $languageCodes,
+        ];
+
+        $this->requestHandler->expects($this->once())
+          ->method('request')
+          ->with($this->isType('string'), new \PHPUnit_Framework_Constraint_IsEqual($expectedParameters))
+          ->willReturn(json_encode([]));
+
+        $this->sut->setLanguageCodes($languageCodes)
+          ->execute();
+    }
+
+    /**
+     * @covers ::execute
+     *
+     * @depends testExecute
      */
     public function testExecuteRealRequest()
     {
