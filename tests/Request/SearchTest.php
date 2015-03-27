@@ -42,13 +42,18 @@ class SearchTest extends RequestBaseTestBase
 
     /**
      * @covers ::execute
+     * @covers ::setQuery
+     * @covers ::setRegion
+     * @covers ::setSort
+     * @covers ::setTypes
+     * @covers \Triquanta\IziTravel\Request\FormTrait::setForm
+     * @covers \Triquanta\IziTravel\Request\LimitTrait::setLimit
+     * @covers \Triquanta\IziTravel\Request\LimitTrait::setOffset
+     * @covers \Triquanta\IziTravel\Request\ModifiableTrait::setIncludes
+     * @covers \Triquanta\IziTravel\Request\MultiLingualTrait::setLanguageCodes
      */
     public function testExecute()
     {
-        $this->requestHandler = $this->getMock('\Triquanta\IziTravel\Client\RequestHandlerInterface');
-
-        $this->sut = Search::create($this->requestHandler);
-
         $languageCodesOptions = ['en', 'nl', 'uk'];
         $languageCodes = [$languageCodesOptions[array_rand($languageCodesOptions)]];
         $query = '';
@@ -101,9 +106,13 @@ class SearchTest extends RequestBaseTestBase
      * @covers ::execute
      *
      * @dataProvider providerTestExecuteRealRequest
+     *
+     * @depends testExecute
      */
     public function testExecuteRealRequest($type, $form, $instanceof)
     {
+        $this->sut = Search::create($this->productionRequestHandler);
+
         $languageCodes = ['en'];
         $query = '';
         $limit = mt_rand(1, 9);

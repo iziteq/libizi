@@ -44,8 +44,10 @@ class MtgObjectChildrenByUuidTest extends RequestBaseTestBase
      *
      * @dataProvider providerTestExecute
      */
-    public function testExecute($form, $instanceof)
+    public function testExecuteRealRequest($form, $instanceof)
     {
+        $this->sut = MtgObjectChildrenByUuid::create($this->productionRequestHandler);
+
         $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
         $languageCodes = ['en'];
         $limit = mt_rand(1, 9);

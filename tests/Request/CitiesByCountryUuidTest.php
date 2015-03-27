@@ -44,8 +44,10 @@ class CitiesByCountryUuidTest extends RequestBaseTestBase
      *
      * @dataProvider providerTestExecute
      */
-    public function testExecute($form, $instanceof)
+    public function testExecuteRealRequest($form, $instanceof)
     {
+        $this->sut = CitiesByCountryUuid::create($this->productionRequestHandler);
+
         $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
         $languageCodes = ['en'];
 

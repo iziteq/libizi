@@ -44,8 +44,10 @@ class CountryByUuidTest extends RequestBaseTestBase
      *
      * @dataProvider providerTestExecute
      */
-    public function testExecute($form, $instanceof)
+    public function testExecuteRealRequest($form, $instanceof)
     {
+        $this->sut = CountryByUuid::create($this->productionRequestHandler);
+
         $uuid = '69929d8f-ba82-49b2-88fe-e5a0c687caca';
         $languageCodes = ['en'];
 

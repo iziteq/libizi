@@ -26,16 +26,23 @@ class RequestBaseTestBase extends \PHPUnit_Framework_TestCase
     protected $eventDispatcher;
 
     /**
-     * The HTTP client.
+     * The production HTTP client.
      *
-     * @var \GuzzleHttp\Client
+     * @var \GuzzleHttp\ClientInterface
      */
-    protected $httpClient;
+    protected $productionHttpClient;
+
+    /**
+     * The production request handler.
+     *
+     * @var \Triquanta\IziTravel\Client\ProductionRequestHandler
+     */
+    protected $productionRequestHandler;
 
     /**
      * The request handler.
      *
-     * @var \Triquanta\IziTravel\Client\ProductionRequestHandler
+     * @var \Triquanta\IziTravel\Client\RequestHandlerInterface|\PHPUnit_Framework_MockObject_MockObject
      */
     protected $requestHandler;
 
@@ -45,10 +52,12 @@ class RequestBaseTestBase extends \PHPUnit_Framework_TestCase
 
         $this->eventDispatcher = $this->getMock('\Symfony\Component\EventDispatcher\EventDispatcherInterface');
 
-        $this->httpClient = new Client();
+        $this->productionHttpClient = new Client();
 
-        $this->requestHandler = new ProductionRequestHandler($this->eventDispatcher, $this->httpClient,
+        $this->productionRequestHandler = new ProductionRequestHandler($this->eventDispatcher, $this->productionHttpClient,
           $configuration['apiKey']);
+
+        $this->requestHandler = $this->getMock('\Triquanta\IziTravel\Client\RequestHandlerInterface');
     }
 
 }

@@ -44,8 +44,10 @@ class CitiesTest extends RequestBaseTestBase
      *
      * @dataProvider providerTestExecute
      */
-    public function testExecute($form, $instanceof)
+    public function testExecuteRealRequest($form, $instanceof)
     {
+        $this->sut = Cities::create($this->productionRequestHandler);
+
         $languageCodes = ['en'];
         $limit = mt_rand(1, 9);
 

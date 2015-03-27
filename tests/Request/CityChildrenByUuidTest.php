@@ -7,9 +7,12 @@
 
 namespace Triquanta\IziTravel\Tests\Request;
 
+use GuzzleHttp\Client;
+use Triquanta\IziTravel\Client\ProductionRequestHandler;
 use Triquanta\IziTravel\DataType\MtgObjectInterface;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\Request\CityChildrenByUuid;
+use Triquanta\IziTravel\Tests\TestHelper;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\Request\CityChildrenByUuid
@@ -43,13 +46,15 @@ class CityChildrenByUuidTest extends RequestBaseTestBase
     /**
      * @covers ::execute
      * @covers ::setTypes
+     * @covers \Triquanta\IziTravel\Request\FormTrait::setForm
+     * @covers \Triquanta\IziTravel\Request\LimitTrait::setLimit
+     * @covers \Triquanta\IziTravel\Request\LimitTrait::setOffset
+     * @covers \Triquanta\IziTravel\Request\ModifiableTrait::setIncludes
+     * @covers \Triquanta\IziTravel\Request\MultiLingualTrait::setLanguageCodes
+     * @covers \Triquanta\IziTravel\Request\UuidTrait::setUuid
      */
     public function testExecute()
     {
-        $this->requestHandler = $this->getMock('\Triquanta\IziTravel\Client\RequestHandlerInterface');
-
-        $this->sut = CityChildrenByUuid::create($this->requestHandler);
-
         $languageCodesOptions = ['en', 'nl', 'uk'];
         $languageCodes = [$languageCodesOptions[array_rand($languageCodesOptions)]];
         $limit = mt_rand();
@@ -91,9 +96,13 @@ class CityChildrenByUuidTest extends RequestBaseTestBase
      * @covers ::execute
      *
      * @dataProvider providerTestExecute
+     *
+     * @depends testExecute
      */
     public function testExecuteRealRequest($form, $instanceof)
     {
+        $this->sut = CityChildrenByUuid::create($this->productionRequestHandler);
+
         $uuid = '3f879f37-21b0-479d-bd74-aa26f72fa328';
         $languageCodes = ['en'];
         $limit = mt_rand(1, 9);

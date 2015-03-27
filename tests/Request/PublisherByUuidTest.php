@@ -44,8 +44,10 @@ class PublisherByUuidTest extends RequestBaseTestBase
      *
      * @dataProvider providerTestExecute
      */
-    public function testExecute($form, $instanceof)
+    public function testExecuteRealRequest($form, $instanceof)
     {
+        $this->sut = PublisherByUuid::create($this->productionRequestHandler);
+
         $uuid = '7d84ef00-f4f6-4b90-89d7-f20207ee9ca6';
         $languageCodes = ['en'];
 

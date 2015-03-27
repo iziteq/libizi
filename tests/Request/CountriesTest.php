@@ -44,8 +44,10 @@ class CountriesTest extends RequestBaseTestBase
      *
      * @dataProvider providerTestExecute
      */
-    public function testExecute($form, $instanceof)
+    public function testExecuteRealRequest($form, $instanceof)
     {
+        $this->sut = Countries::create($this->productionRequestHandler);
+
         $languageCodes = ['en'];
         $limit = mt_rand(1, 9);
 

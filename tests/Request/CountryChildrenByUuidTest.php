@@ -43,13 +43,15 @@ class CountryChildrenByUuidTest extends RequestBaseTestBase
     /**
      * @covers ::execute
      * @covers ::setTypes
+     * @covers \Triquanta\IziTravel\Request\FormTrait::setForm
+     * @covers \Triquanta\IziTravel\Request\LimitTrait::setLimit
+     * @covers \Triquanta\IziTravel\Request\LimitTrait::setOffset
+     * @covers \Triquanta\IziTravel\Request\ModifiableTrait::setIncludes
+     * @covers \Triquanta\IziTravel\Request\MultiLingualTrait::setLanguageCodes
+     * @covers \Triquanta\IziTravel\Request\UuidTrait::setUuid
      */
     public function testExecute()
     {
-        $this->requestHandler = $this->getMock('\Triquanta\IziTravel\Client\RequestHandlerInterface');
-
-        $this->sut = CountryChildrenByUuid::create($this->requestHandler);
-
         $languageCodesOptions = ['en', 'nl', 'uk'];
         $languageCodes = [$languageCodesOptions[array_rand($languageCodesOptions)]];
         $limit = mt_rand();
@@ -91,9 +93,13 @@ class CountryChildrenByUuidTest extends RequestBaseTestBase
      * @covers ::execute
      *
      * @dataProvider providerTestExecute
+     *
+     * @depends testExecute
      */
     public function testExecuteRealRequest($form, $instanceof)
     {
+        $this->sut = CountryChildrenByUuid::create($this->productionRequestHandler);
+
         $uuid = '15845ecf-4274-4286-b086-e407ff8207de';
         $languageCodes = ['en'];
         $limit = mt_rand(1, 9);

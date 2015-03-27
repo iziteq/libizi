@@ -44,8 +44,10 @@ class MtgObjectsByUuidsTest extends RequestBaseTestBase
      *
      * @dataProvider providerTestExecute
      */
-    public function testExecute($form, $instanceof)
+    public function testExecuteRealRequest($form, $instanceof)
     {
+        $this->sut = MtgObjectsByUuids::create($this->productionRequestHandler);
+
         $uuids = [
           'bcf57367-77f6-4e39-9da6-1b481826501f',
           '9a7d0fd4-aa50-4d12-a8fa-26f080cd7e0c'

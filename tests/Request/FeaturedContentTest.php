@@ -41,8 +41,10 @@ class FeaturedContentTest extends RequestBaseTestBase
     /**
      * @covers ::execute
      */
-    public function testExecute()
+    public function testExecuteRealRequest()
     {
+        $this->sut = FeaturedContent::create($this->productionRequestHandler);
+
         $languageCodes = ['en'];
         $this->sut->setLanguageCodes($languageCodes);
 
