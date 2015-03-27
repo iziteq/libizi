@@ -42,21 +42,78 @@ class SearchTest extends RequestBaseTestBase
 
     /**
      * @covers ::execute
-     *
-     * @dataProvider providerTestExecute
      */
-    public function testExecute($type, $form, $instanceof)
+    public function testExecute()
+    {
+        $this->requestHandler = $this->getMock('\Triquanta\IziTravel\Client\RequestHandlerInterface');
+
+        $this->sut = Search::create($this->requestHandler);
+
+        $languageCodesOptions = ['en', 'nl', 'uk'];
+        $languageCodes = [$languageCodesOptions[array_rand($languageCodesOptions)]];
+        $query = '';
+        $limit = mt_rand();
+        $offset = mt_rand();
+        $formOptions = [MultipleFormInterface::FORM_COMPACT, MultipleFormInterface::FORM_FULL];
+        $form = $formOptions[array_rand($formOptions)];
+        $typesOptions = [MtgObjectInterface::TYPE_MUSEUM, MtgObjectInterface::TYPE_TOUR, 'city', 'museum'];
+        $types = [$typesOptions[array_rand($typesOptions)]];
+        $regionOptions = ['bcf57367-77f6-4e39-9da6-1b481826501f', '3f879f37-21b0-479d-bd74-aa26f72fa328'];
+        $region = $regionOptions[array_rand($regionOptions)];
+        $includesOptions = ['city', 'country'];
+        $includes = [$includesOptions[array_rand($includesOptions)]];
+        $sortFieldOptions = ['popularity', 'title'];
+        $sortField = $sortFieldOptions[array_rand($sortFieldOptions)];
+        $sortOrderOptions = ['popularity', 'title'];
+        $sortOrder = $sortOrderOptions[array_rand($sortOrderOptions)];
+
+        $expectedParameters = [
+          'languages' => $languageCodes,
+          'includes' => $includes,
+          'form' => $form,
+          'sort_by' => $sortField . ':' . $sortOrder,
+          'type' => $types,
+          'query' => $query,
+          'limit' => $limit,
+          'offset' => $offset,
+          'region' => $region,
+        ];
+
+        $this->requestHandler->expects($this->once())
+            ->method('request')
+            ->with($this->isType('string'), new \PHPUnit_Framework_Constraint_IsEqual($expectedParameters))
+            ->willReturn(json_encode([]));
+
+        $this->sut->setLanguageCodes($languageCodes)
+          ->setForm($form)
+          ->setQuery($query)
+          ->setLimit($limit)
+          ->setOffset($offset)
+          ->setTypes($types)
+          ->setRegion($region)
+          ->setIncludes($includes)
+          ->setSort($sortField, $sortOrder)
+          ->execute();
+
+    }
+
+    /**
+     * @covers ::execute
+     *
+     * @dataProvider providerTestExecuteRealRequest
+     */
+    public function testExecuteRealRequest($type, $form, $instanceof)
     {
         $languageCodes = ['en'];
         $query = '';
         $limit = mt_rand(1, 9);
 
         $mtgObjects = $this->sut->setLanguageCodes($languageCodes)
-            ->setForm($form)
-            ->setQuery($query)
-            ->setLimit($limit)
-            ->setTypes([$type])
-            ->execute();
+          ->setForm($form)
+          ->setQuery($query)
+          ->setLimit($limit)
+          ->setTypes([$type])
+          ->execute();
 
         $this->assertInternalType('array', $mtgObjects);
         // If the request does not return any data, we cannot test its
@@ -69,9 +126,9 @@ class SearchTest extends RequestBaseTestBase
     }
 
     /**
-     * Provides data to self::testGetMtgObjects().
+     * Provides data to self::testExecuteRealRequest().
      */
-    public function providerTestExecute()
+    public function providerTestExecuteRealRequest()
     {
         return [
           [

@@ -24,6 +24,15 @@ class Search extends RequestBase implements FormInterface, ModifiableInterface, 
     use MultilingualTrait;
 
     /**
+     * The region.
+     *
+     * @var string
+     *   The UUID of a city or country.
+     */
+    protected $region;
+
+
+    /**
      * The sort.
      *
      * @var string
@@ -65,6 +74,7 @@ class Search extends RequestBase implements FormInterface, ModifiableInterface, 
           'query' => $this->query,
           'limit' => $this->limit,
           'offset' => $this->offset,
+          'region' => $this->region,
         ]);
         $data = json_decode($json);
         $objects = [];
@@ -124,6 +134,21 @@ class Search extends RequestBase implements FormInterface, ModifiableInterface, 
     public function setQuery($query)
     {
         $this->query = $query;
+
+        return $this;
+    }
+
+    /**
+     * Sets the region.
+     *
+     * @param string $region
+     *   The UUID of a city or country.
+     *
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->region = $region;
 
         return $this;
     }

@@ -35,7 +35,7 @@ class RequestBaseTestBase extends \PHPUnit_Framework_TestCase
     /**
      * The request handler.
      *
-     * @var \Triquanta\IziTravel\Client\DevelopmentRequestHandler
+     * @var \Triquanta\IziTravel\Client\ProductionRequestHandler
      */
     protected $requestHandler;
 
