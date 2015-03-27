@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Request;
 
 use Triquanta\IziTravel\DataType\MtgObjectBase;
+use Triquanta\IziTravel\DataType\MtgObjectInterface;
 
 /**
  * Requests a city's children by UUID.
@@ -22,6 +23,18 @@ class CityChildrenByUuid extends RequestBase implements FormInterface, LimitInte
     use UuidTrait;
 
     /**
+     * The content types.
+     *
+     * @var string[]
+     *   An array of \Triquanta\IziTravel\DataType\MtgObjectInterface::TYPE_*
+     *   constants, and/or "city", and/or "country".
+     */
+    protected $types = [
+      MtgObjectInterface::TYPE_TOUR,
+      MtgObjectInterface::TYPE_MUSEUM
+    ];
+
+    /**
      * @return \Triquanta\IziTravel\DataType\MtgObjectInterface[]
      */
     public function execute()
@@ -33,6 +46,7 @@ class CityChildrenByUuid extends RequestBase implements FormInterface, LimitInte
             'form' => $this->form,
             'limit' => $this->limit,
             'offset' => $this->offset,
+            'type' => $this->types,
           ]);
         $data = json_decode($json);
         $objects = [];
@@ -42,6 +56,22 @@ class CityChildrenByUuid extends RequestBase implements FormInterface, LimitInte
         }
 
         return $objects;
+    }
+
+    /**
+     * Sets the requested content types.
+     *
+     * @param string[] $types
+     *   An array of \Triquanta\IziTravel\DataType\MtgObjectInterface::TYPE_*
+     *   constants.
+     *
+     * @return $this
+     */
+    public function setTypes(array $types)
+    {
+        $this->types = $types;
+
+        return $this;
     }
 
 }
