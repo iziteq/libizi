@@ -44,13 +44,20 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
     protected $httpClient;
 
     /**
+     * The password.
+     *
+     * @var string|null
+     */
+    protected $password;
+
+    /**
      * Constructs a new instance.
      *
      * @param \GuzzleHttp\ClientInterface $httpClient
      * @param string $apiKey
      *   The MTG API key.
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher, HttpClientInterface $httpClient, $apiKey)
+    public function __construct(EventDispatcherInterface $eventDispatcher, HttpClientInterface $httpClient, $apiKey, $password = null)
     {
         $this->apiKey = $apiKey;
         $this->eventDispatcher = $eventDispatcher;
@@ -65,6 +72,9 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
         // Set the API key in a header instead of a URL parameter, so it will
         // not accidentally end up in log messages.
         $request->setHeader('X-IZI-API-KEY', $this->apiKey);
+        if ($this->password) {
+            $parameters['password'] = $this->password;
+        }
         $request->getQuery()->replace($parameters);
         $request->getQuery()->setAggregator(static::getGuzzleQueryAggregator());
         $pre_request_event = new PreRequest($request);
