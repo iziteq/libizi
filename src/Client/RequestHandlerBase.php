@@ -62,6 +62,7 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
         $this->apiKey = $apiKey;
         $this->eventDispatcher = $eventDispatcher;
         $this->httpClient = $httpClient;
+        $this->password = $password;
     }
 
     public function request($urlPath, array $parameters = [])
