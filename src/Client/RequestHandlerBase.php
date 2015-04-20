@@ -9,6 +9,7 @@ namespace Triquanta\IziTravel\Client;
 
 use GuzzleHttp\ClientInterface as HttpClientInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Triquanta\IziTravel\ApiInterface;
 use Triquanta\IziTravel\Event\PostResponse;
 use Triquanta\IziTravel\Event\PreRequest;
 use Triquanta\IziTravel\Event\IziTravelEvents;
@@ -76,6 +77,7 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
         if ($this->password) {
             $parameters['password'] = $this->password;
         }
+        $parameters['version'] = ApiInterface::VERSION;
         $request->getQuery()->replace($parameters);
         $request->getQuery()->setAggregator(static::getGuzzleQueryAggregator());
         $pre_request_event = new PreRequest($request);
