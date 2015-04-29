@@ -21,9 +21,9 @@ Trait ModifiableTrait
     protected $includes = [];
 
   /**
-   * @param array $sections
+   * @param string[] $sections
    *
-   * @return \Triquanta\IziTravel\Request\ModifiableInterface
+   * @return $this
    *
    * @throws \InvalidArgumentException
    *   When unsupported sections are used.
