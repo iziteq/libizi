@@ -41,4 +41,17 @@ interface PublisherContactInformationInterface extends FactoryInterface
      */
     public function getFacebookUrl();
 
+  /**
+   * Gets the URL to the Google+ account.
+   *
+   * @return string|null
+   */
+  public function getGooglePlusUrl();
+
+  /**
+   * Gets the URL to the Instagram page.
+   *
+   * @return string|null
+   */
+  public function getInstagramUrl();
 }
