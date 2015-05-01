@@ -21,6 +21,8 @@ class PublisherContactInformationTest extends \PHPUnit_Framework_TestCase
     "website": "http://www.amsterdammuseum.nl",
     "twitter": "https://twitter.com/AmsterdamMuseum",
     "facebook": "https://www.facebook.com/amsterdammuseum",
+    "googleplus":"http://plus.google.com/amsterdammuseum",
+    "instagram":"http//instagram.com/amsterdammuseum",
     "email": "info@example.com"
 }
 JSON;
@@ -91,4 +93,19 @@ JSON;
         $this->assertSame('https://www.facebook.com/amsterdammuseum', $this->sut->getFacebookUrl());
     }
 
+    /**
+     * @covers ::getGooglePlusUrl
+     */
+    public function testGetGooglePlusUrl()
+    {
+        $this->assertSame('http://plus.google.com/amsterdammuseum', $this->sut->getGooglePlusUrl());
+    }
+
+    /**
+     * @covers ::getInstagramUrl
+     */
+    public function testGetInstagramUrl()
+    {
+        $this->assertSame('http://instagram.com/amsterdammuseum', $this->sut->getInstagramUrl());
+    }
 }
