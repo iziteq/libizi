@@ -22,7 +22,7 @@ class PublisherContactInformationTest extends \PHPUnit_Framework_TestCase
     "twitter": "https://twitter.com/AmsterdamMuseum",
     "facebook": "https://www.facebook.com/amsterdammuseum",
     "googleplus":"http://plus.google.com/amsterdammuseum",
-    "instagram":"http//instagram.com/amsterdammuseum",
+    "instagram":"http://instagram.com/amsterdammuseum",
     "email": "info@example.com"
 }
 JSON;
