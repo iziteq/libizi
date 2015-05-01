@@ -16,7 +16,7 @@ before_script:
   echo "apiKey: $API_KEY" > test_configuration.local.yml
 script:
 - mkdir -p build/logs
-- composer install --dev --prefer-source
+- composer install --dev --prefer-dist
 - vendor/bin/phpunit -c ./phpunit.xml.dist --bootstrap ./tests/bootstrap.php --verbose
   --debug || exit 1
 after_script:
