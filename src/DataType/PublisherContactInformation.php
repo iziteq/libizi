@@ -43,6 +43,21 @@ class PublisherContactInformation implements PublisherContactInformationInterfac
      */
     protected $facebookUrl;
 
+    /**
+     * The URL to the Goole+ account.
+     *
+     * @var string|null
+     */
+    protected $googlePlusUrl;
+
+    /**
+     * The URL to the Instagram account.
+     *
+     * @var string|null
+     */
+    protected $instragramUrl;
+
+
     public static function createFromData(\stdClass $data)
     {
         $contactInformation = new static();
@@ -57,6 +72,12 @@ class PublisherContactInformation implements PublisherContactInformationInterfac
         }
         if (isset($data->twitter)) {
             $contactInformation->twitterUrl = $data->twitter;
+        }
+        if (isset($data->googleplus)) {
+            $contactInformation->googlePlusUrl = $data->googleplus;
+        }
+        if (isset($data->instagram)) {
+            $contactInformation->instragramUrl = $data->instagram;
         }
 
         return $contactInformation;
@@ -80,6 +101,16 @@ class PublisherContactInformation implements PublisherContactInformationInterfac
     public function getFacebookUrl()
     {
         return $this->facebookUrl;
+    }
+
+    public function getGooglePlusUrl()
+    {
+       return $this->googlePlusUrl;
+    }
+
+    public function getInstagramUrl()
+    {
+        return $this->instragramUrl;
     }
 
 }
