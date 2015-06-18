@@ -30,9 +30,8 @@ class CityByUuid extends RequestBase implements FormInterface, ModifiableInterfa
           'includes' => $this->includes,
           'form' => $this->form,
         ]);
-        $data = json_decode($json);
 
-        return CityBase::createFromData($data, $this->form);
+        return CityBase::createFromJson($json, $this->form);
     }
 
 }

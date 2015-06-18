@@ -35,7 +35,7 @@ class Cities extends RequestBase implements FormInterface, LimitInterface, Modif
         $data = json_decode($json);
         $cities = [];
         foreach ($data as $cityData) {
-            $cities[] = CityBase::createFromData($cityData, $this->form);
+            $cities[] = CityBase::createFromJson(json_encode($cityData), $this->form);
         }
 
         return $cities;

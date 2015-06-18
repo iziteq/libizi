@@ -31,9 +31,8 @@ class PublisherByUuid extends RequestBase implements FormInterface, ModifiableIn
             'includes' => $this->includes,
             'form' => $this->form,
           ]);
-        $data = json_decode($json);
 
-        return PublisherBase::createFromData($data, $this->form);
+        return PublisherBase::createFromJson($json, $this->form);
     }
 
 }

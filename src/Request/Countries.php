@@ -35,7 +35,7 @@ class Countries extends RequestBase implements FormInterface, LimitInterface, Mo
         $data = json_decode($json);
         $countries = [];
         foreach ($data as $countryData) {
-            $countries[] = CountryBase::createFromData($countryData, $this->form);
+            $countries[] = CountryBase::createFromJson(json_encode($countryData), $this->form);
         }
 
         return $countries;

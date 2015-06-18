@@ -30,9 +30,8 @@ class CountryByUuid extends RequestBase implements FormInterface, ModifiableInte
           'includes' => $this->includes,
           'form' => $this->form,
         ]);
-        $data = json_decode($json);
 
-        return CountryBase::createFromData($data, $this->form);
+        return CountryBase::createFromJson($json, $this->form);
     }
 
 }

@@ -80,11 +80,11 @@ class Search extends RequestBase implements FormInterface, ModifiableInterface, 
         $objects = [];
         foreach ($data as $objectData) {
             if ($objectData->type === 'city') {
-                $objects[] = CityBase::createFromData($objectData, $this->form);
+                $objects[] = CityBase::createFromJson(json_encode($objectData), $this->form);
             } elseif ($objectData->type === 'country') {
-                $objects[] = CountryBase::createFromData($objectData, $this->form);
+                $objects[] = CountryBase::createFromJson(json_encode($objectData), $this->form);
             } else {
-                $objects[] = MtgObjectBase::createFromData($objectData,
+                $objects[] = MtgObjectBase::createFromJson(json_encode($objectData),
                   $this->form);
             }
         }
