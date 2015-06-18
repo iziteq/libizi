@@ -1,27 +1,19 @@
 # About
 [![Build Status](https://travis-ci.org/Triquanta/libizi.svg?branch=master)](https://travis-ci.org/Triquanta/libizi)
 
-This is a PHP library for communicating with the izi.TRAVEL API.
-
-## Features
-
-### Data types
-Because working with raw, untyped data in PHP is bad developer experience (DX),
-every data type in the API has corresponding interfaces and classes in this
-library. All classes come with factory methods
-([`\Triquanta\IziTravel\DataType\FactoryInterface`](./src/DataType/FactoryInterface.php)) 
-to instantiate an object based on the API's raw JSON response.
-
-### Clients
-The library provides clients to communicate with the API. They handle all
-requests, errors, and convert all API output to PHP objects.
+This is a PHP library for communicating with the 
+[izi.TRAVEL API](http://api-docs.izi.travel/).
 
 ## Requirements
 All requirements are resolved through [Composer](http://getcomposer.org). After
 installing composer, go to the project root and run `composer install` to
 install all dependencies.
 
-## Usage
+## Usage & features
+
+### Client
+The library provides a client to communicate with the API. It handles all
+requests, errors, and converts all API output to classes PHP objects.
 Three preparatory steps must be taken before API calls can be made:
 
 1. Create a `\GuzzleHttp\Client` instance.
@@ -32,7 +24,14 @@ Three preparatory steps must be taken before API calls can be made:
    handler from step 2.
 
 Now you can call any of the methods on the client from step 3 and get the API's
-output as classed PHP objects.
+output as (arrays of) classed PHP objects.
+
+### Data types
+Because working with raw, untyped data in PHP is bad developer experience (DX),
+every data type in the API has corresponding interfaces and classes in this
+library. All classes come with factory methods
+([`\Triquanta\IziTravel\DataType\FactoryInterface`](./src/DataType/FactoryInterface.php)) 
+to instantiate an object based on the API's raw JSON response.
 
 ## Development
 
