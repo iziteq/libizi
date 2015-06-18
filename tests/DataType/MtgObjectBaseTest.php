@@ -30,7 +30,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MtgObjectBase');
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -42,23 +43,47 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromJson()
     {
         // Story navigation.
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullStoryNavigationInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('story_navigation_full_include_all'), MultipleFormInterface::FORM_FULL));
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactStoryNavigationInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('story_navigation_compact_include_all'), MultipleFormInterface::FORM_COMPACT));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullStoryNavigationInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('story_navigation_full_include_all'),
+            MultipleFormInterface::FORM_FULL));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactStoryNavigationInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('story_navigation_compact_include_all'),
+            MultipleFormInterface::FORM_COMPACT));
         // Tourist attraction.
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullTouristAttractionInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('tourist_attraction_full_include_all'), MultipleFormInterface::FORM_FULL));
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactTouristAttractionInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('tourist_attraction_compact_include_all'), MultipleFormInterface::FORM_COMPACT));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullTouristAttractionInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('tourist_attraction_full_include_all'),
+            MultipleFormInterface::FORM_FULL));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactTouristAttractionInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('tourist_attraction_compact_include_all'),
+            MultipleFormInterface::FORM_COMPACT));
         // Museum.
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMuseumInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('museum_full_include_all'), MultipleFormInterface::FORM_FULL));
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMuseumInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('museum_compact_include_all'), MultipleFormInterface::FORM_COMPACT));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullMuseumInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('museum_full_include_all'),
+            MultipleFormInterface::FORM_FULL));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactMuseumInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('museum_compact_include_all'),
+            MultipleFormInterface::FORM_COMPACT));
         // Tour.
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullTourInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'), MultipleFormInterface::FORM_FULL));
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactTourInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('tour_compact_include_all'), MultipleFormInterface::FORM_COMPACT));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullTourInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'),
+            MultipleFormInterface::FORM_FULL));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactTourInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('tour_compact_include_all'),
+            MultipleFormInterface::FORM_COMPACT));
         // Exhibit.
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullExhibitInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('exhibit_full_include_all'), MultipleFormInterface::FORM_FULL));
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactExhibitInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('exhibit_compact_include_all'), MultipleFormInterface::FORM_COMPACT));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullExhibitInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('exhibit_full_include_all'),
+            MultipleFormInterface::FORM_FULL));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactExhibitInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('exhibit_compact_include_all'),
+            MultipleFormInterface::FORM_COMPACT));
         // Collection.
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCollectionInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('collection_full_include_all'), MultipleFormInterface::FORM_FULL));
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCollectionInterface', MtgObjectBase::createFromJson(TestHelper::getJsonResponse('collection_compact_include_all'), MultipleFormInterface::FORM_COMPACT));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCollectionInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('collection_full_include_all'),
+            MultipleFormInterface::FORM_FULL));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCollectionInterface',
+          MtgObjectBase::createFromJson(TestHelper::getJsonResponse('collection_compact_include_all'),
+            MultipleFormInterface::FORM_COMPACT));
     }
 
     /**
@@ -74,7 +99,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
         /** @var \Triquanta\IziTravel\DataType\MtgObjectBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -82,7 +108,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAvailableLanguageCodes()
     {
-        $this->assertSame(['sv', 'en'], $this->sut->getAvailableLanguageCodes());
+        $this->assertSame(['sv', 'en'],
+          $this->sut->getAvailableLanguageCodes());
     }
 
     /**
@@ -98,7 +125,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetLocation()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\LocationInterface', $this->sut->getLocation());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\LocationInterface',
+          $this->sut->getLocation());
     }
 
     /**
@@ -118,7 +146,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetContentProvider()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ContentProviderInterface', $this->sut->getContentProvider());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ContentProviderInterface',
+          $this->sut->getContentProvider());
     }
 
     /**
@@ -126,7 +155,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetPublisher()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PublisherInterface', $this->sut->getPublisher());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PublisherInterface',
+          $this->sut->getPublisher());
     }
 
     /**
@@ -142,7 +172,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetCity()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CityInterface', $this->sut->getCity());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CityInterface',
+          $this->sut->getCity());
     }
 
     /**
@@ -150,7 +181,8 @@ class MtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetCountry()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CountryInterface', $this->sut->getCountry());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CountryInterface',
+          $this->sut->getCountry());
     }
 
 }

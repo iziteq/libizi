@@ -10,7 +10,8 @@ namespace Triquanta\IziTravel;
 /**
  * Defines generic API functionality.
  */
-interface ApiInterface {
+interface ApiInterface
+{
 
     /**
      * The API version the library works with.

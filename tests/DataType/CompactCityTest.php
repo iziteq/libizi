@@ -26,7 +26,8 @@ class CompactCityTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->sut = CompactCity::createFromJson(TestHelper::getJsonResponse('city_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
+        $this->sut = CompactCity::createFromJson(TestHelper::getJsonResponse('city_compact_include_all'),
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -37,7 +38,8 @@ class CompactCityTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromJson()
     {
 
-        CompactCity::createFromJson(TestHelper::getJsonResponse('city_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
+        CompactCity::createFromJson(TestHelper::getJsonResponse('city_compact_include_all'),
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -85,7 +87,8 @@ class CompactCityTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('array', $this->sut->getImages());
         foreach ($this->sut->getImages() as $image) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface',
+              $image);
         }
     }
 

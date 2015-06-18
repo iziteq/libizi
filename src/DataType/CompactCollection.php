@@ -13,7 +13,8 @@ namespace Triquanta\IziTravel\DataType;
 class CompactCollection extends CompactMtgObjectBase implements CompactCollectionInterface
 {
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/compactmtgobjects/collection_compact_object';
     }
 

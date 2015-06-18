@@ -22,7 +22,8 @@ class FullCountry extends CountryBase implements FullCountryInterface
      */
     protected $content = [];
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/mtgobjects/country_full_object';
     }
 

@@ -245,7 +245,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = Content::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = Content::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -299,7 +300,8 @@ JSON;
      */
     public function testGetDescription()
     {
-        $this->assertSame('Dit gaat toch helemaal nergens meer over...', $this->sut->getDescription());
+        $this->assertSame('Dit gaat toch helemaal nergens meer over...',
+          $this->sut->getDescription());
     }
 
     /**
@@ -307,7 +309,8 @@ JSON;
      */
     public function testGetPlayback()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\Playback', $this->sut->getPlayback());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\Playback',
+          $this->sut->getPlayback());
     }
 
     /**
@@ -317,7 +320,8 @@ JSON;
     {
         $this->assertInternalType('array', $this->sut->getImages());
         foreach ($this->sut->getImages() as $image) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface',
+              $image);
         }
     }
 
@@ -328,7 +332,8 @@ JSON;
     {
         $this->assertInternalType('array', $this->sut->getAudio());
         foreach ($this->sut->getAudio() as $audio) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\AudioInterface', $audio);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\AudioInterface',
+              $audio);
         }
     }
 
@@ -339,7 +344,8 @@ JSON;
     {
         $this->assertInternalType('array', $this->sut->getVideos());
         foreach ($this->sut->getVideos() as $video) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\VideoInterface', $video);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\VideoInterface',
+              $video);
         }
     }
 
@@ -350,7 +356,8 @@ JSON;
     {
         $this->assertInternalType('array', $this->sut->getChildren());
         foreach ($this->sut->getChildren() as $object) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MtgObjectInterface', $object);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MtgObjectInterface',
+              $object);
         }
     }
 
@@ -361,7 +368,8 @@ JSON;
     {
         $this->assertInternalType('array', $this->sut->getCollections());
         foreach ($this->sut->getCollections() as $object) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MtgObjectInterface', $object);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MtgObjectInterface',
+              $object);
         }
     }
 
@@ -372,7 +380,8 @@ JSON;
     {
         $this->assertInternalType('array', $this->sut->getReferences());
         foreach ($this->sut->getReferences() as $object) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MtgObjectInterface', $object);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MtgObjectInterface',
+              $object);
         }
     }
 
@@ -381,7 +390,8 @@ JSON;
      */
     public function testGetQuiz()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\QuizInterface', $this->sut->getQuiz());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\QuizInterface',
+          $this->sut->getQuiz());
     }
 
 }

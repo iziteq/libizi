@@ -15,7 +15,8 @@ use Iziteq\IziApiSchemes\Assets;
 class CompactExhibit extends CompactMtgObjectBase implements CompactExhibitInterface
 {
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/compactmtgobjects/common_compact_object';
     }
 

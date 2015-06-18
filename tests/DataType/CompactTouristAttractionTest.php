@@ -26,7 +26,8 @@ class CompactTouristAttractionTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->sut = CompactTouristAttraction::createFromJson(TestHelper::getJsonResponse('tourist_attraction_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
+        $this->sut = CompactTouristAttraction::createFromJson(TestHelper::getJsonResponse('tourist_attraction_compact_include_all'),
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -35,7 +36,8 @@ class CompactTouristAttractionTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromJson()
     {
-        CompactTouristAttraction::createFromJson(TestHelper::getJsonResponse('tourist_attraction_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
+        CompactTouristAttraction::createFromJson(TestHelper::getJsonResponse('tourist_attraction_compact_include_all'),
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -48,7 +50,8 @@ class CompactTouristAttractionTest extends \PHPUnit_Framework_TestCase
     {
         $json = 'foo';
 
-        CompactTouristAttraction::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
+        CompactTouristAttraction::createFromJson($json,
+          MultipleFormInterface::FORM_COMPACT);
     }
 
 }

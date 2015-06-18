@@ -26,7 +26,8 @@ class FullCityTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->sut = FullCity::createFromJson(TestHelper::getJsonResponse('city_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = FullCity::createFromJson(TestHelper::getJsonResponse('city_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -37,7 +38,8 @@ class FullCityTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromJson()
     {
-        FullCity::createFromJson(TestHelper::getJsonResponse('city_full_include_all'), MultipleFormInterface::FORM_FULL);
+        FullCity::createFromJson(TestHelper::getJsonResponse('city_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -61,7 +63,8 @@ class FullCityTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('array', $this->sut->getContent());
         foreach ($this->sut->getContent() as $content) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CityContentInterface', $content);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CityContentInterface',
+              $content);
         }
     }
 

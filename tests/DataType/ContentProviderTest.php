@@ -33,7 +33,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = ContentProvider::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = ContentProvider::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -42,7 +43,8 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        ContentProvider::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        ContentProvider::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -55,7 +57,8 @@ JSON;
     {
         $json = 'foo';
 
-        ContentProvider::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        ContentProvider::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -63,7 +66,8 @@ JSON;
      */
     public function testGetUuid()
     {
-        $this->assertSame('15ad4ee2-ff55-4a86-950d-8dee4c79fc35', $this->sut->getUuid());
+        $this->assertSame('15ad4ee2-ff55-4a86-950d-8dee4c79fc35',
+          $this->sut->getUuid());
     }
 
     /**
@@ -79,7 +83,8 @@ JSON;
      */
     public function testGetCopyrightMessage()
     {
-        $this->assertSame('Here be dragons.', $this->sut->getCopyrightMessage());
+        $this->assertSame('Here be dragons.',
+          $this->sut->getCopyrightMessage());
     }
 
 }

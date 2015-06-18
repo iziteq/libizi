@@ -22,7 +22,8 @@ class FullMuseum extends FullMtgObjectBase implements FullMuseumInterface
      */
     protected $schedule;
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/mtgobjects/museum_full_object';
     }
 

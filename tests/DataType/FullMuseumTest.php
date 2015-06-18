@@ -26,7 +26,8 @@ class FullMuseumTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->sut = FullMuseum::createFromJson(TestHelper::getJsonResponse('museum_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = FullMuseum::createFromJson(TestHelper::getJsonResponse('museum_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -35,7 +36,8 @@ class FullMuseumTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromJson()
     {
-        FullMuseum::createFromJson(TestHelper::getJsonResponse('museum_full_include_all'), MultipleFormInterface::FORM_FULL);
+        FullMuseum::createFromJson(TestHelper::getJsonResponse('museum_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -56,7 +58,8 @@ class FullMuseumTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSchedule()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ScheduleInterface', $this->sut->getSchedule());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ScheduleInterface',
+          $this->sut->getSchedule());
     }
 
 }

@@ -43,7 +43,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = CityContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = CityContent::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -52,7 +53,8 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        CityContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        CityContent::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -107,7 +109,8 @@ JSON;
     {
         $this->assertInternalType('array', $this->sut->getImages());
         foreach ($this->sut->getImages() as $image) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface',
+              $image);
         }
     }
 

@@ -37,7 +37,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = ContactInformation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = ContactInformation::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -46,7 +47,8 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        ContactInformation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        ContactInformation::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -59,7 +61,8 @@ JSON;
     {
         $json = 'foo';
 
-        ContactInformation::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        ContactInformation::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -91,7 +94,8 @@ JSON;
      */
     public function testGetAddress()
     {
-        $this->assertSame('Spaarndammerplantsoen 21/4', $this->sut->getAddress());
+        $this->assertSame('Spaarndammerplantsoen 21/4',
+          $this->sut->getAddress());
     }
 
     /**
@@ -115,7 +119,8 @@ JSON;
      */
     public function testGetAdministrativeSubdivision()
     {
-        $this->assertSame('Second-hand', $this->sut->getAdministrativeSubdivision());
+        $this->assertSame('Second-hand',
+          $this->sut->getAdministrativeSubdivision());
     }
 
 }

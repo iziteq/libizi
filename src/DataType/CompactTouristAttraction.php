@@ -17,7 +17,8 @@ class CompactTouristAttraction extends CompactMtgObjectBase implements CompactTo
 
     use TouristAttractionTrait;
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/compactmtgobjects/common_compact_object';
     }
 

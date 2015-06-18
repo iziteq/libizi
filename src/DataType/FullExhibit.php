@@ -15,7 +15,8 @@ use Iziteq\IziApiSchemes\Assets;
 class FullExhibit extends FullMtgObjectBase implements FullExhibitInterface
 {
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/mtgobjects/exhibit_full_object';
     }
 

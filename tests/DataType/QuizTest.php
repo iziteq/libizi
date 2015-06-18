@@ -45,7 +45,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = Quiz::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = Quiz::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -75,7 +76,8 @@ JSON;
      */
     public function testGetQuestion()
     {
-        $this->assertSame('Dolor illo iure beatae inventore fuga voluptatem quam error.', $this->sut->getQuestion());
+        $this->assertSame('Dolor illo iure beatae inventore fuga voluptatem quam error.',
+          $this->sut->getQuestion());
     }
 
     /**
@@ -85,7 +87,8 @@ JSON;
     {
         $this->assertInternalType('array', $this->sut->getAnswers());
         foreach ($this->sut->getAnswers() as $answer) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\QuizAnswerInterface', $answer);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\QuizAnswerInterface',
+              $answer);
         }
     }
 

@@ -20,14 +20,14 @@ Trait ModifiableTrait
      */
     protected $includes = [];
 
-  /**
-   * @param string[] $sections
-   *
-   * @return $this
-   *
-   * @throws \InvalidArgumentException
-   *   When unsupported sections are used.
-   */
+    /**
+     * @param string[] $sections
+     *
+     * @return $this
+     *
+     * @throws \InvalidArgumentException
+     *   When unsupported sections are used.
+     */
     public function setIncludes(array $sections)
     {
         if (in_array('none', $sections)) {

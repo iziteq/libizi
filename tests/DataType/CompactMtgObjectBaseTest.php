@@ -28,7 +28,8 @@ class CompactMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\CompactMtgObjectBase');
         /** @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('story_navigation_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
+        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('story_navigation_compact_include_all'),
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -42,7 +43,8 @@ class CompactMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
         /** @var \Triquanta\IziTravel\DataType\CompactMtgObjectBase $class */
         $class = get_class($this->sut);
-        $class::createFromJson(TestHelper::getJsonResponse('story_navigation_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
+        $class::createFromJson(TestHelper::getJsonResponse('story_navigation_compact_include_all'),
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -82,7 +84,8 @@ class CompactMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSummary()
     {
-        $this->assertSame('A story about foo to the bar.', $this->sut->getSummary());
+        $this->assertSame('A story about foo to the bar.',
+          $this->sut->getSummary());
     }
 
     /**
@@ -92,7 +95,8 @@ class CompactMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('array', $this->sut->getImages());
         foreach ($this->sut->getImages() as $image) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface',
+              $image);
         }
     }
 

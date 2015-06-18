@@ -48,7 +48,8 @@ abstract class CountryBase implements CountryInterface
      */
     protected $location;
 
-    protected static function createBaseFromData(\stdClass $data) {
+    protected static function createBaseFromData(\stdClass $data)
+    {
         $country = new static();
         $country->uuid = $data->uuid;
         $country->revisionHash = $data->hash;
@@ -70,11 +71,11 @@ abstract class CountryBase implements CountryInterface
         return $country;
     }
 
-    public static function createFromData(\stdClass $data) {
+    public static function createFromData(\stdClass $data)
+    {
         if (isset($data->content)) {
             return FullCountry::createFromData($data);
-        }
-        else {
+        } else {
             return CompactCountry::createFromData($data);
         }
     }

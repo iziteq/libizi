@@ -52,7 +52,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
         $this->httpClient = new HttpClient();
 
-        $this->requestHandler = new ProductionRequestHandler($this->eventDispatcher, $this->httpClient,
+        $this->requestHandler = new ProductionRequestHandler($this->eventDispatcher,
+          $this->httpClient,
           $configuration['apiKey']);
 
         $this->sut = new Client($this->requestHandler);
@@ -73,7 +74,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en', 'uk', 'nl'];
         $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\MtgObjectByUuid', $this->sut->getMtgObjectByUuid($languageCodes, $uuid));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\MtgObjectByUuid',
+          $this->sut->getMtgObjectByUuid($languageCodes, $uuid));
     }
 
     /**
@@ -86,7 +88,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
           'bcf57367-77f6-4e39-9da6-1b481826501f',
           '9a7d0fd4-aa50-4d12-a8fa-26f080cd7e0c'
         ];
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\MtgObjectsByUuids', $this->sut->getMtgObjectsByUuids($languageCodes, $uuids));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\MtgObjectsByUuids',
+          $this->sut->getMtgObjectsByUuids($languageCodes, $uuids));
     }
 
     /**
@@ -96,7 +99,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en', 'uk', 'nl'];
         $uuid = 'bcf57367-77f6-4e39-9da6-1b481826501f';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\MtgObjectChildrenByUuid', $this->sut->getMtgObjectChildrenByUuid($languageCodes, $uuid));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\MtgObjectChildrenByUuid',
+          $this->sut->getMtgObjectChildrenByUuid($languageCodes, $uuid));
     }
 
     /**
@@ -106,7 +110,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '69929d8f-ba82-49b2-88fe-e5a0c687caca';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CountryByUuid', $this->sut->getCountryByUuid($languageCodes, $uuid));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CountryByUuid',
+          $this->sut->getCountryByUuid($languageCodes, $uuid));
     }
 
     /**
@@ -115,16 +120,19 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetCountriesInCompactForm()
     {
         $languageCodes = ['en', 'uk', 'nl'];
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\Countries', $this->sut->getCountries($languageCodes));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\Countries',
+          $this->sut->getCountries($languageCodes));
     }
 
     /**
      * @covers ::getCountryChildrenByUuid
      */
-    public function testGetCountryChildrenByUuid() {
+    public function testGetCountryChildrenByUuid()
+    {
         $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '69929d8f-ba82-49b2-88fe-e5a0c687caca';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CountryChildrenByUuid', $this->sut->getCountryChildrenByUuid($languageCodes, $uuid));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CountryChildrenByUuid',
+          $this->sut->getCountryChildrenByUuid($languageCodes, $uuid));
     }
 
     /**
@@ -134,7 +142,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '3f879f37-21b0-479d-bd74-aa26f72fa328';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CityByUuid', $this->sut->getCityByUuid($languageCodes, $uuid));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CityByUuid',
+          $this->sut->getCityByUuid($languageCodes, $uuid));
     }
 
     /**
@@ -143,7 +152,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetCities()
     {
         $languageCodes = ['en', 'uk', 'nl'];
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\Cities', $this->sut->getCities($languageCodes));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\Cities',
+          $this->sut->getCities($languageCodes));
     }
 
     /**
@@ -153,7 +163,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '3f879f37-21b0-479d-bd74-aa26f72fa328';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CityChildrenByUuid', $this->sut->getCityChildrenByUuid($languageCodes, $uuid));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CityChildrenByUuid',
+          $this->sut->getCityChildrenByUuid($languageCodes, $uuid));
     }
 
     /**
@@ -163,7 +174,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '69929d8f-ba82-49b2-88fe-e5a0c687caca';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CitiesByCountryUuid', $this->sut->getCitiesByCountryUuid($languageCodes, $uuid));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\CitiesByCountryUuid',
+          $this->sut->getCitiesByCountryUuid($languageCodes, $uuid));
     }
 
     /**
@@ -173,7 +185,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '7d84ef00-f4f6-4b90-89d7-f20207ee9ca6';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\PublisherByUuid', $this->sut->getPublisherByUuid($languageCodes, $uuid));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\PublisherByUuid',
+          $this->sut->getPublisherByUuid($languageCodes, $uuid));
     }
 
     /**
@@ -183,7 +196,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '7d84ef00-f4f6-4b90-89d7-f20207ee9ca6';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\PublisherChildrenByUuid', $this->sut->getPublisherChildrenByUuid($languageCodes, $uuid));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\PublisherChildrenByUuid',
+          $this->sut->getPublisherChildrenByUuid($languageCodes, $uuid));
     }
 
     /**
@@ -193,7 +207,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en', 'uk', 'nl'];
         $uuid = '7d84ef00-f4f6-4b90-89d7-f20207ee9ca6';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\PublisherChildrenLanguagesByUuid', $this->sut->getPublisherChildrenLanguagesByUuid($languageCodes, $uuid));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\PublisherChildrenLanguagesByUuid',
+          $this->sut->getPublisherChildrenLanguagesByUuid($languageCodes,
+            $uuid));
     }
 
     /**
@@ -203,7 +219,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $languageCodes = ['en', 'uk', 'nl'];
         $query = 'Famous clock towers in Lviv';
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\Search', $this->sut->search($languageCodes, $query));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\Search',
+          $this->sut->search($languageCodes, $query));
     }
 
     /**
@@ -212,7 +229,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetFeaturedContent()
     {
         $languageCodes = ['en', 'uk', 'nl'];
-        $this->assertInstanceOf('\Triquanta\IziTravel\Request\FeaturedContent', $this->sut->getFeaturedContent($languageCodes));
+        $this->assertInstanceOf('\Triquanta\IziTravel\Request\FeaturedContent',
+          $this->sut->getFeaturedContent($languageCodes));
     }
 
 }

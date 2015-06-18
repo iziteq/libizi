@@ -35,7 +35,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = Playback::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = Playback::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -73,7 +74,10 @@ JSON;
      */
     public function testGetUuids()
     {
-        $this->assertSame(['3afcd4ab-837f-4055-a8ed-ce43910f9446', '7b5092de-43f3-4762-9142-df30529f7942'], $this->sut->getUuids());
+        $this->assertSame([
+          '3afcd4ab-837f-4055-a8ed-ce43910f9446',
+          '7b5092de-43f3-4762-9142-df30529f7942'
+        ], $this->sut->getUuids());
     }
 
     /**

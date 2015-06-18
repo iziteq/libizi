@@ -15,7 +15,8 @@ use Iziteq\IziApiSchemes\Assets;
 class CompactStoryNavigation extends CompactMtgObjectBase implements CompactStoryNavigationInterface
 {
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/compactmtgobjects/story_navigation_compact_object';
     }
 

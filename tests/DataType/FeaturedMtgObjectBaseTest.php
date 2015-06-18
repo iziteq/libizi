@@ -50,7 +50,8 @@ JSON;
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FeaturedMtgObjectBase');
         /** @var \Triquanta\IziTravel\DataType\FeaturedMtgObjectBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -84,7 +85,8 @@ JSON;
      */
     public function testGetCityUuid()
     {
-        $this->assertSame('1a99552c-b1ae-4225-ad5d-cf6f505b0db8', $this->sut->getCityUuid());
+        $this->assertSame('1a99552c-b1ae-4225-ad5d-cf6f505b0db8',
+          $this->sut->getCityUuid());
     }
 
     /**
@@ -92,7 +94,8 @@ JSON;
      */
     public function testGetCountryUuid()
     {
-        $this->assertSame('15845ecf-4274-4286-b086-e407ff8207de', $this->sut->getCountryUuid());
+        $this->assertSame('15845ecf-4274-4286-b086-e407ff8207de',
+          $this->sut->getCountryUuid());
     }
 
 }

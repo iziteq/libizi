@@ -222,8 +222,13 @@ class TourTraitTestTraitImplementation
      *   One of the static::PLACEMENT_* constants.
      * @param \Triquanta\IziTravel\DataType\PurchaseInterface $purchase
      */
-    public function __construct($category, $duration, $distance, $placement, PurchaseInterface $purchase)
-    {
+    public function __construct(
+      $category,
+      $duration,
+      $distance,
+      $placement,
+      PurchaseInterface $purchase
+    ) {
         $this->category = $category;
         $this->duration = $duration;
         $this->distance = $distance;

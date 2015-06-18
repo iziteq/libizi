@@ -44,7 +44,8 @@ class CompactCity extends CityBase implements CompactCityInterface
      */
     protected $images = [];
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/compactmtgobjects/city_compact_object';
     }
 

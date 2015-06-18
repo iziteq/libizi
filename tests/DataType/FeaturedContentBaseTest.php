@@ -49,7 +49,8 @@ JSON;
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FeaturedContentBase');
         /** @var \Triquanta\IziTravel\DataType\FeaturedContentBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -115,7 +116,8 @@ JSON;
      */
     public function testGetDescription()
     {
-        $this->assertSame('Amsterdam is een van de meest populaire toeristische bestemmingen van Europa. Neem de historische stadswandeling langs de Amsterdamse grachten, bezoek fantastische musea zoals het van Goghmuseum of het Rijksmuseum en het Anne Frank Huis. Dwaal over de Wallen. Hier is voor ieder wat wils - kom op, we gaan!', $this->sut->getDescription());
+        $this->assertSame('Amsterdam is een van de meest populaire toeristische bestemmingen van Europa. Neem de historische stadswandeling langs de Amsterdamse grachten, bezoek fantastische musea zoals het van Goghmuseum of het Rijksmuseum en het Anne Frank Huis. Dwaal over de Wallen. Hier is voor ieder wat wils - kom op, we gaan!',
+          $this->sut->getDescription());
     }
 
     /**
@@ -133,7 +135,8 @@ JSON;
     {
         $this->assertInternalType('array', $this->sut->getImages());
         foreach ($this->sut->getImages() as $image) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FeaturedContentImageBase', $image);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FeaturedContentImageBase',
+              $image);
         }
     }
 

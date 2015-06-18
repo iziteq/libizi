@@ -37,7 +37,8 @@ class CompactCountry extends CountryBase implements CompactCountryInterface
      */
     protected $summary;
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/compactmtgobjects/country_compact_object';
     }
 

@@ -54,9 +54,15 @@ class PublisherChildrenByUuidTest extends RequestBaseTestBase
         $languageCodes = [$languageCodesOptions[array_rand($languageCodesOptions)]];
         $limit = mt_rand();
         $offset = mt_rand();
-        $formOptions = [MultipleFormInterface::FORM_COMPACT, MultipleFormInterface::FORM_FULL];
+        $formOptions = [
+          MultipleFormInterface::FORM_COMPACT,
+          MultipleFormInterface::FORM_FULL
+        ];
         $form = $formOptions[array_rand($formOptions)];
-        $uuidOptions = ['bcf57367-77f6-4e39-9da6-1b481826501f', '3f879f37-21b0-479d-bd74-aa26f72fa328'];
+        $uuidOptions = [
+          'bcf57367-77f6-4e39-9da6-1b481826501f',
+          '3f879f37-21b0-479d-bd74-aa26f72fa328'
+        ];
         $uuid = $uuidOptions[array_rand($uuidOptions)];
         $includesOptions = ['city', 'country'];
         $includes = [$includesOptions[array_rand($includesOptions)]];
@@ -71,7 +77,8 @@ class PublisherChildrenByUuidTest extends RequestBaseTestBase
 
         $this->requestHandler->expects($this->once())
           ->method('request')
-          ->with($this->isType('string'), new \PHPUnit_Framework_Constraint_IsEqual($expectedParameters))
+          ->with($this->isType('string'),
+            new \PHPUnit_Framework_Constraint_IsEqual($expectedParameters))
           ->willReturn(json_encode([]));
 
         $this->sut->setLanguageCodes($languageCodes)
@@ -88,7 +95,7 @@ class PublisherChildrenByUuidTest extends RequestBaseTestBase
      *
      * @dataProvider providerTestExecute
      *
-     * @depends testExecute
+     * @depends      testExecute
      */
     public function testExecuteRealRequest($form, $instanceof)
     {
@@ -117,10 +124,17 @@ class PublisherChildrenByUuidTest extends RequestBaseTestBase
     /**
      * Provides data to self::testExecute
      */
-    public function providerTestExecute() {
+    public function providerTestExecute()
+    {
         return [
-          [MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'],
-          [MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'],
+          [
+            MultipleFormInterface::FORM_FULL,
+            '\Triquanta\IziTravel\DataType\FullMtgObjectInterface'
+          ],
+          [
+            MultipleFormInterface::FORM_COMPACT,
+            '\Triquanta\IziTravel\DataType\CompactMtgObjectInterface'
+          ],
         ];
     }
 

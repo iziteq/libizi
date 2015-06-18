@@ -33,7 +33,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = Purchase::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = Purchase::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**

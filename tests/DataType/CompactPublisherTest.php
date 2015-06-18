@@ -26,7 +26,8 @@ class CompactPublisherTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->sut = CompactPublisher::createFromJson(TestHelper::getJsonResponse('publisher_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
+        $this->sut = CompactPublisher::createFromJson(TestHelper::getJsonResponse('publisher_compact_include_all'),
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -36,7 +37,8 @@ class CompactPublisherTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromJson()
     {
-        CompactPublisher::createFromJson(TestHelper::getJsonResponse('publisher_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
+        CompactPublisher::createFromJson(TestHelper::getJsonResponse('publisher_compact_include_all'),
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -50,7 +52,8 @@ class CompactPublisherTest extends \PHPUnit_Framework_TestCase
     {
         $json = 'foo';
 
-        CompactPublisher::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
+        CompactPublisher::createFromJson($json,
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -60,7 +63,8 @@ class CompactPublisherTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('array', $this->sut->getImages());
         foreach ($this->sut->getImages() as $image) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface',
+              $image);
         }
     }
 
@@ -85,7 +89,8 @@ class CompactPublisherTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSummary()
     {
-        $this->assertSame('Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen. ', $this->sut->getSummary());
+        $this->assertSame('Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen. ',
+          $this->sut->getSummary());
     }
 
 }

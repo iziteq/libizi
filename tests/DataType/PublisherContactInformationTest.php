@@ -36,7 +36,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = PublisherContactInformation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = PublisherContactInformation::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -45,7 +46,8 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        PublisherContactInformation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        PublisherContactInformation::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -58,7 +60,8 @@ JSON;
     {
         $json = 'foo';
 
-        PublisherContactInformation::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        PublisherContactInformation::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -66,7 +69,8 @@ JSON;
      */
     public function testGetWebsiteUrl()
     {
-        $this->assertSame('http://www.amsterdammuseum.nl', $this->sut->getWebsiteUrl());
+        $this->assertSame('http://www.amsterdammuseum.nl',
+          $this->sut->getWebsiteUrl());
     }
 
     /**
@@ -82,7 +86,8 @@ JSON;
      */
     public function testGetTwitterUrl()
     {
-        $this->assertSame('https://twitter.com/AmsterdamMuseum', $this->sut->getTwitterUrl());
+        $this->assertSame('https://twitter.com/AmsterdamMuseum',
+          $this->sut->getTwitterUrl());
     }
 
     /**
@@ -90,7 +95,8 @@ JSON;
      */
     public function testGetFacebookUrl()
     {
-        $this->assertSame('https://www.facebook.com/amsterdammuseum', $this->sut->getFacebookUrl());
+        $this->assertSame('https://www.facebook.com/amsterdammuseum',
+          $this->sut->getFacebookUrl());
     }
 
     /**
@@ -98,7 +104,8 @@ JSON;
      */
     public function testGetGooglePlusUrl()
     {
-        $this->assertSame('http://plus.google.com/amsterdammuseum', $this->sut->getGooglePlusUrl());
+        $this->assertSame('http://plus.google.com/amsterdammuseum',
+          $this->sut->getGooglePlusUrl());
     }
 
     /**
@@ -106,6 +113,7 @@ JSON;
      */
     public function testGetInstagramUrl()
     {
-        $this->assertSame('http://instagram.com/amsterdammuseum', $this->sut->getInstagramUrl());
+        $this->assertSame('http://instagram.com/amsterdammuseum',
+          $this->sut->getInstagramUrl());
     }
 }

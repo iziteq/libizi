@@ -35,7 +35,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = CircularTriggerZone::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = CircularTriggerZone::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -44,7 +45,8 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        CircularTriggerZone::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        CircularTriggerZone::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -57,7 +59,8 @@ JSON;
     {
         $json = 'foo';
 
-        CircularTriggerZone::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        CircularTriggerZone::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**

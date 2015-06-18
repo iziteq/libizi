@@ -1,7 +1,7 @@
 {
-  "uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
-  "type":"city",
-  "languages":[
+  "uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
+  "type": "city",
+  "languages": [
     "de",
     "en",
     "es",
@@ -11,78 +11,78 @@
     "nl",
     "ru"
   ],
-  "status":"published",
-  "translations":[
+  "status": "published",
+  "translations": [
     {
-      "name":"Amsterdam",
-      "language":"en"
+      "name": "Amsterdam",
+      "language": "en"
     },
     {
-      "name":"Amesterdão",
-      "language":"pt"
+      "name": "Amesterdão",
+      "language": "pt"
     },
     {
-      "name":"Amsterdam",
-      "language":"ro"
+      "name": "Amsterdam",
+      "language": "ro"
     },
     {
-      "name":"Amsterdam",
-      "language":"it"
+      "name": "Amsterdam",
+      "language": "it"
     },
     {
-      "name":"Амстердам",
-      "language":"ru"
+      "name": "Амстердам",
+      "language": "ru"
     },
     {
-      "name":"Amsterdam",
-      "language":"de"
+      "name": "Amsterdam",
+      "language": "de"
     },
     {
-      "name":"阿姆斯特丹",
-      "language":"zh"
+      "name": "阿姆斯特丹",
+      "language": "zh"
     },
     {
-      "name":"Amsterdam",
-      "language":"fr"
+      "name": "Amsterdam",
+      "language": "fr"
     },
     {
-      "name":"Amsterdam",
-      "language":"nl"
+      "name": "Amsterdam",
+      "language": "nl"
     },
     {
-      "name":"Ámsterdam",
-      "language":"es"
+      "name": "Ámsterdam",
+      "language": "es"
     },
     {
-      "name":"Amsterdam",
-      "language":"sv"
+      "name": "Amsterdam",
+      "language": "sv"
     }
   ],
-  "map":{
-    "bounds":"52.3182742,4.7288558,52.4311573,5.0683775"
+  "map": {
+    "bounds": "52.3182742,4.7288558,52.4311573,5.0683775"
   },
-  "hash":"c2215526ea8449b00744660841c8593f027f9293",
-  "visible":false,
-  "content":[
+  "hash": "c2215526ea8449b00744660841c8593f027f9293",
+  "visible": false,
+  "content": [
     {
-      "title":"Amsterdam",
-      "summary":"",
-      "desc":"",
-      "language":"en",
-      "images":[
+      "title": "Amsterdam",
+      "summary": "",
+      "desc": "",
+      "language": "en",
+      "images": [
         {
-          "uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
-          "type":"city",
-          "order":1
+          "uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
+          "type": "city",
+          "order": 1
         }
       ]
     }
   ],
-  "location":{
-    "altitude":0.0,
-    "latitude":52.3702157,
-    "longitude":4.8951679,
-    "country_code":"nl",
-    "country_uuid":"15845ecf-4274-4286-b086-e407ff8207de"
+  "location": {
+    "altitude": 0.0,
+    "latitude": 52.3702157,
+    "longitude": 4.8951679,
+    "country_code": "nl",
+    "country_uuid": "15845ecf-4274-4286-b086-e407ff8207de"
   }
 }

@@ -41,7 +41,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = TriggerZone::createFromJson($this->jsonCircular, MultipleFormInterface::FORM_FULL);
+        $this->sut = TriggerZone::createFromJson($this->jsonCircular,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -51,7 +52,8 @@ JSON;
     public function testCreateFromJsonWithCircularTriggerZone()
     {
         $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CircularTriggerZoneInterface',
-          TriggerZone::createFromJson($this->jsonCircular, MultipleFormInterface::FORM_FULL));
+          TriggerZone::createFromJson($this->jsonCircular,
+            MultipleFormInterface::FORM_FULL));
     }
 
     /**
@@ -61,7 +63,8 @@ JSON;
     public function testCreateFromJsonWithPolygonalTriggerZone()
     {
         $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PolygonalTriggerZoneInterface',
-          TriggerZone::createFromJson($this->jsonPolygonal, MultipleFormInterface::FORM_FULL));
+          TriggerZone::createFromJson($this->jsonPolygonal,
+            MultipleFormInterface::FORM_FULL));
     }
 
     /**

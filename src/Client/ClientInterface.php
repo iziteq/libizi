@@ -152,7 +152,10 @@ interface ClientInterface
      *
      * @return \Triquanta\IziTravel\Request\PublisherChildrenLanguagesByUuid
      */
-    public function getPublisherChildrenLanguagesByUuid(array $languageCodes, $uuid);
+    public function getPublisherChildrenLanguagesByUuid(
+      array $languageCodes,
+      $uuid
+    );
 
     /**
      * Gets a search request.

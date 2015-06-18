@@ -32,7 +32,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = CountryCityTranslation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = CountryCityTranslation::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -41,7 +42,8 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        CountryCityTranslation::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        CountryCityTranslation::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -54,7 +56,8 @@ JSON;
     {
         $json = 'foo';
 
-        CountryCityTranslation::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        CountryCityTranslation::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**

@@ -28,7 +28,8 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\FullMtgObjectBase');
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -40,7 +41,8 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     {
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('tour_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -56,7 +58,8 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
 
         /** @var \Triquanta\IziTravel\DataType\FullMtgObjectBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -64,7 +67,7 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetLanguageCode()
     {
-      $this->assertSame('en', $this->sut->getLanguageCode());
+        $this->assertSame('en', $this->sut->getLanguageCode());
     }
 
     /**
@@ -72,7 +75,8 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetTitle()
     {
-      $this->assertSame("Bergen in Edvard Grieg's footsteps", $this->sut->getTitle());
+        $this->assertSame("Bergen in Edvard Grieg's footsteps",
+          $this->sut->getTitle());
     }
 
     /**
@@ -80,7 +84,8 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetParentUuid()
     {
-        $this->assertSame('3afcd4ab-837f-4055-a8ed-ce43910f9446', $this->sut->getParentUuid());
+        $this->assertSame('3afcd4ab-837f-4055-a8ed-ce43910f9446',
+          $this->sut->getParentUuid());
     }
 
     /**
@@ -88,7 +93,8 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetMap()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MapInterface', $this->sut->getMap());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MapInterface',
+          $this->sut->getMap());
     }
 
     /**
@@ -98,7 +104,8 @@ class FullMtgObjectBaseTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('array', $this->sut->getContent());
         foreach ($this->sut->getContent() as $content) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ContentInterface', $content);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ContentInterface',
+              $content);
 
         }
     }

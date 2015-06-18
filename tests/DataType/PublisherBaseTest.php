@@ -29,7 +29,8 @@ class PublisherBaseTest extends \PHPUnit_Framework_TestCase
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\PublisherBase');
         /** @var \Triquanta\IziTravel\DataType\PublisherBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('publisher_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('publisher_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -38,8 +39,12 @@ class PublisherBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromJson()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullPublisherInterface', PublisherBase::createFromJson(TestHelper::getJsonResponse('publisher_full_include_all'), MultipleFormInterface::FORM_FULL));
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactPublisherInterface', PublisherBase::createFromJson(TestHelper::getJsonResponse('publisher_compact_include_all'), MultipleFormInterface::FORM_COMPACT));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullPublisherInterface',
+          PublisherBase::createFromJson(TestHelper::getJsonResponse('publisher_full_include_all'),
+            MultipleFormInterface::FORM_FULL));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactPublisherInterface',
+          PublisherBase::createFromJson(TestHelper::getJsonResponse('publisher_compact_include_all'),
+            MultipleFormInterface::FORM_COMPACT));
     }
 
     /**
@@ -54,7 +59,8 @@ class PublisherBaseTest extends \PHPUnit_Framework_TestCase
 
         /** @var \Triquanta\IziTravel\DataType\PublisherBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -62,7 +68,8 @@ class PublisherBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetContentProvider()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ContentProviderInterface', $this->sut->getContentProvider());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ContentProviderInterface',
+          $this->sut->getContentProvider());
     }
 
     /**

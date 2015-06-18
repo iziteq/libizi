@@ -102,11 +102,11 @@ abstract class CityBase implements CityInterface
         return $city;
     }
 
-    public static function createFromData(\stdClass $data) {
+    public static function createFromData(\stdClass $data)
+    {
         if (isset($data->content)) {
             return FullCity::createFromData($data);
-        }
-        else {
+        } else {
             return CompactCity::createFromData($data);
         }
     }

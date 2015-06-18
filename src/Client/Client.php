@@ -128,8 +128,10 @@ final class Client implements ClientInterface
           ->setUuid($uuid);
     }
 
-    public function getPublisherChildrenLanguagesByUuid(array $languageCodes, $uuid)
-    {
+    public function getPublisherChildrenLanguagesByUuid(
+      array $languageCodes,
+      $uuid
+    ) {
         return PublisherChildrenLanguagesByUuid::create($this->requestHandler)
           ->setLanguageCodes($languageCodes)
           ->setUuid($uuid);

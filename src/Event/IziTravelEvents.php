@@ -10,7 +10,8 @@ namespace Triquanta\IziTravel\Event;
 /**
  * Defines events.
  */
-class IziTravelEvents {
+class IziTravelEvents
+{
 
     /**
      * Defines an event that is triggered before sending a request.

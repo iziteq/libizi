@@ -44,7 +44,8 @@ class ScheduleTest extends \PHPUnit_Framework_TestCase
           'sun' => null,
         ];
 
-        $this->sut = Schedule::createFromJson(json_encode($this->schedule), MultipleFormInterface::FORM_FULL);
+        $this->sut = Schedule::createFromJson(json_encode($this->schedule),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -53,7 +54,8 @@ class ScheduleTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromJson()
     {
-        Schedule::createFromJson(json_encode($this->schedule), MultipleFormInterface::FORM_FULL);
+        Schedule::createFromJson(json_encode($this->schedule),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**

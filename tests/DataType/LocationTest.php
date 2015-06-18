@@ -38,7 +38,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = Location::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = Location::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -108,7 +109,8 @@ JSON;
      */
     public function testGetCityUuid()
     {
-        $this->assertSame('8881e8de-d426-4cef-91b3-0c2ca298ab0b', $this->sut->getCityUuid());
+        $this->assertSame('8881e8de-d426-4cef-91b3-0c2ca298ab0b',
+          $this->sut->getCityUuid());
     }
 
     /**
@@ -116,7 +118,8 @@ JSON;
      */
     public function testGetCountryUuid()
     {
-        $this->assertSame('1204cada-f918-49cd-8483-81795d69e2bd', $this->sut->getCountryUuid());
+        $this->assertSame('1204cada-f918-49cd-8483-81795d69e2bd',
+          $this->sut->getCountryUuid());
     }
 
     /**

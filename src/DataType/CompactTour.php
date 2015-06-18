@@ -25,7 +25,8 @@ class CompactTour extends CompactMtgObjectBase implements CompactTourInterface
      */
     protected $route;
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/compactmtgobjects/tour_compact_object';
     }
 

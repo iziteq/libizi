@@ -26,7 +26,8 @@ abstract class PublisherBase implements PublisherInterface
      */
     protected $contentProvider;
 
-    protected static function createBaseFromData(\stdClass $data) {
+    protected static function createBaseFromData(\stdClass $data)
+    {
         $publisher = new static();
         $publisher->uuid = $data->uuid;
         $publisher->revisionHash = $data->hash;
@@ -37,11 +38,11 @@ abstract class PublisherBase implements PublisherInterface
         return $publisher;
     }
 
-    public static function createFromData(\stdClass $data) {
+    public static function createFromData(\stdClass $data)
+    {
         if (isset($data->content)) {
             return FullPublisher::createFromData($data);
-        }
-        else {
+        } else {
             return CompactPublisher::createFromData($data);
         }
     }

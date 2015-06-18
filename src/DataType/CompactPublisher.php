@@ -44,7 +44,8 @@ class CompactPublisher extends PublisherBase implements CompactPublisherInterfac
      */
     protected $summary;
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/compactmtgobjects/publisher_compact_object';
     }
 

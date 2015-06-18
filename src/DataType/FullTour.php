@@ -17,7 +17,8 @@ class FullTour extends FullMtgObjectBase implements FullTourInterface
 
     use TourTrait;
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/mtgobjects/tour_full_object';
     }
 

@@ -26,7 +26,8 @@ class FullTouristAttractionTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->sut = FullTouristAttraction::createFromJson(TestHelper::getJsonResponse('tourist_attraction_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = FullTouristAttraction::createFromJson(TestHelper::getJsonResponse('tourist_attraction_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -35,7 +36,8 @@ class FullTouristAttractionTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromJson()
     {
-        FullTouristAttraction::createFromJson(TestHelper::getJsonResponse('tourist_attraction_full_include_all'), MultipleFormInterface::FORM_FULL);
+        FullTouristAttraction::createFromJson(TestHelper::getJsonResponse('tourist_attraction_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -48,7 +50,8 @@ class FullTouristAttractionTest extends \PHPUnit_Framework_TestCase
     {
         $json = 'foo';
 
-        FullTouristAttraction::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        FullTouristAttraction::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
 }

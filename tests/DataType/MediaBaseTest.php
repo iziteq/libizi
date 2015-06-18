@@ -40,7 +40,8 @@ JSON;
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\MediaBase');
         /** @var \Triquanta\IziTravel\DataType\MediaBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -51,7 +52,8 @@ JSON;
     {
         /** @var \Triquanta\IziTravel\DataType\MediaBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**

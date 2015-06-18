@@ -1,27 +1,27 @@
 {
-  "uuid":"395af4cc-d7d0-4692-9fb0-b772dd1416a0",
-  "status":"published",
-  "type":"tourist_attraction",
-  "hidden":false,
-  "languages":[
+  "uuid": "395af4cc-d7d0-4692-9fb0-b772dd1416a0",
+  "status": "published",
+  "type": "tourist_attraction",
+  "hidden": false,
+  "languages": [
     "nl",
     "ru",
     "en"
   ],
-  "hash":"613c6e67be94a057e0df7e2198b40e8fe9568020",
-  "trigger_zones":[
+  "hash": "613c6e67be94a057e0df7e2198b40e8fe9568020",
+  "trigger_zones": [
     {
-      "circle_altitude":0.0,
-      "type":"circle",
-      "circle_latitude":52.369732171086,
-      "circle_longitude":4.8986093834629,
-      "circle_radius":20.0
+      "circle_altitude": 0.0,
+      "type": "circle",
+      "circle_latitude": 52.369732171086,
+      "circle_longitude": 4.8986093834629,
+      "circle_radius": 20.0
     }
   ],
-  "city":{
-    "uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
-    "type":"city",
-    "languages":[
+  "city": {
+    "uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
+    "type": "city",
+    "languages": [
       "de",
       "en",
       "es",
@@ -31,80 +31,80 @@
       "nl",
       "ru"
     ],
-    "status":"published",
-    "translations":[
+    "status": "published",
+    "translations": [
       {
-        "name":"Amsterdam",
-        "language":"en"
+        "name": "Amsterdam",
+        "language": "en"
       },
       {
-        "name":"Amesterdão",
-        "language":"pt"
+        "name": "Amesterdão",
+        "language": "pt"
       },
       {
-        "name":"Amsterdam",
-        "language":"ro"
+        "name": "Amsterdam",
+        "language": "ro"
       },
       {
-        "name":"Amsterdam",
-        "language":"it"
+        "name": "Amsterdam",
+        "language": "it"
       },
       {
-        "name":"Амстердам",
-        "language":"ru"
+        "name": "Амстердам",
+        "language": "ru"
       },
       {
-        "name":"Amsterdam",
-        "language":"de"
+        "name": "Amsterdam",
+        "language": "de"
       },
       {
-        "name":"阿姆斯特丹",
-        "language":"zh"
+        "name": "阿姆斯特丹",
+        "language": "zh"
       },
       {
-        "name":"Amsterdam",
-        "language":"fr"
+        "name": "Amsterdam",
+        "language": "fr"
       },
       {
-        "name":"Amsterdam",
-        "language":"nl"
+        "name": "Amsterdam",
+        "language": "nl"
       },
       {
-        "name":"Ámsterdam",
-        "language":"es"
+        "name": "Ámsterdam",
+        "language": "es"
       },
       {
-        "name":"Amsterdam",
-        "language":"sv"
+        "name": "Amsterdam",
+        "language": "sv"
       }
     ],
-    "map":{
-      "bounds":"52.3182742,4.7288558,52.4311573,5.0683775"
+    "map": {
+      "bounds": "52.3182742,4.7288558,52.4311573,5.0683775"
     },
-    "hash":"c2215526ea8449b00744660841c8593f027f9293",
-    "visible":false,
-    "title":"Amsterdam",
-    "summary":"",
-    "language":"en",
-    "images":[
+    "hash": "c2215526ea8449b00744660841c8593f027f9293",
+    "visible": false,
+    "title": "Amsterdam",
+    "summary": "",
+    "language": "en",
+    "images": [
       {
-        "uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
-        "type":"city",
-        "order":1
+        "uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
+        "type": "city",
+        "order": 1
       }
     ],
-    "location":{
-      "altitude":0.0,
-      "latitude":52.3702157,
-      "longitude":4.8951679,
-      "country_code":"nl",
-      "country_uuid":"15845ecf-4274-4286-b086-e407ff8207de"
+    "location": {
+      "altitude": 0.0,
+      "latitude": 52.3702157,
+      "longitude": 4.8951679,
+      "country_code": "nl",
+      "country_uuid": "15845ecf-4274-4286-b086-e407ff8207de"
     }
   },
-  "country":{
-    "uuid":"15845ecf-4274-4286-b086-e407ff8207de",
-    "type":"country",
-    "languages":[
+  "country": {
+    "uuid": "15845ecf-4274-4286-b086-e407ff8207de",
+    "type": "country",
+    "languages": [
       "de",
       "en",
       "es",
@@ -114,116 +114,116 @@
       "nl",
       "ru"
     ],
-    "status":"published",
-    "translations":[
+    "status": "published",
+    "translations": [
       {
-        "name":"Netherlands",
-        "language":"en"
+        "name": "Netherlands",
+        "language": "en"
       },
       {
-        "name":"Нидерланды",
-        "language":"ru"
+        "name": "Нидерланды",
+        "language": "ru"
       },
       {
-        "name":"Nederland",
-        "language":"nl"
+        "name": "Nederland",
+        "language": "nl"
       },
       {
-        "name":"Pays-Bas",
-        "language":"fr"
+        "name": "Pays-Bas",
+        "language": "fr"
       },
       {
-        "name":"Nederländerna",
-        "language":"sv"
+        "name": "Nederländerna",
+        "language": "sv"
       },
       {
-        "name":"Olanda",
-        "language":"ro"
+        "name": "Olanda",
+        "language": "ro"
       },
       {
-        "name":"Paesi Bassi",
-        "language":"it"
+        "name": "Paesi Bassi",
+        "language": "it"
       },
       {
-        "name":"Países Bajos",
-        "language":"es"
+        "name": "Países Bajos",
+        "language": "es"
       },
       {
-        "name":"Holanda",
-        "language":"pt"
+        "name": "Holanda",
+        "language": "pt"
       },
       {
-        "name":"Niederlande",
-        "language":"de"
+        "name": "Niederlande",
+        "language": "de"
       },
       {
-        "name":"荷兰",
-        "language":"zh"
+        "name": "荷兰",
+        "language": "zh"
       }
     ],
-    "map":{
-      "bounds":"50.75038379999999,3.357962,53.5560213,7.227510199999999"
+    "map": {
+      "bounds": "50.75038379999999,3.357962,53.5560213,7.227510199999999"
     },
-    "hash":"625fa5ae924390fdc162e25d704549f83ec2dac8",
-    "country_code":"nl",
-    "title":"Netherlands",
-    "summary":"",
-    "language":"en",
-    "location":{
-      "altitude":0.0,
-      "latitude":52.132633,
-      "longitude":5.291266
+    "hash": "625fa5ae924390fdc162e25d704549f83ec2dac8",
+    "country_code": "nl",
+    "title": "Netherlands",
+    "summary": "",
+    "language": "en",
+    "location": {
+      "altitude": 0.0,
+      "latitude": 52.132633,
+      "longitude": 5.291266
     }
   },
-  "content_provider":{
-    "uuid":"5a213a70-68ee-4a56-99d8-d701e1b589dc",
-    "name":"Tour Centre",
-    "copyright":"@Tour Centre Alle rechten voorbehouden."
+  "content_provider": {
+    "uuid": "5a213a70-68ee-4a56-99d8-d701e1b589dc",
+    "name": "Tour Centre",
+    "copyright": "@Tour Centre Alle rechten voorbehouden."
   },
-  "images":[
+  "images": [
     {
-      "uuid":"b5c30e91-66c0-4382-aa55-56c0b13e2263",
-      "type":"story",
-      "order":1,
-      "hash":"b638e89534de7a84304942ce7887bdb4",
-      "size":231663
+      "uuid": "b5c30e91-66c0-4382-aa55-56c0b13e2263",
+      "type": "story",
+      "order": 1,
+      "hash": "b638e89534de7a84304942ce7887bdb4",
+      "size": 231663
     }
   ],
-  "publisher":{
-    "uuid":"9bc6a143-5098-43c6-8bb8-7dfaf0588ec2",
-    "type":"publisher",
-    "languages":[
+  "publisher": {
+    "uuid": "9bc6a143-5098-43c6-8bb8-7dfaf0588ec2",
+    "type": "publisher",
+    "languages": [
       "en"
     ],
-    "status":"published",
-    "hash":"a1738cd3c83d606a56cbda6c5f0d5134f31f471f",
-    "title":"Tour Centre",
-    "summary":"We believe that every museum, tourist site or city should be able to create an audio guide and share it with anyone, anywhere!",
-    "language":"en",
-    "images":[
+    "status": "published",
+    "hash": "a1738cd3c83d606a56cbda6c5f0d5134f31f471f",
+    "title": "Tour Centre",
+    "summary": "We believe that every museum, tourist site or city should be able to create an audio guide and share it with anyone, anywhere!",
+    "language": "en",
+    "images": [
       {
-        "uuid":"ccc5a754-d9fa-4695-b526-e1d185c7d888",
-        "type":"brand_logo",
-        "order":1,
-        "hash":"38a9c9a7e313e6e2211089d1688bffb0",
-        "size":6151
+        "uuid": "ccc5a754-d9fa-4695-b526-e1d185c7d888",
+        "type": "brand_logo",
+        "order": 1,
+        "hash": "38a9c9a7e313e6e2211089d1688bffb0",
+        "size": 6151
       }
     ],
-    "content_provider":{
-      "uuid":"5a213a70-68ee-4a56-99d8-d701e1b589dc",
-      "name":"Tour Centre",
-      "copyright":"@Tour Centre Alle rechten voorbehouden."
+    "content_provider": {
+      "uuid": "5a213a70-68ee-4a56-99d8-d701e1b589dc",
+      "name": "Tour Centre",
+      "copyright": "@Tour Centre Alle rechten voorbehouden."
     }
   },
-  "location":{
-    "altitude":0.0,
-    "city_uuid":"3f879f37-21b0-479d-bd74-aa26f72fa328",
-    "country_code":"nl",
-    "country_uuid":"15845ecf-4274-4286-b086-e407ff8207de",
-    "latitude":52.369732171086,
-    "longitude":4.8986093834629
+  "location": {
+    "altitude": 0.0,
+    "city_uuid": "3f879f37-21b0-479d-bd74-aa26f72fa328",
+    "country_code": "nl",
+    "country_uuid": "15845ecf-4274-4286-b086-e407ff8207de",
+    "latitude": 52.369732171086,
+    "longitude": 4.8986093834629
   },
-  "language":"en",
-  "summary":"",
-  "title":"Amsterdammertjes"
+  "language": "en",
+  "summary": "",
+  "title": "Amsterdammertjes"
 }

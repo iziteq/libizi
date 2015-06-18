@@ -15,7 +15,8 @@ use Iziteq\IziApiSchemes\Assets;
 class FullStoryNavigation extends FullMtgObjectBase implements FullStoryNavigationInterface
 {
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/mtgobjects/story_navigation_full_object';
     }
 

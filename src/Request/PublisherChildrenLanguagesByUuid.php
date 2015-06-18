@@ -21,9 +21,10 @@ class PublisherChildrenLanguagesByUuid extends RequestBase implements Multilingu
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/mtg/publishers/' . $this->uuid . '/children/languages', [
-          'languages' => $this->languageCodes,
-        ]);
+        $json = $this->requestHandler->request('/mtg/publishers/' . $this->uuid . '/children/languages',
+          [
+            'languages' => $this->languageCodes,
+          ]);
 
         return json_decode($json);
     }

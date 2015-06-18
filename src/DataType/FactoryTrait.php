@@ -37,10 +37,13 @@ Trait FactoryTrait
 
             if (!$schemaValidator->isValid()) {
                 foreach ($schemaValidator->getErrors() as $error) {
-                    throw new InvalidJsonFactoryException($json, sprintf('[%s] %s', $error['property'], $error['message']));
+                    throw new InvalidJsonFactoryException($json,
+                      sprintf('[%s] %s', $error['property'],
+                        $error['message']));
                 }
             }
         }
+
         return static::createFromData($data);
     }
 
@@ -50,8 +53,9 @@ Trait FactoryTrait
      * @return string
      *   An absolute path.
      */
-    protected static function getJsonSchemaPath() {
-        return NULL;
+    protected static function getJsonSchemaPath()
+    {
+        return null;
     }
 
 }

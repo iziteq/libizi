@@ -49,7 +49,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = PublisherContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = PublisherContent::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -58,7 +59,8 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        PublisherContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        PublisherContent::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -71,7 +73,8 @@ JSON;
     {
         $json = 'foo';
 
-        PublisherContent::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        PublisherContent::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -95,7 +98,8 @@ JSON;
      */
     public function testGetSummary()
     {
-        $this->assertSame('Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen.', $this->sut->getSummary());
+        $this->assertSame('Een ontmoetingsplek van en voor Amsterdammers en hét museum voor Nederlanders die de hoofdstad beter willen leren kennen.',
+          $this->sut->getSummary());
     }
 
     /**
@@ -103,7 +107,8 @@ JSON;
      */
     public function testGetDescription()
     {
-        $this->assertSame('Het Amsterdam Museum vertelt het verhaal van de ......', $this->sut->getDescription());
+        $this->assertSame('Het Amsterdam Museum vertelt het verhaal van de ......',
+          $this->sut->getDescription());
     }
 
     /**
@@ -113,7 +118,8 @@ JSON;
     {
         $this->assertInternalType('array', $this->sut->getImages());
         foreach ($this->sut->getImages() as $image) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface', $image);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\ImageInterface',
+              $image);
         }
     }
 

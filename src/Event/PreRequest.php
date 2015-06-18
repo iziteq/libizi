@@ -13,7 +13,8 @@ use Symfony\Component\EventDispatcher\Event;
 /**
  * Provides an event that is dispatched before sending a request.
  */
-class PreRequest extends Event {
+class PreRequest extends Event
+{
 
     /**
      * The Guzzle request.
@@ -27,7 +28,8 @@ class PreRequest extends Event {
      *
      * @param \GuzzleHttp\Message\RequestInterface $request
      */
-    public function __construct(RequestInterface $request) {
+    public function __construct(RequestInterface $request)
+    {
         $this->request = $request;
     }
 
@@ -36,7 +38,8 @@ class PreRequest extends Event {
      *
      * @return \GuzzleHttp\Message\RequestInterface
      */
-    public function getRequest() {
+    public function getRequest()
+    {
         return $this->request;
     }
 

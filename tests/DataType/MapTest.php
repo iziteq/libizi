@@ -32,7 +32,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = Map::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = Map::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -62,7 +63,8 @@ JSON;
      */
     public function testGetBounds()
     {
-        $this->assertSame('59.9285201177275,30.3512062,59.9328077,30.360621418890332', $this->sut->getBounds());
+        $this->assertSame('59.9285201177275,30.3512062,59.9328077,30.360621418890332',
+          $this->sut->getBounds());
     }
 
     /**
@@ -70,7 +72,8 @@ JSON;
      */
     public function testGetRoute()
     {
-        $this->assertSame('59.93169400245311,30.35469910138545;59.93157574143709,30.355364289221143;59.93155423938887,30.355879273352002;59.93040385948951,30.355106797155713;59.93056513010406,30.354334320959424;59.930871542111696,30.35196324819026', $this->sut->getRoute());
+        $this->assertSame('59.93169400245311,30.35469910138545;59.93157574143709,30.355364289221143;59.93155423938887,30.355879273352002;59.93040385948951,30.355106797155713;59.93056513010406,30.354334320959424;59.930871542111696,30.35196324819026',
+          $this->sut->getRoute());
     }
 
 }

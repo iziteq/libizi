@@ -26,7 +26,8 @@ class FullPublisherTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->sut = FullPublisher::createFromJson(TestHelper::getJsonResponse('publisher_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = FullPublisher::createFromJson(TestHelper::getJsonResponse('publisher_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -38,7 +39,8 @@ class FullPublisherTest extends \PHPUnit_Framework_TestCase
     {
 
 
-        FullPublisher::createFromJson(TestHelper::getJsonResponse('publisher_full_include_all'), MultipleFormInterface::FORM_FULL);
+        FullPublisher::createFromJson(TestHelper::getJsonResponse('publisher_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -62,7 +64,8 @@ class FullPublisherTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('array', $this->sut->getContent());
         foreach ($this->sut->getContent() as $content) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PublisherContentInterface', $content);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PublisherContentInterface',
+              $content);
         }
     }
 
@@ -71,7 +74,8 @@ class FullPublisherTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetContactInformation()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PublisherContactInformationInterface', $this->sut->getContactInformation());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PublisherContactInformationInterface',
+          $this->sut->getContactInformation());
     }
 
 }

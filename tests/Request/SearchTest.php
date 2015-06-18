@@ -59,11 +59,22 @@ class SearchTest extends RequestBaseTestBase
         $query = '';
         $limit = mt_rand();
         $offset = mt_rand();
-        $formOptions = [MultipleFormInterface::FORM_COMPACT, MultipleFormInterface::FORM_FULL];
+        $formOptions = [
+          MultipleFormInterface::FORM_COMPACT,
+          MultipleFormInterface::FORM_FULL
+        ];
         $form = $formOptions[array_rand($formOptions)];
-        $typesOptions = [MtgObjectInterface::TYPE_MUSEUM, MtgObjectInterface::TYPE_TOUR, 'city', 'museum'];
+        $typesOptions = [
+          MtgObjectInterface::TYPE_MUSEUM,
+          MtgObjectInterface::TYPE_TOUR,
+          'city',
+          'museum'
+        ];
         $types = [$typesOptions[array_rand($typesOptions)]];
-        $regionOptions = ['bcf57367-77f6-4e39-9da6-1b481826501f', '3f879f37-21b0-479d-bd74-aa26f72fa328'];
+        $regionOptions = [
+          'bcf57367-77f6-4e39-9da6-1b481826501f',
+          '3f879f37-21b0-479d-bd74-aa26f72fa328'
+        ];
         $region = $regionOptions[array_rand($regionOptions)];
         $includesOptions = ['city', 'country'];
         $includes = [$includesOptions[array_rand($includesOptions)]];
@@ -85,9 +96,10 @@ class SearchTest extends RequestBaseTestBase
         ];
 
         $this->requestHandler->expects($this->once())
-            ->method('request')
-            ->with($this->isType('string'), new \PHPUnit_Framework_Constraint_IsEqual($expectedParameters))
-            ->willReturn(json_encode([]));
+          ->method('request')
+          ->with($this->isType('string'),
+            new \PHPUnit_Framework_Constraint_IsEqual($expectedParameters))
+          ->willReturn(json_encode([]));
 
         $this->sut->setLanguageCodes($languageCodes)
           ->setForm($form)
@@ -107,7 +119,7 @@ class SearchTest extends RequestBaseTestBase
      *
      * @dataProvider providerTestExecuteRealRequest
      *
-     * @depends testExecute
+     * @depends      testExecute
      */
     public function testExecuteRealRequest($type, $form, $instanceof)
     {

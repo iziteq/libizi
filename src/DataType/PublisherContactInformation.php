@@ -105,7 +105,7 @@ class PublisherContactInformation implements PublisherContactInformationInterfac
 
     public function getGooglePlusUrl()
     {
-       return $this->googlePlusUrl;
+        return $this->googlePlusUrl;
     }
 
     public function getInstagramUrl()

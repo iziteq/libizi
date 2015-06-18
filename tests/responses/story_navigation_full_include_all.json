@@ -1,66 +1,66 @@
 {
-  "uuid":"ca5bb2ae-ff5e-407d-b542-edeef71f5a46",
-  "status":"published",
-  "type":"story_navigation",
-  "languages":[
+  "uuid": "ca5bb2ae-ff5e-407d-b542-edeef71f5a46",
+  "status": "published",
+  "type": "story_navigation",
+  "languages": [
     "en",
     "fr",
     "es"
   ],
-  "hash":"8000cdbcc3a63acaa822bb556fe98efe7cd23ac2",
-  "parent_uuid":"2e7f5302-6ff3-4c0e-9820-75dcd04c425e",
-  "trigger_zones":[
+  "hash": "8000cdbcc3a63acaa822bb556fe98efe7cd23ac2",
+  "parent_uuid": "2e7f5302-6ff3-4c0e-9820-75dcd04c425e",
+  "trigger_zones": [
     {
-      "circle_altitude":0.0,
-      "type":"circle",
-      "circle_latitude":48.8088883848945,
-      "circle_longitude":2.13307673784743,
-      "circle_radius":50.0
+      "circle_altitude": 0.0,
+      "type": "circle",
+      "circle_latitude": 48.8088883848945,
+      "circle_longitude": 2.13307673784743,
+      "circle_radius": 50.0
     }
   ],
-  "content_provider":{
-    "uuid":"4e9d2b2c-83c3-4a84-8675-7cc276270305",
-    "name":"Tours around the world",
-    "copyright":"@Tours around the world. All rights reserved."
+  "content_provider": {
+    "uuid": "4e9d2b2c-83c3-4a84-8675-7cc276270305",
+    "name": "Tours around the world",
+    "copyright": "@Tours around the world. All rights reserved."
   },
-  "publisher":{
-    "uuid":"f4bee612-31d2-4f62-9a64-f53546c591cf",
-    "type":"publisher",
-    "languages":[
+  "publisher": {
+    "uuid": "f4bee612-31d2-4f62-9a64-f53546c591cf",
+    "type": "publisher",
+    "languages": [
       "en"
     ],
-    "status":"published",
-    "hash":"94ea063925b6fddc87cfd81f9bb4c74bc5a94ade",
-    "title":"Tours around the world",
-    "summary":"We are a group of enthusiasts who would love to share our favourite tours with the world!\r\nPlease enjoy!",
-    "language":"en",
-    "content_provider":{
-      "uuid":"4e9d2b2c-83c3-4a84-8675-7cc276270305",
-      "name":"Tours around the world",
-      "copyright":"@Tours around the world. All rights reserved."
+    "status": "published",
+    "hash": "94ea063925b6fddc87cfd81f9bb4c74bc5a94ade",
+    "title": "Tours around the world",
+    "summary": "We are a group of enthusiasts who would love to share our favourite tours with the world!\r\nPlease enjoy!",
+    "language": "en",
+    "content_provider": {
+      "uuid": "4e9d2b2c-83c3-4a84-8675-7cc276270305",
+      "name": "Tours around the world",
+      "copyright": "@Tours around the world. All rights reserved."
     }
   },
-  "content":[
+  "content": [
     {
-      "audio":[
+      "audio": [
         {
-          "uuid":"b47703c9-fd5a-4356-a3ab-457ad904c114",
-          "type":"story",
-          "duration":4,
-          "order":1,
-          "hash":"34cd68962d37a28bc2108289329e9c12",
-          "size":36785
+          "uuid": "b47703c9-fd5a-4356-a3ab-457ad904c114",
+          "type": "story",
+          "duration": 4,
+          "order": 1,
+          "hash": "34cd68962d37a28bc2108289329e9c12",
+          "size": 36785
         }
       ],
-      "language":"en",
-      "summary":"",
-      "desc":"Continue until you see a hospital building on your right.",
-      "title":"Straight until"
+      "language": "en",
+      "summary": "",
+      "desc": "Continue until you see a hospital building on your right.",
+      "title": "Straight until"
     }
   ],
-  "location":{
-    "altitude":0.0,
-    "latitude":48.8088883848945,
-    "longitude":2.13307673784743
+  "location": {
+    "altitude": 0.0,
+    "latitude": 48.8088883848945,
+    "longitude": 2.13307673784743
   }
 }

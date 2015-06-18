@@ -29,7 +29,8 @@ class FullPublisher extends PublisherBase implements FullPublisherInterface
      */
     protected $contactInformation;
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/mtgobjects/publisher_full_object';
     }
 

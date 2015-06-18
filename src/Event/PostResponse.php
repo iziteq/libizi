@@ -13,7 +13,8 @@ use Symfony\Component\EventDispatcher\Event;
 /**
  * Provides an event that is dispatched after receiving a response.
  */
-class PostResponse extends Event {
+class PostResponse extends Event
+{
 
     /**
      * The Guzzle response.
@@ -27,7 +28,8 @@ class PostResponse extends Event {
      *
      * @param \GuzzleHttp\Message\ResponseInterface $response
      */
-    public function __construct(ResponseInterface $response) {
+    public function __construct(ResponseInterface $response)
+    {
         $this->response = $response;
     }
 
@@ -36,7 +38,8 @@ class PostResponse extends Event {
      *
      * @return \GuzzleHttp\Message\ResponseInterface
      */
-    public function getResponse() {
+    public function getResponse()
+    {
         return $this->response;
     }
 

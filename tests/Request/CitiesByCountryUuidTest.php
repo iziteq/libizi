@@ -68,10 +68,17 @@ class CitiesByCountryUuidTest extends RequestBaseTestBase
     /**
      * Provides data to self::testExecute
      */
-    public function providerTestExecute() {
+    public function providerTestExecute()
+    {
         return [
-          [MultipleFormInterface::FORM_FULL, '\Triquanta\IziTravel\DataType\FullCityInterface'],
-          [MultipleFormInterface::FORM_COMPACT, '\Triquanta\IziTravel\DataType\CompactCityInterface'],
+          [
+            MultipleFormInterface::FORM_FULL,
+            '\Triquanta\IziTravel\DataType\FullCityInterface'
+          ],
+          [
+            MultipleFormInterface::FORM_COMPACT,
+            '\Triquanta\IziTravel\DataType\CompactCityInterface'
+          ],
         ];
     }
 

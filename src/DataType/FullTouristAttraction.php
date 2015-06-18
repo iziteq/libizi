@@ -17,7 +17,8 @@ class FullTouristAttraction extends FullMtgObjectBase implements FullTouristAttr
 
     use TouristAttractionTrait;
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/mtgobjects/attraction_full_object';
     }
 

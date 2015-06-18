@@ -32,7 +32,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = QuizAnswer::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = QuizAnswer::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -41,7 +42,8 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        QuizAnswer::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        QuizAnswer::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**

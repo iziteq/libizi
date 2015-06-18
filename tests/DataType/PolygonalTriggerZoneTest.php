@@ -32,7 +32,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = PolygonalTriggerZone::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = PolygonalTriggerZone::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -41,7 +42,8 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        PolygonalTriggerZone::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        PolygonalTriggerZone::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -54,7 +56,8 @@ JSON;
     {
         $json = 'foo';
 
-        PolygonalTriggerZone::createFromJson($json, MultipleFormInterface::FORM_FULL);
+        PolygonalTriggerZone::createFromJson($json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -62,7 +65,8 @@ JSON;
      */
     public function testGetCorners()
     {
-        $this->assertSame('52.397921441224504,4.8016028153642765;52.4188651275828,4.835248445247089;52.42095894931356,4.788556550715839;52.40734733067369,4.778600190852558', $this->sut->getCorners());
+        $this->assertSame('52.397921441224504,4.8016028153642765;52.4188651275828,4.835248445247089;52.42095894931356,4.788556550715839;52.40734733067369,4.778600190852558',
+          $this->sut->getCorners());
     }
 
 }

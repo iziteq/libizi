@@ -22,7 +22,8 @@ class FullCity extends CityBase implements FullCityInterface
      */
     protected $content = [];
 
-    protected static function getJsonSchemaPath() {
+    protected static function getJsonSchemaPath()
+    {
         return Assets::getJsonSchemaPath() . '/mtgobjects/city_full_object';
     }
 

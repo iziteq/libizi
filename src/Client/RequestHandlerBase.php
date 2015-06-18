@@ -58,8 +58,12 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
      * @param string $apiKey
      *   The MTG API key.
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher, HttpClientInterface $httpClient, $apiKey, $password = null)
-    {
+    public function __construct(
+      EventDispatcherInterface $eventDispatcher,
+      HttpClientInterface $httpClient,
+      $apiKey,
+      $password = null
+    ) {
         $this->apiKey = $apiKey;
         $this->eventDispatcher = $eventDispatcher;
         $this->httpClient = $httpClient;
@@ -81,11 +85,13 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
         $request->getQuery()->replace($parameters);
         $request->getQuery()->setAggregator(static::getGuzzleQueryAggregator());
         $pre_request_event = new PreRequest($request);
-        $this->eventDispatcher->dispatch(IziTravelEvents::PRE_REQUEST, $pre_request_event);
+        $this->eventDispatcher->dispatch(IziTravelEvents::PRE_REQUEST,
+          $pre_request_event);
         try {
             $response = $this->httpClient->send($request);
             $post_response_event = new PostResponse($response);
-            $this->eventDispatcher->dispatch(IziTravelEvents::POST_RESPONSE, $post_response_event);
+            $this->eventDispatcher->dispatch(IziTravelEvents::POST_RESPONSE,
+              $post_response_event);
             $json = $response->getBody()->getContents();
         } catch (\Exception $e) {
             throw new HttpRequestException(sprintf('An exception was thrown during the API request to %s: %s',
@@ -122,7 +128,9 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
         return function (array $data) {
             $aggregated_data = [];
             foreach ($data as $key => $values) {
-                $aggregated_data[$key] = is_array($values) ? [implode(',', $values)] : [$values];
+                $aggregated_data[$key] = is_array($values) ? [
+                  implode(',', $values)
+                ] : [$values];
             }
 
             return $aggregated_data;

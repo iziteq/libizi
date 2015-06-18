@@ -29,7 +29,8 @@ class CountryBaseTest extends \PHPUnit_Framework_TestCase
         $this->sut = $this->getMockForAbstractClass('\Triquanta\IziTravel\DataType\CountryBase');
         /** @var \Triquanta\IziTravel\DataType\CountryBase $class */
         $class = get_class($this->sut);
-        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('country_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = $class::createFromJson(TestHelper::getJsonResponse('country_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -38,8 +39,12 @@ class CountryBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromData()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface', CountryBase::createFromJson(TestHelper::getJsonResponse('country_full_include_all'), MultipleFormInterface::FORM_FULL));
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCountryInterface', CountryBase::createFromJson(TestHelper::getJsonResponse('country_compact_include_all'), MultipleFormInterface::FORM_COMPACT));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\FullCountryInterface',
+          CountryBase::createFromJson(TestHelper::getJsonResponse('country_full_include_all'),
+            MultipleFormInterface::FORM_FULL));
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CompactCountryInterface',
+          CountryBase::createFromJson(TestHelper::getJsonResponse('country_compact_include_all'),
+            MultipleFormInterface::FORM_COMPACT));
     }
 
     /**
@@ -55,7 +60,8 @@ class CountryBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetMap()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MapInterface', $this->sut->getMap());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\MapInterface',
+          $this->sut->getMap());
     }
 
     /**
@@ -65,7 +71,8 @@ class CountryBaseTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('array', $this->sut->getTranslations());
         foreach ($this->sut->getTranslations() as $translation) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CountryCityTranslation', $translation);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CountryCityTranslation',
+              $translation);
         }
     }
 
@@ -74,7 +81,8 @@ class CountryBaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetLocation()
     {
-        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\LocationInterface', $this->sut->getLocation());
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\LocationInterface',
+          $this->sut->getLocation());
     }
 
     /**

@@ -31,11 +31,14 @@ class FeaturedContent extends RequestBase implements MultilingualInterface
         $objects = [];
         foreach ($data as $objectData) {
             if ($objectData->type == 'museum') {
-                $objects[] = FeaturedMuseum::createFromJson(json_encode($objectData), null);
+                $objects[] = FeaturedMuseum::createFromJson(json_encode($objectData),
+                  null);
             } elseif ($objectData->type == 'tour') {
-                $objects[] = FeaturedTour::createFromJson(json_encode($objectData), null);
+                $objects[] = FeaturedTour::createFromJson(json_encode($objectData),
+                  null);
             } elseif ($objectData->type == 'city') {
-                $objects[] = FeaturedCity::createFromJson(json_encode($objectData), null);
+                $objects[] = FeaturedCity::createFromJson(json_encode($objectData),
+                  null);
             }
         }
 

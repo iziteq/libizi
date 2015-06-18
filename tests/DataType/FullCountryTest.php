@@ -26,7 +26,8 @@ class FullCountryTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->sut = FullCountry::createFromJson(TestHelper::getJsonResponse('country_full_include_all'), MultipleFormInterface::FORM_FULL);
+        $this->sut = FullCountry::createFromJson(TestHelper::getJsonResponse('country_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -36,7 +37,8 @@ class FullCountryTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromJson()
     {
-        FullCountry::createFromJson(TestHelper::getJsonResponse('country_full_include_all'), MultipleFormInterface::FORM_FULL);
+        FullCountry::createFromJson(TestHelper::getJsonResponse('country_full_include_all'),
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -60,7 +62,8 @@ class FullCountryTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('array', $this->sut->getContent());
         foreach ($this->sut->getContent() as $content) {
-            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CountryContentInterface', $content);
+            $this->assertInstanceOf('\Triquanta\IziTravel\DataType\CountryContentInterface',
+              $content);
         }
     }
 

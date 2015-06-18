@@ -1,54 +1,54 @@
 {
-  "uuid":"4ac6090b-c7f0-4849-b3ec-48f36f22e86b",
-  "status":"published",
-  "type":"collection",
-  "languages":[
+  "uuid": "4ac6090b-c7f0-4849-b3ec-48f36f22e86b",
+  "status": "published",
+  "type": "collection",
+  "languages": [
     "nl",
     "en"
   ],
-  "hash":"ccc831f67252e4b2f83dce9d6a636fbf01a80404",
-  "children_count":25,
-  "content_provider":{
-    "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-    "name":"200 GREATEST PAINTINGS",
-    "copyright":"200 Greatest Paintings"
+  "hash": "ccc831f67252e4b2f83dce9d6a636fbf01a80404",
+  "children_count": 25,
+  "content_provider": {
+    "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+    "name": "200 GREATEST PAINTINGS",
+    "copyright": "200 Greatest Paintings"
   },
-  "images":[
+  "images": [
     {
-      "uuid":"f7c5f1da-d737-4db5-a31b-d5a04e0721c2",
-      "type":"story",
-      "order":1,
-      "hash":"680ed7a3b5e03b5dd0bad67aa4d92626",
-      "size":138481
+      "uuid": "f7c5f1da-d737-4db5-a31b-d5a04e0721c2",
+      "type": "story",
+      "order": 1,
+      "hash": "680ed7a3b5e03b5dd0bad67aa4d92626",
+      "size": 138481
     }
   ],
-  "publisher":{
-    "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-    "type":"publisher",
-    "languages":[
+  "publisher": {
+    "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+    "type": "publisher",
+    "languages": [
       "en"
     ],
-    "status":"published",
-    "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-    "title":"200 GREATEST PAINTINGS",
-    "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-    "language":"en",
-    "images":[
+    "status": "published",
+    "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+    "title": "200 GREATEST PAINTINGS",
+    "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+    "language": "en",
+    "images": [
       {
-        "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-        "type":"brand_logo",
-        "order":1,
-        "hash":"16cd499c13040897566e1630a8abf022",
-        "size":48385
+        "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+        "type": "brand_logo",
+        "order": 1,
+        "hash": "16cd499c13040897566e1630a8abf022",
+        "size": 48385
       }
     ],
-    "content_provider":{
-      "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-      "name":"200 GREATEST PAINTINGS",
-      "copyright":"200 Greatest Paintings"
+    "content_provider": {
+      "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+      "name": "200 GREATEST PAINTINGS",
+      "copyright": "200 Greatest Paintings"
     }
   },
-  "language":"en",
-  "summary":"",
-  "title":"25 Highlights "
+  "language": "en",
+  "summary": "",
+  "title": "25 Highlights "
 }

@@ -1,1511 +1,1511 @@
 {
-  "uuid":"4ac6090b-c7f0-4849-b3ec-48f36f22e86b",
-  "status":"published",
-  "type":"collection",
-  "languages":[
+  "uuid": "4ac6090b-c7f0-4849-b3ec-48f36f22e86b",
+  "status": "published",
+  "type": "collection",
+  "languages": [
     "nl",
     "en"
   ],
-  "hash":"ccc831f67252e4b2f83dce9d6a636fbf01a80404",
-  "parent_uuid":"7061495d-f2bf-43e2-9f3b-e232b2a921b9",
-  "size":35494461,
-  "content_provider":{
-    "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-    "name":"200 GREATEST PAINTINGS",
-    "copyright":"200 Greatest Paintings"
+  "hash": "ccc831f67252e4b2f83dce9d6a636fbf01a80404",
+  "parent_uuid": "7061495d-f2bf-43e2-9f3b-e232b2a921b9",
+  "size": 35494461,
+  "content_provider": {
+    "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+    "name": "200 GREATEST PAINTINGS",
+    "copyright": "200 Greatest Paintings"
   },
-  "publisher":{
-    "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-    "type":"publisher",
-    "languages":[
+  "publisher": {
+    "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+    "type": "publisher",
+    "languages": [
       "en"
     ],
-    "status":"published",
-    "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-    "title":"200 GREATEST PAINTINGS",
-    "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-    "language":"en",
-    "images":[
+    "status": "published",
+    "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+    "title": "200 GREATEST PAINTINGS",
+    "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+    "language": "en",
+    "images": [
       {
-        "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-        "type":"brand_logo",
-        "order":1,
-        "hash":"16cd499c13040897566e1630a8abf022",
-        "size":48385
+        "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+        "type": "brand_logo",
+        "order": 1,
+        "hash": "16cd499c13040897566e1630a8abf022",
+        "size": 48385
       }
     ],
-    "content_provider":{
-      "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-      "name":"200 GREATEST PAINTINGS",
-      "copyright":"200 Greatest Paintings"
+    "content_provider": {
+      "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+      "name": "200 GREATEST PAINTINGS",
+      "copyright": "200 Greatest Paintings"
     }
   },
-  "content":[
+  "content": [
     {
-      "images":[
+      "images": [
         {
-          "uuid":"f7c5f1da-d737-4db5-a31b-d5a04e0721c2",
-          "type":"story",
-          "order":1,
-          "hash":"680ed7a3b5e03b5dd0bad67aa4d92626",
-          "size":138481
+          "uuid": "f7c5f1da-d737-4db5-a31b-d5a04e0721c2",
+          "type": "story",
+          "order": 1,
+          "hash": "680ed7a3b5e03b5dd0bad67aa4d92626",
+          "size": 138481
         }
       ],
-      "download":{
-        "ios-jpg:high-m4a-mp4":{
-          "md5":"33a73d2971e871c8bf051dd208e47a8a",
-          "size":38589007,
-          "url":"http://packages.izi.travel/ios-jpg:high-m4a-mp4/en/1.2/4ac6090b-c7f0-4849-b3ec-48f36f22e86b.tar.gz",
-          "updated_at":"2014-09-10 12:06:18 UTC"
+      "download": {
+        "ios-jpg:high-m4a-mp4": {
+          "md5": "33a73d2971e871c8bf051dd208e47a8a",
+          "size": 38589007,
+          "url": "http://packages.izi.travel/ios-jpg:high-m4a-mp4/en/1.2/4ac6090b-c7f0-4849-b3ec-48f36f22e86b.tar.gz",
+          "updated_at": "2014-09-10 12:06:18 UTC"
         },
-        "android-jpg:high-m4a-mp4":{
-          "md5":"3aed58a8d29ff2a23792f6cc17a746f7",
-          "size":38883525,
-          "url":"http://packages.izi.travel/android-jpg:high-m4a-mp4/en/1.2/4ac6090b-c7f0-4849-b3ec-48f36f22e86b.zip",
-          "updated_at":"2014-09-10 12:06:35 UTC"
+        "android-jpg:high-m4a-mp4": {
+          "md5": "3aed58a8d29ff2a23792f6cc17a746f7",
+          "size": 38883525,
+          "url": "http://packages.izi.travel/android-jpg:high-m4a-mp4/en/1.2/4ac6090b-c7f0-4849-b3ec-48f36f22e86b.zip",
+          "updated_at": "2014-09-10 12:06:35 UTC"
         },
-        "ios-jpg:low-m4a-mp4":{
-          "md5":"df6c79106b65d4322a1810f5be9cdbae",
-          "size":27554327,
-          "url":"http://packages.izi.travel/ios-jpg:low-m4a-mp4/en/1.2/4ac6090b-c7f0-4849-b3ec-48f36f22e86b.tar.gz",
-          "updated_at":"2014-09-10 12:05:59 UTC"
+        "ios-jpg:low-m4a-mp4": {
+          "md5": "df6c79106b65d4322a1810f5be9cdbae",
+          "size": 27554327,
+          "url": "http://packages.izi.travel/ios-jpg:low-m4a-mp4/en/1.2/4ac6090b-c7f0-4849-b3ec-48f36f22e86b.tar.gz",
+          "updated_at": "2014-09-10 12:05:59 UTC"
         },
-        "android-jpg:low-m4a-mp4":{
-          "md5":"3afe865f9b817a880fbea36b0e757b12",
-          "size":27985844,
-          "url":"http://packages.izi.travel/android-jpg:low-m4a-mp4/en/1.2/4ac6090b-c7f0-4849-b3ec-48f36f22e86b.zip",
-          "updated_at":"2014-09-10 12:06:49 UTC"
+        "android-jpg:low-m4a-mp4": {
+          "md5": "3afe865f9b817a880fbea36b0e757b12",
+          "size": 27985844,
+          "url": "http://packages.izi.travel/android-jpg:low-m4a-mp4/en/1.2/4ac6090b-c7f0-4849-b3ec-48f36f22e86b.zip",
+          "updated_at": "2014-09-10 12:06:49 UTC"
         }
       },
-      "language":"en",
-      "summary":"",
-      "desc":"25 Highlights of the 200 Greatest Paintings\r\n\r\nA TRIP THROUGH TIME\r\n200 Greatest Paintings is a trip through the Western Art History. The route of the exhibition is divided into seven periods of the Middle Ages to the present:\r\n\r\n1000 = 1500 HIGH AND LATE MIDDLE AGES\r\nCities and States\r\n \r\n1500 = 1600 RENAISSANCE AND REFORMATION\r\nExplorers and Reformists\r\n \r\n1600 = 1700 GOLDEN AGE\r\nRegents and Princes\r\n \r\n1700 = 1800 ENLIGHTENMENT\r\nWigs and Revolutions\r\n \r\n1800 tot 1900 INDUSTRIALIZATION\r\nCitizens and Steam Engines\r\n \r\n1900 tot 1950\r\nFIRST HALF of 20TH CENTURY\r\nWorld Wars\r\n \r\n1950 to present NOW A DAYS\r\nTelevision and computer",
-      "title":"25 Highlights ",
-      "children":[
+      "language": "en",
+      "summary": "",
+      "desc": "25 Highlights of the 200 Greatest Paintings\r\n\r\nA TRIP THROUGH TIME\r\n200 Greatest Paintings is a trip through the Western Art History. The route of the exhibition is divided into seven periods of the Middle Ages to the present:\r\n\r\n1000 = 1500 HIGH AND LATE MIDDLE AGES\r\nCities and States\r\n \r\n1500 = 1600 RENAISSANCE AND REFORMATION\r\nExplorers and Reformists\r\n \r\n1600 = 1700 GOLDEN AGE\r\nRegents and Princes\r\n \r\n1700 = 1800 ENLIGHTENMENT\r\nWigs and Revolutions\r\n \r\n1800 tot 1900 INDUSTRIALIZATION\r\nCitizens and Steam Engines\r\n \r\n1900 tot 1950\r\nFIRST HALF of 20TH CENTURY\r\nWorld Wars\r\n \r\n1950 to present NOW A DAYS\r\nTelevision and computer",
+      "title": "25 Highlights ",
+      "children": [
         {
-          "uuid":"60786299-f1ea-4807-ad68-12e0065a5e4e",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "60786299-f1ea-4807-ad68-12e0065a5e4e",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "en",
             "nl"
           ],
-          "hash":"297ac1539d9d2a1479f3b12d387d1cb8d3f77c27",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "297ac1539d9d2a1479f3b12d387d1cb8d3f77c27",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"b1a6d417-08d3-4c8d-8bdc-fe5ef2c2260a",
-              "type":"story",
-              "order":1,
-              "hash":"c6dc407171fd0127f4b5d36fa7523438",
-              "size":21977
+              "uuid": "b1a6d417-08d3-4c8d-8bdc-fe5ef2c2260a",
+              "type": "story",
+              "order": 1,
+              "hash": "c6dc407171fd0127f4b5d36fa7523438",
+              "size": 21977
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"17"
+          "location": {
+            "number": "17"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"\"I see a square and I want to paint it black.\" A masterpiece and a model of the new movement Suprematism, Malevich’s painting, Black Square. A painting that, according to many, marks the end of the art of painting. The Black Square floats in an infinite white space. \r\n\r\nThis piece is different than the other art from this period, the composition is simple, not one other painting from this era could be more definite and abstract, the most pure form of aesthetics, free from any political or social significance. After his death the Black Square was hung over his tombstone.\r\n",
-          "title":"Kazimir Malevich, Black Square, 1905"
+          "language": "en",
+          "summary": "",
+          "desc": "\"I see a square and I want to paint it black.\" A masterpiece and a model of the new movement Suprematism, Malevich’s painting, Black Square. A painting that, according to many, marks the end of the art of painting. The Black Square floats in an infinite white space. \r\n\r\nThis piece is different than the other art from this period, the composition is simple, not one other painting from this era could be more definite and abstract, the most pure form of aesthetics, free from any political or social significance. After his death the Black Square was hung over his tombstone.\r\n",
+          "title": "Kazimir Malevich, Black Square, 1905"
         },
         {
-          "uuid":"be66537f-a2a6-4239-97ae-7304893b5f48",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "be66537f-a2a6-4239-97ae-7304893b5f48",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"a1c5c26f5e513497bdd6e29ed56fa9404e9b132f",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "a1c5c26f5e513497bdd6e29ed56fa9404e9b132f",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"c7321386-712a-4c9b-86b1-64043cb56274",
-              "type":"story",
-              "order":1,
-              "hash":"a9c98a1eea55c9529c8accfd5af5a3ec",
-              "size":56104
+              "uuid": "c7321386-712a-4c9b-86b1-64043cb56274",
+              "type": "story",
+              "order": 1,
+              "hash": "a9c98a1eea55c9529c8accfd5af5a3ec",
+              "size": 56104
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"9"
+          "location": {
+            "number": "9"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"In recent years, and probably partly because of the book and the film with the same title, the Girl with the Pearl has become Vermeer’s most popular painting. When the painting went on tour around the Unite States in 2013 and the beginning of 2014 it had been viewed by more than 1.6 million visitors in the middle of this period. This little painting had an entire museum hall all to itself in New York and people stood in long queues just to be able to catch a glimpse of it.\r\n\r\nThe girl even received the significant title, ‘The Dutch Mona Lisa’. Just imagine that the painting was purchased by an art collector in 1881 for only two guilders en thirty cents (approximately one euro)!\r\n",
-          "title":"Johannes Vermeer, Girl with the Pearl, 1665."
+          "language": "en",
+          "summary": "",
+          "desc": "In recent years, and probably partly because of the book and the film with the same title, the Girl with the Pearl has become Vermeer’s most popular painting. When the painting went on tour around the Unite States in 2013 and the beginning of 2014 it had been viewed by more than 1.6 million visitors in the middle of this period. This little painting had an entire museum hall all to itself in New York and people stood in long queues just to be able to catch a glimpse of it.\r\n\r\nThe girl even received the significant title, ‘The Dutch Mona Lisa’. Just imagine that the painting was purchased by an art collector in 1881 for only two guilders en thirty cents (approximately one euro)!\r\n",
+          "title": "Johannes Vermeer, Girl with the Pearl, 1665."
         },
         {
-          "uuid":"8c452a31-0262-4381-95d8-c9ad682800c7",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "8c452a31-0262-4381-95d8-c9ad682800c7",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"cccf4a0aad64f12db58947b86bdfb181502257ad",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "cccf4a0aad64f12db58947b86bdfb181502257ad",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"778c8d68-2d5f-40a5-95fb-b699539e3e7f",
-              "type":"story",
-              "order":1,
-              "hash":"e5e7a8a837db876916bf71a68cb449b3",
-              "size":98668
+              "uuid": "778c8d68-2d5f-40a5-95fb-b699539e3e7f",
+              "type": "story",
+              "order": 1,
+              "hash": "e5e7a8a837db876916bf71a68cb449b3",
+              "size": 98668
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"5"
+          "location": {
+            "number": "5"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"The Mona Lisa is the most famous and perhaps most mysterious portrait in the world. To this day, it’s unclear who this woman was, but it is suspected that her name was Lisa Gherardini, the third wife of Francesco del Giocondo (a Florentine silk merchant). She has succeeded in bewitching almost the whole world with her mysterious smile. Whichever side you stand on, the Mona Lisa always keeps gazing at you with her enigmatic smile. It almost seems as though she has no eyelashes or eyebrows, but these have faded away during the course of time.\r\n\r\nIn 1911, the Mona Lisa was stolen in broad daylight from the Louvre by the Italian Vincenzo Peruggia, a former employee of the museum. \r\n",
-          "title":"Leonardo Da Vinci, Mona Lisa, 1503."
+          "language": "en",
+          "summary": "",
+          "desc": "The Mona Lisa is the most famous and perhaps most mysterious portrait in the world. To this day, it’s unclear who this woman was, but it is suspected that her name was Lisa Gherardini, the third wife of Francesco del Giocondo (a Florentine silk merchant). She has succeeded in bewitching almost the whole world with her mysterious smile. Whichever side you stand on, the Mona Lisa always keeps gazing at you with her enigmatic smile. It almost seems as though she has no eyelashes or eyebrows, but these have faded away during the course of time.\r\n\r\nIn 1911, the Mona Lisa was stolen in broad daylight from the Louvre by the Italian Vincenzo Peruggia, a former employee of the museum. \r\n",
+          "title": "Leonardo Da Vinci, Mona Lisa, 1503."
         },
         {
-          "uuid":"97fb2124-323f-4177-9ea6-fca1f0646d84",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "97fb2124-323f-4177-9ea6-fca1f0646d84",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "en",
             "nl"
           ],
-          "hash":"535a3ddd87d5419c7ef885dc0dcf6d9b59442c02",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "535a3ddd87d5419c7ef885dc0dcf6d9b59442c02",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"f1081651-88a8-4aaa-b423-2ab7757f1d82",
-              "type":"story",
-              "order":1,
-              "hash":"d2f8a888233ebf5829463d6159383f6d",
-              "size":676665
+              "uuid": "f1081651-88a8-4aaa-b423-2ab7757f1d82",
+              "type": "story",
+              "order": 1,
+              "hash": "d2f8a888233ebf5829463d6159383f6d",
+              "size": 676665
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"12"
+          "location": {
+            "number": "12"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"Impressionism was a new, rebellious movement in the art of painting in the second half of the nineteenth century. Édouard Manet could be considered the founder of this movement. Lunch on the Grass depicts an outdoor picnic. In the Bois de Boulogne, the best known park in Paris. The company consists of two men, Manet's brother and his brother-in-law, and two women, one of whom is nude. The nude woman sits with the two men, although they seem to be so deep in discussion that they hardly even notice her nakedness at all.\r\n\r\nThe rebellious Manet received a lot of criticism from his peers on the nudity of the woman; they considered it filthy and inappropriate. The painting became a major scandal and even reached the front pages of the Parisian newspapers, making it instantly famous. This painting is considered to be the starting point of modern art by the Musee d’Orsay, where the work is displayed.\r\n",
-          "title":"Édouard Manet, Lunch on the Grass, 1862."
+          "language": "en",
+          "summary": "",
+          "desc": "Impressionism was a new, rebellious movement in the art of painting in the second half of the nineteenth century. Édouard Manet could be considered the founder of this movement. Lunch on the Grass depicts an outdoor picnic. In the Bois de Boulogne, the best known park in Paris. The company consists of two men, Manet's brother and his brother-in-law, and two women, one of whom is nude. The nude woman sits with the two men, although they seem to be so deep in discussion that they hardly even notice her nakedness at all.\r\n\r\nThe rebellious Manet received a lot of criticism from his peers on the nudity of the woman; they considered it filthy and inappropriate. The painting became a major scandal and even reached the front pages of the Parisian newspapers, making it instantly famous. This painting is considered to be the starting point of modern art by the Musee d’Orsay, where the work is displayed.\r\n",
+          "title": "Édouard Manet, Lunch on the Grass, 1862."
         },
         {
-          "uuid":"e908abf6-5a58-402a-aae6-3509160040a6",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "e908abf6-5a58-402a-aae6-3509160040a6",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"712aead775d79feff71acc4af57b955c229a4914",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "712aead775d79feff71acc4af57b955c229a4914",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"320c1e75-8219-41c2-afcc-4fb22b333bbf",
-              "type":"story",
-              "order":1,
-              "hash":"033ec5d31babd8f2c0988b8bf87c6cec",
-              "size":87493
+              "uuid": "320c1e75-8219-41c2-afcc-4fb22b333bbf",
+              "type": "story",
+              "order": 1,
+              "hash": "033ec5d31babd8f2c0988b8bf87c6cec",
+              "size": 87493
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"15"
+          "location": {
+            "number": "15"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"Munch’s works was not for the society, but rather for himself. Through his art he tried to make sense of the world and the meaning of life for himself. \r\n\r\n‘I stood there, trembling with fear,’ said Munch, who painting this work after a period of emotional torment. He portrayed a man driven to despair, experiencing how a loud and endless scream was tearing out into nature. It is thus, contrary to what most people believe, a terrible scream that the frightened man hears, instead of a scream coming from the man.\r\n",
-          "title":"Edvard Munch, Scream, 1893."
+          "language": "en",
+          "summary": "",
+          "desc": "Munch’s works was not for the society, but rather for himself. Through his art he tried to make sense of the world and the meaning of life for himself. \r\n\r\n‘I stood there, trembling with fear,’ said Munch, who painting this work after a period of emotional torment. He portrayed a man driven to despair, experiencing how a loud and endless scream was tearing out into nature. It is thus, contrary to what most people believe, a terrible scream that the frightened man hears, instead of a scream coming from the man.\r\n",
+          "title": "Edvard Munch, Scream, 1893."
         },
         {
-          "uuid":"810ea899-5445-4657-9e39-777ae2263947",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "810ea899-5445-4657-9e39-777ae2263947",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"2b4ebe5ad9dfecaa2b4d665dbd5e615adeab79a9",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "2b4ebe5ad9dfecaa2b4d665dbd5e615adeab79a9",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"4180f50a-61d7-4484-ba74-2a380a951a79",
-              "type":"story",
-              "order":1,
-              "hash":"ac2a85b4b1c6ad24f7078f0827a4d3e4",
-              "size":409768
+              "uuid": "4180f50a-61d7-4484-ba74-2a380a951a79",
+              "type": "story",
+              "order": 1,
+              "hash": "ac2a85b4b1c6ad24f7078f0827a4d3e4",
+              "size": 409768
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"8"
+          "location": {
+            "number": "8"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"The Milkmaid is one of Vermeer’s typical ‘genre pieces’, paintings depicting scenes from the everyday life. The title of the painting is actually incorrect. A milkmaid is after all a woman that delivers milk door to door. The girl in this painting is only a servant or kitchen girl pouring milk out. \r\n\r\nThe colors of her clothes, cornflower blue and a stained yellow tint are Vermeer’s favorite colors. He also uses these colors in other famous works like the Girl with the Pearl.\r\n",
-          "title":"Johannes Vermeer, The Milkmaid, 1658."
+          "language": "en",
+          "summary": "",
+          "desc": "The Milkmaid is one of Vermeer’s typical ‘genre pieces’, paintings depicting scenes from the everyday life. The title of the painting is actually incorrect. A milkmaid is after all a woman that delivers milk door to door. The girl in this painting is only a servant or kitchen girl pouring milk out. \r\n\r\nThe colors of her clothes, cornflower blue and a stained yellow tint are Vermeer’s favorite colors. He also uses these colors in other famous works like the Girl with the Pearl.\r\n",
+          "title": "Johannes Vermeer, The Milkmaid, 1658."
         },
         {
-          "uuid":"ad1f9528-e1e8-4d2c-a4f6-c9b63279b860",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "ad1f9528-e1e8-4d2c-a4f6-c9b63279b860",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"971ba6c1daaa17f66aebd38ad8a4e324c3285e1c",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "971ba6c1daaa17f66aebd38ad8a4e324c3285e1c",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"9293bcf5-62f7-404d-9017-81c2785e3016",
-              "type":"story",
-              "order":1,
-              "hash":"4e8202a18df730ae2999dcaccadb7a1a",
-              "size":133509
+              "uuid": "9293bcf5-62f7-404d-9017-81c2785e3016",
+              "type": "story",
+              "order": 1,
+              "hash": "4e8202a18df730ae2999dcaccadb7a1a",
+              "size": 133509
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"2"
+          "location": {
+            "number": "2"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"This famous painter got the nickname \"Botticelli\" (the barrel) thanks to his brother and due to the fact that Botticelli was rather stout. In classical Roman mythology, Venus, the goddess of love, was born of sea foam, a fully grown woman. Here, she arrives in Cyprus in a giant shell.  \r\n\r\nBotticelli did not follow mythology too closely, because, for instance, there is hardly any foam in his painting. The model which Botticelli used to paint Venus was a young woman in 15th century Florence whom many men were in love with. Even the painter himself was much enamored with his subject and painted her in many of his paintings.\r\n",
-          "title":"Sandro Botticelli, The Birth of Venus, 1483"
+          "language": "en",
+          "summary": "",
+          "desc": "This famous painter got the nickname \"Botticelli\" (the barrel) thanks to his brother and due to the fact that Botticelli was rather stout. In classical Roman mythology, Venus, the goddess of love, was born of sea foam, a fully grown woman. Here, she arrives in Cyprus in a giant shell.  \r\n\r\nBotticelli did not follow mythology too closely, because, for instance, there is hardly any foam in his painting. The model which Botticelli used to paint Venus was a young woman in 15th century Florence whom many men were in love with. Even the painter himself was much enamored with his subject and painted her in many of his paintings.\r\n",
+          "title": "Sandro Botticelli, The Birth of Venus, 1483"
         },
         {
-          "uuid":"df09cee2-56b0-4b63-81aa-db230b6b90cb",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "df09cee2-56b0-4b63-81aa-db230b6b90cb",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"df0d3d353e4738b76f84078d399a0ca3bd4c641e",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "df0d3d353e4738b76f84078d399a0ca3bd4c641e",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"89a12170-b410-4dbc-8616-07e3dfe0091c",
-              "type":"story",
-              "order":1,
-              "hash":"43972dc227e990d7eaefc01c5fc92846",
-              "size":193522
+              "uuid": "89a12170-b410-4dbc-8616-07e3dfe0091c",
+              "type": "story",
+              "order": 1,
+              "hash": "43972dc227e990d7eaefc01c5fc92846",
+              "size": 193522
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"13"
+          "location": {
+            "number": "13"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"While Van Gogh was waiting for his friend and fellow artist Gauguin to visit him in Arles he painted four still lives of sunflowers in a vase. These were to hang in the spare bedroom in the yellow house in which Gauguin would be staying. Van Gogh originally intended on painting twelve, but he was not able to do so before the flowering sunflowers withered. Eventually he found only two of them good enough for public display. A year later, in January, he painted another three works with sunflowers.\r\n\r\nThis painting had twelve flowers, and was painted in the last period in January 1889. The work, contrary to most others, has a blue background, instead of yellow, and it is considered as the most beautiful of the series.\r\n",
-          "title":"Vincent van Gogh, Vase with Sunflowers, 1889"
+          "language": "en",
+          "summary": "",
+          "desc": "While Van Gogh was waiting for his friend and fellow artist Gauguin to visit him in Arles he painted four still lives of sunflowers in a vase. These were to hang in the spare bedroom in the yellow house in which Gauguin would be staying. Van Gogh originally intended on painting twelve, but he was not able to do so before the flowering sunflowers withered. Eventually he found only two of them good enough for public display. A year later, in January, he painted another three works with sunflowers.\r\n\r\nThis painting had twelve flowers, and was painted in the last period in January 1889. The work, contrary to most others, has a blue background, instead of yellow, and it is considered as the most beautiful of the series.\r\n",
+          "title": "Vincent van Gogh, Vase with Sunflowers, 1889"
         },
         {
-          "uuid":"bf01bfe8-0d1d-4032-8e7b-15eece74a110",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "bf01bfe8-0d1d-4032-8e7b-15eece74a110",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"e537dbceb2b6e3ac06b6c8bc5b087bdffd5b3036",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "e537dbceb2b6e3ac06b6c8bc5b087bdffd5b3036",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"a2b8ae24-0835-4c95-8fe9-f59e6056754c",
-              "type":"story",
-              "order":1,
-              "hash":"f46def0a082a68dae8297ffdf57e7c5e",
-              "size":55302
+              "uuid": "a2b8ae24-0835-4c95-8fe9-f59e6056754c",
+              "type": "story",
+              "order": 1,
+              "hash": "f46def0a082a68dae8297ffdf57e7c5e",
+              "size": 55302
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"21"
+          "location": {
+            "number": "21"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"\"I had two serious accidents in my life (...) one in which a streetcar hit me, the other was my husband.\"\r\n\r\nAt the age of six, Frida was affected by paralysis in her right leg. In her eighteenth year, she was hit by a tram. Thereafter, her already fragile and pain-wracked body had trouble rehabilitating.\r\n\r\nShe had a turbulent marriage with the famous Mexican artist Diego Rivera. Both had many extramarital affairs. Frida had intimate relationships with both men and women (including Josephine Baker, the famous banana skirt dancer). In the painting The two Fridas, the artist portrayed her struggle with her cultural identity. On the right we see Frida as a Mexican woman, and on the left Frida portrays her European background.\r\n",
-          "title":"Frida Kahlo, The Two Fridas, 1939."
+          "language": "en",
+          "summary": "",
+          "desc": "\"I had two serious accidents in my life (...) one in which a streetcar hit me, the other was my husband.\"\r\n\r\nAt the age of six, Frida was affected by paralysis in her right leg. In her eighteenth year, she was hit by a tram. Thereafter, her already fragile and pain-wracked body had trouble rehabilitating.\r\n\r\nShe had a turbulent marriage with the famous Mexican artist Diego Rivera. Both had many extramarital affairs. Frida had intimate relationships with both men and women (including Josephine Baker, the famous banana skirt dancer). In the painting The two Fridas, the artist portrayed her struggle with her cultural identity. On the right we see Frida as a Mexican woman, and on the left Frida portrays her European background.\r\n",
+          "title": "Frida Kahlo, The Two Fridas, 1939."
         },
         {
-          "uuid":"ba2db647-a883-45b5-964a-b8a2cf2153e0",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "ba2db647-a883-45b5-964a-b8a2cf2153e0",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"9cad3e444923703a608206c9d1b6e0e7ac4d4d4b",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "9cad3e444923703a608206c9d1b6e0e7ac4d4d4b",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"e4b5c308-6968-4e6b-871b-5d0af8ffb191",
-              "type":"story",
-              "order":1,
-              "hash":"be4b4fd9b0e77b31305d2248d5f75056",
-              "size":210343
+              "uuid": "e4b5c308-6968-4e6b-871b-5d0af8ffb191",
+              "type": "story",
+              "order": 1,
+              "hash": "be4b4fd9b0e77b31305d2248d5f75056",
+              "size": 210343
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"23"
+          "location": {
+            "number": "23"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"Escher's impossible and mathematical topics are unique, and have also been extensively used in scientific publications since the 1950s. Even today Escher's work is used in many high schools to illustrate complex theories. To his surprise, his work also became very popular among hippies and pop stars. Nowadays, many people immortalize Escher’s work with tattoos.\r\n\r\n\r\nThe \"Relativity\" lithograph is based on an impossible object. You can actually continue to turn it without it ever looking 'upside down'. We see men walking along the stairs, some walking upstairs, some downstairs. Escher thought this out very well and clearly took pleasure in playing with our way of seeing things. In this engraving, he pursues the limits of our logic.\r\n",
-          "title":"Maurits Cornelis Escher, Relativity, 1953."
+          "language": "en",
+          "summary": "",
+          "desc": "Escher's impossible and mathematical topics are unique, and have also been extensively used in scientific publications since the 1950s. Even today Escher's work is used in many high schools to illustrate complex theories. To his surprise, his work also became very popular among hippies and pop stars. Nowadays, many people immortalize Escher’s work with tattoos.\r\n\r\n\r\nThe \"Relativity\" lithograph is based on an impossible object. You can actually continue to turn it without it ever looking 'upside down'. We see men walking along the stairs, some walking upstairs, some downstairs. Escher thought this out very well and clearly took pleasure in playing with our way of seeing things. In this engraving, he pursues the limits of our logic.\r\n",
+          "title": "Maurits Cornelis Escher, Relativity, 1953."
         },
         {
-          "uuid":"57799aac-81c2-4937-8621-5d00847fa2ce",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "57799aac-81c2-4937-8621-5d00847fa2ce",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"d3ea0baa1928fee7b9f913c5678b0a870aaf9ce2",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "d3ea0baa1928fee7b9f913c5678b0a870aaf9ce2",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"2b7940a2-29ae-43ab-9e47-5e5c79e27b65",
-              "type":"story",
-              "order":1,
-              "hash":"439c6c2087bcc2ed24bdde8f6f219662",
-              "size":187327
+              "uuid": "2b7940a2-29ae-43ab-9e47-5e5c79e27b65",
+              "type": "story",
+              "order": 1,
+              "hash": "439c6c2087bcc2ed24bdde8f6f219662",
+              "size": 187327
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"10"
+          "location": {
+            "number": "10"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"In a politically turbulent time in France the captain of the frigate La Méduse is able to put 150 passengers and crew members overboard on a patched up raft.\r\nThe Captain and his senior officers left the vessel in distress in the seaworthy lifeboats. The survivors were saved from the raft after two weeks. Back then this was a huge scandal, almost comparable to what happened recently with the cruise ship the Costa Concordia in Italy. Géricault painted this work soon after the event and was seen almost as a photo journalist, everyone in the large cities of France was talking about it. \r\n",
-          "title":"Jean-Louis Theodore Géricault, Medusa’s Raft, 1819."
+          "language": "en",
+          "summary": "",
+          "desc": "In a politically turbulent time in France the captain of the frigate La Méduse is able to put 150 passengers and crew members overboard on a patched up raft.\r\nThe Captain and his senior officers left the vessel in distress in the seaworthy lifeboats. The survivors were saved from the raft after two weeks. Back then this was a huge scandal, almost comparable to what happened recently with the cruise ship the Costa Concordia in Italy. Géricault painted this work soon after the event and was seen almost as a photo journalist, everyone in the large cities of France was talking about it. \r\n",
+          "title": "Jean-Louis Theodore Géricault, Medusa’s Raft, 1819."
         },
         {
-          "uuid":"963dcb15-9233-4249-9353-bb66e824dc62",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "963dcb15-9233-4249-9353-bb66e824dc62",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "en",
             "nl"
           ],
-          "hash":"e9b3b1faff95371a572598c7985ec74179fc3a7d",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "e9b3b1faff95371a572598c7985ec74179fc3a7d",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"01bba414-31f7-434c-9115-f4ddc2f98d4d",
-              "type":"story",
-              "order":1,
-              "hash":"7c3b30b8b5376969c813267c6bf3ded0",
-              "size":36783
+              "uuid": "01bba414-31f7-434c-9115-f4ddc2f98d4d",
+              "type": "story",
+              "order": 1,
+              "hash": "7c3b30b8b5376969c813267c6bf3ded0",
+              "size": 36783
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"18"
+          "location": {
+            "number": "18"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"René Magritte started his career as a wallpaper and poster designer. The surrealistic artist had a remarkably simple life and painted his world-famous paintings in his living room, or at the kitchen table. As ordinary as Magritte lives, as misleading his creations could be.\r\n\r\nHis most famous work, from the series The betrayal of Images, can be seen in America. This work is the epitome of how Magritte played with images and text. The painting depicting an ordinary pipe had the caption, ‘This is not a pipe’. When Magritte was asked about the meaning of this work he would reply that it would be difficult to stuff some tobacco into this pipe. It is not a pipe, but rather an image of a pipe. Basically just a canvas with paint!\r\n",
-          "title":"René Magritte, This is not a pipe, 1928"
+          "language": "en",
+          "summary": "",
+          "desc": "René Magritte started his career as a wallpaper and poster designer. The surrealistic artist had a remarkably simple life and painted his world-famous paintings in his living room, or at the kitchen table. As ordinary as Magritte lives, as misleading his creations could be.\r\n\r\nHis most famous work, from the series The betrayal of Images, can be seen in America. This work is the epitome of how Magritte played with images and text. The painting depicting an ordinary pipe had the caption, ‘This is not a pipe’. When Magritte was asked about the meaning of this work he would reply that it would be difficult to stuff some tobacco into this pipe. It is not a pipe, but rather an image of a pipe. Basically just a canvas with paint!\r\n",
+          "title": "René Magritte, This is not a pipe, 1928"
         },
         {
-          "uuid":"3be9557a-acd8-4a4a-a9dd-f308f315655d",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "3be9557a-acd8-4a4a-a9dd-f308f315655d",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"7484941824d69c8e0ef0f4c90a69a5cd9ec25e84",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "7484941824d69c8e0ef0f4c90a69a5cd9ec25e84",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"fb333600-dedf-45a3-9cb0-c558eecee2df",
-              "type":"story",
-              "order":1,
-              "hash":"56f4b6e058fd0cbb7205d84938b761a8",
-              "size":334024
+              "uuid": "fb333600-dedf-45a3-9cb0-c558eecee2df",
+              "type": "story",
+              "order": 1,
+              "hash": "56f4b6e058fd0cbb7205d84938b761a8",
+              "size": 334024
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"4"
+          "location": {
+            "number": "4"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"The scene of this mural is the biblical story of Jesus' last supper, during which he announces that one of his twelve disciples will betray him. All of the disciples are outraged and bewildered as to who will betray Jesus.\r\n\r\nLeonardo Da Vinci is the epitome of genius. Before commencing the work, he used an experimental technique of priming the wall with egg tempera with pitch, lime and resin. He did this so that the paint could remain wet longer, and could be worked on longer, much like a painting in oils. This caused the mural to be very fragile and it has become extremely faded over the years.\r\n",
-          "title":"Leonardo Da Vinci, The Last Supper, 1498."
+          "language": "en",
+          "summary": "",
+          "desc": "The scene of this mural is the biblical story of Jesus' last supper, during which he announces that one of his twelve disciples will betray him. All of the disciples are outraged and bewildered as to who will betray Jesus.\r\n\r\nLeonardo Da Vinci is the epitome of genius. Before commencing the work, he used an experimental technique of priming the wall with egg tempera with pitch, lime and resin. He did this so that the paint could remain wet longer, and could be worked on longer, much like a painting in oils. This caused the mural to be very fragile and it has become extremely faded over the years.\r\n",
+          "title": "Leonardo Da Vinci, The Last Supper, 1498."
         },
         {
-          "uuid":"b69e1b29-2b4f-4002-86e1-244d23562e7b",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "b69e1b29-2b4f-4002-86e1-244d23562e7b",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "en",
             "nl"
           ],
-          "hash":"02d48a5a6b43b37469078f35048c3a43846ba546",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "02d48a5a6b43b37469078f35048c3a43846ba546",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"36f5dcb2-8dfb-4dc5-897f-ec6d6d0f853d",
-              "type":"story",
-              "order":1,
-              "hash":"cbc6605844b5b85fa4b59aded4a66364",
-              "size":66549
+              "uuid": "36f5dcb2-8dfb-4dc5-897f-ec6d6d0f853d",
+              "type": "story",
+              "order": 1,
+              "hash": "cbc6605844b5b85fa4b59aded4a66364",
+              "size": 66549
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"22"
+          "location": {
+            "number": "22"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"Mondrian is the master of modern abstract art. His compositions are unsurpassed. However simple they may seem, legend has it that not even the best counterfeiters can emulate Mondrian’s work. In terms of prominence, his work is equal to Picasso's Guernica or Warhol's Campbell's soup cans. But where Guernica is symbolic of the horrors of war, Mondrian's Victory Boogie-Woogie is a triumphant answer to the Second World War, a symbol of joy and freedom. \r\n\r\nAs a big fan of jazz, Mondrian felt right at home in New York. He fled there from Paris, via London at the start of the Second World War. In the fast-paced and lively New York, Mondrian developed a new style in which he explored new compositions and rhythms. Inspired by the city and the introduction of boogie-woogie music, he began work on his last painting.\r\n",
-          "title":"Piet Mondrian, Victory Boogie-Woogie, 1944."
+          "language": "en",
+          "summary": "",
+          "desc": "Mondrian is the master of modern abstract art. His compositions are unsurpassed. However simple they may seem, legend has it that not even the best counterfeiters can emulate Mondrian’s work. In terms of prominence, his work is equal to Picasso's Guernica or Warhol's Campbell's soup cans. But where Guernica is symbolic of the horrors of war, Mondrian's Victory Boogie-Woogie is a triumphant answer to the Second World War, a symbol of joy and freedom. \r\n\r\nAs a big fan of jazz, Mondrian felt right at home in New York. He fled there from Paris, via London at the start of the Second World War. In the fast-paced and lively New York, Mondrian developed a new style in which he explored new compositions and rhythms. Inspired by the city and the introduction of boogie-woogie music, he began work on his last painting.\r\n",
+          "title": "Piet Mondrian, Victory Boogie-Woogie, 1944."
         },
         {
-          "uuid":"52398c54-126a-44e2-850c-3c12834eca59",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "52398c54-126a-44e2-850c-3c12834eca59",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"0c86fac480b6f77bc0f61105213f0bbc1426700c",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "0c86fac480b6f77bc0f61105213f0bbc1426700c",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"423862d2-460b-40f7-b783-032cb6bf4948",
-              "type":"story",
-              "order":1,
-              "hash":"159b41916f4d82bab1d0724d7e55b1a1",
-              "size":83372
+              "uuid": "423862d2-460b-40f7-b783-032cb6bf4948",
+              "type": "story",
+              "order": 1,
+              "hash": "159b41916f4d82bab1d0724d7e55b1a1",
+              "size": 83372
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"3"
+          "location": {
+            "number": "3"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"The Garden of Earthly Delights triptych is definitely the most famous, most complex and most bizarre painting by Hieronymus Bosch. In its time, it was also called The lust or The Strawberry Painting. Some scholars suggest that Bosch represented an orgy of naked people due to his belonging to the sect of the Adamites, a kind of primal religious nudist group.\r\n\r\nThe left panel shows the Garden of Eden, or Paradise, where Adam and Eve linger before they fall from grace. The middle panel shows the human world before the biblical flood of Noah. The right-hand panel then shows hellish scenery; what happens when humankind behave sinfully.\r\n",
-          "title":"Hieronymus Bosch, The Garden of Earthly Delights, 1490."
+          "language": "en",
+          "summary": "",
+          "desc": "The Garden of Earthly Delights triptych is definitely the most famous, most complex and most bizarre painting by Hieronymus Bosch. In its time, it was also called The lust or The Strawberry Painting. Some scholars suggest that Bosch represented an orgy of naked people due to his belonging to the sect of the Adamites, a kind of primal religious nudist group.\r\n\r\nThe left panel shows the Garden of Eden, or Paradise, where Adam and Eve linger before they fall from grace. The middle panel shows the human world before the biblical flood of Noah. The right-hand panel then shows hellish scenery; what happens when humankind behave sinfully.\r\n",
+          "title": "Hieronymus Bosch, The Garden of Earthly Delights, 1490."
         },
         {
-          "uuid":"649d1a3a-1d3c-41bc-b5dd-e336fd22d81c",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "649d1a3a-1d3c-41bc-b5dd-e336fd22d81c",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "en",
             "nl"
           ],
-          "hash":"f7dc3c8307224a65e94678faef2e67f2cb63c1d9",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "f7dc3c8307224a65e94678faef2e67f2cb63c1d9",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"ad5c778e-7f39-424f-9858-db3a3f6559c1",
-              "type":"story",
-              "order":1,
-              "hash":"b3f323a496f3310410b6046ed7953cdf",
-              "size":293012
+              "uuid": "ad5c778e-7f39-424f-9858-db3a3f6559c1",
+              "type": "story",
+              "order": 1,
+              "hash": "b3f323a496f3310410b6046ed7953cdf",
+              "size": 293012
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"6"
+          "location": {
+            "number": "6"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"According to the Bible, people of the city of Babel, under the rule of King Nimrod, wanted to build their city in a tower that would reach up to the heavens. But God found the people too ambitious and too mighty. He then ensured that all inhabitants of Babylon suddenly spoke a different language so that they could no longer work in unison. We still use the term \"Babylon confusion” when everyone talks all at once incoherently and no one listens. \r\n\r\nBruegel probably based the design of the tower on the ancient Colosseum in Rome.\r\n",
-          "title":"Pieter Bruegel the Elder, Tower of Babel (small), 1563."
+          "language": "en",
+          "summary": "",
+          "desc": "According to the Bible, people of the city of Babel, under the rule of King Nimrod, wanted to build their city in a tower that would reach up to the heavens. But God found the people too ambitious and too mighty. He then ensured that all inhabitants of Babylon suddenly spoke a different language so that they could no longer work in unison. We still use the term \"Babylon confusion” when everyone talks all at once incoherently and no one listens. \r\n\r\nBruegel probably based the design of the tower on the ancient Colosseum in Rome.\r\n",
+          "title": "Pieter Bruegel the Elder, Tower of Babel (small), 1563."
         },
         {
-          "uuid":"1331bc9f-d1ee-45f3-87e9-9074c09e5f70",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "1331bc9f-d1ee-45f3-87e9-9074c09e5f70",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "en",
             "nl"
           ],
-          "hash":"995a77846e5f7bb90c12ef7a462866d24dd5ab85",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "995a77846e5f7bb90c12ef7a462866d24dd5ab85",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"83c221b7-178a-4d0c-9145-c62dcc8de44c",
-              "type":"story",
-              "order":1,
-              "hash":"a5b4ed85536e87c45d809e7ed2699578",
-              "size":146229
+              "uuid": "83c221b7-178a-4d0c-9145-c62dcc8de44c",
+              "type": "story",
+              "order": 1,
+              "hash": "a5b4ed85536e87c45d809e7ed2699578",
+              "size": 146229
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"24"
+          "location": {
+            "number": "24"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"\"In the future, everyone will be world-famous for 15 minutes.\"\r\n\r\nAccording to Warhol, celebrities are the royalty of popular culture. Soon after the death of Marilyn Monroe in 1962, Warhol made the Marilyn Diptych, a series of 50 silkscreens based on a single photo of the actress. The diptych consists of 25 colored Marilyns on the left and 25 partially faded black and white images on the right. According to some, it refers to her life as a celebrity, appearing frequently in the media, and the mortality of our stars. In 2004 the British newspaper The Guardian named the work as the third most influential work of art in modern art.\r\n",
-          "title":"Andy Warhol, Marilyn Monroe, 1967."
+          "language": "en",
+          "summary": "",
+          "desc": "\"In the future, everyone will be world-famous for 15 minutes.\"\r\n\r\nAccording to Warhol, celebrities are the royalty of popular culture. Soon after the death of Marilyn Monroe in 1962, Warhol made the Marilyn Diptych, a series of 50 silkscreens based on a single photo of the actress. The diptych consists of 25 colored Marilyns on the left and 25 partially faded black and white images on the right. According to some, it refers to her life as a celebrity, appearing frequently in the media, and the mortality of our stars. In 2004 the British newspaper The Guardian named the work as the third most influential work of art in modern art.\r\n",
+          "title": "Andy Warhol, Marilyn Monroe, 1967."
         },
         {
-          "uuid":"b776b0fe-d59c-4e26-ab6d-9a865b225533",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "b776b0fe-d59c-4e26-ab6d-9a865b225533",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "en",
             "nl"
           ],
-          "hash":"b18243869506d6370ec419c0979f3f62f0808bca",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "b18243869506d6370ec419c0979f3f62f0808bca",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"fb675a12-763e-45dc-a8ce-9f70a43c3037",
-              "type":"story",
-              "order":1,
-              "hash":"accb9440b1c63ecb3d4a55529febfcc0",
-              "size":285484
+              "uuid": "fb675a12-763e-45dc-a8ce-9f70a43c3037",
+              "type": "story",
+              "order": 1,
+              "hash": "accb9440b1c63ecb3d4a55529febfcc0",
+              "size": 285484
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"14"
+          "location": {
+            "number": "14"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"The famous Starry night shows Van Gogh’s lovely combination of the colors yellow and blue. It depicts the night view from his room in the psychiatric institution in Saint-Rémy-de-Provence. This depiction is not completely reminiscent of the reality. The pointed steeple appears to be rather more Dutch than French, and the structure of the Town is completely from Van Gogh’s imagination. Even the mountains in the background are not in their actual location.\r\n\r\nSome suggest that this distortion of reality is the result of Van Gogh’s hallucinations attributed to his mental disorder.\r\n",
-          "title":"Vincent van Gogh, Starry night, 1889"
+          "language": "en",
+          "summary": "",
+          "desc": "The famous Starry night shows Van Gogh’s lovely combination of the colors yellow and blue. It depicts the night view from his room in the psychiatric institution in Saint-Rémy-de-Provence. This depiction is not completely reminiscent of the reality. The pointed steeple appears to be rather more Dutch than French, and the structure of the Town is completely from Van Gogh’s imagination. Even the mountains in the background are not in their actual location.\r\n\r\nSome suggest that this distortion of reality is the result of Van Gogh’s hallucinations attributed to his mental disorder.\r\n",
+          "title": "Vincent van Gogh, Starry night, 1889"
         },
         {
-          "uuid":"a3f96c3f-3ed2-418f-a553-79295d908e72",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "a3f96c3f-3ed2-418f-a553-79295d908e72",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"f34311190b713351d8c0daca526b4cccd99f619a",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "f34311190b713351d8c0daca526b4cccd99f619a",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"7755670e-d20f-4df1-a803-53819efe0736",
-              "type":"story",
-              "order":1,
-              "hash":"aba3266ea646897a783c79a5d534c43e",
-              "size":143036
+              "uuid": "7755670e-d20f-4df1-a803-53819efe0736",
+              "type": "story",
+              "order": 1,
+              "hash": "aba3266ea646897a783c79a5d534c43e",
+              "size": 143036
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"19"
+          "location": {
+            "number": "19"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"\"When I was six I wanted to be a chef, when I was seven, Napoleon. Since then my ambitions have slowly increased.\"\r\n\r\nWith an impeccable technique, similar to the old masters, Dali produced hand painted dream photographs. Dali said about himself that the only difference between him and insanity was that he was not insane.\r\n\r\nOne of Dali’s best known works is The Persistence of Memory. This painting depicts his famous melted clocks. The painting is representation of the relativity of time, a subject that is based on Einstein’s theory of relativity, which sparked a lot of interest in the 1920’s. But because something does not really have to be logical Dali stated that the melted clocks were inspired by Camembert cheese melting in the sun.\r\n",
-          "title":"Salvador Dali, The persistence of memory, 1931"
+          "language": "en",
+          "summary": "",
+          "desc": "\"When I was six I wanted to be a chef, when I was seven, Napoleon. Since then my ambitions have slowly increased.\"\r\n\r\nWith an impeccable technique, similar to the old masters, Dali produced hand painted dream photographs. Dali said about himself that the only difference between him and insanity was that he was not insane.\r\n\r\nOne of Dali’s best known works is The Persistence of Memory. This painting depicts his famous melted clocks. The painting is representation of the relativity of time, a subject that is based on Einstein’s theory of relativity, which sparked a lot of interest in the 1920’s. But because something does not really have to be logical Dali stated that the melted clocks were inspired by Camembert cheese melting in the sun.\r\n",
+          "title": "Salvador Dali, The persistence of memory, 1931"
         },
         {
-          "uuid":"cd11645c-a100-480d-945a-d9b552d62ae7",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "cd11645c-a100-480d-945a-d9b552d62ae7",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"3977185e9b842e111ab4027431c04a651707d76e",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "3977185e9b842e111ab4027431c04a651707d76e",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"8e42ad66-094a-4e76-8f03-bec1ae19344a",
-              "type":"story",
-              "order":1,
-              "hash":"47c9859e4ea3fc48f268e5f487235879",
-              "size":151694
+              "uuid": "8e42ad66-094a-4e76-8f03-bec1ae19344a",
+              "type": "story",
+              "order": 1,
+              "hash": "47c9859e4ea3fc48f268e5f487235879",
+              "size": 151694
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"25"
+          "location": {
+            "number": "25"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"His typical imagery is known almost throughout the world. With his iconic cartoons which, according to some, are erroneously counted as Pop Art, Keith Haring conquered the streets and subways of New York with his graffiti art and murals. Haring believes that art is for everyone, not just for the elite, and makes it his business to bring art to the people. He set up \"The Pop Shop', a shop where, at an affordable price, you can buy his art, whether it be on a mug or a t-shirt.\r\n\r\n\r\n\r\nHaring’s role model was his good friend, hero and mentor, Andy Warhol, whom he met in 1984 after his second exhibition in New York. This historic meeting gave rise to the artists discovering their mutual shared belief that “Art is for everyone”. They also both loved Disney.\r\n",
-          "title":"Keith Haring, no title, 1985."
+          "language": "en",
+          "summary": "",
+          "desc": "His typical imagery is known almost throughout the world. With his iconic cartoons which, according to some, are erroneously counted as Pop Art, Keith Haring conquered the streets and subways of New York with his graffiti art and murals. Haring believes that art is for everyone, not just for the elite, and makes it his business to bring art to the people. He set up \"The Pop Shop', a shop where, at an affordable price, you can buy his art, whether it be on a mug or a t-shirt.\r\n\r\n\r\n\r\nHaring’s role model was his good friend, hero and mentor, Andy Warhol, whom he met in 1984 after his second exhibition in New York. This historic meeting gave rise to the artists discovering their mutual shared belief that “Art is for everyone”. They also both loved Disney.\r\n",
+          "title": "Keith Haring, no title, 1985."
         },
         {
-          "uuid":"70d40441-3cfd-4f56-864f-30181cf4aefe",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "70d40441-3cfd-4f56-864f-30181cf4aefe",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"0f93e7dc3749784859f725598f677c41545dd6e7",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "0f93e7dc3749784859f725598f677c41545dd6e7",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"de01cbd7-3b63-4c45-be8f-9ace1740f6a1",
-              "type":"story",
-              "order":1,
-              "hash":"ddcceb9c74d427374cd77f21191856fc",
-              "size":796384
+              "uuid": "de01cbd7-3b63-4c45-be8f-9ace1740f6a1",
+              "type": "story",
+              "order": 1,
+              "hash": "ddcceb9c74d427374cd77f21191856fc",
+              "size": 796384
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"11"
+          "location": {
+            "number": "11"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"John Everett Millais was the youngest student ever accepted to the Royal Academy of the Arts in London. He founded the secret Pre-Raphaelite Brotherhood with two other artists. Millais’ Ophelia became an icon of Pre-Raphaelisitic painting. Ophelia is a character from Hamlet by the famous playwright and poet William Shakespeare.\r\n\r\nIn the story Ophelia suddenly lost two men who she loved and this made her crazy. She is barely aware of her surroundings, and when she falls into a shallow river when gathering flowers she cannot, or will not save herself, and she drowns. Millais’ painting illustrates the hopeless or dead Ophelia, floating in the river\r\n",
-          "title":"John Everett Millais, Ophelia, 1851"
+          "language": "en",
+          "summary": "",
+          "desc": "John Everett Millais was the youngest student ever accepted to the Royal Academy of the Arts in London. He founded the secret Pre-Raphaelite Brotherhood with two other artists. Millais’ Ophelia became an icon of Pre-Raphaelisitic painting. Ophelia is a character from Hamlet by the famous playwright and poet William Shakespeare.\r\n\r\nIn the story Ophelia suddenly lost two men who she loved and this made her crazy. She is barely aware of her surroundings, and when she falls into a shallow river when gathering flowers she cannot, or will not save herself, and she drowns. Millais’ painting illustrates the hopeless or dead Ophelia, floating in the river\r\n",
+          "title": "John Everett Millais, Ophelia, 1851"
         },
         {
-          "uuid":"d79d143e-9318-488e-b0d0-5a345cefa9de",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "d79d143e-9318-488e-b0d0-5a345cefa9de",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"fda113a3a4bb003a0c99befbb3994a5664112a4c",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "fda113a3a4bb003a0c99befbb3994a5664112a4c",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"9e5dbbb7-f77d-4990-8f41-c9ebd439417c",
-              "type":"story",
-              "order":1,
-              "hash":"dea69ca04532437534e52a80925b7f36",
-              "size":146431
+              "uuid": "9e5dbbb7-f77d-4990-8f41-c9ebd439417c",
+              "type": "story",
+              "order": 1,
+              "hash": "dea69ca04532437534e52a80925b7f36",
+              "size": 146431
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"20"
+          "location": {
+            "number": "20"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"There is an anecdote about Picasso who in 1940 was living in Paris occupied by the German troops. He was visited in his studio by various German officers. They pointed to Picasso’s Guernica and asked, ‘Did you do this?’ to which Picasso replied 'no, YOU did'.\r\n\r\nThe Guernica namely depicted the bombing of the like-named Basque village during the Spanish Civil War. The village was bombed on a busy market day, without any military necessity, as a test. Germany, who was at that time under the rule of Hitler, provided the Spanish Fascists with the necessary equipment. The Spanish Civil War was an attractive excuse for them to test out new bombs. Many innocent civilians had to pay for this with their lives.\r\n",
-          "title":"Pablo Picasso, Guernica, 1937"
+          "language": "en",
+          "summary": "",
+          "desc": "There is an anecdote about Picasso who in 1940 was living in Paris occupied by the German troops. He was visited in his studio by various German officers. They pointed to Picasso’s Guernica and asked, ‘Did you do this?’ to which Picasso replied 'no, YOU did'.\r\n\r\nThe Guernica namely depicted the bombing of the like-named Basque village during the Spanish Civil War. The village was bombed on a busy market day, without any military necessity, as a test. Germany, who was at that time under the rule of Hitler, provided the Spanish Fascists with the necessary equipment. The Spanish Civil War was an attractive excuse for them to test out new bombs. Many innocent civilians had to pay for this with their lives.\r\n",
+          "title": "Pablo Picasso, Guernica, 1937"
         },
         {
-          "uuid":"954fef72-8bad-4f31-b6de-4be9efd2078d",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "954fef72-8bad-4f31-b6de-4be9efd2078d",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"4811fd742fb10ffa2228df3ef4a444a627bee51f",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "4811fd742fb10ffa2228df3ef4a444a627bee51f",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"357f9234-1767-4247-9fd9-22870129d04c",
-              "type":"story",
-              "order":1,
-              "hash":"cc33ab46499708d3da8bdfc8d59c107f",
-              "size":112465
+              "uuid": "357f9234-1767-4247-9fd9-22870129d04c",
+              "type": "story",
+              "order": 1,
+              "hash": "cc33ab46499708d3da8bdfc8d59c107f",
+              "size": 112465
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"1"
+          "location": {
+            "number": "1"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"The Lamb of God, or Ghent Altarpiece, is a 'polyptych’, a panel painting with more than three panels. It was not only painted by Jan van Eyck, but also by his brother Hubert. The work has a long bizarre history. It was damaged by fire and has been stolen seven times. It was also hidden from the iconoclasm and two wars. Some panels were even sold, sawed through and even looted.\r\n\r\nThe work is full of hidden imagery and symbolism and you have to take the time to be able to 'read' it. The Bible, which is the inspiration for the stories, would be your guide.\r\n",
-          "title":"The van Eyck brothers, The Lamb of God, 1432"
+          "language": "en",
+          "summary": "",
+          "desc": "The Lamb of God, or Ghent Altarpiece, is a 'polyptych’, a panel painting with more than three panels. It was not only painted by Jan van Eyck, but also by his brother Hubert. The work has a long bizarre history. It was damaged by fire and has been stolen seven times. It was also hidden from the iconoclasm and two wars. Some panels were even sold, sawed through and even looted.\r\n\r\nThe work is full of hidden imagery and symbolism and you have to take the time to be able to 'read' it. The Bible, which is the inspiration for the stories, would be your guide.\r\n",
+          "title": "The van Eyck brothers, The Lamb of God, 1432"
         },
         {
-          "uuid":"9b25d9fb-ca12-48a6-bf72-8237a560340d",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "9b25d9fb-ca12-48a6-bf72-8237a560340d",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"8dc8ece2599c0acd6b89b796eac27047e55b2169",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "8dc8ece2599c0acd6b89b796eac27047e55b2169",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"7e2ca42f-6d31-4537-938e-7ad98ef50c3e",
-              "type":"story",
-              "order":1,
-              "hash":"5b3c555c9377d116b2c54dd65f0992da",
-              "size":50576
+              "uuid": "7e2ca42f-6d31-4537-938e-7ad98ef50c3e",
+              "type": "story",
+              "order": 1,
+              "hash": "5b3c555c9377d116b2c54dd65f0992da",
+              "size": 50576
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"7"
+          "location": {
+            "number": "7"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"The Amsterdam of Rembrandt’s era was protected by militia - sort of military police formed by the citizens. The higher posts in the militia were reserved only for the rich who could afford the accoutrements. They enjoyed being immortalized by painters and this is exactly what happened to Rembrandt’s most famous painting. The painting was called the Militia Company of District II under the command of Captain Frans Banninck Cocq, but the world really knows it better as The Night Watch.\r\nThe painting was nicknamed The Night Watch because in the 18th and 19th centuries, an old layer of varnish covered the painting with a dark layer of dirt, giving it a dark effect. This layer has now been removed and the painting has been restored to its original glory. Rembrandt himself can also be seen peering between the shoulders of the gunmen.\r\n",
-          "title":"Rembrandt van Rijn, Night Watch, 1642."
+          "language": "en",
+          "summary": "",
+          "desc": "The Amsterdam of Rembrandt’s era was protected by militia - sort of military police formed by the citizens. The higher posts in the militia were reserved only for the rich who could afford the accoutrements. They enjoyed being immortalized by painters and this is exactly what happened to Rembrandt’s most famous painting. The painting was called the Militia Company of District II under the command of Captain Frans Banninck Cocq, but the world really knows it better as The Night Watch.\r\nThe painting was nicknamed The Night Watch because in the 18th and 19th centuries, an old layer of varnish covered the painting with a dark layer of dirt, giving it a dark effect. This layer has now been removed and the painting has been restored to its original glory. Rembrandt himself can also be seen peering between the shoulders of the gunmen.\r\n",
+          "title": "Rembrandt van Rijn, Night Watch, 1642."
         },
         {
-          "uuid":"de3ffe0f-295a-4cdd-a215-a9ded7578d90",
-          "status":"published",
-          "type":"exhibit",
-          "languages":[
+          "uuid": "de3ffe0f-295a-4cdd-a215-a9ded7578d90",
+          "status": "published",
+          "type": "exhibit",
+          "languages": [
             "nl",
             "en"
           ],
-          "hash":"de47c761e7082b5bb288b6ca8f066ab3cd04e793",
-          "content_provider":{
-            "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-            "name":"200 GREATEST PAINTINGS",
-            "copyright":"200 Greatest Paintings"
+          "hash": "de47c761e7082b5bb288b6ca8f066ab3cd04e793",
+          "content_provider": {
+            "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+            "name": "200 GREATEST PAINTINGS",
+            "copyright": "200 Greatest Paintings"
           },
-          "images":[
+          "images": [
             {
-              "uuid":"fa53ad81-34d0-470c-8f12-04d01e464cc2",
-              "type":"story",
-              "order":1,
-              "hash":"817fd90ed0dab6ae5c60ece139f04fd7",
-              "size":376643
+              "uuid": "fa53ad81-34d0-470c-8f12-04d01e464cc2",
+              "type": "story",
+              "order": 1,
+              "hash": "817fd90ed0dab6ae5c60ece139f04fd7",
+              "size": 376643
             }
           ],
-          "publisher":{
-            "uuid":"b1fd9b75-88c8-4be4-bf3d-68d596d47481",
-            "type":"publisher",
-            "languages":[
+          "publisher": {
+            "uuid": "b1fd9b75-88c8-4be4-bf3d-68d596d47481",
+            "type": "publisher",
+            "languages": [
               "en"
             ],
-            "status":"published",
-            "hash":"1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
-            "title":"200 GREATEST PAINTINGS",
-            "summary":"Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
-            "language":"en",
-            "images":[
+            "status": "published",
+            "hash": "1f5cee7ecb8d625abc278d05bc23d1280bd9d4b1",
+            "title": "200 GREATEST PAINTINGS",
+            "summary": "Deze tentoonstelling is tot stand gekomen door Expo Developers B.V. ",
+            "language": "en",
+            "images": [
               {
-                "uuid":"4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
-                "type":"brand_logo",
-                "order":1,
-                "hash":"16cd499c13040897566e1630a8abf022",
-                "size":48385
+                "uuid": "4c37d3db-f44e-4094-8b1a-5c8b8e4a0142",
+                "type": "brand_logo",
+                "order": 1,
+                "hash": "16cd499c13040897566e1630a8abf022",
+                "size": 48385
               }
             ],
-            "content_provider":{
-              "uuid":"002f97c6-1366-4485-8ca4-3584db996e62",
-              "name":"200 GREATEST PAINTINGS",
-              "copyright":"200 Greatest Paintings"
+            "content_provider": {
+              "uuid": "002f97c6-1366-4485-8ca4-3584db996e62",
+              "name": "200 GREATEST PAINTINGS",
+              "copyright": "200 Greatest Paintings"
             }
           },
-          "location":{
-            "number":"16"
+          "location": {
+            "number": "16"
           },
-          "language":"en",
-          "summary":"",
-          "desc":"Klimts style was markedly influenced by the Near East (Egypt, Assyria, Babylonia and Byzantium), and the Far East (Japan) art. This is apparent from his use of gold leaf and the fact that his paintings appear to be structured as a mosaic. The Kiss is probably a little more personal to Klimt than it appears at first glance. The woman in the painting is after all his own beloved (although he has more than one). The face of the man kissing her is turned away from the viewer, as if is losing himself in her. She appears to be standing on a mountain or cliff, dotted with wild flowers.\r\n\r\nThe painting was rediscovered and became world-famous during the ‘flower power’ time of the 1960’s and 1970’s. The bed of flowers, the starry sky and the hint of romance was very appealing to the hippies of that era. Posters of The Kiss are still bestsellers at printing companies.\r\n",
-          "title":"Gustav Klimt, The Kiss, 1907"
+          "language": "en",
+          "summary": "",
+          "desc": "Klimts style was markedly influenced by the Near East (Egypt, Assyria, Babylonia and Byzantium), and the Far East (Japan) art. This is apparent from his use of gold leaf and the fact that his paintings appear to be structured as a mosaic. The Kiss is probably a little more personal to Klimt than it appears at first glance. The woman in the painting is after all his own beloved (although he has more than one). The face of the man kissing her is turned away from the viewer, as if is losing himself in her. She appears to be standing on a mountain or cliff, dotted with wild flowers.\r\n\r\nThe painting was rediscovered and became world-famous during the ‘flower power’ time of the 1960’s and 1970’s. The bed of flowers, the starry sky and the hint of romance was very appealing to the hippies of that era. Posters of The Kiss are still bestsellers at printing companies.\r\n",
+          "title": "Gustav Klimt, The Kiss, 1907"
         }
       ]
     }

@@ -34,7 +34,8 @@ JSON;
 
     public function setUp()
     {
-        $this->sut = CountryContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        $this->sut = CountryContent::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -43,7 +44,8 @@ JSON;
      */
     public function testCreateFromJson()
     {
-        CountryContent::createFromJson($this->json, MultipleFormInterface::FORM_FULL);
+        CountryContent::createFromJson($this->json,
+          MultipleFormInterface::FORM_FULL);
     }
 
     /**
@@ -88,7 +90,8 @@ JSON;
      */
     public function testGetDescription()
     {
-        $this->assertSame('Het is vandaag woensdag.', $this->sut->getDescription());
+        $this->assertSame('Het is vandaag woensdag.',
+          $this->sut->getDescription());
     }
 
 }

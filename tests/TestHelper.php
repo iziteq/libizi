@@ -57,13 +57,14 @@ class TestHelper
      *
      * @throws \InvalidArgumentException
      */
-    public static function getJsonResponse($name) {
+    public static function getJsonResponse($name)
+    {
         $filename = __DIR__ . '/responses/' . $name . '.json';
         if (is_readable($filename)) {
             return file_get_contents($filename);
-        }
-        else {
-            throw new \InvalidArgumentException(sprintf('The file %s does not exist or is not readable.', $filename));
+        } else {
+            throw new \InvalidArgumentException(sprintf('The file %s does not exist or is not readable.',
+              $filename));
         }
     }
 

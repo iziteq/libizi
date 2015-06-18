@@ -26,7 +26,8 @@ class CompactCountryTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->sut = CompactCountry::createFromJson(TestHelper::getJsonResponse('country_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
+        $this->sut = CompactCountry::createFromJson(TestHelper::getJsonResponse('country_compact_include_all'),
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -36,7 +37,8 @@ class CompactCountryTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromJson()
     {
-        CompactCountry::createFromJson(TestHelper::getJsonResponse('country_compact_include_all'), MultipleFormInterface::FORM_COMPACT);
+        CompactCountry::createFromJson(TestHelper::getJsonResponse('country_compact_include_all'),
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
@@ -50,7 +52,8 @@ class CompactCountryTest extends \PHPUnit_Framework_TestCase
     {
         $json = 'foo';
 
-        CompactCountry::createFromJson($json, MultipleFormInterface::FORM_COMPACT);
+        CompactCountry::createFromJson($json,
+          MultipleFormInterface::FORM_COMPACT);
     }
 
     /**
