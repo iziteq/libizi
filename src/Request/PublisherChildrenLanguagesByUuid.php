@@ -7,8 +7,6 @@
 
 namespace Triquanta\IziTravel\Request;
 
-use Triquanta\IziTravel\DataType\MtgObjectBase;
-
 /**
  * Requests a publisher's children's languages by UUID.
  */

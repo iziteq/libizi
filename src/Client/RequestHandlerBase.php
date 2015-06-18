@@ -10,9 +10,9 @@ namespace Triquanta\IziTravel\Client;
 use GuzzleHttp\ClientInterface as HttpClientInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Triquanta\IziTravel\ApiInterface;
+use Triquanta\IziTravel\Event\IziTravelEvents;
 use Triquanta\IziTravel\Event\PostResponse;
 use Triquanta\IziTravel\Event\PreRequest;
-use Triquanta\IziTravel\Event\IziTravelEvents;
 
 /**
  * Provides an handler for making API requests.
