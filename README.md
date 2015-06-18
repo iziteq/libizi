@@ -54,14 +54,15 @@ Class and interface autoloading is done using
 [PSR-4](http://www.php-fig.org/psr/psr-4/) using the following namespace
 mappings:
 
-* `\Triquanta\IziTravel` maps to `./src`
-* `\Triquanta\IziTravel\Tests` maps to `./tests`
+* `\Triquanta\IziTravel` maps to [./src](./src)
+* `\Triquanta\IziTravel\Tests` maps to [./tests](./tests)
 
 Testing
 -------
 The library comes with [PHPUnit](https://phpunit.de/)-based tests that can be
-run using `./phpunit.xml.dist`. All tests are located in
+run using [./phpunit.xml.dist](./phpunit.xml.dist). All tests are located in
 `\Triquanta\IziTravel\Tests`.
 
-Some tests require configuration. Copy `./test_configuration.example.yml` to
+Some tests require configuration. Copy 
+[./test_configuration.example.yml](./test_configuration.example.yml) to
 `./test_configuration.local.yml` and fill out the values.
