@@ -7,12 +7,9 @@
 
 namespace Triquanta\IziTravel\Tests\Request;
 
-use GuzzleHttp\Client;
-use Triquanta\IziTravel\Client\ProductionRequestHandler;
 use Triquanta\IziTravel\DataType\MtgObjectInterface;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\Request\CityChildrenByUuid;
-use Triquanta\IziTravel\Tests\TestHelper;
 
 /**
  * @coversDefaultClass \Triquanta\IziTravel\Request\CityChildrenByUuid

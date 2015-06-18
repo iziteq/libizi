@@ -7,7 +7,6 @@
 
 namespace Triquanta\IziTravel\Tests\Request;
 
-use Triquanta\IziTravel\DataType\MtgObjectInterface;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
 use Triquanta\IziTravel\Request\PublisherChildrenByUuid;
 

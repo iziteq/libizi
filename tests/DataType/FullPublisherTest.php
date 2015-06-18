@@ -9,7 +9,6 @@ namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\FullPublisher;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
-use Triquanta\IziTravel\DataType\PublisherInterface;
 use Triquanta\IziTravel\Tests\TestHelper;
 
 /**

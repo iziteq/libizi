@@ -9,7 +9,6 @@ namespace Triquanta\IziTravel\Tests\DataType;
 
 use Triquanta\IziTravel\DataType\CompactTouristAttraction;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
-use Triquanta\IziTravel\DataType\TouristAttractionInterface;
 use Triquanta\IziTravel\Tests\TestHelper;
 
 /**

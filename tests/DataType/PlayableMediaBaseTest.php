@@ -7,7 +7,6 @@
 
 namespace Triquanta\IziTravel\Tests\DataType;
 
-use Triquanta\IziTravel\DataType\MediaInterface;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
 
 /**

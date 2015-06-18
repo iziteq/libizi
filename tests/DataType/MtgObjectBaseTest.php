@@ -10,7 +10,6 @@ namespace Triquanta\IziTravel\Tests\DataType;
 use Triquanta\IziTravel\DataType\MtgObjectBase;
 use Triquanta\IziTravel\DataType\MtgObjectInterface;
 use Triquanta\IziTravel\DataType\MultipleFormInterface;
-use Triquanta\IziTravel\DataType\PublishableInterface;
 use Triquanta\IziTravel\Tests\TestHelper;
 
 /**
