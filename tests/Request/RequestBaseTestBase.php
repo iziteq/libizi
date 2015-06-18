@@ -9,6 +9,7 @@ namespace Triquanta\IziTravel\Tests\Request;
 
 use GuzzleHttp\Client;
 use Triquanta\IziTravel\Client\ProductionRequestHandler;
+use Triquanta\IziTravel\Client\StagingRequestHandler;
 use Triquanta\IziTravel\Tests\TestHelper;
 
 /**
@@ -54,7 +55,7 @@ class RequestBaseTestBase extends \PHPUnit_Framework_TestCase
 
         $this->productionHttpClient = new Client();
 
-        $this->productionRequestHandler = new ProductionRequestHandler($this->eventDispatcher, $this->productionHttpClient,
+        $this->productionRequestHandler = new StagingRequestHandler($this->eventDispatcher, $this->productionHttpClient,
           $configuration['apiKey']);
 
         $this->requestHandler = $this->getMock('\Triquanta\IziTravel\Client\RequestHandlerInterface');
