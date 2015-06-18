@@ -5,7 +5,7 @@
     "guzzlehttp/guzzle": "~5.0",
     "iziteq/izi-api-schemes" : "dev-master#081a82788a81df5749da40bfc0e80e8c7e5dd9e8",
     "justinrainbow/json-schema": "~1.4",
-    "php": ">=5.4",
+    "php": "~5.4",
     "symfony/event-dispatcher": "~2.7"
   },
   "require-dev": {
