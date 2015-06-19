@@ -39,10 +39,12 @@ to instantiate an object based on the API's raw JSON response.
 Each API endpoint is represented by a request class in 
 [`\Triquanta\IziTravel\Request`](./src/Request) and it must implement 
 [`\Triquanta\IziTravel\Request\RequestInterface`](./src/Request/RequestInterface.php). 
-It can optionally implement any of the other interfaces in the same namespace 
-and use any of the traits to quickly build a configurable request.
-Any object data returned by an endpoint must be converted to classed objects 
-before being returned by 
+It can optionally implement any of the other 
+[interfaces](http://php.net/manual/en/language.oop5.interfaces.php) in the same 
+namespace and use any of the 
+[traits](http://php.net/manual/en/language.oop5.traits.php) to quickly build a 
+configurable request. Any object data returned by an endpoint must be converted 
+to classed objects before being returned by 
 `\Triquanta\IziTravel\Request\RequestInterface::execute()` implementations. 
 The existing data types in [`Triquanta\IziTravel\DataType`](./src/DataType) can 
 be re-used.
