@@ -33,6 +33,11 @@ library. All classes come with factory methods
 ([`\Triquanta\IziTravel\DataType\FactoryInterface`](./src/DataType/FactoryInterface.php)) 
 to instantiate an object based on the API's raw JSON response.
 
+### Events
+[Symfony EventDispatcher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html)
+is used for dispatching system events. Event names and classes are documented in 
+[`\Triquanta\IziTravel\Event\IziTravelEvents`](./src/Event/IziTravelEvents.php).
+
 ## Development
 
 ### Versioning
