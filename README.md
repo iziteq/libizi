@@ -35,6 +35,10 @@ to instantiate an object based on the API's raw JSON response.
 
 ## Development
 
+### Versioning
+All development takes places on the `master` branch. Versions are released based 
+on [Semantic Versioning](http://semver.org).
+
 ### Supporting a new API endpoint
 Each API endpoint is represented by a request class in 
 [`\Triquanta\IziTravel\Request`](./src/Request) and it must implement 
@@ -51,7 +55,207 @@ be re-used.
 [`\Triquanta\IziTravel\ClientInterface`](./src/Client/ClientInterface.php) is a 
 convenience layer for easily requesting data from different endpoints in the 
 same code. When adding a new request class, a method for it must be added to 
-this interface as well. 
+this interface as well.
+
+#### Example
+A new endpoint `foo` was added for retrieving _Foo_ content by UUID. 
+Additionally the content can be returned in a specific language and format 
+(full/compact). The first step is to create a class that implements the correct 
+interface (which is inherited from 
+[`RequestBase`](./src/Request/RequestBase.php)):
+
+```php
+<?php
+    
+/**
+ * @file Contains \Triquanta\IziTravel\Request\FooByUuid.
+ */
+
+namespace Triquanta\IziTravel\Request;
+
+/**
+ * Returns a Foo object by UUID.
+ */
+class FooByUuid extends RequestBase {
+
+    /**
+     * @return \Triquanta\IziTravel\DataType\FooInterface
+     */
+    public function execute() {
+    }
+
+}
+```
+
+Now we have the basis for any request. Because this endpoint supports forms and 
+is multilingual, we can easily add support for this by implementing two 
+interfaces and using two traits:
+
+```php
+<?php
+
+class FooByUuid extends RequestBase implements FormInterface, MultilingualInterface, UuitInterface {
+
+    use FormTrait;
+    use MultilingualTrait;
+    use UuitTrait;
+
+    /**
+     * @return \Triquanta\IziTravel\DataType\FooInterface
+     */
+    public function execute() {
+    }
+
+}
+```
+
+The class will now feature additional methods and properties for setting and 
+storing the form, language, and UUID of the content that should be returned by 
+the API.
+
+Now we are able to configure instances of this class, we need to use this 
+configuration to execute the actual request and get the JSON from the response:
+
+```php
+<?php
+
+public function execute() {
+    $json = $this->requestHandler->request('/foo', [
+      'form' => $this->form,
+      'languages' => $this->languageCodes,
+      'uuid' => $this->limit,
+    ]);
+}
+```
+
+The request is made to the endpoint, and we pass along the values of the three 
+endpoint parameters (form, language, UUID). As you can see, we use the traits' 
+properties for this.
+
+What remains is the conversion of this JSON to a classed object. We don't have 
+to worry about NULL values, because the API returns HTTP error response in case 
+the requested content is not available. That means by the time this code is 
+executed, we can be sure the response is positive.
+
+```php
+<?php
+
+public function execute() {
+    // ...
+    
+    return Foo::createFromJson($json, $this->form);
+}
+```
+
+All data object classes implement 
+[`FactoryInterface`](./src/DataType/FactoryInterface.php) and must be 
+instantiated by using the interface's methods. By calling `::createFromJson()`, 
+we also validate the JSON against the available schemas.
+
+The request class in its entirety now looks like this:
+
+```php
+<?php
+    
+/**
+ * @file Contains \Triquanta\IziTravel\Request\FooByUuid.
+ */
+
+namespace Triquanta\IziTravel\Request;
+
+/**
+ * Returns a Foo object by UUID.
+ */
+class FooByUuid extends RequestBase implements FormInterface, MultilingualInterface, UuitInterface {
+
+    use FormTrait;
+    use MultilingualTrait;
+    use UuitTrait;
+
+    /**
+     * @return \Triquanta\IziTravel\DataType\FooInterface
+     */
+    public function execute() {
+        $json = $this->requestHandler->request('/foo', [
+          'form' => $this->form,
+          'languages' => $this->languageCodes,
+          'uuid' => $this->limit,
+        ]);
+
+        return Foo::createFromJson($json, $this->form);
+    }
+
+}
+```
+
+For convenience we also add a factory method to 
+[`ClientInterface`](./src/Client/ClientInterface.php). Because the language and 
+UUID are the only required request parameters, they are also the only parameters 
+to the factory method. Any remaining optional parameters can be configured using 
+the setters on the returned request object.
+
+```php
+<?php
+
+namespace Triquanta\IziTravel\Client;
+
+interface ClientInterface
+{
+
+    // ...
+
+    /**
+     * Gets a request to get a Foo object by its UUID.
+     *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
+     * @param string $uuid
+     *
+     * @return \Triquanta\IziTravel\Request\FooByUuid
+     */
+    public function getFooByUuid(array $languageCodes, $uuid);
+
+}
+```
+
+The method's implementation in [`Client`](./src/Client/Client.php) would look 
+like this:
+
+```php
+<?php
+
+namespace Triquanta\IziTravel\Client;
+
+use namespace Triquanta\IziTravel\Request\FooByUuid;
+
+class Client implements ClientInterface
+{
+
+    // ...
+
+    public function getFooByUuid(array $languageCodes, $uuid)
+    {
+        return FooByUuid::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
+    }
+
+}
+```
+
+The newly supported endpoint can then be used:
+
+```php
+<?php
+
+use Triquanta\IziTravel\Client\Client;
+
+$client = new Client(/* ... */);
+/** @var \Triquanta\IziTravel\DataType\FooInterface $foo */
+$foo = $client->getFooByUuid(['en'], 'de305d54-75b4-431b-adb2-eb6b9e546014')->setForm(FormInterface::FORM_COMPACT)->execute();
+
+```
+
 
 ### PSR-2
 All code must be written according the 
