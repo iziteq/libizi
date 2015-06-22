@@ -99,11 +99,11 @@ interfaces and using two traits:
 ```php
 <?php
 
-class FooByUuid extends RequestBase implements FormInterface, MultilingualInterface, UuitInterface {
+class FooByUuid extends RequestBase implements FormInterface, MultilingualInterface, UuidInterface {
 
     use FormTrait;
     use MultilingualTrait;
-    use UuitTrait;
+    use UuidTrait;
 
     /**
      * @return \Triquanta\IziTravel\DataType\FooInterface
@@ -171,11 +171,11 @@ namespace Triquanta\IziTravel\Request;
 /**
  * Returns a Foo object by UUID.
  */
-class FooByUuid extends RequestBase implements FormInterface, MultilingualInterface, UuitInterface {
+class FooByUuid extends RequestBase implements FormInterface, MultilingualInterface, UuidInterface {
 
     use FormTrait;
     use MultilingualTrait;
-    use UuitTrait;
+    use UuidTrait;
 
     /**
      * @return \Triquanta\IziTravel\DataType\FooInterface
