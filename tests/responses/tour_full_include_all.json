@@ -3,6 +3,10 @@
   "parent_uuid": "3afcd4ab-837f-4055-a8ed-ce43910f9446",
   "status": "published",
   "type": "tour",
+  "purchase": {
+    "price": 1.0,
+    "currency": "EUR"
+  },
   "category": "walk",
   "duration": 3600,
   "distance": 3895,

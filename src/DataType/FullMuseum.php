@@ -15,6 +15,8 @@ use Iziteq\IziApiSchemes\Assets;
 class FullMuseum extends FullMtgObjectBase implements FullMuseumInterface
 {
 
+    use PaidDataTrait;
+
     /**
      * The schedule.
      *
@@ -33,6 +35,9 @@ class FullMuseum extends FullMtgObjectBase implements FullMuseumInterface
         $museum = parent::createFromData($data);
         if (isset($data->schedule)) {
             $museum->schedule = Schedule::createFromData($data->schedule);
+        }
+        if (isset($data->purchase)) {
+            $museum->purchase = Purchase::createFromData($data->purchase);
         }
 
         return $museum;

@@ -10,7 +10,7 @@ namespace Triquanta\IziTravel\DataType;
 /**
  * Defines a tour data type.
  */
-interface TourInterface extends MtgObjectInterface
+interface TourInterface extends MtgObjectInterface, PaidDataInterface
 {
 
     /**
@@ -79,12 +79,5 @@ interface TourInterface extends MtgObjectInterface
      *   One of the static::PLACEMENT_* constants.
      */
     public function getPlacement();
-
-    /**
-     * Gets the purchase.
-     *
-     * @return \Triquanta\IziTravel\DataType\PurchaseInterface|null
-     */
-    public function getPurchase();
 
 }

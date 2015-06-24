@@ -2,6 +2,10 @@
   "uuid": "7061495d-f2bf-43e2-9f3b-e232b2a921b9",
   "status": "published",
   "type": "museum",
+  "purchase": {
+    "price": 1.0,
+    "currency": "EUR"
+  },
   "languages": [
     "en",
     "nl"
