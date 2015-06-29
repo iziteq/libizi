@@ -11,6 +11,8 @@ use Iziteq\IziApiSchemes\Assets;
 
 /**
  * Provides a full tour data type.
+ *
+ * @todo Add tests for this class.
  */
 class FullTour extends FullMtgObjectBase implements FullTourInterface
 {
