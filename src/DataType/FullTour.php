@@ -11,11 +11,14 @@ use Iziteq\IziApiSchemes\Assets;
 
 /**
  * Provides a full tour data type.
+ *
+ * @todo Add tests for this class.
  */
 class FullTour extends FullMtgObjectBase implements FullTourInterface
 {
 
     use TourTrait;
+    use PaidDataTrait;
 
     protected static function getJsonSchemaPath()
     {
@@ -30,6 +33,9 @@ class FullTour extends FullMtgObjectBase implements FullTourInterface
         $tour->duration = $data->duration;
         $tour->distance = $data->distance;
         $tour->placement = $data->placement;
+        if (isset($data->purchase)) {
+           $tour->purchase = Purchase::createFromData($data->purchase);
+        }
 
         return $tour;
     }

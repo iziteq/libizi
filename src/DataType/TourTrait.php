@@ -45,13 +45,6 @@ trait TourTrait
      */
     protected $placement;
 
-    /**
-     * The purchase.
-     *
-     * @var \Triquanta\IziTravel\DataType\PurchaseInterface|null
-     */
-    protected $purchase;
-
     public function getCategory()
     {
         return $this->category;
@@ -70,11 +63,6 @@ trait TourTrait
     public function getPlacement()
     {
         return $this->placement;
-    }
-
-    public function getPurchase()
-    {
-        return $this->purchase;
     }
 
 }

@@ -16,6 +16,7 @@ class CompactTour extends CompactMtgObjectBase implements CompactTourInterface
 {
 
     use TourTrait;
+    use PaidDataTrait;
 
     /**
      * The route.
@@ -40,6 +41,9 @@ class CompactTour extends CompactMtgObjectBase implements CompactTourInterface
         $tour->placement = $data->placement;
         if (isset($data->route)) {
             $tour->route = $data->route;
+        }
+        if (isset($data->purchase)) {
+           $tour->purchase = Purchase::createFromData($data->purchase);
         }
 
         return $tour;

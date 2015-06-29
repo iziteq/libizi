@@ -62,4 +62,12 @@ class CompactTourTest extends \PHPUnit_Framework_TestCase
           $this->sut->getRoute());
     }
 
+    /**
+     * @covers ::getPurchase
+     */
+    public function testGetPurchase()
+    {
+        $this->assertInstanceOf('\Triquanta\IziTravel\DataType\PurchaseInterface', $this->sut->getPurchase());
+    }
+
 }

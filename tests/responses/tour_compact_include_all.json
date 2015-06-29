@@ -2,6 +2,10 @@
   "uuid": "bcf57367-77f6-4e39-9da6-1b481826501f",
   "status": "published",
   "type": "tour",
+  "purchase": {
+    "price": 1.0,
+    "currency": "EUR"
+  },
   "category": "walk",
   "duration": 3600,
   "distance": 3895,

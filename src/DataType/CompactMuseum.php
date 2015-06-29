@@ -15,9 +15,22 @@ use Iziteq\IziApiSchemes\Assets;
 class CompactMuseum extends CompactMtgObjectBase implements CompactMuseumInterface
 {
 
+    use PaidDataTrait;
+
     protected static function getJsonSchemaPath()
     {
         return Assets::getJsonSchemaPath() . '/compactmtgobjects/museum_compact_object';
+    }
+
+    public static function createFromData(\stdClass $data)
+    {
+        /** @var static $museum */
+        $museum = parent::createFromData($data);
+        if (isset($data->purchase)) {
+           $museum->purchase = Purchase::createFromData($data->purchase);
+        }
+
+        return $museum;
     }
 
 }
