@@ -1,1 +1,4 @@
+# See README.md for running API tests.
+# Example configuration:
+#   apiKey: '123456-7890a-bcdef-1234567890abcdef'
 apiKey: ~
