@@ -21,6 +21,7 @@ use Triquanta\IziTravel\Request\MtgObjectsByUuids;
 use Triquanta\IziTravel\Request\PublisherByUuid;
 use Triquanta\IziTravel\Request\PublisherChildrenByUuid;
 use Triquanta\IziTravel\Request\PublisherChildrenLanguagesByUuid;
+use Triquanta\IziTravel\Request\Reviews;
 use Triquanta\IziTravel\Request\Search;
 
 /**
@@ -150,4 +151,11 @@ final class Client implements ClientInterface
           ->setLanguageCodes($languageCodes);
     }
 
+    public function getReviewsByUuid(array $languageCodes, $uuid)
+    {
+        // @todo: create unit test.
+        return Reviews::create($this->requestHandler)
+          ->setLanguageCodes($languageCodes)
+          ->setUuid($uuid);
+    }
 }

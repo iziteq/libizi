@@ -178,4 +178,15 @@ interface ClientInterface
      */
     public function getFeaturedContent(array $languageCodes);
 
+    /**
+     * Gets a request to get a publisher's children by its UUID.
+     *
+     * @param string[] $languageCodes
+     *   An array of ISO 639-1 alpha-2 language codes.
+     * @param string $uuid
+     *
+     * @return \Triquanta\IziTravel\Request\Reviews
+     */
+    public function getReviewsByUuid(array $languageCodes, $uuid);
+
 }
