@@ -43,6 +43,13 @@ interface ContentInterface extends FactoryInterface
     public function getDescription();
 
     /**
+     * Gets the news.
+     *
+     * @return string
+     */
+    public function getNews();
+
+    /**
      * Gets the playback.
      *
      * @return \Triquanta\IziTravel\DataType\PlaybackInterface|null

@@ -3,6 +3,7 @@
 /**
  * @file
  * Contains \Triquanta\IziTravel\DataType\Content.
+ * @todo: update unit test for news.
  */
 
 namespace Triquanta\IziTravel\DataType;
@@ -43,6 +44,13 @@ class Content implements ContentInterface
      * @var string
      */
     protected $description;
+
+    /**
+     * The news
+     *
+     * @var string
+     */
+    protected $news;
 
     /**
      * The playback.
@@ -107,6 +115,9 @@ class Content implements ContentInterface
         $content->title = $data->title;
         $content->summary = $data->summary;
         $content->description = $data->desc;
+        if (isset($data->news)) {
+            $content->news = $data->news;
+        }
         if (isset($data->images)) {
             foreach ($data->images as $imageData) {
                 $content->images[] = Image::createFromData($imageData);
@@ -165,6 +176,11 @@ class Content implements ContentInterface
     public function getDescription()
     {
         return $this->description;
+    }
+
+    public function getNews()
+    {
+        return $this->news;
     }
 
     public function getPlayback()
