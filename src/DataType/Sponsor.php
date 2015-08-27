@@ -14,6 +14,8 @@ class Sponsor implements SponsorInterface
 
     use FactoryTrait;
 
+    use RevisionableTrait;
+
     /**
      * The name.
      *
@@ -27,13 +29,6 @@ class Sponsor implements SponsorInterface
      * @var string|null
      */
     protected $website;
-
-    /**
-     * The hash.
-     *
-     * @var string
-     */
-    protected $hash;
 
     /**
      * The order.
@@ -53,7 +48,7 @@ class Sponsor implements SponsorInterface
     {
         $sponser = new static();
         $sponser->uuid = $data->uuid;
-        $sponser->hash = $data->hash;
+        $sponser->revisionHash = $data->hash;
         $sponser->name = $data->name;
         $sponser->order = $data->order;
         $sponser->website = $data->website;
@@ -62,6 +57,7 @@ class Sponsor implements SponsorInterface
             foreach ($data->images as $image_data) {
                 $sponser->images[] = Image::createFromJson(json_encode($image_data));
             }
+
         }
         return $sponser;
     }
@@ -86,8 +82,4 @@ class Sponsor implements SponsorInterface
         return $this->images;
     }
 
-    public function getHash()
-    {
-        return $this->hash;
-    }
 }

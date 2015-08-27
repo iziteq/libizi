@@ -30,13 +30,6 @@ class Review implements ReviewInterface
     protected $language_code;
 
     /**
-     * The hash.
-     *
-     * @var string
-     */
-    protected $hash;
-
-    /**
      * The rating
      *
      * @var integer
@@ -68,12 +61,14 @@ class Review implements ReviewInterface
 
     use FactoryTrait;
 
+    use RevisionableTrait;
+
     public static function createFromData(\stdClass $data)
     {
         $review = new static();
         $review->id = $data->id;
         $review->language_code = $data->lang;
-        $review->hash = $data->hash;
+        $review->revisionHash = $data->hash;
         $review->rating = $data->rating;
         $review->review_text = $data->review;
         $review->review_name = $data->reviewer_name;
@@ -90,11 +85,6 @@ class Review implements ReviewInterface
     public function getLanguageCode()
     {
         return $this->language_code;
-    }
-
-    public function getHash()
-    {
-        return $this->hash;
     }
 
     public function getRating()

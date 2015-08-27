@@ -7,7 +7,7 @@
 namespace Triquanta\IziTravel\DataType;
 
 
-interface ReviewInterface extends FactoryInterface
+interface ReviewInterface extends FactoryInterface, RevisionableInterface
 {
 
     /**
@@ -25,14 +25,6 @@ interface ReviewInterface extends FactoryInterface
      *   An ISO 639-1 alpha-2 language code.
      */
     public function getLanguageCode();
-
-    /**
-     * Gets the hash. Don't know where it is used for, but we need to return it.
-     *
-     * @return string
-     *   A hash.
-     */
-    public function getHash();
 
     /**
      * Gets the rating.

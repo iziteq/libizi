@@ -9,15 +9,6 @@ namespace Triquanta\IziTravel\DataType;
 
 interface SponsorInterface extends FactoryInterface, UuidInterface
 {
-
-    /**
-     * Gets the hash. Don't know where it is used for, but we need to return it.
-     *
-     * @return string
-     *   A hash.
-     */
-    public function getHash();
-
     /**
      * Gets the name.
      *
@@ -47,5 +38,4 @@ interface SponsorInterface extends FactoryInterface, UuidInterface
      * @return \Triquanta\IziTravel\DataType\ImageInterface[]
      */
     public function getImages();
-
 }
