@@ -34,4 +34,11 @@ interface FullMtgObjectInterface extends MtgObjectInterface
      */
     public function getContent();
 
+    /**
+     * Gets the sponsors
+     *
+     * @return \Triquanta\IziTravel\DataType\SponsorInterface[]
+     */
+    public function getSponsors();
+
 }

@@ -24,6 +24,11 @@ interface MediaInterface extends FactoryInterface, RevisionableInterface, UuidIn
     const TYPE_BRAND_LOGO = 'brand_logo';
 
     /**
+     * A brand logo media item.
+     */
+    const TYPE_SPONSOR_LOGO = 'sponsor_logo';
+
+    /**
      * A map media item.
      */
     const TYPE_MAP = 'map';

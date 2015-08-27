@@ -34,6 +34,13 @@ abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectI
      */
     protected $content = [];
 
+    /**
+     * The sponsors.
+     *
+     * @var \Triquanta\IziTravel\DataType\SponsorInterface[]
+     */
+    protected $sponsors = [];
+
     public static function createFromData(\stdClass $data)
     {
         /** @var static $object */
@@ -49,7 +56,11 @@ abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectI
         if (isset($data->map)) {
             $object->map = Map::createFromData($data->map);
         }
-
+        if (isset($data->sponsors)) {
+            foreach ($data->sponsors as $sponsorData) {
+                $object->sponsors = Sponsor::createFromData($sponsorData);
+            }
+        }
         return $object;
     }
 
@@ -76,6 +87,11 @@ abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectI
     public function getContent()
     {
         return $this->content;
+    }
+
+    public function getSponsors()
+    {
+        return $this->sponsors;
     }
 
 }
