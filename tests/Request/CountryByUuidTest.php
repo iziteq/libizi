@@ -71,7 +71,7 @@ class CountryByUuidTest extends RequestBaseTestBase
         ];
 
         $this->requestHandler->expects($this->once())
-          ->method('request')
+          ->method('get')
           ->with($this->isType('string'),
             new \PHPUnit_Framework_Constraint_IsEqual($expectedParameters))
           ->willReturn(TestHelper::getJsonResponse('country_full_include_all'));

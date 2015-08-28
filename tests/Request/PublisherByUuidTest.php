@@ -71,7 +71,7 @@ class PublisherByUuidTest extends RequestBaseTestBase
         ];
 
         $this->requestHandler->expects($this->once())
-          ->method('request')
+          ->method('get')
           ->with($this->isType('string'),
             new \PHPUnit_Framework_Constraint_IsEqual($expectedParameters))
           ->willReturn(TestHelper::getJsonResponse('publisher_full_include_all'));

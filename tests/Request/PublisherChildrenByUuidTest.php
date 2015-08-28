@@ -76,7 +76,7 @@ class PublisherChildrenByUuidTest extends RequestBaseTestBase
         ];
 
         $this->requestHandler->expects($this->once())
-          ->method('request')
+          ->method('get')
           ->with($this->isType('string'),
             new \PHPUnit_Framework_Constraint_IsEqual($expectedParameters))
           ->willReturn(json_encode([]));
