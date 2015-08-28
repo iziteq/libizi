@@ -39,7 +39,7 @@ class MtgObjectChildrenByUuid extends RequestBase implements FormInterface, Limi
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/mtgobjects/' . $this->uuid . '/children',
+        $json = $this->requestHandler->get('/mtgobjects/' . $this->uuid . '/children',
           [
             'languages' => $this->languageCodes,
             'includes' => $this->includes,

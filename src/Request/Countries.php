@@ -25,7 +25,7 @@ class Countries extends RequestBase implements FormInterface, LimitInterface, Mo
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/countries', [
+        $json = $this->requestHandler->get('/countries', [
           'languages' => $this->languageCodes,
           'includes' => $this->includes,
           'form' => $this->form,

@@ -26,7 +26,7 @@ class PublisherChildrenByUuid extends RequestBase implements FormInterface, Limi
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/mtg/publishers/' . $this->uuid . '/children',
+        $json = $this->requestHandler->get('/mtg/publishers/' . $this->uuid . '/children',
           [
             'languages' => $this->languageCodes,
             'includes' => $this->includes,

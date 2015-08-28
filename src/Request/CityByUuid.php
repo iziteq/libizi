@@ -25,7 +25,7 @@ class CityByUuid extends RequestBase implements FormInterface, ModifiableInterfa
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/cities/' . $this->uuid, [
+        $json = $this->requestHandler->get('/cities/' . $this->uuid, [
           'languages' => $this->languageCodes,
           'includes' => $this->includes,
           'form' => $this->form,

@@ -25,7 +25,7 @@ class PublisherByUuid extends RequestBase implements FormInterface, ModifiableIn
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/mtg/publishers/' . $this->uuid,
+        $json = $this->requestHandler->get('/mtg/publishers/' . $this->uuid,
           [
             'languages' => $this->languageCodes,
             'includes' => $this->includes,

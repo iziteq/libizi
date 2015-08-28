@@ -27,7 +27,7 @@ class Review implements ReviewInterface
      *
      * @var string
      */
-    protected $language_code;
+    protected $languageCode;
 
     /**
      * The rating
@@ -41,21 +41,21 @@ class Review implements ReviewInterface
      *
      * @var string
      */
-    protected $review_text;
+    protected $reviewText;
 
     /**
      * The name of the reviewer.
      *
      * @var string
      */
-    protected $review_name;
+    protected $reviewName;
 
     /**
      * The date of the review.
      *
      * @var string
      */
-    protected $review_date;
+    protected $reviewDate;
 
 
 
@@ -67,12 +67,12 @@ class Review implements ReviewInterface
     {
         $review = new static();
         $review->id = $data->id;
-        $review->language_code = $data->lang;
+        $review->languageCode = $data->lang;
         $review->revisionHash = $data->hash;
         $review->rating = $data->rating;
-        $review->review_text = $data->review;
-        $review->review_name = $data->reviewer_name;
-        $review->review_date = $data->date;
+        $review->reviewText = $data->review;
+        $review->reviewName = $data->reviewer_name;
+        $review->reviewDate = $data->date;
 
         return $review;
     }
@@ -84,7 +84,7 @@ class Review implements ReviewInterface
 
     public function getLanguageCode()
     {
-        return $this->language_code;
+        return $this->languageCode;
     }
 
     public function getRating()
@@ -94,17 +94,17 @@ class Review implements ReviewInterface
 
     public function getReviewText()
     {
-        return strip_tags($this->review_text);
+        return strip_tags($this->reviewText);
     }
 
     public function getReviewName()
     {
-        return strip_tags($this->review_name);
+        return strip_tags($this->reviewName);
     }
 
     public function getReviewDate()
     {
-        return $this->review_date;
+        return $this->reviewDate;
     }
 
 }

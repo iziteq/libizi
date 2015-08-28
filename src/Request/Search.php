@@ -65,7 +65,7 @@ class Search extends RequestBase implements FormInterface, ModifiableInterface, 
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/mtg/objects/search/', [
+        $json = $this->requestHandler->get('/mtg/objects/search/', [
           'languages' => $this->languageCodes,
           'includes' => $this->includes,
           'form' => $this->form,

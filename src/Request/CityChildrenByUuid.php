@@ -39,7 +39,7 @@ class CityChildrenByUuid extends RequestBase implements FormInterface, LimitInte
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/cities/' . $this->uuid . '/children',
+        $json = $this->requestHandler->get('/cities/' . $this->uuid . '/children',
           [
             'languages' => $this->languageCodes,
             'includes' => $this->includes,

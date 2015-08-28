@@ -25,7 +25,7 @@ class Cities extends RequestBase implements FormInterface, LimitInterface, Modif
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/cities', [
+        $json = $this->requestHandler->get('/cities', [
           'languages' => $this->languageCodes,
           'includes' => $this->includes,
           'form' => $this->form,

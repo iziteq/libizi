@@ -24,7 +24,7 @@ class FeaturedContent extends RequestBase implements MultilingualInterface
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/featured/', [
+        $json = $this->requestHandler->get('/featured/', [
           'languages' => $this->languageCodes,
         ]);
         $data = json_decode($json);

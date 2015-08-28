@@ -31,7 +31,7 @@ class MtgObjectsByUuids extends RequestBase implements FormInterface, Modifiable
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/mtgobjects/batch/' . implode(',',
+        $json = $this->requestHandler->get('/mtgobjects/batch/' . implode(',',
             $this->uuids), [
           'languages' => $this->languageCodes,
           'includes' => $this->includes,

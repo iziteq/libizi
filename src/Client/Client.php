@@ -22,6 +22,8 @@ use Triquanta\IziTravel\Request\PublisherByUuid;
 use Triquanta\IziTravel\Request\PublisherChildrenByUuid;
 use Triquanta\IziTravel\Request\PublisherChildrenLanguagesByUuid;
 use Triquanta\IziTravel\Request\Reviews;
+use Triquanta\IziTravel\Request\ReviewsPost;
+use Triquanta\IziTravel\DataType\ReviewPostable;
 use Triquanta\IziTravel\Request\Search;
 
 /**
@@ -157,5 +159,12 @@ final class Client implements ClientInterface
         return Reviews::create($this->requestHandler)
           ->setLanguageCodes($languageCodes)
           ->setUuid($uuid);
+    }
+
+    public function postReviewByUid(ReviewPostable $review) {
+        // @todo: create unit test.
+        $request = ReviewsPost::create($this->requestHandler);
+        $request->setReview($review);
+        return $request;
     }
 }

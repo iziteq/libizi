@@ -23,7 +23,7 @@ class Reviews extends RequestBase implements LimitInterface, ModifiableInterface
     public function execute()
     {
         // @todo: create unit test
-        $json = $this->requestHandler->request(
+        $json = $this->requestHandler->get(
           '/mtgobjects/'.$this->uuid.'/reviews',
           [
             'languages' => $this->languageCodes,

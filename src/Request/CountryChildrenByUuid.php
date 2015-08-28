@@ -39,7 +39,7 @@ class CountryChildrenByUuid extends RequestBase implements FormInterface, LimitI
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/countries/' . $this->uuid . '/children',
+        $json = $this->requestHandler->get('/countries/' . $this->uuid . '/children',
           [
             'languages' => $this->languageCodes,
             'includes' => $this->includes,

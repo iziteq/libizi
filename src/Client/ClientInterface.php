@@ -7,6 +7,8 @@
 
 namespace Triquanta\IziTravel\Client;
 
+use Triquanta\IziTravel\DataType\ReviewPostable;
+
 /**
  * Defines a client for interacting with the izi.TRAVEL MTG API.
  */
@@ -188,5 +190,15 @@ interface ClientInterface
      * @return \Triquanta\IziTravel\Request\Reviews
      */
     public function getReviewsByUuid(array $languageCodes, $uuid);
+
+    /**
+     * Gets a request to post a review.
+     *
+     * @param \Triquanta\IziTravel\DataType\ReviewPostable $review
+     *   A fully filled postable review.
+     *
+     * @return \Triquanta\IziTravel\Request\ReviewsPost
+     */
+    public function postReviewByUid(ReviewPostable $review);
 
 }

@@ -25,7 +25,7 @@ class MtgObjectByUuid extends RequestBase implements FormInterface, ModifiableIn
      */
     public function execute()
     {
-        $json = $this->requestHandler->request('/mtgobjects/' . $this->uuid, [
+        $json = $this->requestHandler->get('/mtgobjects/' . $this->uuid, [
           'languages' => $this->languageCodes,
           'includes' => $this->includes,
           'form' => $this->form,
