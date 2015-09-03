@@ -7,7 +7,7 @@
 namespace Triquanta\IziTravel\DataType;
 
 
-interface RatingInterface extends FactoryInterface
+interface RatingReviewsInterface extends FactoryInterface, PagingInterface
 {
 
     /**

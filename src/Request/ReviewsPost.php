@@ -10,8 +10,8 @@ namespace Triquanta\IziTravel\Request;
 
 
 use Triquanta\IziTravel\Client\RequestHandlerInterface;
-use Triquanta\IziTravel\DataType\Rating;
 use Triquanta\IziTravel\DataType\ReviewPostableInterface;
+use Triquanta\IziTravel\DataType\ReviewPostResponse;
 
 class ReviewsPost extends RequestBase implements RequestInterface
 {
@@ -27,7 +27,7 @@ class ReviewsPost extends RequestBase implements RequestInterface
 
 
     /**
-     * @return \Triquanta\IziTravel\DataType\RatingInterface
+     * @return \Triquanta\IziTravel\DataType\ReviewPostResponseInterface
      * @throws \Triquanta\IziTravel\DataType\InvalidJsonFactoryException
      */
     public function execute()
@@ -41,7 +41,7 @@ class ReviewsPost extends RequestBase implements RequestInterface
         // The returned data is not the same as a rating.
         // However, the top level data is the same.
         // That's why we return this data object.
-        $rating = Rating::createFromJson($json);
-        return $rating;
+        $reviewPostResponse = ReviewPostResponse::createFromJson($json);
+        return $reviewPostResponse;
     }
 }

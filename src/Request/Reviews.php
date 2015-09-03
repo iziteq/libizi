@@ -7,7 +7,7 @@
 namespace Triquanta\IziTravel\Request;
 
 
-use Triquanta\IziTravel\DataType\Rating;
+use Triquanta\IziTravel\DataType\RatingReviews;
 
 class Reviews extends RequestBase implements LimitInterface, ModifiableInterface, MultilingualInterface, UuidInterface
 {
@@ -18,7 +18,7 @@ class Reviews extends RequestBase implements LimitInterface, ModifiableInterface
     use UuidTrait;
 
     /**
-     * @return \Triquanta\IziTravel\DataType\RatingInterface
+     * @return \Triquanta\IziTravel\DataType\RatingReviewsInterface
      */
     public function execute()
     {
@@ -32,7 +32,7 @@ class Reviews extends RequestBase implements LimitInterface, ModifiableInterface
             'offset' => $this->offset,
           ]
         );
-        $rating = Rating::createFromJson($json);
+        $rating = RatingReviews::createFromJson($json);
 
         return $rating;
     }

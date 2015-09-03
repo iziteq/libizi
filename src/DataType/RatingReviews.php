@@ -8,8 +8,10 @@ namespace Triquanta\IziTravel\DataType;
 
 use \Triquanta\IziTravel\DataType\Review;
 
-class Rating implements RatingInterface
+class RatingReviews implements RatingReviewsInterface
 {
+    use PagingTrait;
+
     /**
      * The uuid.
      *
@@ -63,8 +65,14 @@ class Rating implements RatingInterface
         $rating->reviewsCount = $data->metadata->reviews_count;
         $rating->date = $data->metadata->date;
 
+        if (isset($data->paging)) {
+            $rating->limit = $data->paging->limit;
+            $rating->returnedCount = $data->paging->returned_count;
+            $rating->totalCount = $data->paging->total_count;
+        }
+
         $rating->reviews = [];
-        if ($rating->reviewsCount > 0) {
+        if ($rating->reviewsCount > 0 && isset($data->data)) {
             foreach ($data->data as $review_data) {
                 $rating->reviews[] = Review::createFromJson(json_encode($review_data));
             }
@@ -102,6 +110,4 @@ class Rating implements RatingInterface
     {
         return $this->reviews;
     }
-
-
 }
