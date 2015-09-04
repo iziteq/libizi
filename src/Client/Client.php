@@ -153,11 +153,11 @@ final class Client implements ClientInterface
           ->setLanguageCodes($languageCodes);
     }
 
-    public function getReviewsByUuid(array $languageCodes, $uuid)
+    public function getReviewsByUuid($languageCode, $uuid)
     {
         // @todo: create unit test.
         return Reviews::create($this->requestHandler)
-          ->setLanguageCodes($languageCodes)
+          ->setLanguage($languageCode)
           ->setUuid($uuid);
     }
 

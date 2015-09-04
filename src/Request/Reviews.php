@@ -9,13 +9,15 @@ namespace Triquanta\IziTravel\Request;
 
 use Triquanta\IziTravel\DataType\RatingReviews;
 
-class Reviews extends RequestBase implements LimitInterface, ModifiableInterface, MultilingualInterface, UuidInterface
+class Reviews extends RequestBase implements LimitInterface, ModifiableInterface, UuidInterface, ReviewsRequestInterface
 {
 
     use LimitTrait;
     use ModifiableTrait;
-    use MultilingualTrait;
     use UuidTrait;
+
+    /** @var  string */
+    protected $language;
 
     /**
      * @return \Triquanta\IziTravel\DataType\RatingReviewsInterface
@@ -26,7 +28,7 @@ class Reviews extends RequestBase implements LimitInterface, ModifiableInterface
         $json = $this->requestHandler->get(
           '/mtgobjects/'.$this->uuid.'/reviews',
           [
-            'languages' => $this->languageCodes,
+            'lang' => $this->language,
             'includes' => $this->includes,
             'limit' => $this->limit,
             'offset' => $this->offset,
@@ -36,4 +38,17 @@ class Reviews extends RequestBase implements LimitInterface, ModifiableInterface
 
         return $rating;
     }
+
+    /**
+     * Set the language in which the reviews should be retrieved.
+     *
+     * @param $language
+     *
+     * @return $this;
+     */
+    public function setLanguage($language) {
+        $this->language = $language;
+        return $this;
+    }
+
 }

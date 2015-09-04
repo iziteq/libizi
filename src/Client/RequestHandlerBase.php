@@ -8,6 +8,7 @@
 namespace Triquanta\IziTravel\Client;
 
 use GuzzleHttp\ClientInterface as HttpClientInterface;
+use GuzzleHttp\Message\RequestInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Triquanta\IziTravel\ApiInterface;
 use Triquanta\IziTravel\Event\IziTravelEvents;
@@ -93,6 +94,10 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
         // Set the API key in a header instead of a URL parameter, so it will
         // not accidentally end up in log messages.
         $request->setHeader('X-IZI-API-KEY', $this->apiKey);
+
+        // Set compression in the header.
+        $this->addCompression($request);
+
         if ($this->password) {
             $parameters['password'] = $this->password;
         }
@@ -133,6 +138,10 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
         // Set the API key in a header instead of a URL parameter, so it will
         // not accidentally end up in log messages.
         $request->setHeader('X-IZI-API-KEY', $this->apiKey);
+
+        // Add compression.
+        $this->addCompression($request);
+
         // For some strange reason, for the first post request (reviews)
         // we need to add the api-key to the url.
         // It might change, so when that is happening, you are free to alter this here.
@@ -193,6 +202,16 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
 
             return $aggregated_data;
         };
+    }
+
+    /**
+     * Add compression to the request.
+     *
+     * @param RequestInterface $request
+     */
+    protected function addCompression(RequestInterface $request)
+    {
+        $request->setHeader('Accept-Encoding', 'gzip');
     }
 
 }

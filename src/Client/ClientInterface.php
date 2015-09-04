@@ -183,13 +183,13 @@ interface ClientInterface
     /**
      * Gets a request to get a publisher's children by its UUID.
      *
-     * @param string[] $languageCodes
-     *   An array of ISO 639-1 alpha-2 language codes.
+     * @param string $languageCode
+     *   An ISO 639-1 alpha-2 language code.
      * @param string $uuid
      *
      * @return \Triquanta\IziTravel\Request\Reviews
      */
-    public function getReviewsByUuid(array $languageCodes, $uuid);
+    public function getReviewsByUuid($languageCode, $uuid);
 
     /**
      * Gets a request to post a review.
