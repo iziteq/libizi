@@ -41,4 +41,17 @@ interface FullMtgObjectInterface extends MtgObjectInterface
      */
     public function getSponsors();
 
+    /**
+     * Gets the location object
+     *
+     * @return \Triquanta\IziTravel\DataType\LocationInterface
+     */
+    public function getLocation();
+
+    /**
+     * Gets the contact information object.
+     *
+     * @return \Triquanta\IziTravel\DataType\ContactInformationInterface
+     */
+    public function getContactInformation();
 }

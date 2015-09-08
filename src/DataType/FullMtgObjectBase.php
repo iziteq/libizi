@@ -28,6 +28,13 @@ abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectI
     protected $map;
 
     /**
+     * The contactInformation.
+     *
+     * @var \Triquanta\IziTravel\DataType\ContactInformationInterface|null
+     */
+    protected $contactInformation;
+
+    /**
      * The content.
      *
      * @var \Triquanta\IziTravel\DataType\ContentInterface[]
@@ -47,6 +54,9 @@ abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectI
         $object = parent::createBaseFromData($data);
         if (isset($data->parent_uuid)) {
             $object->parentUuid = $data->parent_uuid;
+        }
+        if (isset($data->contacts)) {
+            $object->contactInformation = ContactInformation::createFromData($data->contacts);
         }
         if (isset($data->content)) {
             foreach ($data->content as $contentData) {
@@ -77,6 +87,16 @@ abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectI
     public function getLanguageCode()
     {
         return !empty($this->getContent()[0]) ? $this->getContent()[0]->getLanguageCode() : '';
+    }
+
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    public function getContactInformation()
+    {
+        return $this->contactInformation;
     }
 
     public function getMap()
