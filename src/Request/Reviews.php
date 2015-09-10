@@ -25,14 +25,17 @@ class Reviews extends RequestBase implements LimitInterface, ModifiableInterface
     public function execute()
     {
         // @todo: create unit test
+        $parameters = [
+          'includes' => $this->includes,
+          'limit' => $this->limit,
+          'offset' => $this->offset,
+        ];
+        if (isset($this->language) && $this->language != '') {
+            $parameters['lang'] = $this->language;
+        }
         $json = $this->requestHandler->get(
-          '/mtgobjects/'.$this->uuid.'/reviews',
-          [
-            'lang' => $this->language,
-            'includes' => $this->includes,
-            'limit' => $this->limit,
-            'offset' => $this->offset,
-          ]
+          '/mtgobjects/' . $this->uuid . '/reviews',
+          $parameters
         );
         $rating = RatingReviews::createFromJson($json);
 
@@ -46,7 +49,8 @@ class Reviews extends RequestBase implements LimitInterface, ModifiableInterface
      *
      * @return $this;
      */
-    public function setLanguage($language) {
+    public function setLanguage($language)
+    {
         $this->language = $language;
         return $this;
     }
