@@ -72,7 +72,7 @@ class RatingReviews implements RatingReviewsInterface
         }
 
         $rating->reviews = [];
-        if ($rating->reviewsCount > 0 && isset($data->data)) {
+        if (isset($data->data) && count($data->data) > 0) {
             foreach ($data->data as $review_data) {
                 $rating->reviews[] = Review::createFromJson(json_encode($review_data));
             }
