@@ -68,7 +68,7 @@ abstract class FullMtgObjectBase extends MtgObjectBase implements FullMtgObjectI
         }
         if (isset($data->sponsors)) {
             foreach ($data->sponsors as $sponsorData) {
-                $object->sponsors = Sponsor::createFromData($sponsorData);
+                $object->sponsors[] = Sponsor::createFromData($sponsorData);
             }
         }
         return $object;
