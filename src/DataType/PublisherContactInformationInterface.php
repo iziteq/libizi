@@ -54,4 +54,18 @@ interface PublisherContactInformationInterface extends FactoryInterface
      * @return string|null
      */
     public function getInstagramUrl();
+
+    /**
+     * Gets the URL to the Youtube account.
+     *
+     * @return string|null
+     */
+    public function getYoutubeUrl();
+
+    /**
+     * Gets the URL to the VKontakte account.
+     *
+     * @return string|null
+     */
+    public function getVKontakteUrl();
 }
