@@ -21,10 +21,10 @@ class PublisherContactInformationTest extends \PHPUnit_Framework_TestCase
     "website": "http://www.amsterdammuseum.nl",
     "twitter": "https://twitter.com/AmsterdamMuseum",
     "facebook": "https://www.facebook.com/amsterdammuseum",
-    "googleplus":"http://plus.google.com/amsterdammuseum",
-    "instagram":"http://instagram.com/amsterdammuseum",
-    "youtube":"https://www.youtube.com/user/ahmamsterdam",
-    "vkontakte":"http://vk.com/izitravel",
+    "googleplus": "http://plus.google.com/amsterdammuseum",
+    "instagram": "http://instagram.com/amsterdammuseum",
+    "youtube": "https://www.youtube.com/user/ahmamsterdam",
+    "vk": "http://vk.com/user/ahmamsterdam",
     "email": "info@example.com"
 }
 JSON;
@@ -125,15 +125,15 @@ JSON;
     public function testGetYoutubeUrl()
     {
         $this->assertSame('https://www.youtube.com/user/ahmamsterdam',
-          $this->sut->youtubeUrl());
+          $this->sut->getYouTubeUrl());
     }
 
     /**
-     * @covers ::getVKontakteUrl
+     * @covers ::getVKUrl
      */
-    public function testGetVKontakteUrl()
+    public function testGetVKUrl()
     {
-        $this->assertSame('http://vk.com/izitravel',
-          $this->sut->vkontakteUrl());
+        $this->assertSame('http://vk.com/user/ahmamsterdam',
+          $this->sut->getVKUrl());
     }
 }

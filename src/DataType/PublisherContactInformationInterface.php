@@ -60,12 +60,12 @@ interface PublisherContactInformationInterface extends FactoryInterface
      *
      * @return string|null
      */
-    public function getYoutubeUrl();
+    public function getYouTubeUrl();
 
     /**
      * Gets the URL to the VKontakte account.
      *
      * @return string|null
      */
-    public function getVKontakteUrl();
+    public function getVKUrl();
 }

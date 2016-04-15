@@ -62,14 +62,14 @@ class PublisherContactInformation implements PublisherContactInformationInterfac
      *
      * @var string|null
      */
-    protected $youtubeUrl;
+    protected $youTubeUrl;
 
     /**
      * The URL to the VKontakte account.
      *
      * @var string|null
      */
-    protected $vkontakteUrl;
+    protected $vKUrl;
 
     public static function createFromData(\stdClass $data)
     {
@@ -93,10 +93,10 @@ class PublisherContactInformation implements PublisherContactInformationInterfac
             $contactInformation->instagramUrl = $data->instagram;
         }
         if (isset($data->youtube)) {
-            $contactInformation->youtubeUrl = $data->youtube;
+            $contactInformation->youTubeUrl = $data->youtube;
         }
-        if (isset($data->vkontakte)) {
-            $contactInformation->vkontakteUrl = $data->vkontakte;
+        if (isset($data->vk)) {
+            $contactInformation->vKUrl = $data->vk;
         }
 
         return $contactInformation;
@@ -132,14 +132,14 @@ class PublisherContactInformation implements PublisherContactInformationInterfac
         return $this->instagramUrl;
     }
 
-    public function getYoutubeUrl()
+    public function getYouTubeUrl()
     {
-        return $this->youtubeUrl;
+        return $this->youTubeUrl;
     }
 
-    public function getVKontakteUrl()
+    public function getVKUrl()
     {
-        return $this->vkontakteUrl;
+        return $this->vKUrl;
     }
 
 }
