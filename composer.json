@@ -1,5 +1,5 @@
 {
-  "name": "triquanta/libizi",
+  "name": "iziteq/libizi",
   "license": "MIT",
   "require": {
     "guzzlehttp/guzzle": "~5.0",
