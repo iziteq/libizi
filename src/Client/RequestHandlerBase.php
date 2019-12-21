@@ -142,11 +142,17 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
         // Add compression.
         $this->addCompression($request);
 
+        // Add content type.
+        if ($parameters['content_type']) {
+          $request->setHeader('Content-Type', $parameters['content_type']);
+        }
+
         // For some strange reason, for the first post request (reviews)
         // we need to add the api-key to the url.
         // It might change, so when that is happening, you are free to alter this here.
         // Mind to test the posting of reviews again if you change it.
-        $parameters['api_key'] = $this->apiKey;
+        // Fix also Api Key in URL (SRV-9750) by removing
+        //$parameters['api_key'] = $this->apiKey;
         $parameters['version'] = ApiInterface::VERSION;
         $request->getQuery()->replace($parameters);
         $request->getQuery()->setAggregator(static::getGuzzleQueryAggregator());

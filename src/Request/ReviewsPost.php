@@ -35,6 +35,7 @@ class ReviewsPost extends RequestBase implements RequestInterface
         $json = $this->requestHandler->post('/mtgobjects/' . $this->review->getContentUuid() . '/reviews',
             [
                 'uuid' => $this->review->getContentUuid(),
+                'content_type' => 'application/json',
             ],
             $this->review->getPostBody()
         );
