@@ -8,8 +8,13 @@
 namespace Triquanta\IziTravel\Client;
 
 use GuzzleHttp\ClientInterface as HttpClientInterface;
-use GuzzleHttp\Message\RequestInterface;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use GuzzleHttp\Psr7\Request;
+use Psr\Http\Message\RequestInterface;
+
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+
 use Triquanta\IziTravel\ApiInterface;
 use Triquanta\IziTravel\Event\IziTravelEvents;
 use Triquanta\IziTravel\Event\PostResponse;
@@ -55,9 +60,10 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
     /**
      * Constructs a new instance.
      *
+     * @param EventDispatcherInterface $eventDispatcher
      * @param \GuzzleHttp\ClientInterface $httpClient
      * @param string $apiKey
-     *   The MTG API key.
+     * @param string|null $password
      */
     public function __construct(
       EventDispatcherInterface $eventDispatcher,
@@ -88,50 +94,63 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
 
     public function get($urlPath, array $parameters = [])
     {
-        $request = $this->httpClient->createRequest('GET');
+        // Build the url
         $url = rtrim($this->getBaseUrl(), '/') . '/' . trim($urlPath, '/');
-        $request->setUrl($url);
-        // Set the API key in a header instead of a URL parameter, so it will
-        // not accidentally end up in log messages.
-        $request->setHeader('X-IZI-API-KEY', $this->apiKey);
 
-        // Set compression in the header.
-        $this->addCompression($request);
+        // Set the API key and compression in the headers
+        $headers = [
+          'X-IZI-API-KEY' => $this->apiKey,
+          'Accept-Encoding' => 'gzip',
+        ];
 
+        // Create a request to send it with the client when it's ready
+        $request = new Request('GET', $url, $headers);
+
+
+        // Add url parameters
         if ($this->password) {
-            $parameters['password'] = $this->password;
+          $parameters['password'] = $this->password;
         }
         $parameters['version'] = ApiInterface::VERSION;
-        $request->getQuery()->replace($parameters);
-        $request->getQuery()->setAggregator(static::getGuzzleQueryAggregator());
-        $pre_request_event = new PreRequest($request);
-        $this->eventDispatcher->dispatch(IziTravelEvents::PRE_REQUEST,
-          $pre_request_event);
+
+//        $pre_request_event = new PreRequest($request);
+//        $this->eventDispatcher->dispatch(
+//          IziTravelEvents::PRE_REQUEST,
+//          $pre_request_event
+//        );
+
+        // Send the request
         try {
-            $response = $this->httpClient->send($request);
-            $post_response_event = new PostResponse($response);
-            $this->eventDispatcher->dispatch(IziTravelEvents::POST_RESPONSE,
-              $post_response_event);
-            $json = $response->getBody()->getContents();
+          $response = $this->httpClient->send($request, [
+            'query' => $parameters,
+//            'debug' => true,
+          ]);
+//          $post_response_event = new PostResponse($response);
+//          $this->eventDispatcher->dispatch(
+//            IziTravelEvents::POST_RESPONSE,
+//            $post_response_event
+//          );
+          $json = $response->getBody()->getContents();
         } catch (\Exception $e) {
-            throw new HttpRequestException(sprintf('An exception was thrown during the API request to %s: %s',
-              $request->getUrl(), $e->getMessage()), 0, $e);
+          throw new HttpRequestException(sprintf('An exception was thrown during the API request to %s: %s',
+            $request->getUri(), $e->getMessage()), 0, $e);
         }
 
         $responseData = json_decode($json);
         if (json_last_error()) {
-            throw new HttpRequestException(sprintf('The request to %s did not return valid JSON.',
-              $request->getUrl()));
+          throw new HttpRequestException(sprintf('The request to %s did not return valid JSON.',
+            $request->getUri()));
         } elseif (is_array($responseData) && isset($responseData['error'])) {
-            throw new ErrorResponseException($responseData['error'],
-              $responseData['code']);
+          throw new ErrorResponseException($responseData['error'],
+            $responseData['code']);
         } else {
-            return $json;
+          return $json;
         }
     }
 
-    public function post($urlPath, array $parameters = [], $body)
+    public function post($urlPath, array $parameters, $body)
     {
+      $parameters = [];
         $request = $this->httpClient->createRequest('POST', array(), array('body' => $body));
         $url = rtrim($this->getBaseUrl(), '/') . '/' . trim($urlPath, '/');
         $request->setUrl($url);
@@ -209,15 +228,4 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
             return $aggregated_data;
         };
     }
-
-    /**
-     * Add compression to the request.
-     *
-     * @param RequestInterface $request
-     */
-    protected function addCompression(RequestInterface $request)
-    {
-        $request->setHeader('Accept-Encoding', 'gzip');
-    }
-
 }
