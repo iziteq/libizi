@@ -23,7 +23,7 @@ Trait MultilingualTrait
 
     public function setLanguageCodes(array $languageCodes)
     {
-        $this->languageCodes = $languageCodes;
+        $this->languageCodes = implode(',',$languageCodes);
 
         return $this;
     }
