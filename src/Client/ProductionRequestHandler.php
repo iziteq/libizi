@@ -13,7 +13,7 @@ namespace Triquanta\IziTravel\Client;
 final class ProductionRequestHandler extends RequestHandlerBase
 {
 
-    protected function getBaseUrl()
+    public function getBaseUrl()
     {
         return 'https://api.izi.travel/';
     }
