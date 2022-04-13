@@ -16,6 +16,6 @@ interface ApiInterface
     /**
      * The API version the library works with.
      */
-    const VERSION = '1.3';
+    const VERSION = '1.8';
 
 }
