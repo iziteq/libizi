@@ -33,7 +33,7 @@ Trait ModifiableTrait
         if (in_array('none', $sections)) {
             throw new \InvalidArgumentException('Only specific sections can be including. Including "none" is not supported.');
         }
-        $this->includes = $sections;
+        $this->includes = implode(',', $sections);
 
         return $this;
     }
