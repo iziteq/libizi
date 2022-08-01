@@ -49,7 +49,7 @@ abstract class MediaBase implements MediaInterface
     public static function createFromData(\stdClass $data)
     {
         $media = new static();
-        $media->uuid = $data->uuid;
+        $media->uuid = $data->uuid ?? null;
         $media->type = $data->type;
         $media->order = $data->order;
         if (isset($data->url)) {
