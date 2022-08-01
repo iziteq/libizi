@@ -150,45 +150,44 @@ abstract class RequestHandlerBase implements RequestHandlerInterface
 
     public function post($urlPath, array $parameters, $body)
     {
-      $parameters = [];
-        $request = $this->httpClient->createRequest('POST', array(), array('body' => $body));
         $url = rtrim($this->getBaseUrl(), '/') . '/' . trim($urlPath, '/');
-        $request->setUrl($url);
         // Set the API key in a header instead of a URL parameter, so it will
         // not accidentally end up in log messages.
-        $request->setHeader('X-IZI-API-KEY', $this->apiKey);
-
         // Add compression.
-        $this->addCompression($request);
-
         // Add content type.
-        if ($parameters['content_type']) {
-          $request->setHeader('Content-Type', $parameters['content_type']);
-        }
+        $headers = [
+          'X-IZI-API-KEY' => $this->apiKey,
+          'Accept-Encoding' => 'gzip',
+          'Content-Type' => $parameters['content_type'],
+        ];
 
+        $request = new Request(
+          'POST',
+          $url,
+          $headers,
+          $body
+        );
         // For some strange reason, for the first post request (reviews)
         // we need to add the api-key to the url.
         // It might change, so when that is happening, you are free to alter this here.
         // Mind to test the posting of reviews again if you change it.
         // Fix also Api Key in URL (SRV-9750) by removing
         //$parameters['api_key'] = $this->apiKey;
+//        $parameters['version'] = ApiInterface::VERSION;
+//        $request->getQuery()->replace($parameters);
+//        $request->getQuery()->setAggregator(static::getGuzzleQueryAggregator());
         $parameters['version'] = ApiInterface::VERSION;
-        $request->getQuery()->replace($parameters);
-        $request->getQuery()->setAggregator(static::getGuzzleQueryAggregator());
 
-        $pre_request_event = new PreRequest($request);
-        $this->eventDispatcher->dispatch(IziTravelEvents::PRE_REQUEST,
-          $pre_request_event);
-        try {
-            $response = $this->httpClient->send($request);
-            $post_response_event = new PostResponse($response);
-            $this->eventDispatcher->dispatch(IziTravelEvents::POST_RESPONSE,
-              $post_response_event);
+          // Send the request
+          try {
+            $response = $this->httpClient->send($request, [
+                'query' => $parameters,
+            ]);
             $json = $response->getBody()->getContents();
-        } catch (\Exception $e) {
-            throw new HttpRequestException(sprintf('An exception was thrown during the API request to %s: %s',
-              $request->getUrl(), $e->getMessage()), 0, $e);
-        }
+          } catch (\Exception $e) {
+        throw new HttpRequestException(sprintf('An exception was thrown during the API request to %s: %s',
+          $request->getUri(), $e->getMessage()), 0, $e);
+      }
 
         $responseData = json_decode($json);
         if (json_last_error()) {

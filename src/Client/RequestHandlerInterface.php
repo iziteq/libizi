@@ -47,6 +47,6 @@ interface RequestHandlerInterface
      * @throws \Triquanta\IziTravel\Client\HttpRequestException
      * @throws \Triquanta\IziTravel\Client\ErrorResponseException
      */
-    public function post($urlPath, array $parameters = [], $body);
+    public function post($urlPath, array $parameters, $body);
 
 }
