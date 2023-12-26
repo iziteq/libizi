@@ -6,7 +6,7 @@
     "iziteq/izi-api-schemes" : "dev-master#081a82788a81df5749da40bfc0e80e8c7e5dd9e8",
     "justinrainbow/json-schema": "^5.2",
     "php": ">=7.4",
-    "symfony/event-dispatcher": "^4.4 || ^5.0"
+    "symfony/event-dispatcher": "^5.0 || ^6.0"
   },
   "require-dev": {
     "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
